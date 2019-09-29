@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+	<!-- -->
+    <!--
+    1.SchmDisplayShow : 显示“显示”按钮 
+    2.SchmDisplayHide : 显示“隐藏”按钮
+    3.SchmDisableUp:    禁用置顶和上移
+      SchmEnableUp
+    4.SchmDisableDown:  禁用置底和下移
+    	SchmEnableDown
+   -->
+  <!--功能列表管理菜单  
+  Style="WS_POPUP|WS_CLIPSIBLINGS" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"-->
+  <Window Type="CDlgPopup" Name="FuncLstManageMenu" >
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:1524 y:289"></Property>
+    <Property Name="WindowSize" Value="x:114 y:311" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="callDlgBkg" />
+    <Scheme Name="SchmImgNormal">
+      <Property Name="Image" Value="callDlgBkg" />
+    </Scheme>
+    <Scheme Name="SchmImgEx">
+      <Property Name="Image" Value="callDlgBkgEx" />
+    </Scheme>
+ 
+     <Window Type="CButton" Image="Button" Name="btnTopCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:6" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowCaption" Value="置顶" /> 
+      <Event Type="WM_BUTTON_CLICK" Value="CFuncLstMenu::SetFuncTop" />
+      <Property Name="Image" Value="funlstctrl/btnPlaceTop" /> 
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="true" />
+      <Scheme Name="SchmDisableUp">
+       <Property Name="WindowEnable" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmEnableUp">
+       <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+     
+    </Window>
+    
+    <Window Type="CButton" Image="Button" Name="btnUpCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:67" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowCaption" Value="上移" />
+      <Event Type="WM_BUTTON_CLICK" Value="CFuncLstMenu::SetFuncUp" />
+      <Property Name="Image" Value="funlstctrl/btnMoveUp" />
+      <Property Name="WindowVisible" Value="True" /> 
+      <Property Name="WindowEnable" Value="true" />
+      <Scheme Name="SchmDisableUp">
+       <Property Name="WindowEnable" Value="False" />
+      </Scheme>
+			<Scheme Name="SchmEnableUp">
+       <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CButton" Image="Button" Name="btnDownCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:128" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowCaption" Value="下移" /> 
+      <Property Name="Image" Value="funlstctrl/btnMoveDown" />
+      <Event Type="WM_BUTTON_CLICK" Value="CFuncLstMenu::SetFuncDown" />
+      <Property Name="WindowVisible" Value="True" /> 
+      <Property Name="WindowEnable" Value="true" />
+      <Scheme Name="SchmDisableDown">
+       <Property Name="WindowEnable" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmEnableDown">
+       <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window> 
+    
+    <Window Type="CButton" Image="Button" Name="btnBottomCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:189" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="funlstctrl/btnPlaceBottom" />    
+      <Property Name="WindowVisible" Value="True" /> 
+			<Property Name="WindowCaption" Value="置底" />
+			<Event Type="WM_BUTTON_CLICK" Value="CFuncLstMenu::SetFuncBottom" /> 
+			<Property Name="WindowVisible" Value="True" /> 
+			<Property Name="WindowEnable" Value="true" />
+			<Scheme Name="SchmDisableDown">
+				<Property Name="WindowEnable" Value="False" />
+			</Scheme>
+		 <Scheme Name="SchmEnableDown">
+       <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window> 
+    
+    <Window Type="CButton" Image="Button" Name="btnDelete" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:250" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      
+      <Property Name="WindowVisible" Value="True" /> 
+      <Property Name="WindowCaption" Value="隐藏" /> 
+      <Scheme Name="SchmDisplayHide">
+         <Event Type="WM_BUTTON_CLICK" Value="CFuncLstMenu::HideItem" />
+         <Property Name="Image" Value="funlstctrl/btnHide" />
+      </Scheme> 
+      <Scheme Name="SchmDisplayShow">
+         <Event Type="WM_BUTTON_CLICK" Value="CFuncLstMenu::ShowItem" />
+         <Property Name="Image" Value="funlstctrl/btnShow" />
+      </Scheme>
+    </Window>
+    <CallBackFunc Type="CallBackFunc" Value="" />
+  </Window>
+</UILayout>

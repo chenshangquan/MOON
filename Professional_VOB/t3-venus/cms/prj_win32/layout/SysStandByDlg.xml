@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+	<!--Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+    <Window Type="CDlgChild" Name="SysStandByDlg" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+        <Property Name="Image" Value="" />
+	<Scheme Name="SchmSysCfg">
+          <Property Name="WindowVisible" Value="false" />
+        </Scheme>
+	<Scheme Name="SchmSysStandBy">
+          <Property Name="WindowVisible" Value="true" />
+        </Scheme>
+	<Window Type="CFlatButton" Name="BtnSysCfg" Style="WS_CHILD">
+      <Property Name="WindowPos" Value="x:8 y:7" />
+      <Property Name="WindowSize" Value="x:99 y:37" />
+      <Property Name="WindowCaption" Value="系统设置" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="btnToSysCfg" />
+      <Event Type="WM_BUTTON_CLICK" Value="CSysStandByLogic::OnSysCfg" />
+	  <Scheme Name="Schmnormal"> 
+	          <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+        </Window>	
+        <!--
+        <Window Type="CStaticEx" Name="StTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+           <Property Name="WindowPos" Value="x:161 y:10" />
+           <Property Name="WindowSize" Value="x:161 y:25" />
+           <Property Name="WindowCaption" Value="系统待机配置" />
+           <Property Name="WindowVisible" Value="true" />
+           <Property Name="FontColor" Value="r:228 g:238 b:255" />
+           <Property Name="FontSize" Value="12" />
+	   <Property Name="Alignment" Value="1" />
+        </Window> 
+        -->
+	<Window Type="CFlatButton" Name="BtnEdit" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:409 y:7" />
+	   <Property Name="WindowSize" Value="x:65 y:37" />
+	   <Property Name="WindowCaption" Value="编辑" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="Image" Value="btnEdit" />
+	   <Event Type="WM_BUTTON_CLICK" Value="CSysStandByLogic::OnEdit" />
+	   <Scheme Name="SchmEdit">
+	     <Property Name="WindowVisible" Value="false" /> 
+	   </Scheme>
+	   <Scheme Name="SchmNormal">
+	     <Property Name="WindowVisible" Value="true" />
+	   </Scheme>
+	 </Window>
+	<Window Type="CFlatButton" Name="BtnSave" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:342 y:7" />
+	   <Property Name="WindowSize" Value="x:65 y:37" />
+	   <Property Name="WindowCaption" Value="保存" />
+	   <Property Name="WindowVisible" Value="false" />
+	   <Property Name="Image" Value="btnSave" />
+	   <Event Type="WM_BUTTON_CLICK" Value="CSysStandByLogic::OnSave" />
+	   <Scheme Name="SchmEdit">
+	     <Property Name="WindowVisible" Value="true" /> 
+	   </Scheme>
+	   <Scheme Name="SchmNormal">
+	     <Property Name="WindowVisible" Value="false" />
+	   </Scheme>
+	</Window>
+	<Window Type="CFlatButton" Name="BtnCancel" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:409 y:7" />
+	   <Property Name="WindowSize" Value="x:65 y:37" />
+	   <Property Name="WindowCaption" Value="取消" />
+	   <Property Name="WindowVisible" Value="false" />
+	   <Property Name="Image" Value="btnCancel" />
+	   <Event Type="WM_BUTTON_CLICK" Value="CSysStandByLogic::OnCancel" />
+	   <Scheme Name="SchmEdit">
+	     <Property Name="WindowVisible" Value="true" /> 
+	   </Scheme>
+	   <Scheme Name="SchmNormal">
+	     <Property Name="WindowVisible" Value="false" />
+	   </Scheme>
+	</Window> 
+	<Window Type="CStatic" Name="StcSysStandBy" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:83" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="系统待机" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CStatic" Name="StcWaitTime" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:143" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="等待时间" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CStatic" Name="StcTime" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:312 y:143" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="分钟(1~3600)" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+
+
+        <!-- Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+        
+		
+  <Window Type="CTransparentSwitchButton" Name="BtnSysStandBySwitch" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+      <Property Name="WindowPos" Value="x:342 y:78" />
+      <Property Name="WindowSize" Value="x:113 y:37" />
+      <Property Name="Image" Value="switchbutton" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="SwitchState" Value="true" />
+      <Event Type="WM_BUTTON_CLICK" Value="CSysStandByLogic::BtnSwitchStandByClick" />
+    <Scheme Name="SchmEdit">
+      <Property Name="WindowEnable" Value="true" /> 
+    </Scheme>
+    <Scheme Name="SchmNormal">
+      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+  </Window>
+  <Window Type="CButton" Name="btnTimeDel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:120 y:135" /><!--127-->
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeDel" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CSysStandByLogic::OnPlus" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CSysStandByLogic::OnPlus" />
+   <Event Type="WM_BTN_HOLD" Value="CSysStandByLogic::OnPlusHold" /> 
+   <Event Type="WM_BTN_HOLD_END" Value="CSysStandByLogic::OnPlusHoldEnd" /> 
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+  <Window Type="CButton" Name="btnTimeAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:276 y:135" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="+" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeAdd" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CSysStandByLogic::OnAdd" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CSysStandByLogic::OnAdd" />
+   <Event Type="WM_BTN_HOLD" Value="CSysStandByLogic::OnAddHold" />
+   <Event Type="WM_BTN_HOLD_END" Value="CSysStandByLogic::OnAddHoldEnd" />
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+	<Window Type="CEdit" Name="EdtStandByTime" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+             <Property Name="WindowPos" Value="x:157 y:124" />
+             <Property Name="WindowSize" Value="x:116 y:55" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="Image" Value="Edit" />
+             <Property Name="WindowVisible" Value="True" />
+             <Property Name="ShowIcon" Value="false" />
+             <Property Name="FontSize" Value="12" />
+             <Property Name="Alignment" Value="1" /> 
+	         <Property Name="WindowEnable" Value="false" />
+             <Property Name="LimitLength" Value="4" />
+			<Event Type="WM_KILL_FOCUS" Value="CSysStandByLogic::OnStandByTimeNoFocus" />
+	     <Scheme Name="SchmEdit">
+	       <Property Name="WindowEnable" Value="true" /> 
+	     </Scheme>
+	     <Scheme Name="SchmNormal">
+	       <Property Name="WindowEnable" Value="false" />
+	     </Scheme>
+        </Window> 
+       
+
+	<CallBackFunc Type="CallBackFunc" Value="CSysStandByLogic::InitWnd" />
+    </Window>
+</UILayout>

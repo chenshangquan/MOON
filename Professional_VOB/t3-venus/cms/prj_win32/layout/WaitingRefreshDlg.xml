@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--<Window Type="CDlgModal" Name="WaitingRefreshDlg" >-->
+  	<Window Type="CTransparentDlg" Name="WaitingRefreshDlg" Style="WS_POPUP" >
+    <Property Name="WindowPos" Value="x:501 y:335" />
+    <Property Name="WindowSize" Value="x:363 y:128" />
+    <Property Name="Image" Value="waitingdlg\bkg.png" />
+    <Property Name="WindowVisible" Value="false" />
+       
+    <Window Type="CStatic" Name="stcAutoImg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:102 y:31" />
+      <Property Name="WindowSize" Value="x:35 y:36" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="Image" Value="waitingdlg\pic1.png" />
+      <Property Name="WindowVisible" Value="True" />
+      
+      <Scheme Name="SchmPic1">
+      	<Property Name="Image" Value="waitingdlg\pic1.png" />
+      </Scheme>
+      <Scheme Name="SchmPic2">
+      	<Property Name="Image" Value="waitingdlg\pic2.png" />
+      </Scheme>
+      <Scheme Name="SchmPic3">
+      	<Property Name="Image" Value="waitingdlg\pic3.png" />
+      </Scheme>  
+      <Scheme Name="SchmPic4">
+      	<Property Name="Image" Value="waitingdlg\pic4.png" />
+      </Scheme>
+      <Scheme Name="SchmWaitConfInfo">
+        <Property Name="WindowPos" Value="x:50 y:31" />
+      </Scheme>
+    </Window>
+      
+    <Window Type="CStatic" Name="StcMsg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:152 y:35" />
+      <Property Name="WindowSize" Value="x:80 y:30" />
+      <Property Name="WindowCaption" Value="正在刷新" /> 
+      <Property Name="FontColor" Value="r:255 g:255 b:255" /> 
+      <Property Name="FontSize" Value="12" />
+      <Property Name="Alignment" Value="0" />  
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmWaitConfInfo">
+	      <Property Name="WindowPos" Value="x:100 y:35" />
+	      <Property Name="WindowSize" Value="x:200 y:30" />
+	      <Property Name="WindowCaption" Value="正在初始化会议环境" /> 
+      </Scheme>
+      <Scheme Name="SchmWaitLoadAddr">
+	      <Property Name="WindowSize" Value="x:100 y:60" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CStatic" Name="StcPt" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:218 y:30" />
+      <Property Name="WindowSize" Value="x:30 y:30" /> 
+      <Property Name="WindowCaption" Value="..." /> 
+      <Property Name="FontColor" Value="r:255 g:255 b:255" /> 
+      <Property Name="FontSize" Value="18" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmWaitConfInfo">
+      	<Property Name="WindowPos" Value="x:250 y:30" />
+      </Scheme>
+    </Window>
+    <!-- 
+    <Window Type="CButton" Name="BtnCancle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:254 y:76" />
+      <Property Name="WindowSize" Value="x:96 y:33" />
+      <Property Name="WindowCaption" Value="取消" />
+      <Property Name="Image" Value="wifiConnecting\btnCancle" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CWifiConnectingLogic::OnBtnCancle" /> 
+    </Window>
+    -->  
+    <CallBackFunc Type="CallBackFunc" Value="CWaitingRefreshLogic::InitWnd" />
+  </Window>
+</UILayout>

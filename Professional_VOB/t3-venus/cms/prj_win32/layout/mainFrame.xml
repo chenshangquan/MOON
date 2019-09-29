@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--tp主界面-->
+  <!--
+  SchmSimulateCnsBkg: 模拟会场背景
+  SchmBlankBkg: 空白背景
+  Style="WS_POPUP"--> 
+  <Window Type="CDlgPopup" Name="TPDlg" Style="WS_MINIMIZEBOX|WS_MAXIMIZEBOX" ExStyle="WS_EX_APPWINDOW" >
+    <Property Name="WindowPos" Value="x:0 y:0" />
+    <Property Name="WindowSize" Value="x:1366 y:768" />
+    <Property Name="WindowVisible" Value="true" />
+    <Property Name="Image" Value="loginDialog.png" />
+    <Property Name="WindowCaption" Value="cnc" />
+    <!-- <Property Name="MoveStatus" Value="true" /> -->
+    
+   
+    <!--    <Scheme Name="SchmSimulateCnsBkg"> 
+         <Property Name="Image" Value="mainFrameimulateCnsBkg.png" /> 
+      </Scheme>
+      <Scheme Name="SchmBlankBkg"> 
+         <Property Name="Image" Value="mainFrameBlankBkg.png" /> 
+      </Scheme>
+    -->
+    <!--主菜单界面-->
+    <CallBackFunc Type="CallBackFunc" Value="CMainFrameLogic::InitWnd" />
+  </Window>
+</UILayout>

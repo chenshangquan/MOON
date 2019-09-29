@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+  <!--锁屏dlg-->
+  <Window Type="Window" Name="LockScreenDLg">
+    <Property Name="Pos" Value="x:0y:0" />
+    <Property Name="Size" Value="h:300l:300" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="Button" Name="Click">
+      <Property Name="Pos" Value="x:100y:100" />
+      <Property Name="Size" Value="h:40l:40" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Static" Name="Click">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:40l:40" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+  </Window>
+</UILayout>

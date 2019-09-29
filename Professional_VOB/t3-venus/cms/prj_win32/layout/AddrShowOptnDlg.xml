@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--地址簿显示选项列表-->
+  <Window Type="CDlgPopup" Name="AddrShowOptnDlg" >
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:918 y:53"></Property>
+    <Property Name="WindowSize" Value="x:300 y:225" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="addrbook/addrOptnBkg.png" /> 
+
+    <Window Type="CAddrList" Name="LstAddrMenu" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:17 y:19" />
+        <Property Name="WindowSize" Value="x:266 y:186" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="ListImage" Value="listBkg" />
+	<Property Name="ClickNoSel" Value="true" />
+    </Window>
+   
+    <CallBackFunc Type="CallBackFunc" Value="" />
+  </Window>
+
+  <Window Type="CDlgPopup" Name="AddrEditShowOptnDlg" >
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:878 y:53" />
+    <Property Name="WindowSize" Value="x:300 y:317" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="addrbook/addrEditOptnBkg.png" /> 
+
+    <Window Type="CAddrList" Name="LstAddrMenu" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:17 y:19" />
+        <Property Name="WindowSize" Value="x:266 y:278" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="ListImage" Value="listBkg" />
+	<Property Name="ClickNoSel" Value="true" />
+    </Window>  
+    <CallBackFunc Type="CallBackFunc" Value="" />
+  </Window>
+</UILayout>

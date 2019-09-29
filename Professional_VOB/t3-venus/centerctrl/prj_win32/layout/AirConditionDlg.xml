@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!-- 空调界面配置方案说明
+       1.Schm1AirScreenExist：只存在一台空调时调用的方案
+       2.Schm2AirScreenExist: 存在两台空调时调用的方案
+   -->
+  <Window Type="CTransparentDlg" Name="AirConditionDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+    <Property Name="WindowPos" Value="x:149 y:27" />
+    <Property Name="WindowSize" Value="x:1217 y:741" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="" />
+    <Scheme Name="SchmAirCondition">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+    <Scheme Name="SchmCamera">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmMonitor">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmTouchPad">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    
+        <Window Type="CTransparentDragButton" Name="BtnAirScreen1" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON" >
+            <Property Name="WindowPos" Value="x:72 y:60" />
+            <Property Name="WindowSize" Value="x:339 y:194" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="air\btnScreen" />
+            <Property Name="Drag" Value="true" />
+            <Property Name="DragButtonSel" Value="1" />
+            <Event Type="UI_DRAG_END" Value="CAirConditionLogic::OnDragEnd" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnAirScreen1" /> 
+            <Scheme Name="SchmAirScreen1On">                    
+                <Property Name="DragButtonOnline" Value="1" />		           
+						</Scheme> 
+						<Scheme Name="SchmAirScreen1Off">
+                <Property Name="DragButtonOnline" Value="0" />					    			
+						</Scheme> 				
+						<Scheme Name="SchmBtnAirScreen1">
+								<Property Name="DragButtonSel" Value="1" />
+						</Scheme>
+						<Scheme Name="SchmBtnAirScreen2">
+								<Property Name="DragButtonSel" Value="0" />
+						</Scheme>
+						<Scheme Name="SchmBtnAirScreen3">
+								<Property Name="DragButtonSel" Value="0" />
+						</Scheme>
+						<Scheme Name="Schm1AirScreenExist"> 
+			          <Property Name="WindowPos" Value="x:434 y:60" />
+						</Scheme>
+						<Scheme Name="Schm2AirScreenExist">
+			          <Property Name="WindowPos" Value="x:189 y:60" />
+						</Scheme>
+
+						
+						<Window Type="CStatic" Name="StcCold" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:164 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="true" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />                       
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWarm" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:203 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="true" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13.5" />
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>              
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWind" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:242 y:31" />
+							<Property Name="WindowSize" Value="x:142 y:18" />
+							<Property Name="WindowVisible" Value="true" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />
+ 						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWet" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:281 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="true" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />   
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcFan" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:26 y:68" />
+              <Property Name="WindowSize" Value="x:40 y:40" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/风扇.png" />	    
+ 						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcAuto" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:84 y:74" />
+              <Property Name="WindowSize" Value="x:61 y:16" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/auto.png" />	    
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWindSize" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:26 y:108" />
+              <Property Name="WindowSize" Value="x:118 y:35" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/0.png" />	    
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcLeftNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:160 y:62" />
+              <Property Name="WindowSize" Value="x:59 y:87" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/0.png" />	
+              <Scheme Name="SchmWet1">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+              <Scheme Name="SchmWind1">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>     
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+
+            <Window Type="CStatic" Name="StcRightNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:221 y:62" />
+              <Property Name="WindowSize" Value="x:59 y:87" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/0.png" />	
+              <Scheme Name="SchmWet1">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>     
+               <Scheme Name="SchmWind1">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>  
+            </Window>
+
+            <Window Type="CStatic" Name="StcDegree" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:281 y:62" />
+              <Property Name="WindowSize" Value="x:36 y:28" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/degree.png" />
+              <Scheme Name="SchmWet1">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 	    
+              <Scheme Name="SchmWind1">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+						<Scheme Name="SchmAirScreen1Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						</Scheme>
+            </Window>  
+        </Window>
+
+        <Window Type="CTransparentDragButton" Name="BtnAirScreen2" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON" >
+            <Property Name="WindowPos" Value="x:434 y:60" />
+            <Property Name="WindowSize" Value="x:339 y:194" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="air\btnScreen" />
+            <Property Name="Drag" Value="true" />
+            <Event Type="UI_BE_DRAG_END" Value="CAirConditionLogic::OnDragItemOut" /> 
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnAirScreen2" />
+            <Scheme Name="SchmAirScreen2On">                    
+                <Property Name="DragButtonOnline" Value="1" />		           
+						</Scheme> 
+						<Scheme Name="SchmAirScreen2Off">
+                <Property Name="DragButtonOnline" Value="0" />					    			
+						</Scheme> 
+						<Scheme Name="SchmBtnAirScreen1">
+								<Property Name="DragButtonSel" Value="0" />
+						</Scheme>
+						<Scheme Name="SchmBtnAirScreen2">
+								<Property Name="DragButtonSel" Value="1" />
+						</Scheme>
+						<Scheme Name="SchmBtnAirScreen3">
+								<Property Name="DragButtonSel" Value="0" />
+						</Scheme>
+						<Scheme Name="Schm1AirScreenExist">
+								<Property Name="WindowVisible" Value="false" /> 
+								<Property Name="WindowEnable" Value="false" />
+						</Scheme>
+						<Scheme Name="Schm2AirScreenExist">
+						    <Property Name="WindowPos" Value="x:678 y:60" /> 
+						</Scheme>
+
+                      		
+           <Window Type="CStatic" Name="StcCold" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:164 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />  
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>     
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWarm" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:203 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />     
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWind" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:242 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />      
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWet" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:281 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />    
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcFan" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:26 y:68" />
+              <Property Name="WindowSize" Value="x:40 y:40" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/风扇.png" />	    
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcAuto" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:84 y:74" />
+              <Property Name="WindowSize" Value="x:61 y:16" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/auto.png" />	    
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWindSize" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:26 y:108" />
+              <Property Name="WindowSize" Value="x:118 y:35" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/0.png" />	
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>                    
+            </Window>
+            
+            <Window Type="CStatic" Name="StcLeftNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:160 y:62" />
+              <Property Name="WindowSize" Value="x:59 y:87" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/0.png" />	
+              <Scheme Name="SchmWet2">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>     
+               <Scheme Name="SchmWind2">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>
+ 							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+
+            <Window Type="CStatic" Name="StcRightNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:221 y:62" />
+              <Property Name="WindowSize" Value="x:59 y:87" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/0.png" />	   
+              <Scheme Name="SchmWet2">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>  
+              <Scheme Name="SchmWind2">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+
+            <Window Type="CStatic" Name="StcDegree" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:281 y:62" />
+              <Property Name="WindowSize" Value="x:36 y:28" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/degree.png" />	
+              <Scheme Name="SchmWet2">
+                  <Property Name="WindowVisible" Value="false" />
+              </Scheme>  
+              <Scheme Name="SchmWind2">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme>                 
+							<Scheme Name="SchmAirScreen2Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>  
+            </Window>
+ 
+        </Window>
+        
+        <Window Type="CTransparentDragButton" Name="BtnAirScreen3" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON" >
+            <Property Name="WindowPos" Value="x:796 y:60" />
+            <Property Name="WindowSize" Value="x:339 y:194" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="air\btnScreen" />
+            <Property Name="Drag" Value="true" />
+            <Event Type="UI_BE_DRAG_END" Value="CAirConditionLogic::OnDragItemOut" /> 
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnAirScreen3" />
+            <Scheme Name="SchmAirScreen3On">                    
+                <Property Name="DragButtonOnline" Value="1" />		           
+						</Scheme> 
+						<Scheme Name="SchmAirScreen3Off">
+                <Property Name="DragButtonOnline" Value="0" />					    			
+						</Scheme> 				
+						<Scheme Name="SchmBtnAirScreen1">
+								<Property Name="DragButtonSel" Value="0" />
+						</Scheme>
+						<Scheme Name="SchmBtnAirScreen2">
+								<Property Name="DragButtonSel" Value="0" />
+						</Scheme>
+						<Scheme Name="SchmBtnAirScreen3">
+								<Property Name="DragButtonSel" Value="1" />
+						</Scheme>
+						<Scheme Name="Schm1AirScreenExist">
+								<Property Name="WindowVisible" Value="false" /> 
+						</Scheme>
+
+						<Scheme Name="Schm2AirScreenExist"> 
+								<Property Name="WindowVisible" Value="false" />  
+						</Scheme>
+
+            
+          <Window Type="CStatic" Name="StcCold" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:164 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />     
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWarm" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:203 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />     
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWind" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:242 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />    
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWet" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:281 y:31" />
+							<Property Name="WindowSize" Value="x:42 y:18" />
+							<Property Name="WindowVisible" Value="True" />
+							<Property Name="WindowCaption" Value="" />
+							<Property Name="FontColor" Value="r:149 g:169 b:189" />
+							<Property Name="Alignment" Value="0" />
+							<Property Name="FontSize" Value="13" />  							    
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme> 
+            </Window>
+            
+            <Window Type="CStatic" Name="StcFan" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:26 y:68" />
+              <Property Name="WindowSize" Value="x:40 y:40" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/风扇.png" />	    
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+            
+            <Window Type="CStatic" Name="StcAuto" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:84 y:74" />
+              <Property Name="WindowSize" Value="x:61 y:16" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/auto.png" />	    
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+            
+            <Window Type="CStatic" Name="StcWindSize" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:26 y:108" />
+              <Property Name="WindowSize" Value="x:118 y:35" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/btnWindSize/0.png" />	    
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+            
+            <Window Type="CStatic" Name="StcLeftNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:160 y:62" />
+              <Property Name="WindowSize" Value="x:59 y:87" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/0.png" />	    
+              <Scheme Name="SchmWind3">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+              <Scheme Name="SchmWet3">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+
+            <Window Type="CStatic" Name="StcRightNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:221 y:62" />
+              <Property Name="WindowSize" Value="x:59 y:87" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/0.png" />	    
+              <Scheme Name="SchmWind3">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+              <Scheme Name="SchmWet3">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+
+            <Window Type="CStatic" Name="StcDegree" Style="WS_CHILD|WS_CLIPSIBLINGS">
+              <Property Name="WindowPos" Value="x:281 y:62" />
+              <Property Name="WindowSize" Value="x:36 y:28" />
+              <Property Name="WindowVisible" Value="True" />
+              <Property Name="WindowCaption" Value="" />
+              <Property Name="Image" Value="air/normalnum/degree.png" />	    
+              <Scheme Name="SchmWind3">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+              <Scheme Name="SchmWet3">
+			          <Property Name="WindowVisible" Value="false" />
+              </Scheme> 
+							<Scheme Name="SchmAirScreen3Off">
+						    <Property Name="WindowVisible" Value="false" />					
+						  </Scheme>
+            </Window>
+        </Window>
+        
+        <Window Type="CTransparentSwitchButton" Name="btnAirSwitch1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:148 y:269" />
+							<Property Name="WindowSize" Value="x:187 y:54" />
+							<Property Name="WindowCaption" Value="空调1" />						
+							<Property Name="WindowVisible" Value="True" /> 
+							<Property Name="SwitchState" Value="false" />
+							<Property Name="Image" Value="monitor\btnTVSwitch" />
+							<Property Name="ShowText" Value="true" /> 
+							<Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnSwitch1" />
+							<Scheme Name="SchmAirScreen1On">     	
+							<Property Name="SwitchState" Value="true" /> 
+							<Property Name="Image" Value="monitor\btnTVSwitch" />
+							<Property Name="WindowEnable" Value="True" />  
+							</Scheme>
+							<Scheme Name="SchmAirScreen1Off">
+								<Property Name="SwitchState" Value="false" />
+								<Property Name="Image" Value="monitor\btnTVSwitch" /> 
+								<Property Name="WindowEnable" Value="True" />  
+							</Scheme> 
+						  <Scheme Name="Schm1AirScreenExist">
+								<Property Name="WindowPos" Value="x:510 y:269" /> 
+								<Property Name="WindowCaption" Value="空调" /> 
+						  </Scheme>						  
+						  <Scheme Name="Schm2AirScreenExist">
+								<Property Name="WindowPos" Value="x:265 y:269" />
+						  </Scheme>
+				</Window>
+				
+				<Window Type="CTransparentSwitchButton" Name="btnAirSwitch2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:510 y:269" />
+							<Property Name="WindowSize" Value="x:187 y:54" />
+							<Property Name="WindowCaption" Value="空调2" /> 
+							<Property Name="WindowVisible" Value="True" /> 
+							<Property Name="SwitchState" Value="false" />
+							<Property Name="Image" Value="monitor\btnTVSwitch" />
+							<Property Name="ShowText" Value="true" /> 
+							<Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnSwitch2" />
+							<Scheme Name="SchmAirScreen2On">     	
+							<Property Name="SwitchState" Value="true" /> 
+							<Property Name="Image" Value="monitor\btnTVSwitch" />
+							<Property Name="WindowEnable" Value="True" />  
+							</Scheme>
+							<Scheme Name="SchmAirScreen2Off">
+								<Property Name="SwitchState" Value="false" />
+								<Property Name="Image" Value="monitor\btnTVSwitch" /> 
+								<Property Name="WindowEnable" Value="True" />  
+							</Scheme> 
+						  <Scheme Name="Schm1AirScreenExist">
+							  <Property Name="WindowVisible" Value="false" />
+							  <Property Name="WindowEnable" Value="false" />
+						  </Scheme>
+						  <Scheme Name="Schm2AirScreenExist">
+								<Property Name="WindowPos" Value="x:754 y:269" />
+								<Property Name="WindowCaption" Value="空调2" />
+						  </Scheme>						  
+				</Window>
+				
+				<Window Type="CTransparentSwitchButton" Name="btnAirSwitch3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+							<Property Name="WindowPos" Value="x:872 y:269" />
+							<Property Name="WindowSize" Value="x:187 y:54" />
+							<Property Name="WindowCaption" Value="空调3" /> 
+							<Property Name="WindowVisible" Value="True" /> 
+							<Property Name="SwitchState" Value="false" />
+							<Property Name="Image" Value="monitor\btnTVSwitch" />
+							<Property Name="ShowText" Value="true" /> 
+							<Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnSwitch3" />
+							<Scheme Name="SchmAirScreen3On">     	
+							<Property Name="SwitchState" Value="true" /> 
+							<Property Name="Image" Value="monitor\btnTVSwitch" />
+							<Property Name="WindowEnable" Value="True" />  
+							</Scheme>
+							<Scheme Name="SchmAirScreen3Off">
+								<Property Name="SwitchState" Value="false" />
+								<Property Name="Image" Value="monitor\btnTVSwitch" /> 
+								<Property Name="WindowEnable" Value="True" />  
+							</Scheme>
+						  <Scheme Name="Schm1AirScreenExist">
+								<Property Name="WindowVisible" Value="false" /> 
+						  </Scheme>
+						  <Scheme Name="Schm2AirScreenExist">
+								<Property Name="WindowVisible" Value="false" /> 
+						  </Scheme>							  
+				</Window>
+      
+      <Window Type="CTransparentDlg" Name="AirTempCtrlDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+        <Property Name="WindowPos" Value="x:67 y:381" />
+        <Property Name="WindowSize" Value="x:1070 y:334" />
+        <Property Name="WindowVisible" Value="true" /><!--false-->
+        <Property Name="Image" Value="DlgBkg.png" />
+
+      
+        <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					<Property Name="WindowPos" Value="x:0 y:0" />
+					<Property Name="WindowSize" Value="x:1070 y:55" />
+					<Property Name="WindowVisible" Value="True" />
+					<Property Name="WindowCaption" Value="空调1" />
+					<Property Name="FontColor" Value="r:57 g:60 b:66" />
+					<Property Name="Alignment" Value="1" />
+					<Property Name="FontSize" Value="15" />    
+        </Window>
+        
+        <Window Type="CButton" Name="BtnApplyToAll" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:983 y:8" />
+            <Property Name="WindowSize" Value="x:76 y:36" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="Image" Value="air\btnApplyToAll" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnApplyToAll" /> 	 
+            <Scheme Name="Schm1AirScreenExist">
+								<Property Name="WindowVisible" Value="false" /> 
+						</Scheme>   
+        </Window>  
+        
+        <Window Type="CStatic" Name="StcAirMode" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					<Property Name="WindowPos" Value="x:153 y:82" />
+					<Property Name="WindowSize" Value="x:120 y:21" />
+					<Property Name="WindowVisible" Value="True" />
+					<Property Name="WindowCaption" Value="空调模式" />
+					<Property Name="FontColor" Value="r:57 g:60 b:66" />
+					<Property Name="Alignment" Value="0" />
+					<Property Name="FontSize" Value="15" />    
+        </Window>
+  
+        <Window Type="CButton" Name="BtnCold" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:48 y:141" />
+            <Property Name="WindowSize" Value="x:119 y:55" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnCold" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnCold" /> 	   
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>  
+        </Window> 
+
+            
+        <Window Type="CButton" Name="BtnWarm" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:225 y:141" />
+            <Property Name="WindowSize" Value="x:119 y:55" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnWarm" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnWarm" /> 	
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>     
+        </Window>
+               
+        <Window Type="CButton" Name="BtnWind" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:48 y:218" />
+            <Property Name="WindowSize" Value="x:119 y:55" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnWind" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnWind" /> 	
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>     
+        </Window>
+       
+        <Window Type="CButton" Name="BtnWet" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON|WS_GROUP">
+            <Property Name="WindowPos" Value="x:225 y:218" />
+            <Property Name="WindowSize" Value="x:119 y:55" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnWet" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnWet" /> 
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme> 	    
+        </Window>
+               
+        <Window Type="CStatic" Name="StcCutline1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:371 y:65" />
+            <Property Name="WindowSize" Value="x:2 y:243" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="DlgCutline.png" />	    
+        </Window>
+        
+        <Window Type="CStatic" Name="StcTemp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					<Property Name="WindowPos" Value="x:487 y:82" />
+					<Property Name="WindowSize" Value="x:60 y:21" />
+					<Property Name="WindowVisible" Value="True" />
+					<Property Name="WindowCaption" Value="温度" />
+					<Property Name="FontColor" Value="r:57 g:60 b:66" />
+					<Property Name="Alignment" Value="1" />
+					<Property Name="FontSize" Value="15" />    
+        </Window>
+        
+        <Window Type="CButton" Name="BtnMinTemp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:414 y:174" />
+            <Property Name="WindowSize" Value="x:69 y:65" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnMinus" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnMinusTemp" /> 
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme> 
+            <Scheme Name="SchmWind1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme> 
+            <Scheme Name="SchmWet1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWet2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWet3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>	 	    
+        </Window>
+       
+         <Window Type="CButton" Name="BtnAddTemp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:527 y:174" />
+            <Property Name="WindowSize" Value="x:69 y:65" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnAdd" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnAddTemp" /> 
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme> 
+            <Scheme Name="SchmWind1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWind2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWind3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme> 
+            <Scheme Name="SchmWet1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWet2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWet3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>	    
+        </Window> 
+        
+        <Window Type="CStatic" Name="StcCutline2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:637 y:65" />
+            <Property Name="WindowSize" Value="x:2 y:243" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="DlgCutline.png" />	    
+        </Window> 
+        
+        <Window Type="CStatic" Name="StcAirVolume" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					<Property Name="WindowPos" Value="x:822 y:82" />
+					<Property Name="WindowSize" Value="x:60 y:21" />
+					<Property Name="WindowVisible" Value="True" />
+					<Property Name="WindowCaption" Value="风量" />
+					<Property Name="FontColor" Value="r:57 g:60 b:66" />
+					<Property Name="Alignment" Value="1" />
+					<Property Name="FontSize" Value="15" />    
+        </Window>   
+       
+        <Window Type="CButton" Name="BtnMinVolume" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:680 y:174" />
+            <Property Name="WindowSize" Value="x:69 y:65" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air/btnMinus" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnMinusVolume" /> 	
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>
+            <Scheme Name="SchmWind1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWind2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWind3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWet1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWet2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWet3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>	    
+        </Window> 
+        
+        <Window Type="CButton" Name="BtnAddVolume" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:793 y:174" />
+            <Property Name="WindowSize" Value="x:69 y:65" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnAdd" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnAddVolume" /> 
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>
+            <Scheme Name="SchmWind1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWind2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWind3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWet1">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmWet2">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>  
+            <Scheme Name="SchmWet3">
+			          <Property Name="WindowEnable" Value="false" />
+            </Scheme>	  	    
+        </Window>
+
+        <Window Type="CButton" Name="BtnAuto" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:906 y:179" />
+            <Property Name="WindowSize" Value="x:119 y:55" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="air\btnAuto" />
+            <Event Type="WM_BUTTON_CLICK" Value="CAirConditionLogic::OnBtnAuto" />	
+            <Scheme Name="SchmScreenDlgOn">     	
+                <Property Name="WindowEnable" Value="True" /> 
+            </Scheme>
+            <Scheme Name="SchmScreenDlgOff">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>     
+        </Window>
+
+     </Window>
+    <CallBackFunc Type="CallBackFunc" Value="CAirConditionLogic::InitWnd" />
+  </Window>
+</UILayout>

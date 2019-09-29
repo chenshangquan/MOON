@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="gb379"?>
+<UILayout>
+  <!--中控新风界面-->
+   
+	<Window Type="TransparentDlg" Name="CentCfgXinFengDlg" Style="WS_CHILD" ExStyle="">
+		<Property Name="WindowPos" Value="x:122 y:0" />
+		<Property Name="WindowSize" Value="x:728 y:501" />
+		<Property Name="WindowVisible" Value="true" />
+		<Property Name="Image" Value="" />
+		<Property Name="WindowCaption" Value="中控新风界面" />
+				 
+      
+    <Window Type="TransStatic" Name="StcAirInfo" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:31" />
+        <Property Name="WindowSize" Value="x:350 y:14" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="9" />
+        <Property Name="Alignment" Value="0" />
+    </Window>
+         
+    <Window Type="TransStatic" Name="StcXinFengInfo" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:73" />
+        <Property Name="WindowSize" Value="x:350 y:14" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="9" />
+        <Property Name="Alignment" Value="0" />
+    </Window>
+            
+		<CallBackFunc Type="CallBackFunc" Value="::InitWnd" />
+	</Window>
+</UILayout>

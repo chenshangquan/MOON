@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="gb2312"?>
+<System>
+  <SystemInfo Name="ImagePath" Value="src\\" />
+  <SystemInfo Name="DefaultFont" Value="微软雅黑.font"></SystemInfo>
+  <SystemInfo Name="LayoutPath" Value="layout\\"></SystemInfo>
+  <SystemInfo Name="ItemInfo" Value="layout\\ItemInfo.xml"></SystemInfo>
+  <SystemInfo Name="DefaultResolution" Value="x:1366 y:768" /> 
+  <SystemInfo Name="IsSelAdpResolution" Value="false" />  <!--是否自适应分辨率-->
+
+  <WindowInfo Name="CenterCtrlDlg" Value="CenterCtrl.xml" Parent="" />  
+  <WindowInfo Name="MainMenuDlg" Value="MainMenu.xml" Parent="CenterCtrlDlg" />
+  <WindowInfo Name="AirConditionDlg" Value="AirConditionDlg.xml" Parent="CenterCtrlDlg" />
+  <WindowInfo Name="CameraDlg" Value="CameraDlg.xml" Parent="CenterCtrlDlg" />
+  <WindowInfo Name="MonitorDlg" Value="MonitorDlg.xml" Parent="CenterCtrlDlg" />
+  <WindowInfo Name="TouchPadDlg" Value="TouchPadDlg.xml" Parent="CenterCtrlDlg" />
+  <WindowInfo Name="CurtainCfgDlg" Value="CurtainCfgDlg.xml" Parent="CenterCtrlDlg" />
+  <WindowInfo Name="WaitingDlg" Value="WaitingDlg.xml" Parent="CenterCtrlDlg" />
+
+  <WindowInfo Name="MsgBox" Value="MsgBox.xml" Parent="" />
+  
+  <WindowType SrcType="CButton" TagType="CTransparentBtn" />
+  <WindowType SrcType="CStatic" TagType="CTransparentStatic" />
+  <WindowType SrcType="CEdit" TagType="CTransparentEdit" />
+
+</System>

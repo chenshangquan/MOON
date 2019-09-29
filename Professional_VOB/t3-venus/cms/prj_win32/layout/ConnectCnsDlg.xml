@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+    <Window Type="CDlgChild" Name="ConnectCnsDlg">
+        <Property Name="WindowCaption" Value="ConnectCnsDlg" />
+        <Property Name="WindowPos" Value="x:220 y:128" />
+        <Property Name="WindowSize" Value="x:926 y:490" />
+        <Property Name="Image" Value="" />
+        <Property Name="WindowVisible" Value="false" />
+        <Window Type="CHoriList" Name="CnsList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:10 y:10" />
+            <Property Name="WindowSize" Value="x:906 y:440" />
+            <Property Name="ListImage" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="Drag" Value="false" />
+            <Property Name="ClickNoSel" Value="true" />
+            <Event Type="UI_LISTOFFSET_NOTIFY" Value="CConnectCnsLogic::OnListOffsetNotify" />
+        </Window>
+        <Window Type="CTransparentCheckButton" Name="RadioPage1" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:455 y:471" />
+            <Property Name="WindowSize" Value="x:17 y:18" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowEnable" Value="false" />
+            <Property Name="Image" Value="pagecheckbutton" />
+            <Scheme Name="SchmPage1">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage2">
+                <Property Name="WindowPos" Value="x:439 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage3">
+                <Property Name="WindowPos" Value="x:416 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage4">
+                <Property Name="WindowPos" Value="x:400 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage5">
+                <Property Name="WindowPos" Value="x:385 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentCheckButton" Name="RadioPage2" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:470 y:471" />
+            <Property Name="WindowSize" Value="x:17 y:18" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowEnable" Value="false" />
+            <Property Name="Image" Value="pagecheckbutton" />
+            <Scheme Name="SchmPage1">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage2">
+                <Property Name="WindowPos" Value="x:470 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage3">
+                <Property Name="WindowPos" Value="x:455 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage4">
+                <Property Name="WindowPos" Value="x:439 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage5">
+                <Property Name="WindowPos" Value="x:416 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentCheckButton" Name="RadioPage3" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:486 y:471" />
+            <Property Name="WindowSize" Value="x:17 y:18" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowEnable" Value="false" />
+            <Property Name="Image" Value="pagecheckbutton" />
+            <Scheme Name="SchmPage1">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage2">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage3">
+                <Property Name="WindowPos" Value="x:486 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage4">
+                <Property Name="WindowPos" Value="x:470 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage5">
+                <Property Name="WindowPos" Value="x:455 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentCheckButton" Name="RadioPage4" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:501 y:471" />
+            <Property Name="WindowSize" Value="x:17 y:18" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowEnable" Value="false" />
+            <Property Name="Image" Value="pagecheckbutton" />
+            <Scheme Name="SchmPage1">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage2">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage3">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage4">
+                <Property Name="WindowPos" Value="x:501 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmPage5">
+                <Property Name="WindowPos" Value="x:486 y:461" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentCheckButton" Name="RadioPage5" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:517 y:471" />
+            <Property Name="WindowSize" Value="x:17 y:18" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowEnable" Value="false" />
+            <Property Name="Image" Value="pagecheckbutton" />
+            <Scheme Name="SchmPage1">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage2">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage3">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage4">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmPage5">
+                <Property Name="WindowPos" Value="x:517 y:471" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CStatic" Name="StcLastCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:0" />
+            <Property Name="WindowSize" Value="x:150 y:21" />
+            <Property Name="WindowCaption" Value="app30" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <CallBackFunc Type="CallBackFunc" Value="CConnectCnsLogic::InitWnd" />
+    </Window>
+</UILayout>

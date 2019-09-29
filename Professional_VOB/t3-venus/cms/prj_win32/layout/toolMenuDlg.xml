@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+    <!--工具栏界面-->
+    <!--包含如下scheme 
+     1.默认schecme：所有功能都显 
+     2.SchmToolMenuBase:操作员登录时的界面
+     3.SchmSys
+      Style="WS_POPUP|WS_CLIPSIBLINGS" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW" -->
+    <Window Type="CDlgPopup" Name="ToolMenuDlg" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW" > 
+        <Property Name="AutoHideStatus" Value="true" />     
+        <Property Name="Image" Value="" />       
+	      <Property Name="WindowVisible" Value="false" />
+	      <Event Type="WM_HIDE_WND" Value="CToolMenuLogic::OnWndHide" /> 
+        <Scheme Name="SchmToolMenuBase">
+            <Property Name="WindowPos" Value="x:24 y:446" />
+            <Property Name="WindowSize" Value="x:110 y:313" />
+            <Property Name="WindowVisible" Value="true" />
+        </Scheme>
+        <Scheme Name="SchmToolMenuDefault">
+            <Property Name="WindowPos" Value="x:24 y:367" />
+            <Property Name="WindowSize" Value="x:110 y:392" />
+            <Property Name="WindowVisible" Value="true" />
+        </Scheme>
+	<Scheme Name="SchmTPadMenuDefault">
+            <Property Name="WindowPos" Value="x:24 y:446" />
+            <Property Name="WindowSize" Value="x:110 y:313" />
+            <Property Name="WindowVisible" Value="true" />
+        </Scheme>
+	<Scheme Name="SchmTPadMenuUser">
+            <Property Name="WindowPos" Value="x:24 y:525" />
+            <Property Name="WindowSize" Value="x:110 y:234" />
+            <Property Name="WindowVisible" Value="true" />
+        </Scheme>      
+        
+        <Window Type="CButton" Name="btnSystemSet" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	    <Property Name="WindowPos" Value="x:0 y:0" />
+	    <Property Name="WindowSize" Value="x:110 y:76" />  
+            <Scheme Name="SchmConfManageShow">
+		<Property Name="Tooltip" Value="系统配置" />
+		<Property Name="Image" Value="toolmenu/btnSystemSet" /> 
+		<Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnSystemSetClick" /> 
+		<Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmSysManageShow">
+		<Property Name="Tooltip" Value="会场管理" />
+		<Property Name="Image" Value="toolmenu/btnCnsManage" /> 
+		<Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnCnsManageClick" />
+		<Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmToolMenuBase">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmToolMenuDefault">
+		<Property Name="Tooltip" Value="系统配置" />
+		<Property Name="Image" Value="toolmenu/btnSystemSet" /> 
+		<Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnSystemSetClick" /> 
+		<Property Name="WindowVisible" Value="True" />
+            </Scheme>
+            <Scheme Name="SchmTPadMenuDefault">
+                <Property Name="Tooltip" Value="系统配置" />
+		<Property Name="Image" Value="toolmenu/btnSystemSet" /> 
+		<Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnSystemSetClick" /> 
+		<Property Name="WindowVisible" Value="True" />
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuUser">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme> 
+        </Window>
+        
+        
+        <Window Type="CButton" Name="btnLogout" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:79" />
+            <Property Name="WindowSize" Value="x:110 y:76" />
+            <Property Name="WindowCaption" Value="注销" />
+            <Property Name="Tooltip" Value="注销" />
+            <Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnLogoutClick" />
+            <Property Name="Image" Value="toolmenu/btnLogout" />
+            <Property Name="WindowVisible" Value="True" />
+            <Scheme Name="SchmToolMenuBase">
+                <Property Name="WindowPos" Value="x:0 y:0" />
+            </Scheme>
+            <Scheme Name="SchmToolMenuDefault">
+            	<Property Name="WindowPos" Value="x:0 y:79" />
+                <Property Name="WindowVisible" Value="True" />
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuDefault">
+                <Property Name="Tooltip" Value="中控管理" />
+	        <Property Name="WindowPos" Value="x:0 y:79" />
+		<Property Name="Image" Value="toolmenu/btnCenterCtrl" /> 
+		<Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::OnBtnCenterCtrl" /> 
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuUser">
+                <Property Name="WindowPos" Value="x:0 y:0" />
+		<Property Name="Image" Value="toolmenu/btnCenterCtrl" /> 
+		<Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::OnBtnCenterCtrl" /> 
+            </Scheme> 
+        </Window>
+        
+        
+        
+        <Window Type="CButton" Name="btnMinmize" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:158" />
+            <Property Name="WindowSize" Value="x:110 y:76" />
+            <Property Name="WindowCaption" Value="最小化" />
+            <Property Name="Image" Value="toolmenu/btnMinmize" />
+            <Property Name="WindowVisible" Value="True" />
+            <Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnMinmizeClick" />
+            <Scheme Name="SchmToolMenuBase">
+                <Property Name="WindowPos" Value="x:0 y:79" />
+            </Scheme>
+           <Scheme Name="SchmToolMenuDefault">
+           	<Property Name="WindowPos" Value="x:0 y:158" />
+                <Property Name="WindowVisible" Value="True" />
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuDefault">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuUser">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme> 
+        </Window>
+        
+        
+       <Window Type="CButton" Name="btnExit" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:0 y:237" />
+        <Property Name="WindowSize" Value="x:110 y:76" />
+        <Property Name="WindowCaption" Value="退出" />
+        <Property Name="Image" Value="toolmenu/btnExit" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::OnBtnExitClick" />
+        <Scheme Name="SchmToolMenuBase">
+            <Property Name="WindowPos" Value="x:0 y:158" />
+        </Scheme>
+       <Scheme Name="SchmToolMenuDefault">
+       	  <Property Name="WindowPos" Value="x:0 y:237" />
+          <Property Name="WindowVisible" Value="True" />
+        </Scheme>
+	<Scheme Name="SchmTPadMenuDefault">
+            <Property Name="WindowPos" Value="x:0 y:158" />
+	    <Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnMinmizeClick" />
+        </Scheme>
+	<Scheme Name="SchmTPadMenuUser">
+            <Property Name="WindowPos" Value="x:0 y:79" />
+	    <Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnMinmizeClick" />
+        </Scheme> 
+     </Window>
+        
+              
+        
+        <Window Type="CButton" Name="btnToolbar" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:316" />
+            <Property Name="WindowSize" Value="x:110 y:76" />
+            <Property Name="WindowCaption" Value="工具栏" />
+            <Property Name="Image" Value="toolmenu/btnToolBar" />
+            <Property Name="WindowVisible" Value="True" />
+            <Event Type="WM_BUTTON_CLICK" Value="CToolMenuLogic::BtnHideToolBarClick" />
+            <Scheme Name="SchmToolMenuBase">
+                <Property Name="WindowPos" Value="x:0 y:237" />
+            </Scheme>
+            <Scheme Name="SchmToolMenuDefault">
+          	<Property Name="WindowPos" Value="x:0 y:316" /> 
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuDefault">
+                <Property Name="WindowPos" Value="x:0 y:237" />	        
+            </Scheme>
+	    <Scheme Name="SchmTPadMenuUser">
+                <Property Name="WindowPos" Value="x:0 y:158" />
+            </Scheme> 
+        </Window>
+    
+        <CallBackFunc Type="CallBackFunc" Value="CToolMenuLogic::InitWnd" />
+    </Window>
+</UILayout>

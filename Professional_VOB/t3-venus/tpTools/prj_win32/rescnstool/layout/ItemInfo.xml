@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--tp主界面-->
+  <ItemInfo>
+    <Item Name="TextItem" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" SelColor="r:255 g:255 b:255" Alignment="0" /> 
+    <Item Name="TextItemAgtMid" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" SelColor="r:255 g:255 b:255" Alignment="1" /> 
+    <Item Name="TextItemWhite" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:146 g:157 b:183" FontSize="12" Alignment="0" />
+    <Item Name="TextItemSuperWhite" Type="Text" Size="x:400 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:255 g:255 b:255" FontSize="14" Alignment="0" />
+    <Item Name="TextItemNoSel" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" Alignment="0" /> 
+    <Item Name="ImageItem" Type="Image" Size="x:10 y:60" Text="" Func="" Image="Item" />
+    <Item Name="AddrListItem" Type="ListItem" Size="x:10 y:60" Text="" Func="" Image="addrListItem" />
+    <Item Name="TempListItem" Type="ListItem" Size="x:10 y:44" Text="" Func="" Image="tempListItem" />
+    <Item Name="TextTvwItem" Type="Text" Size="x:64 y:64" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="11" SelColor="r:38 g:54 b:66" Alignment="1" /> 
+
+		<!--主界面功能列表Item -->  
+    <Item Name="ImageItemMenuGenerInfo" Type="ButtonItem" Size="x:85 y:31" Text="" Func="CMainFrameLogic::OnClickBaSic" Image="itemToGenerInfo" />
+    <Item Name="ImageItemMenuCfg" Type="ButtonItem" Size="x:83 y:31" Text="" Func="CMainFrameLogic::OnClickCfg" Image="itemToCfg" />
+    <Item Name="ImageItemMenuDiag" Type="ButtonItem" Size="x:83 y:31" Text="" Func="CMainFrameLogic::OnClickDiag" Image="itemToDiag" />
+    <Item Name="ImageItemMenuAddr" Type="ButtonItem" Size="x:83 y:31" Text="" Func="CMainFrameLogic::OnClickAddrBook" Image="itemToAddr" />
+    <Item Name="ImageItemMenuCam" Type="ButtonItem" Size="x:83 y:31" Text="" Func="CMainFrameLogic::OnClickCamera" Image="itemToCam" />
+    <Item Name="ImageItemMenuCentCtrl" Type="ButtonItem" Size="x:84 y:31" Text="" Func="CMainFrameLogic::OnClickCentCtrl" Image="itemToCenterCtrl" />
+ 
+     <!--配置界面功能列表Item -->  
+    <Item Name="ImageItemMenuCfgCns" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickCnsCfg" Image="itemToCnsInfo" />
+    <Item Name="ImageItemMenuCfgCall" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickCallSerCfg" Image="itemToCallSer" />
+    <Item Name="ImageItemMenuServerCfg" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickServerCfg" Image="itemToServerCfgInfo" />
+    <Item Name="ImageItemMenuAudioPortCfg" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickAudioPortCfg" Image="itemToAudioInfo" />
+    <Item Name="ImageItemMenuMixCfg" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickMixCfg" Image="itemToMixInfo" />
+    <Item Name="ImageItemMenuEqCfg" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickEqCfg" Image="itemToEqualizerInfo" />
+    <Item Name="ImageItemMenuNetMgrCfg" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCfgFrameLogic::OnClickNetMgrCfg" Image="itemToNetInfo" />
+    
+    <!--中控配置界面功能列表Item -->  
+    <Item Name="ImageItemMenuXinFeng" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCentCfgFrameLogic::OnClickXinFengCfg" Image="itemToXinFeng" />
+    <Item Name="ImageItemMenuCamera" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCentCfgFrameLogic::OnClickCameraCfg" Image="itemToCamera" />
+    <Item Name="ImageItemMenuDisplay" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCentCfgFrameLogic::OnClickDisplayCfg" Image="itemToDisplay" />
+    <Item Name="ImageItemMenuLight" Type="ButtonItem" Size="x:118 y:58" Text="" Func="CCentCfgFrameLogic::OnClickLightCfg" Image="itemToLight" />
+ 
+    <!--用户列表中的展开图标-->
+    <Item Name="ImageItemUserLstToInfo" Type="Image" Size="x:39 y:47" Text="" Func="" Image="moreImg" />
+
+    <!--单板图片-->
+    <Item Name="ImageItemBoardBase" Type="Image" Size="x:64 y:64" Text="" Func="" Image="boardListItem" />
+
+    <!--灰色文字条目-->
+    <Item Name="GrayTextItem" Type="Text" Size="x:90 y:44" Text="" Func="" FontName="微软雅黑" FontColor="r:108 g:124 b:148" FontSize="12" Alignment="0" SelColor="r:255 g:255 b:255" />
+    <!--Tpad列表中显示IP地址-->
+    <Item Name="TextTpadIPItem" Type="Text" Size="x:138 y:42" Text="" Func="" FontName="宋体" FontColor="r:4 g:27 b:28" FontSize="9" Alignment="1" />
+    
+    <!--网管服务器界面功能列表Item -->
+    <Item Name="TextItemNetMng" Type="Text" Size="x:129 y:42" Text="" Func="" FontName="宋体" FontColor="r:4 g:27 b:28" FontSize="9" Alignment="1" />
+    <Item Name="ImageItemNetMng" Type="Image" Size="x:10 y:40" Text="" Func="" Image="CfgNetMng/Item" />
+ 
+    <!--中控灯光状态功能列表-->
+    <Item Name="TextLightItem" Type="Text" Size="x:138 y:42" Text="" Func="" FontName="宋体" FontColor="r:4 g:27 b:28" FontSize="9" Alignment="1" />
+ 
+    <!--诊断测试卡农麦克风列表-->
+    <Item Name="TextCOMMONItem" Type="Text" Size="x:99 y:14" Text="" Func="" FontName="宋体" FontColor="r:4 g:27 b:28" FontSize="9" Alignment="1" />
+                
+  </ItemInfo>
+</UILayout>

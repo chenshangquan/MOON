@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+    <Window Type="CDlgChild" Name="CallServerCfgDlg" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+        <Property Name="Image" Value="" />
+	<Scheme Name="SchmSysCfg">
+           <Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+	<Scheme Name="SchmCallServerCfg">
+           <Property Name="WindowVisible" Value="true" />
+  </Scheme>
+    	
+	<Window Type="CButton" Name="BtnSysCfg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	  <Property Name="WindowPos" Value="x:8 y:7" />
+	  <Property Name="WindowSize" Value="x:99 y:37" />
+	  <Property Name="WindowCaption" Value="系统设置" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="btnToSysCfg" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnSysCfg" />
+	</Window>
+
+  <Window Type="CStatic" Name="StcConfRate" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:83" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="单屏码率" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CStatic" Name="StcRate" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:312 y:83" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="Kbps" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  
+  <Window Type="CButton" Name="btnDel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:120 y:75" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeDel" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CCallServerCfgLogic::OnConfMinus" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CCallServerCfgLogic::OnConfMinus" />
+   <Event Type="WM_BTN_HOLD" Value="CCallServerCfgLogic::OnConfMinusHold" /> 
+   <Event Type="WM_BTN_HOLD_END" Value="CCallServerCfgLogic::OnConfHoldEnd" /> 
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+  <Window Type="CButton" Name="btnAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:276 y:75" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="+" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeAdd" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CCallServerCfgLogic::OnConfAdd" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CCallServerCfgLogic::OnConfAdd" />
+   <Event Type="WM_BTN_HOLD" Value="CCallServerCfgLogic::OnConfAddHold" />
+   <Event Type="WM_BTN_HOLD_END" Value="CCallServerCfgLogic::OnConfHoldEnd" />
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+	<Window Type="CEdit" Name="EdtConfRate" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+             <Property Name="WindowPos" Value="x:157 y:64" />
+             <Property Name="WindowSize" Value="x:116 y:55" />
+             <Property Name="WindowCaption" Value="2048" /><!--519新规格修改默认值为2048,原4096-->
+             <Property Name="Image" Value="Edit" />
+             <Property Name="WindowVisible" Value="True" />
+             <Property Name="ShowIcon" Value="false" />
+             <Property Name="FontSize" Value="12" />
+             <Property Name="Alignment" Value="1" /> 
+	           <Property Name="WindowEnable" Value="false" />
+             <Property Name="LimitLength" Value="4" />
+             <Event Type="WM_KILL_FOCUS" Value="CCallServerCfgLogic::OnConfRateNoFocus" />
+             <Event Type="WM_EDIT_CHANGED" Value="CCallServerCfgLogic::OnConfRateChange" />
+	     <Scheme Name="SchmEdit">
+	       <Property Name="WindowEnable" Value="true" /> 
+	     </Scheme>
+	     <Scheme Name="SchmNormal">
+	       <Property Name="WindowEnable" Value="false" />
+	     </Scheme>
+  </Window> 
+	
+  <Window Type="CStatic" Name="StcShowRate" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:143" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="演示码率" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CStatic" Name="StcSRate" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:312 y:143" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="Kbps" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  
+  <Window Type="CButton" Name="btnSDel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:120 y:135" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeDel" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CCallServerCfgLogic::OnShowMinus" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CCallServerCfgLogic::OnShowMinus" />
+   <Event Type="WM_BTN_HOLD" Value="CCallServerCfgLogic::OnShowMinusHold" /> 
+   <Event Type="WM_BTN_HOLD_END" Value="CCallServerCfgLogic::OnShowHoldEnd" /> 
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+  <Window Type="CButton" Name="btnSAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:276 y:135" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="+" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeAdd" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CCallServerCfgLogic::OnShowAdd" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CCallServerCfgLogic::OnShowAdd" />
+   <Event Type="WM_BTN_HOLD" Value="CCallServerCfgLogic::OnShowAddHold" />
+   <Event Type="WM_BTN_HOLD_END" Value="CCallServerCfgLogic::OnShowHoldEnd" />
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+	<Window Type="CEdit" Name="EdtShowRate" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+             <Property Name="WindowPos" Value="x:157 y:124" />
+             <Property Name="WindowSize" Value="x:116 y:55" />
+             <Property Name="WindowCaption" Value="2048" />
+             <Property Name="Image" Value="Edit" />
+             <Property Name="WindowVisible" Value="True" />
+             <Property Name="ShowIcon" Value="false" />
+             <Property Name="FontSize" Value="12" />
+             <Property Name="Alignment" Value="1" /> 
+	           <Property Name="WindowEnable" Value="false" />
+             <Property Name="LimitLength" Value="4" />
+             <Event Type="WM_KILL_FOCUS" Value="CCallServerCfgLogic::OnShowRateNoFocus" />
+             <Event Type="WM_EDIT_CHANGED" Value="CCallServerCfgLogic::OnShowRateChange" />
+	     <Scheme Name="SchmEdit">
+	       <Property Name="WindowEnable" Value="true" /> 
+	     </Scheme>
+	     <Scheme Name="SchmNormal">
+	       <Property Name="WindowEnable" Value="false" />
+	     </Scheme>
+  </Window> 
+       	
+	<Window Type="CStatic" Name="StcPolling" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:203" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="会议轮询" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CTransparentSwitchButton" Name="BtnPolling" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+      <Property Name="WindowPos" Value="x:342 y:198" />
+      <Property Name="WindowSize" Value="x:113 y:37" />
+      <Property Name="Image" Value="switchbutton" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="SwitchState" Value="true" />
+      <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnBtnSwitchPolling" />
+    <Scheme Name="SchmEdit">
+      <Property Name="WindowEnable" Value="true" /> 
+    </Scheme>
+    <Scheme Name="SchmNormal">
+      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+  </Window>  	
+
+  <Window Type="CStatic" Name="StcPollSpace" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:263" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="轮询间隔" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CStatic" Name="StcPTime" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:312 y:263" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="秒" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  
+  <Window Type="CButton" Name="btnPDel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:120 y:255" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeDel" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CCallServerCfgLogic::OnPollMinus" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CCallServerCfgLogic::OnPollMinus" />
+   <Event Type="WM_BTN_HOLD" Value="CCallServerCfgLogic::OnPollMinusHold" /> 
+   <Event Type="WM_BTN_HOLD_END" Value="CCallServerCfgLogic::OnPollMinusHoldEnd" /> 
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+  <Window Type="CButton" Name="btnPAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+   <Property Name="WindowPos" Value="x:276 y:255" />
+   <Property Name="WindowSize" Value="x:34 y:34" />
+   <Property Name="WindowCaption" Value="+" />
+   <Property Name="WindowVisible" Value="false" />
+   <Property Name="Image" Value="btnTimeAdd" />
+   <Property Name="TransparentBtnUseTimer" Value="true" />
+   <Event Type="WM_LBUTTONDOWN" Value="CCallServerCfgLogic::OnPollAdd" />
+   <Event Type="WM_LBUTTONDBLCLK" Value="CCallServerCfgLogic::OnPollAdd" />
+   <Event Type="WM_BTN_HOLD" Value="CCallServerCfgLogic::OnPollAddHold" />
+   <Event Type="WM_BTN_HOLD_END" Value="CCallServerCfgLogic::OnPollAddHoldEnd" />
+   <Scheme Name="SchmEdit">
+     <Property Name="WindowVisible" Value="true" /> 
+   </Scheme>
+   <Scheme Name="SchmNormal">
+     <Property Name="WindowVisible" Value="false" />
+   </Scheme>
+  </Window> 
+  
+	<Window Type="CEdit" Name="EdtPollTime" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+             <Property Name="WindowPos" Value="x:157 y:244" />
+             <Property Name="WindowSize" Value="x:116 y:55" />
+             <Property Name="WindowCaption" Value="20" />
+             <Property Name="Image" Value="Edit" />
+             <Property Name="WindowVisible" Value="True" />
+             <Property Name="ShowIcon" Value="false" />
+             <Property Name="FontSize" Value="12" />
+             <Property Name="Alignment" Value="1" /> 
+	           <Property Name="WindowEnable" Value="false" />
+             <Property Name="LimitLength" Value="4" />
+             <Event Type="WM_EDIT_CHANGED" Value="CCallServerCfgLogic::OnPollTimeChange" />
+	     <Scheme Name="SchmEdit">
+	       <Property Name="WindowEnable" Value="true" /> 
+	     </Scheme>
+	     <Scheme Name="SchmNormal">
+	       <Property Name="WindowEnable" Value="false" />
+	     </Scheme>
+  </Window> 
+      	       	
+	<Window Type="CStatic" Name="StcDiscuss" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:323" /> 
+     <Property Name="WindowSize" Value="x:229 y:21" /> 
+     <Property Name="WindowCaption" Value="会议讨论" /> 
+     <Property Name="Image" Value="" /> 
+     <Property Name="WindowVisible" Value="True" /> 
+     <Property Name="FontSize" Value="12" /> 
+  </Window>
+  <Window Type="CTransparentSwitchButton" Name="BtnDiscuss" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+      <Property Name="WindowPos" Value="x:342 y:318" />
+      <Property Name="WindowSize" Value="x:113 y:37" />
+      <Property Name="Image" Value="switchbutton" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="SwitchState" Value="true" />
+    <Scheme Name="SchmEdit">
+      <Property Name="WindowEnable" Value="true" /> 
+    </Scheme>
+    <Scheme Name="SchmNormal">
+      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+  </Window>  	
+
+	<Window Type="CStaticEx" Name="ExCallMode" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:27 y:383" />
+	   <Property Name="WindowSize" Value="x:200 y:20" />
+	   <Property Name="WindowCaption" Value="优选会议格式" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="FontSize" Value="12" />
+	</Window>
+	<Window Type="CStatic" Name="ExCallModeReal" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+	   <Property Name="WindowPos" Value="x:302 y:383" />
+	   <Property Name="WindowSize" Value="x:123 y:20" />
+	   <Property Name="WindowCaption" Value="" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="WindowEnable" Value="false" />
+	   <Property Name="FontSize" Value="12" />
+	   <Property Name="FontColor" Value="r:134 g:195 b:255" />
+	   <Property Name="Alignment" Value="2" />
+	   <Event Type="WM_LBUTTONUP" Value="CCallServerCfgLogic::OnBtnCallMode" />
+	   <Scheme Name="SchmClear">
+	      <Property Name="WindowCaption" Value="" />
+    </Scheme>
+	<Scheme Name="SchmEdit">
+	    <Property Name="WindowEnable" Value="true" /> 
+    </Scheme>
+	<Scheme Name="SchmNormal">
+	    <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	</Window>
+	
+	<Window Type="CButton" Name="BtnCallMode" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	  <Property Name="WindowPos" Value="x:425 y:370" />
+	  <Property Name="WindowSize" Value="x:39 y:47" />
+	  <Property Name="WindowCaption" Value="" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="moreImg" />
+	  <Property Name="WindowEnable" Value="false" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnBtnCallMode" />
+	  <Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+          </Scheme>
+	   <Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	</Window>
+	
+	<Window Type="CStaticEx" Name="ExCallShowMode" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:27 y:443" />
+	   <Property Name="WindowSize" Value="x:200 y:20" />
+	   <Property Name="WindowCaption" Value="优选演示格式" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="FontSize" Value="12" />
+	</Window>
+	<Window Type="CStatic" Name="ExCallShowModeReal" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+	   <Property Name="WindowPos" Value="x:302 y:443" />
+	   <Property Name="WindowSize" Value="x:123 y:20" />
+	   <Property Name="WindowCaption" Value="" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="WindowEnable" Value="false" />
+	   <Property Name="FontSize" Value="12" />
+	   <Property Name="FontColor" Value="r:134 g:195 b:255" />
+	   <Property Name="Alignment" Value="2" />
+	   <Event Type="WM_LBUTTONUP" Value="CCallServerCfgLogic::OnBtnCallShowMode" />
+	   <Scheme Name="SchmClear">
+	      <Property Name="WindowCaption" Value="" />
+    </Scheme>
+	<Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+          </Scheme>
+	<Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	</Window>
+	<Window Type="CButton" Name="BtnCallShowMode" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	  <Property Name="WindowPos" Value="x:425 y:430" />
+	  <Property Name="WindowSize" Value="x:39 y:47" />
+	  <Property Name="WindowCaption" Value="" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="moreImg" />
+	  <Property Name="WindowEnable" Value="false" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnBtnCallShowMode" />
+	  <Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+          </Scheme>
+	   <Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	</Window>
+	
+	<Window Type="CStaticEx" Name="ExAudioMode" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:27 y:503" />
+	   <Property Name="WindowSize" Value="x:200 y:20" />
+	   <Property Name="WindowCaption" Value="优选音频格式" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="FontSize" Value="12" />
+	</Window>
+	<Window Type="CStatic" Name="ExAudioModeReal" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+	   <Property Name="WindowPos" Value="x:130 y:503" />
+	   <Property Name="WindowSize" Value="x:295 y:20" />
+	   <Property Name="WindowCaption" Value="" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="WindowEnable" Value="false" />
+	   <Property Name="FontSize" Value="12" />
+	   <Property Name="FontColor" Value="r:134 g:195 b:255" />
+	   <Property Name="Alignment" Value="2" />
+	   <Event Type="WM_LBUTTONUP" Value="CCallServerCfgLogic::OnBtnAudioMode" />  
+	   <Scheme Name="SchmClear">
+	      <Property Name="WindowCaption" Value="" />
+    </Scheme>
+	<Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+          </Scheme>
+	<Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	</Window>
+	<Window Type="CButton" Name="BtnAudioMode" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	  <Property Name="WindowPos" Value="x:425 y:490" />
+	  <Property Name="WindowSize" Value="x:39 y:47" />
+	  <Property Name="WindowCaption" Value="" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="moreImg" />
+	  <Property Name="WindowEnable" Value="false" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnBtnAudioMode" />
+	  <Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+          </Scheme>
+	   <Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	</Window>
+	        	      	        	      
+	<Window Type="CFlatButton" Name="BtnSave" Style="WS_CHILD">
+	  <Property Name="WindowPos" Value="x:342 y:7" />
+	  <Property Name="WindowSize" Value="x:65 y:37" />
+	  <Property Name="WindowCaption" Value="保存" />
+	  <Property Name="WindowVisible" Value="false" />
+	  <Property Name="Image" Value="btnSave" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnSave" />
+	  <Scheme Name="SchmEdit">
+	      <Property Name="WindowVisible" Value="true" /> 
+          </Scheme>
+	  <Scheme Name="SchmNormal">
+	      <Property Name="WindowVisible" Value="false" />
+          </Scheme>
+	</Window>
+	<Window Type="CFlatButton" Name="BtnCancel" Style="WS_CHILD">
+	  <Property Name="WindowPos" Value="x:409 y:7" />
+	  <Property Name="WindowSize" Value="x:65 y:37" />
+	  <Property Name="WindowCaption" Value="取消" />
+	  <Property Name="WindowVisible" Value="false" />
+	  <Property Name="Image" Value="btnCancel" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnCancel" />
+	  <Scheme Name="SchmEdit">
+	      <Property Name="WindowVisible" Value="true" /> 
+          </Scheme>
+	  <Scheme Name="SchmNormal">
+	      <Property Name="WindowVisible" Value="false" />
+          </Scheme>
+	</Window>
+	<Window Type="CFlatButton" Name="BtnEdit" Style="WS_CHILD">
+	  <Property Name="WindowPos" Value="x:409 y:7" />
+	  <Property Name="WindowSize" Value="x:65 y:37" />
+	  <Property Name="WindowCaption" Value="编辑" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="btnEdit" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgLogic::OnEdit" />
+	  <Scheme Name="SchmEdit">
+	      <Property Name="WindowVisible" Value="false" /> 
+          </Scheme>
+	  <Scheme Name="SchmNormal">
+	      <Property Name="WindowVisible" Value="true" />
+          </Scheme>
+	</Window>
+	
+	<CallBackFunc Type="CallBackFunc" Value="CCallServerCfgLogic::InitWnd" />
+    </Window>
+</UILayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="gb2312"?>
+     
+  <!--功能列表管理菜单 -->  
+  
+  <List Name="FuncLst" > 
+    <Item Name="结束会议" Index="0" Visible="1" />  
+    <Item Name="会场控制" Index="1" Visible="1" />
+    <Item Name="会议讨论" Index="2" Visible="1" />
+    <Item Name="画中画" Index="3" Visible="1" />
+    <!--<Item Name="电视墙" Index="3" Visible="1" /> -->
+    <Item Name="会场轮询" Index="4" Visible="1" /> 
+    <Item Name="麦克风开关" Index="5" Visible="1" /> 
+    <Item Name="扬声器开关" Index="6" Visible="1" /> 
+    <Item Name="本方演示开关" Index="7" Visible="1" /> 
+    <Item Name="扬声器" Index="8" Visible="1" /> 
+    <Item Name="麦克风" Index="9" Visible="1" />
+    <Item Name="演示源" Index="10" Visible="1" />  
+    <Item Name="地址簿" Index="11" Visible="1" />  
+  </List>
+ 

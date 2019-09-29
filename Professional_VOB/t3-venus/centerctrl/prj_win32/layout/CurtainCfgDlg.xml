@@ -1,0 +1,665 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+ <Window Type="CTransparentDlg" Name="CurtainCfgDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+    <Property Name="WindowPos" Value="x:141 y:29" />
+    <Property Name="WindowSize" Value="x:1225 y:739" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="" />
+	<Scheme Name="SchmCurtainCfg">
+    <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+    <Scheme Name="SchmCamera">
+    <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<!--
+    <Scheme Name="SchmAirCondition">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	-->
+    <Scheme Name="SchmMonitor">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmTouchPad">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Window Type="CTransparentDlg" Name="SingelCurtainBkgDlg1" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:75 y:28" />
+		<Property Name="WindowSize" Value="x:524 y:171" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="CurtainCfg/SingelCurtainBkgDlg.png" />
+	<Scheme Name="SchmCurtainCfg1">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg2">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg3">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg4">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg5">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg6">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:25" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />	      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn1" />
+	   <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:30" />
+		<Property Name="WindowSize" Value="x:472 y:30" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" /> <!--根据底层发过来的数据设标题，无需自设-->   
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="0" />
+		<Property Name="FontSize" Value="17" />  
+     </Window>
+	 <Window Type="CButton" Name="BtnStop1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:34 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop1" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:233 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp1" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:373 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown1" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	</Window>
+	
+	<Window Type="CTransparentDlg" Name="SingelCurtainBkgDlg2" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:623 y:28" />
+		<Property Name="WindowSize" Value="x:524 y:171" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="CurtainCfg/SingelCurtainBkgDlg.png" />
+	<Scheme Name="SchmCurtainCfg1">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg2">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg3">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg4">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg5">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg6">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:25" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />	      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn2" />
+	   <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:30" />
+		<Property Name="WindowSize" Value="x:472 y:30" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" /> <!--根据底层发过来的数据设标题，无需自设--> 
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="0" />
+		<Property Name="FontSize" Value="17" />  
+     </Window>
+	 <Window Type="CButton" Name="BtnStop2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:34 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop2" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:233 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp2" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:373 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown2" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	</Window>
+
+	<Window Type="CTransparentDlg" Name="SingelCurtainBkgDlg3" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:75 y:229" />
+		<Property Name="WindowSize" Value="x:524 y:171" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="CurtainCfg/SingelCurtainBkgDlg.png" />
+	<Scheme Name="SchmCurtainCfg1">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg2">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg3">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg4">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg5">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg6">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:25" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />	      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn3" />
+	  <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:30" />
+		<Property Name="WindowSize" Value="x:472 y:30" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" /> <!--根据底层发过来的数据设标题，无需自设-->   
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="0" />
+		<Property Name="FontSize" Value="17" />   
+     </Window>
+	 <Window Type="CButton" Name="BtnStop3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:34 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop3" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:233 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp3" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:373 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown3" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	</Window>	
+	
+	<Window Type="CTransparentDlg" Name="SingelCurtainBkgDlg4" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:623 y:229" />
+		<Property Name="WindowSize" Value="x:524 y:171" />
+		<Property Name="WindowVisible" Value="false" /><!--目前项目针对三个窗帘控制，故暂时隐藏-->
+		<Property Name="Image" Value="CurtainCfg/SingelCurtainBkgDlg.png" />	
+	<Scheme Name="SchmCurtainCfg1">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg2">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg3">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg4">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg5">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg6">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:25" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />		      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn4" />
+	  <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:30" />
+		<Property Name="WindowSize" Value="x:472 y:30" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />    
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="0" />
+		<Property Name="FontSize" Value="17" />  
+     </Window>
+	 <Window Type="CButton" Name="BtnStop4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:34 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop4" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:233 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp4" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:373 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown4" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>	
+	 </Window>
+	</Window>
+
+	<Window Type="CTransparentDlg" Name="SingelCurtainBkgDlg5" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:75 y:430" />
+		<Property Name="WindowSize" Value="x:524 y:171" />
+		<Property Name="WindowVisible" Value="false" /><!--目前项目针对三个窗帘控制，故暂时隐藏-->
+		<Property Name="Image" Value="CurtainCfg/SingelCurtainBkgDlg.png" />
+	<Scheme Name="SchmCurtainCfg1">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg2">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg3">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg4">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg5">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg6">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:25" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn5" />
+	  <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:30" />
+		<Property Name="WindowSize" Value="x:472 y:30" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />    
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="0" />
+		<Property Name="FontSize" Value="17" /> 
+     </Window>
+	 <Window Type="CButton" Name="BtnStop5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:34 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop5" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:233 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp5" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:373 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown5" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	</Window>
+	
+	<Window Type="CTransparentDlg" Name="SingelCurtainBkgDlg6" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:623 y:430" />
+		<Property Name="WindowSize" Value="x:524 y:171" />
+		<Property Name="WindowVisible" Value="false" /><!--目前项目针对三个窗帘控制，故暂时隐藏-->
+		<Property Name="Image" Value="CurtainCfg/SingelCurtainBkgDlg.png" />
+	<Scheme Name="SchmCurtainCfg1">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg2">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>	
+	<Scheme Name="SchmCurtainCfg3">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg4">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg5">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg6">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>	
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn6" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:25" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />	      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn6" />
+	  <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName6" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:30" />
+		<Property Name="WindowSize" Value="x:472 y:30" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />    
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="0" />
+		<Property Name="FontSize" Value="17" /> 
+     </Window>
+	 <Window Type="CButton" Name="BtnStop6" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:34 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop6" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp6" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:233 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp6" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown6" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:373 y:88" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="True" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown6" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	</Window>	
+	
+	<Window Type="CTransparentDlg" Name="MultiCurtainBkgDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+		<Property Name="WindowPos" Value="x:75 y:631" />
+		<Property Name="WindowSize" Value="x:1072 y:81" />
+		<Property Name="WindowVisible" Value="true" />
+		<Property Name="Image" Value="CurtainCfg/MultiCurtainBkgDlg.png" />	
+
+	 <Window Type="CTransparentSwitchButton" Name="SwitchBtn" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:32 y:18" />
+        <Property Name="WindowSize" Value="x:40 y:40" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="false" />
+        <Property Name="SwitchState" Value="False" />
+	    <Property Name="Image" Value="CurtainCfg/SwitchBtn" />		 
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickSwitchBtn" />
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="SwitchState" Value="False" />
+     </Scheme>
+	 <Scheme Name="SchmCurExist">
+      <Property Name="WindowEnable" Value="True" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CStatic" Name="StcCurtainName" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:91 y:25" />
+		<Property Name="WindowSize" Value="x:56 y:28" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="全选" />    
+		<Property Name="FontColor" Value="r:57 g:60 b:66" />
+		<Property Name="Alignment" Value="1" />
+		<Property Name="FontSize" Value="17" /> 
+     </Window>	
+	 <Window Type="CButton" Name="BtnStop" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:582 y:11" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="false" />
+	    <Property Name="Image" Value="CurtainCfg/BtnStop" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnStop" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmSomeCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnUp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:781 y:11" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="false" />
+	    <Property Name="Image" Value="CurtainCfg/BtnUp" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnUp" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmSomeCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>
+	 <Window Type="CButton" Name="BtnDown" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:921 y:11" />
+        <Property Name="WindowSize" Value="x:119 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="false" />
+	    <Property Name="Image" Value="CurtainCfg/BtnDown" />	      
+	    <Event Type="WM_BUTTON_CLICK" Value="CCurtainCfgLogic::OnClickBtnDown" />
+	 <Scheme Name="SchmAllCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 <Scheme Name="SchmNoCheck">
+      <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+	 <Scheme Name="SchmSomeCheck">
+      <Property Name="WindowEnable" Value="true" />
+     </Scheme>
+	 </Window>	  
+	</Window>
+    <CallBackFunc Type="CallBackFunc" Value="CCurtainCfgLogic::InitWnd" />	
+  </Window>	
+</UILayout>

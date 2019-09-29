@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout> 
+  <Window Type="CTransparentDlg" Name="CameraDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+    <Property Name="WindowPos" Value="x:149 y:27" />
+    <Property Name="WindowSize" Value="x:1217 y:741" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="" />
+    <Scheme Name="SchmCamera">
+    <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+	<!--
+    <Scheme Name="SchmAirCondition">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	-->
+    <Scheme Name="SchmMonitor">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmTouchPad">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	<Scheme Name="SchmCurtainCfg">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    
+  <Window Type="CTransparentDlg" Name="TextCameraDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+        <Property Name="WindowPos" Value="x:118 y:48" />
+        <Property Name="WindowSize" Value="x:982 y:104" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="Image" Value="Camera\Camerabackground.png" />
+        
+    <Window Type="CTransparentSwitchButton" Name="BtnOpenCameraSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	      <Property Name="WindowPos" Value="x:791 y:35" />
+	      <Property Name="WindowSize" Value="x:113 y:37" />
+	      <Property Name="Image" Value="Camera\switchbutton" />
+	      <Property Name="WindowEnable" Value="True" />
+	      <Property Name="WindowVisible" Value="True" />
+	      <Property Name="SwitchState" Value="False" />
+	      <Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnBtnOpenCameraSwitch" /> 
+	<Scheme Name="SchmCameraOn">
+            <Property Name="SwitchState" Value="true" />
+	    <Property Name="WindowEnable" Value="True" />
+        </Scheme>	 
+        <Scheme Name="SchmCameraOff">
+            <Property Name="SwitchState" Value="false" />
+	    <Property Name="WindowEnable" Value="True" />
+        </Scheme>
+    </Window>	
+  </Window>
+  <Window Type="CStatic" Name="StcCameraCutline" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:118 y:154" />
+        <Property Name="WindowSize" Value="x:982 y:2" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Camera\CameraCutline.png" />	    
+  </Window>
+  
+  <Window Type="CTransparentDlg" Name="OrderedBackGroundDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+        <Property Name="WindowPos" Value="x:118 y:158" />
+        <Property Name="WindowSize" Value="x:982 y:533" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="Image" Value="Camera\Orderedbackground.png" />
+        
+    <Window Type="CButton" Name="BtnOrderPosition1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:59 y:67" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="false" />
+	<Property Name="Image" Value="Camera/OrderPositionBtn1" />	      
+	  <Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnClickOrderPosition1" />
+    <Scheme Name="SchmCameraOn">
+            <Property Name="Image" Value="Camera/OrderPositionBtn1" />
+	    <Property Name="WindowEnable" Value="true" />
+        </Scheme>	 
+    <Scheme Name="SchmCameraOff">
+            <Property Name="Image" Value="Camera/DisPositionBtn1" />
+	    <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+	  <Scheme Name="SchmOrderPosition1Dlg">
+        <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition2Dlg">
+        <Property Name="WindowEnable" Value="true" />
+    </Scheme>	 
+    <Scheme Name="SchmOrderPosition3Dlg">
+        <Property Name="WindowEnable" Value="true" />
+    </Scheme>	   
+    </Window>
+    
+    <Window Type="CButton" Name="BtnOrderPosition2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:59 y:176" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+	     <Property Name="Image" Value="Camera/OrderPositionBtn2" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnClickOrderPosition2" />
+    <Scheme Name="SchmCameraOn">
+            <Property Name="Image" Value="Camera/OrderPositionBtn2" />
+	    <Property Name="WindowEnable" Value="true" />
+        </Scheme>	 
+    <Scheme Name="SchmCameraOff">
+            <Property Name="Image" Value="Camera/DisPositionBtn2" />
+	    <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition1Dlg">
+        <Property Name="WindowEnable" Value="true" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition2Dlg">
+        <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition3Dlg">
+        <Property Name="WindowEnable" Value="true" />
+    </Scheme>	  
+    </Window>  
+
+    <Window Type="CButton" Name="BtnOrderPosition3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:59 y:285" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+	      <Property Name="Image" Value="Camera\OrderPositionBtn3" />
+	      <Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnClickOrderPosition3" />
+    <Scheme Name="SchmCameraOn">
+            <Property Name="Image" Value="Camera\OrderPositionBtn3" />  
+	    <Property Name="WindowEnable" Value="true" />
+        </Scheme>	 
+    <Scheme Name="SchmCameraOff">
+            <Property Name="Image" Value="Camera\DisPositionBtn3" />
+	    <Property Name="WindowEnable" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition1Dlg">
+        <Property Name="WindowEnable" Value="true" />
+    </Scheme>	
+    <Scheme Name="SchmOrderPosition2Dlg">
+        <Property Name="WindowEnable" Value="true" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition3Dlg">
+        <Property Name="WindowEnable" Value="false" />
+    </Scheme>	        
+    </Window>   
+        
+
+   <Window Type="CTransparentDlg" Name="OrderPositionDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+        <Property Name="WindowPos" Value="x:316 y:39" />
+        <Property Name="WindowSize" Value="x:637 y:458" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="Image" Value="Camera\OrderPosition1.png" />
+    <Scheme Name="SchmCameraOn">
+            <Property Name="WindowVisible" Value="true" />
+        </Scheme>	 
+    <Scheme Name="SchmCameraOff">
+            <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition1Dlg">
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="Camera\OrderPosition1.png" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition2Dlg">
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="Camera\OrderPosition2.png" />
+    </Scheme>
+    <Scheme Name="SchmOrderPosition3Dlg">
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="Camera\OrderPosition3.png" />
+    </Scheme>
+         
+    <Window Type="CButton" Name="BtnReduce" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:69 y:55" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <!-- <Property Name="TransparentBtnUseTimer" Value="true" /> -->
+        <Property Name="Image" Value="Camera/ReduceBtn" />
+	<Event Type="WM_BUTTON_DOWN" Value="CCameraLogic::OnBeginReduce" /> 
+	<Event Type="WM_BUTTONSTATUS_NORMAL" Value="CCameraLogic::OnBtnReduce" />
+
+	<!--<Event Type="WM_BTN_HOLD" Value="CCameraLogic::OnBtnReduce" />
+	<Event Type="WM_BTN_HOLD_END" Value="CCameraLogic::OnBtnReduce" />	-->	    
+    </Window>
+    <Window Type="CButton" Name="BtnEnlarge" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:335 y:55" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <!-- <Property Name="TransparentBtnUseTimer" Value="true" /> -->
+        <Property Name="Image" Value="Camera/EnlargeBtn" />
+	<Event Type="WM_BUTTON_DOWN" Value="CCameraLogic::OnBeginEnlarge" /> 
+	<Event Type="WM_BUTTONSTATUS_NORMAL" Value="CCameraLogic::OnBtnEnlarge" />
+
+	<!--<Event Type="WM_BTN_HOLD" Value="CCameraLogic::OnBtnEnlarge" />	
+	<Event Type="WM_BTN_HOLD_END" Value="CCameraLogic::OnBtnEnlarge" />	 -->   
+    </Window>
+    <Window Type="CStatic" Name="StcCfgCutline" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:69 y:180" />
+        <Property Name="WindowSize" Value="x:532 y:2" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Camera\BubbleCfgCutline.png" />	    
+    </Window>
+    <Window Type="CButton" Name="BtnFocus" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:69 y:198" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Camera/FocusBtn" />
+	<Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnBtnFocus" />	    
+    </Window>
+    <Window Type="CButton" Name="BtnWhiteBalance" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:335 y:198" />
+        <Property Name="WindowSize" Value="x:257 y:109" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Camera/WhiteBalanceBtn" />
+	<Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnBtnWhiteBalance" />	    
+    </Window>
+    <Window Type="CButton" Name="BtnSave" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:131 y:367" />
+        <Property Name="WindowSize" Value="x:371 y:52" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Camera/SaveBtn" />
+	<Event Type="WM_BUTTON_CLICK" Value="CCameraLogic::OnBtnSave" />	    
+    </Window>	 
+   </Window>
+          
+  </Window>  
+           
+
+    <CallBackFunc Type="CallBackFunc" Value="CCameraLogic::InitWnd" />
+  </Window>
+</UILayout>

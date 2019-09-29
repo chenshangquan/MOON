@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <Window Type="CTransparentDlg" Name="CenterCtrlDlg" Style="WS_CLIPSIBLINGS|WS_POPUP" >
+    <Property Name="WindowPos" Value="x:0 y:0" />
+    <Property Name="WindowSize" Value="x:1366 y:768" />
+    <Property Name="WindowVisible" Value="true" />
+    <Property Name="Image" Value="MainFrameBkg.png" />
+    <Property Name="WindowCaption" Value="centerctrl" />
+
+    <CallBackFunc Type="CallBackFunc" Value="CCenterCtrlLogic::InitWnd" />
+  </Window>
+</UILayout>

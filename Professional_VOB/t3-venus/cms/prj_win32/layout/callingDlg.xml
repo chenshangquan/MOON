@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout> 
+	<!--呼叫中状态框-->
+	<!--
+	1 SchmCalling1:第一张图片
+	2 SchmCalling2:
+	3 SchmCalling3:
+	4 SchemCalling4:
+	-->
+    <!-- <Window Type="CDlgModal" Name="CallingDlg" > -->
+    <Window Type="CTransparentDlg" Name="CallingDlg" Style="WS_POPUP" >
+    <Property Name="WindowPos" Value="x:418 y:176" />
+    <Property Name="WindowSize" Value="x:532 y:346" />
+    <Property Name="Image" Value="msgBoxBkg.png" />
+    <Property Name="WindowVisible" Value="false" />
+    
+    
+    
+    <Window Type="CStatic" Name="stcCallImag" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:76 y:124" />
+      <Property Name="WindowSize" Value="x:64 y:54" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="Image" Value="callingImg\\calling1.png" />
+      <Property Name="WindowVisible" Value="True" />
+      
+      <Scheme Name="SchmCalling1">
+      	<Property Name="Image" Value="callingImg\calling1.png" />
+      </Scheme>
+      <Scheme Name="SchmCalling2">
+      	<Property Name="Image" Value="callingImg\calling2.png" />
+      </Scheme>
+      <Scheme Name="SchmCalling3">
+      	<Property Name="Image" Value="callingImg\calling3.png" />
+      </Scheme>
+      <Scheme Name="SchmCalling4">
+      	<Property Name="Image" Value="callingImg\calling4.png" />
+      </Scheme>
+      
+    </Window>
+    
+    
+    
+    <Window Type="CStatic" Name="StcMsg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:174 y:124" />
+      <Property Name="WindowSize" Value="x:200 y:54" />
+      <Property Name="WindowCaption" Value="正在建立会议......" />
+      <Property Name="FontColor" Value="r:255 g:255 b:255" />
+      <Property Name="FontSize" Value="18" />
+      <Property Name="Alignment" Value="1" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+    </Window>
+    
+    
+    
+    <Window Type="CButton" Name="BtnHungup" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:187 y:245" />
+      <Property Name="WindowSize" Value="x:159 y:51" />
+      <Property Name="WindowCaption" Value="挂断会议" />
+      <Property Name="Image" Value="btnEndConf" />
+      <Property Name="WindowVisible" Value="FALSE" />
+      <Event Type="WM_BUTTON_CLICK" Value="CCallingLogic::OnBtnHungupConf" /> 
+    </Window>
+    
+    <!--显示的呼叫中状态的时间 目前为30S-->
+     <Window Type="CStatic" Name="StcShowTime" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:174 y:115" />
+      <Property Name="WindowSize" Value="x:200 y:54" />
+      <Property Name="WindowCaption" Value="30" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="false" />
+    </Window>
+    
+    <CallBackFunc Type="CallBackFunc" Value="CCallingLogic::InitWnd" />
+  </Window>
+</UILayout>

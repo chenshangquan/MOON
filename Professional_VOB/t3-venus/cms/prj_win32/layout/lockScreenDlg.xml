@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <Window Type="CDlgModal" Name="LockScreenDlg" >
+    <Property Name="WindowPos" Value="x:418 y:176" />
+    <Property Name="WindowSize" Value="x:530 y:371" />
+    <Property Name="Image" Value="LockScreen.png" />
+    <Property Name="WindowVisible" Value="false" />
+    <Event Type="UI_SLIDEBLOCK_ENDLOCK" Value="CLockScreenLogic::OnEndLock" />
+    
+    <Window Type="CTransparentSlideBlock" Name="SlideBlock" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:103 y:264" />
+      <Property Name="WindowSize" Value="x:324 y:53" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="Image" Value="SlideBlock" />
+    </Window>
+    
+  </Window>
+  
+  
+  
+  <Window Type="CDlgModal" Name="ScreenPswDlg" >
+    <Property Name="WindowPos" Value="x:417 y:189" />
+    <Property Name="WindowSize" Value="x:532 y:346" />
+    <Property Name="Image" Value="msgBoxBkg.png" />
+    <Property Name="WindowVisible" Value="false" />
+    <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:178 y:64" />
+      <Property Name="WindowSize" Value="x:178 y:22" />
+      <Property Name="WindowCaption" Value="请输入密码" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="FontColor" Value="r:255 g:255 b:255" />
+      <Property Name="FontSize" Value="18" />
+      <Property Name="Alignment" Value="1" />
+    </Window>
+    <Window Type="CEdit" Name="EdtPswd" Style="ES_PASSWORD|WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL">
+      <Property Name="WindowPos" Value="x:107 y:130" />
+      <Property Name="WindowSize" Value="x:320 y:55" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="Image" Value="Edit" />
+      <Property Name="LimitLength" Value="31" />
+      <Property Name="FontSize" Value="12" />
+      <Event Type="WM_LBUTTONDOWN" Value="CLockScreenLogic::OnBtnClickEdit" />
+    </Window>
+    <Window Type="CStatic" Name="StcErrMsg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:110 y:198" />
+      <Property Name="WindowSize" Value="x:100 y:20" />
+      <Property Name="WindowCaption" Value="密码错误" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="FontSize" Value="12" />
+      <!-- <Property Name="FontColor" Value="r:255 g:255 b:255" /> -->
+    </Window>
+    <Window Type="CButton" Name="BtnOk" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_DEFPUSHBUTTON">
+      <Property Name="WindowPos" Value="x:110 y:241" />
+      <Property Name="WindowSize" Value="x:138 y:58" />
+      <Property Name="WindowCaption" Value="确认" />
+      <Property Name="Image" Value="btnMsgOK" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CLockScreenLogic::OnBtnOkClick" />
+    </Window>
+    <Window Type="CButton" Name="BtnCancle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:284 y:241" />
+      <Property Name="WindowSize" Value="x:138 y:58" />
+      <Property Name="WindowCaption" Value="取消" />
+      <Property Name="Image" Value="btnMsgCancel" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CLockScreenLogic::OnBtnCancleClick" />
+    </Window>
+  </Window>
+</UILayout>

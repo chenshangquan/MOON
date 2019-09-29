@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+	<!--Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgPopup" Name="AddrBookDlg">
+    <Property Name="WindowCaption" Value="AddrBook" />
+    <Property Name="WindowPos" Value="x:441 y:53" />
+    <Property Name="WindowSize" Value="x:483 y:618" />
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="Image" Value="" />
+    <Property Name="WindowVisible" Value="false" />
+    <Scheme Name="SchmNormal">
+      <Property Name="WindowPos" Value="x:441 y:53" />
+      <Property Name="WindowSize" Value="x:483 y:618" />
+    </Scheme>
+    <Scheme Name="SchmMultiCall">
+      <Property Name="WindowPos" Value="x:203 y:53" />
+      <Property Name="WindowSize" Value="x:960 y:618" />
+    </Scheme>
+
+  <!--左侧窗口--> 
+    <Window Type="CDlgChild" Name="DlgNormal" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="true" />
+	<Property Name="Image" Value="windowBkg" /> 
+
+    	<Window Type="CStatic" Name="StTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+           <Property Name="WindowPos" Value="x:161 y:15" />
+           <Property Name="WindowSize" Value="x:161 y:21" />
+           <Property Name="WindowCaption" Value="地址簿" />
+           <Property Name="WindowVisible" Value="true" />
+           <Property Name="FontColor" Value="r:228 g:238 b:255" />
+           <Property Name="Alignment" Value="1" />
+           <Property Name="FontSize" Value="12" />
+           <Scheme Name="SchmNotInGroup">
+                <Property Name="WindowPos" Value="x:161 y:15" />
+                <Property Name="WindowSize" Value="x:161 y:21" />
+	        <Property Name="Alignment" Value="1" />
+           </Scheme>
+           <Scheme Name="SchmInGroup">
+                <Property Name="WindowPos" Value="x:86 y:15" />
+                <Property Name="WindowSize" Value="x:331 y:21" />
+	        <Property Name="Alignment" Value="0" />
+           </Scheme>
+    	</Window>		
+    	<Window Type="CButton" Name="BtnBack" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      		<Property Name="WindowPos" Value="x:8 y:7" />
+      		<Property Name="WindowSize" Value="x:72 y:37" />
+      		<Property Name="WindowCaption" Value="返回" />
+      		<Property Name="WindowVisible" Value="false" />
+     		<Property Name="Image" Value="btnBack" />
+      		<Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnBack" />
+    	</Window>
+
+	<Window Type="CTransparentSwitchButton" Name="BtnAddrShowEx" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+                <Property Name="WindowPos" Value="x:425 y:7" />
+                <Property Name="WindowSize" Value="x:49 y:37" />
+                <Property Name="WindowCaption" Value="" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="SwitchState" Value="false" />
+		<Property Name="BindWnd" Value="AddrShowOptnDlg" />
+                <Property Name="Image" Value="addrbook/btnAddrEx" /> 
+                <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnAddrShowOptn" />               
+        </Window>
+     	
+    	<Window Type="CEdit" Name="EdtSearch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+         <Property Name="WindowPos" Value="x:42 y:50" />
+         <Property Name="WindowSize" Value="x:342 y:55" />
+         <Property Name="WindowCaption" Value="" />
+         <Property Name="WindowVisible" Value="True" />
+         <Property Name="Image" Value="Edit" />
+         <Property Name="LimitLength" Value="31" />
+         <Property Name="TipStr" Value="输入查询的内容" />
+         <Property Name="FontSize" Value="12" />
+	 <Property Name="SearchEdit" Value="true" />
+	 <Event Type="WM_EDIT_CHANGED" Value="CAddrBookLogic::OnSearchEditChange" />
+    	</Window>
+
+        <Window Type="CButton" Name="BtnRefresh" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     		<Property Name="WindowPos" Value="x:398 y:60" />
+      		<Property Name="WindowSize" Value="x:73 y:36" />
+      		<Property Name="WindowCaption" Value="RefreshGlobalAddrList" />
+      		<Property Name="WindowVisible" Value="true" />
+     		<Property Name="Image" Value="btnRefresh" />
+      		<Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnRefresh" />
+		<!-- <Scheme Name="SchmInConf">
+        		<Property Name="WindowPos" Value="x:295 y:7" />
+      		</Scheme>
+      		<Scheme Name="SchmNotInConf">
+        		<Property Name="WindowPos" Value="x:400 y:7" />
+      		</Scheme> -->
+    	</Window>
+		<!--
+        <Window Type="CButton" Name="BtnAllSel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     		<Property Name="WindowPos" Value="x:398 y:60" />
+                <Property Name="WindowSize" Value="x:73 y:36" />
+                <Property Name="WindowCaption" Value="全选" />
+                <Property Name="WindowVisible" Value="true" />
+                <Property Name="Image" Value="btnAllSel" />
+                <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnSelectAll" />
+		<Scheme Name="SchmNoAllSel">
+	          <Property Name="Image" Value="btnAllSel" />
+		  <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnSelectAll" />
+                </Scheme>
+                <Scheme Name="SchmAllSel">
+                  <Property Name="Image" Value="btnAllNoSel" />
+		  <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnUnSelectAll" />
+                </Scheme>
+    	</Window>
+    -->
+    <!--
+    <Window Type="CTransparentSwitchButton" Name="BtnMultiCall" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:370 y:7" />
+      <Property Name="WindowSize" Value="x:104 y:37" />
+      <Property Name="WindowCaption" Value="多会场呼叫" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="btnAddrMutilCall" />
+      <Property Name="SwitchState" Value="false" /> 
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnMultiCall" />
+      <Scheme Name="SchmNormal">
+        <Property Name="SwitchState" Value="false" /> 
+      </Scheme>
+      <Scheme Name="SchmMultiCall">
+        <Property Name="SwitchState" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmInConf">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    -->
+    
+    <Window Type="CAddrList" Name="LocalAddrList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:45 y:109" />
+      <Property Name="WindowSize" Value="x:427 y:495" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="WindowVisible" Value="True" /> 
+      <Property Name="Drag" Value="true" /><!-- false -->
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+      
+      <Event Type="UI_BE_DRAG_END" Value="CAddrBookLogic::OnDragItemOut" />
+      
+      <!--
+      <Scheme Name="SchmNormal">
+         <Property Name="Drag" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmMultiCall">
+      	 <Property Name="Drag" Value="true" />
+      </Scheme>
+      -->  
+      
+    </Window>
+ 
+    
+    <Window Type="CAddrList" Name="GlobalAddrList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:45 y:112" />
+      <Property Name="WindowSize" Value="x:427 y:436" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Drag" Value="false" />
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+      <Scheme Name="SchmNormal">
+         <Property Name="Drag" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmMultiCall">
+      	 <Property Name="Drag" Value="true" />
+      </Scheme>
+    </Window>
+    <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="Image" Value="letterindex" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="LocalAddrList" />
+    </Window>
+    <!--
+    <Window Type="CFlatButton" Name="BtnLocalAddr" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:45 y:554" />
+      <Property Name="WindowSize" Value="x:213 y:51" />
+      <Property Name="WindowCaption" Value="本地地址簿" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="Image" Value="btnLocalAddr" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnLocalAddr" />
+    </Window>
+    <Window Type="CFlatButton" Name="BtnGlobalAddr" Style="WS_CHILD">
+      <Property Name="WindowPos" Value="x:258 y:554" />
+      <Property Name="WindowSize" Value="x:214 y:51" />
+      <Property Name="WindowCaption" Value="在线地址簿" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="btnServerAddr" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnBtnGlobalAddr" />
+    </Window>
+    -->
+    </Window>
+
+    <!--右侧窗口--> 
+    <Window Type="CDlgChild" Name="DlgMultiCall" >
+	<Property Name="WindowPos" Value="x:477 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+	<Property Name="Image" Value="windowBkg" /> 
+        <Scheme Name="SchmNormal">
+              <Property Name="WindowVisible" Value="false" />
+        </Scheme>
+        <Scheme Name="SchmMultiCall">
+              <Property Name="WindowVisible" Value="true" />
+        </Scheme>
+    <Window Type="CStaticEx" Name="StMutilTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+           <Property Name="WindowPos" Value="x:161 y:14" />
+           <Property Name="WindowSize" Value="x:161 y:20" />
+           <Property Name="WindowCaption" Value="多会场呼叫" />
+           <Property Name="WindowVisible" Value="true" />
+           <Property Name="FontColor" Value="r:228 g:238 b:255" /> 
+           <Property Name="FontSize" Value="12" />
+	   <Property Name="Alignment" Value="1" />        
+    </Window>
+    
+    <Window Type="CButton" Name="BtnCancelMulti" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:409 y:7" />
+      <Property Name="WindowSize" Value="x:65 y:37" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="btnCancel" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnCancelMulti" />
+    </Window>
+    
+    <Window Type="CAddrList" Name="MultiCallList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:17 y:52" />
+      <Property Name="WindowSize" Value="x:447 y:498" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="Drag" Value="true" />
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+      <Event Type="UI_DRAG_END" Value="CAddrBookLogic::OnDragEnd" />
+      <Event Type="UI_BE_DRAG_END" Value="CAddrBookLogic::OnDragItemOut" />
+    </Window>
+    <Window Type="CFlatButton" Name="BtnCall" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:63 y:554" />
+      <Property Name="WindowSize" Value="x:357 y:52" />
+      <Property Name="WindowCaption" Value="呼 叫" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="addrbook/btnCall" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnCallMultiCn" />
+    </Window>
+    </Window>
+    <CallBackFunc Type="CallBackFunc" Value="CAddrBookLogic::InitWnd" />
+  </Window>
+
+  <Window Type="CDlgPopup" Name="AddrAddDlg">
+      <Property Name="WindowPos" Value="x:100 y:10" />
+      <Property Name="WindowSize" Value="x:114 y:67" />
+      <Property Name="Image" Value="callDlgBkg" />
+      <Property Name="AutoHideStatus" Value="true" />
+      <Property Name="WindowVisible" Value="false" />
+      <Window Type="CButton" Name="BtnAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:21 y:6" />
+        <Property Name="WindowSize" Value="x:88 y:56" />
+        <Property Name="WindowCaption" Value="添加" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CAddrBookLogic::OnAddToMultiList" />
+        <Property Name="Image" Value="addrbook/btnAdd" />
+      </Window>
+  </Window>
+
+</UILayout>

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <SystemInfo name="ImagePath" value="Image/Btn" />
+  <SystemInfo name="DefaultFont" value="微软雅黑.font"></SystemInfo>
+  <WindowInfo name="TPDlg" value="Layout.xml"></WindowInfo>
+  <!--  <WindowInfo name="SimulateCnsDlg" value="mainWnd.xml" />
+  <WindowInfo name="MainMenuDlg" value="mainWnd.xml" />
+  <WindowInfo name="MainSetMenuDlg" value="mainWnd.xml" />
+  <WindowInfo name="AddrBookDlg" value="addrBookWnd.xml" /> 
+  -->
+</System>

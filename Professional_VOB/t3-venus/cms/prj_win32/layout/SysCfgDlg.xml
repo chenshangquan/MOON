@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+    <!--tp主界面-->
+   <!-- <Window Type="CDlgPopup" Name="SysCfgDlg" Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"> -->
+<Window Type="CDlgPopup" Name="SysCfgDlg" >
+	<Property Name="AutoHideStatus" Value="true" />
+	<Property Name="WindowPos" Value="x:441 y:53" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+	<Property Name="Image" Value="windowBkg" />
+	<Event Type="WM_CNC_FTPCONFSIGNPROGRESS" Value="CCnsCfgLogic::OnUploadProgress" />
+	
+	<Window Type="CStaticEx" Name="StTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:161 y:10" />
+		<Property Name="WindowSize" Value="x:161 y:25" />
+		<Property Name="WindowCaption" Value="系统设置" />
+		<Property Name="WindowVisible" Value="true" />
+		<Property Name="FontColor" Value="r:228 g:238 b:255" />
+		<Property Name="Alignment" Value="1" />
+		<Property Name="FontSize" Value="12" />
+		<Scheme Name="SchmSysCfg">
+		 <Property Name="WindowCaption" Value="系统设置" />
+		 <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<!--
+		<Scheme Name="SchmEthnetCfg">
+		 <Property Name="WindowCaption" Value="服务器设置" />
+		 <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		-->
+		<Scheme Name="SchmCnsCfg">
+		 <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmRegService">
+		 <Property Name="WindowCaption" Value="服务器配置" />
+		 <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmRegGk">
+			<Property Name="WindowCaption" Value="GK设置" />
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme> 
+		<Scheme Name="SchmSetTime">
+			<Property Name="WindowCaption" Value="系统时间设置" />
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmDualSrc">
+		        <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmSysStandBy">
+		  <Property Name="WindowCaption" Value="系统待机配置" />
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>	
+		<Scheme Name="SchmNetManage">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmUpdService">
+		  <Property Name="WindowCaption" Value="升级服务器地址" />
+		  <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmCallServerCfg">
+		  <Property Name="WindowCaption" Value="呼叫配置" />
+		  <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmModeCfg">
+		  <Property Name="WindowCaption" Value="优选会议格式" />
+		  <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmShowModeCfg">
+		  <Property Name="WindowCaption" Value="优选演示格式" />
+		  <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmAudioModeCfg">
+		  <Property Name="WindowCaption" Value="优选音频格式" />
+		  <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+	</Window>
+	
+	<Window Type="CAddrList" Name="CfgList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:10 y:50" />
+		<Property Name="WindowSize" Value="x:463 y:550" />
+		<Property Name="LayoutAlgorithm" Value="Vert" />
+		<Property Name="WindowVisible" Value="True" />
+		<Property Name="ListImage" Value="" />
+		<Property Name="ClickNoSel" Value="true" />
+		<Scheme Name="SchmSysCfg">
+		 <Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmEthnetCfg">
+		 <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmCnsCfg">
+		 <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmRegService">
+		 <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmRegGk"> 
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmSetTime"> 
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme> 
+		<Scheme Name="SchmDualSrc"> 
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme> 
+		<Scheme Name="SchmSysStandBy">
+		  <Property Name="WindowVisible" Value="false" />
+		</Scheme> 
+		<Scheme Name="SchmNetManage"> 
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme> 
+		<Scheme Name="SchmUpdService">
+		  <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmCallServerCfg">
+		  <Property Name="WindowVisible" Value="false" />
+		</Scheme>
+	</Window>
+	<CallBackFunc Type="CallBackFunc" Value="CSysCfgLogic::InitWnd" />
+</Window>
+</UILayout>

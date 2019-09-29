@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="gb379"?>
+<UILayout>
+  <!--中控摄像机界面-->
+   
+	<Window Type="TransparentDlg" Name="CentCfgCameraDlg" Style="WS_CHILD" ExStyle="">
+		<Property Name="WindowPos" Value="x:122 y:0" />
+		<Property Name="WindowSize" Value="x:728 y:501" />
+		<Property Name="WindowVisible" Value="true" />
+		<Property Name="Image" Value="" />
+		<Property Name="WindowCaption" Value="中控摄像机界面" />
+				 
+    <Window Type="TransStatic" Name="StcCamera1Info" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:31" />
+        <Property Name="WindowSize" Value="x:350 y:14" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="9" />
+        <Property Name="Alignment" Value="0" />
+    </Window>
+         
+    <Window Type="TransStatic" Name="StcCamera2Info" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:73" />
+        <Property Name="WindowSize" Value="x:350 y:14" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="9" />
+        <Property Name="Alignment" Value="0" />
+    </Window>
+         
+    <Window Type="TransStatic" Name="StcCamera3Info" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:115" />
+        <Property Name="WindowSize" Value="x:350 y:14" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="9" />
+        <Property Name="Alignment" Value="0" />
+    </Window>
+         
+    <Window Type="TransStatic" Name="StcDocCameraInfo" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:157" />
+        <Property Name="WindowSize" Value="x:350 y:14" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="9" />
+        <Property Name="Alignment" Value="0" />
+    </Window>
+	   
+		<CallBackFunc Type="CallBackFunc" Value="::InitWnd" />
+	</Window>
+</UILayout>

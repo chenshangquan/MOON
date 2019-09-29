@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--会场显示选项列表-->
+  Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"
+  <Window Type="CDlgPopup" Name="CnsShowOptnDlg" >
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:920 y:53"></Property>
+    <Property Name="WindowSize" Value="x:300 y:320" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="showCnsOptnBkg.png" /> 
+
+    <Window Type="CAddrList" Name="LstShowMenuDlg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:17 y:19" />
+      <Property Name="WindowSize" Value="x:266 y:277" />
+      <Property Name="WindowCaption" Value="会场显示选项" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="ListImage" Value="listBkg" />
+    </Window>
+    <!--
+    <Window Type="CButton" Name="BtnSave2File" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:9 y:14" />
+      <Property Name="WindowSize" Value="x:93 y:29" />
+      <Property Name="WindowCaption" Value="保存到文件" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_LBUTTONUP" Value="CConfCnsLstLogic::OptDlgBtnSave2File" />
+      <Property Name="Image" Value="Item" />
+    </Window>
+    <Window Type="CButton" Name="BtnCloseDlg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:222 y:0" />
+      <Property Name="WindowSize" Value="x:34 y:37" />
+      <Property Name="WindowCaption" Value="X" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_LBUTTONUP" Value="CConfCnsLstLogic::CloseOptDlg" />
+      <Property Name="Image" Value="Item" />
+    </Window>
+    -->
+    
+    
+    <CallBackFunc Type="CallBackFunc" Value="" />
+  </Window>
+</UILayout>

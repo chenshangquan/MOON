@@ -1,0 +1,814 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+	<!--Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgPopup" Name="AddrEditDlg" >
+    <Property Name="WindowCaption" Value="AddrBookEdit"></Property>
+    <Property Name="WindowPos" Value="x:93 y:53" />
+    <Property Name="WindowSize" Value="x:1180 y:618" />
+    <Property Name="Image" Value="" />
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowVisible" Value="false" />
+    
+    <!--左侧窗口--> 
+  <Window Type="CDlgChild" Name="DlgLst" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:791 y:618" />
+	<Property Name="WindowCaption" Value="" />
+	<Property Name="WindowVisible" Value="true" />
+	<Property Name="Image" Value="windowBkg" /> 
+	
+    <Window Type="CStatic" Name="StTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+           <Property Name="WindowPos" Value="x:0 y:15" />
+           <Property Name="WindowSize" Value="x:791 y:21" />
+           <Property Name="WindowCaption" Value="地址簿" />
+           <Property Name="WindowVisible" Value="true" />
+           <Property Name="FontSize" Value="12" />
+	   <Property Name="FontColor" Value="r:228 g:238 b:255" /> 
+	   <Property Name="Alignment" Value="1" />
+	   <Scheme Name="SchmNotInGroup">
+                <Property Name="WindowPos" Value="x:0 y:15" />
+		<Property Name="WindowSize" Value="x:791 y:21" />
+		<Property Name="Alignment" Value="1" />
+           </Scheme>
+           <Scheme Name="SchmInGroup">
+                <Property Name="WindowPos" Value="x:98 y:15" />
+		<Property Name="WindowSize" Value="x:620 y:21" />
+		<Property Name="Alignment" Value="0" />
+           </Scheme>
+    </Window>
+    
+    <Window Type="CButton" Name="BtnBack" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:9 y:6" />
+      <Property Name="WindowSize" Value="x:72 y:37" />
+      <Property Name="WindowCaption" Value="返回" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="btnBack" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnBack" />
+    </Window>
+
+    <Window Type="CButton" Name="BtnBacktoAddr" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:9 y:6" />
+      <Property Name="WindowSize" Value="x:84 y:37" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="addrbook/btnBacktoAddr" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnLocalAddr" />
+      <Scheme Name="SchmLocalAddr">
+            <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+            <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+    </Window>
+
+    <Window Type="CTransparentSwitchButton" Name="BtnAddrShowEx" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+                <Property Name="WindowPos" Value="x:733 y:7" />
+                <Property Name="WindowSize" Value="x:49 y:37" />
+                <Property Name="WindowCaption" Value="" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="SwitchState" Value="false" />
+		<Property Name="BindWnd" Value="AddrEditShowOptnDlg" />
+                <Property Name="Image" Value="addrbook/btnAddrEx" /> 
+                <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnAddrShowOptn" /> 
+      <Scheme Name="SchmLocalAddr">
+            <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+            <Property Name="WindowVisible" Value="false" />
+      </Scheme>            
+    </Window>
+
+    <Window Type="CEdit" Name="EdtSearch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+         <Property Name="WindowPos" Value="x:42 y:50" />
+         <Property Name="WindowSize" Value="x:492 y:55" />
+         <Property Name="WindowCaption" Value="" />
+         <Property Name="WindowVisible" Value="True" />
+         <Property Name="WindowEnable" Value="true" />
+         <Property Name="Image" Value="Edit" />
+         <Property Name="LimitLength" Value="31" />
+         <Property Name="TipStr" Value="输入查询的内容" />
+         <Property Name="SearchEdit" Value="true" />
+         <!-- <Property Name="ShowIcon" Value="false" /> -->
+         <Property Name="FontSize" Value="12" />
+	 <Property Name="DisableImg" Value="true" />
+	 <Event Type="WM_EDIT_CHANGED" Value="CAddrEditLogic::OnSearchEditChange" />
+         <Scheme Name="SchmLocalAddr">
+            <Property Name="WindowSize" Value="x:487 y:55" />
+         </Scheme>
+         <Scheme Name="SchmGlobalAddr">
+            <Property Name="WindowSize" Value="x:568 y:55" />
+         </Scheme>
+         <Scheme Name="SchmShowEntry">
+            <Property Name="WindowEnable" Value="true" />
+         </Scheme>
+         <Scheme Name="SchmEditEntry">
+           <Property Name="WindowEnable" Value="false" />
+         </Scheme>
+         <Scheme Name="SchmShowGroup">
+           <Property Name="WindowEnable" Value="true" />
+         </Scheme>
+         <Scheme Name="SchmEditGroup">
+           <Property Name="WindowEnable" Value="false" />
+         </Scheme>
+	 <Scheme Name="SchmNoShow">
+	   <Property Name="WindowEnable" Value="true" />
+         </Scheme>
+    </Window>
+    <Window Type="CButton" Name="AddEntry" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:548 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="新建会场" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="addrbook/btnAddEntry" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnAddEntry" />
+      <Scheme Name="SchmShowEntry">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowGroup">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoShow">
+	<Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    <!--
+    <Window Type="CButton" Name="AddGroup" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:623 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="新建分组" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="btnAddr_AddGroup" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnAddGroup" />
+      <Scheme Name="SchmShowEntry">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowGroup">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoShow">
+	<Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    -->
+
+     <Window Type="CButton" Name="BtnRefresh" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:627 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:36" />
+      <Property Name="WindowCaption" Value="刷新" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="btnRefresh" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnRefreshGlobalAddr" />
+       <Scheme Name="SchmShowEntry">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowGroup">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoShow">
+	<Property Name="WindowEnable" Value="true" />
+      </Scheme>
+     </Window>
+
+     <Window Type="CButton" Name="BtnAllSel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:706 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:36" />
+      <Property Name="WindowCaption" Value="全选" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="addrbook/btnAllSel" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnSelectAll" />
+      <Scheme Name="SchmShowEntry">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+	<Property Name="WindowVisible" Value="true" />
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowGroup">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+	<Property Name="WindowVisible" Value="true" />
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmAllSel">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoAllSel">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+     </Window>
+
+     <Window Type="CButton" Name="BtnAllNoSel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:707 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="取消" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="addrbook/btnAllNoSel" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnUnSelectAll" />
+      <Scheme Name="SchmAllSel">
+	<Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmNoAllSel">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+
+    <Window Type="CAddrList" Name="LocalAddrList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:45 y:109" />
+      <Property Name="WindowSize" Value="x:735 y:495" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="Drag" Value="false" />
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+      <Event Type="WM_LST_UN_SELECT_ITEM" Value="CAddrEditLogic::UnSelAddrList" />
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowEntry">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowGroup">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoShow">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CAddrList" Name="GlobalAddrList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:45 y:109" />
+      <Property Name="WindowSize" Value="x:735 y:495" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="Drag" Value="false" />
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+    </Window>
+
+    <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="Image" Value="letterindex" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="LocalAddrList" />
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="BindList" Value="LocalAddrList" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="BindList" Value="GlobalAddrList" />
+      </Scheme>
+    </Window>
+    <!--
+    <Window Type="CButton" Name="BtnLocalAddr" Style="WS_CHILD">
+      <Property Name="WindowPos" Value="x:45 y:554" />
+      <Property Name="WindowSize" Value="x:368 y:51" />
+      <Property Name="WindowCaption" Value="本地地址簿" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="Image" Value="btnEditLocalAddr" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnLocalAddr" />
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window>
+    <Window Type="CButton" Name="BtnGlobalAddr" Style="WS_CHILD">
+      <Property Name="WindowPos" Value="x:413 y:554" />
+      <Property Name="WindowSize" Value="x:368 y:51" />
+      <Property Name="WindowCaption" Value="在线地址簿" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="btnEditServerAddr" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnGlobalAddr" />
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+    </Window>
+    -->
+    </Window>
+    
+    <!--右侧窗口-->
+    <!--Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+    <Window Type="CDlgChild" Name="DlgAddrEdit" >
+	<Property Name="WindowPos" Value="x:785 y:0" />
+	<Property Name="WindowSize" Value="x:395 y:618" />
+	<Property Name="WindowCaption" Value="" />
+	<Property Name="WindowVisible" Value="true" />
+	<Property Name="Image" Value="windowBkg" />
+        <Window Type="CStaticEx" Name="StEditTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+           	<Property Name="WindowPos" Value="x:131 y:14" />
+           	<Property Name="WindowSize" Value="x:131 y:21" />
+           	<Property Name="WindowCaption" Value="" />
+           	<Property Name="WindowVisible" Value="true" />
+	        <Property Name="FontColor" Value="r:228 g:238 b:255" /> 
+		<Property Name="Alignment" Value="1" />
+		<Property Name="FontSize" Value="12" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowCaption" Value="会场信息" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowCaption" Value="分组信息" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowCaption" Value="编辑会场信息" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowCaption" Value="编辑分组信息" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowCaption" Value="已选列表" />
+		</Scheme>
+        </Window>
+	<Window Type="CStatic" Name="CnName" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:27 y:76" />
+		<Property Name="WindowSize" Value="x:100 y:22" />
+		<Property Name="WindowCaption" Value="" />
+		<Property Name="FontSize" Value="12" />
+		<Property Name="WindowVisible" Value="true" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowCaption" Value="会场名称" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowCaption" Value="分组名称" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowCaption" Value="会场名称" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowCaption" Value="分组名称" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+	</Window>
+	<Window Type="CEdit" Name="EntryName" Style="WS_CHILD|ES_AUTOHSCROLL|WS_TABSTOP">
+		<Property Name="WindowPos" Value="x:23 y:117" />
+		<Property Name="WindowSize" Value="x:349 y:55" />
+		<Property Name="WindowCaption" Value="" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="Edit" />
+		<Property Name="LimitLength" Value="31" />
+		<Property Name="FontSize" Value="12" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+	</Window>
+	<Window Type="CStaticEx" Name="CnNumber" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:27 y:205" />
+		<Property Name="WindowSize" Value="x:100 y:22" />
+		<Property Name="WindowCaption" Value="" />
+		<Property Name="WindowVisible" Value="true" />
+		<Property Name="FontSize" Value="12" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowCaption" Value="会场号码" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowCaption" Value="会场号码" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowCaption" Value="" />
+		</Scheme>
+	</Window>
+	<Window Type="CEdit" Name="EntryNumber" Style="WS_CHILD|ES_AUTOHSCROLL|WS_CLIPSIBLINGS|WS_TABSTOP">
+		<Property Name="WindowPos" Value="x:23 y:245" />
+		<Property Name="WindowSize" Value="x:349 y:55" />
+		<Property Name="WindowCaption" Value="" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="Edit" />
+		<Property Name="LimitLength" Value="13" />
+		<Property Name="FontSize" Value="12" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowVisible" Value="false" />
+			<Property Name="WindowEnable" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowVisible" Value="false" />
+			<Property Name="WindowEnable" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+	</Window>
+
+    <Window Type="CButton" Name="BtnDeleteItem" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:119 y:554" />
+      <Property Name="WindowSize" Value="x:159 y:51" />
+      <Property Name="WindowCaption" Value="删除" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="btnDelete" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnDeleteItem" />
+	<Scheme Name="SchmShowEntry">
+		<Property Name="WindowVisible" Value="true" />
+	</Scheme>
+	<Scheme Name="SchmEditEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmShowGroup">
+		<Property Name="WindowVisible" Value="true" />
+	</Scheme>
+	<Scheme Name="SchmEditGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNoShow">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmMultiSel">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+    </Window>
+
+    <Window Type="CButton" Name="BtnCopy" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:151 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="复制" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="addrbook/btnCopy" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnCopy" />
+      <Scheme Name="SchmLocalSelect">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmNoSelect">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmCopy">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>  
+
+        <Scheme Name="SchmShowEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmEditEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmShowGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmEditGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNoShow">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+    </Window>
+    <Window Type="CButton" Name="BtnCut" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:231 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="剪切" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="Image" Value="addrbook/btnCut" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnCut" />
+      <Scheme Name="SchmLocalSelect">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmNoSelect">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmCopy">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      
+        <Scheme Name="SchmShowEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmEditEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmShowGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmEditGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNoShow">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+    </Window>
+    <Window Type="CButton" Name="BtnPaste" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:151 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="粘贴" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="addrbook/btnPaste" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnPaste" />
+      <Scheme Name="SchmLocalSelect">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoSelect">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmCopy">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    <Window Type="CButton" Name="BtnRevoke" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:231 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="取消" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="addrbook/btnAddrCancel" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnRevoke" />
+      <Scheme Name="SchmLocalSelect">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmNoSelect">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmCopy">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmEditEntry">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmEditGroup">
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+
+    <Window Type="CButton" Name="BtnDelete" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:311 y:60" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowCaption" Value="删除" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="addrbook/btnAddrDelete" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnDelete" />
+      <Scheme Name="SchmLocalSelect">
+	<Property Name="WindowVisible" Value="true" />
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmCopy">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+
+        <Scheme Name="SchmShowEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmEditEntry">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmShowGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmEditGroup">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNoShow">
+		<Property Name="WindowVisible" Value="false" />
+	</Scheme>
+    </Window>
+
+
+     <Window Type="CButton" Name="BtnLoadToLocal" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:291 y:60" />
+      <Property Name="WindowSize" Value="x:93 y:37" />
+      <Property Name="WindowCaption" Value="导入" />
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="WindowEnable" Value="true" />
+      <Property Name="Image" Value="addrbook/btnLoadAddr" />
+      <Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnBtnLoadToLocal" />
+      <Scheme Name="SchmLocalAddr">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+<!--
+      <Scheme Name="SchmGlobalAddr">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+-->
+     </Window>
+
+        <Window Type="CAddrList" Name="SelectList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:11 y:109" />
+                <Property Name="WindowSize" Value="x:373 y:495" />
+                <Property Name="WindowVisible" Value="false" />
+                <Property Name="ListImage" Value="listBkg" />
+                <Property Name="Drag" Value="false" />
+                <Property Name="TransparentListOffset" Value="0" />
+                <Property Name="TransparentListSelItem" Value="-1" />
+                <!-- <Event Type="UI_DRAG_END" Value="CAddrBookLogic::OnDragEnd" /> -->
+                <Scheme Name="SchmMultiSel">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+                <Scheme Name="SchmShowEntry">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+        </Window>
+
+	<Window Type="CButton" Name="BtnSave" Style="WS_CHILD">
+		<Property Name="WindowPos" Value="x:253 y:7" />
+		<Property Name="WindowSize" Value="x:65 y:37" />
+		<Property Name="WindowCaption" Value="保存" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="btnSave" />
+		<Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnSave" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+      		<Scheme Name="SchmNoShow">
+        		<Property Name="WindowVisible" Value="false" />
+      		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+	</Window>
+	<Window Type="CFlatButton" Name="BtnCancel" Style="WS_CHILD">
+		<Property Name="WindowPos" Value="x:320 y:7" />
+		<Property Name="WindowSize" Value="x:65 y:37" />
+		<Property Name="WindowCaption" Value="取消" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="btnCancel" />
+		<Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnCancel" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+        		<Property Name="WindowVisible" Value="false" />
+      		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+	</Window>
+	<Window Type="CFlatButton" Name="BtnEdit" Style="WS_CHILD">
+		<Property Name="WindowPos" Value="x:312 y:7" />
+		<Property Name="WindowSize" Value="x:73 y:37" />
+		<Property Name="WindowCaption" Value="编辑" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="Image" Value="addrbook/btnAddrEdit" />
+		<Event Type="WM_BUTTON_CLICK" Value="CAddrEditLogic::OnEdit" />
+		<Scheme Name="SchmShowEntry">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmEditEntry">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmShowGroup">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmEditGroup">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmNoShow">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmMultiSel">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+	</Window>
+    </Window>
+
+    <CallBackFunc Type="CallBackFunc" Value="CAddrEditLogic::InitWnd" />
+  </Window>
+
+</UILayout>

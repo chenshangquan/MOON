@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!-- 
+  
+  Style="WS_POPUP|WS_CLIPSIBLINGS" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"-->
+  <!--
+    
+    SchmSelView
+    SchmCancleSelView
+    SchmSelViewDisable
+    
+    SchmDual
+    SchmCancleDual
+    SchmNotRcvDual
+    
+    SchmLocal
+    SchmCancleLocal
+    	-->
+  <Window Type="CDlgPopup" Name="ScrnDspMenu" >
+    <Property Name="AutoHideStatus" Value="true" /> 
+    <Property Name="WindowSize" Value="x:98 y:182" /> 
+    <Property Name="Image" Value="screen/scrnMenuBkg.png" />
+     
+ 
+     <Window Type="CButton" Image="Button" Name="btnScrnSelView" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:6 y:6" />
+      <Property Name="WindowSize" Value="x:86 y:55" />
+      <Property Name="WindowCaption" Value="选看" />  
+      <Property Name="WindowVisible" Value="true" />  
+      <Scheme Name="SchmSelView">
+	       <Property Name="WindowEnable" Value="true" />
+	       <Property Name="Image" Value="screen/btnScrnSelView" /> 
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnSrcnSelWatch" /> 
+      </Scheme>
+      <Scheme Name="SchmCancleSelView">
+	       <Property Name="WindowEnable" Value="true" />
+	       <Property Name="Image" Value="screen/btnCancleScrnSelView" /> 
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnCancleSrcnSelWatch" /> 
+      </Scheme> 
+      <Scheme Name="SchmSelViewDisable">
+	       <Property Name="WindowEnable" Value="false" />
+	       <Property Name="Image" Value="screen/btnScrnSelView" /> 
+      </Scheme> 
+      <Scheme Name="SchmSelTVS">
+	       <Property Name="WindowEnable" Value="true" />
+	       <Property Name="Image" Value="screen/btnScrnSelTVS" /> 
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnSrcnSelWatch" /> 
+      </Scheme>
+      <Scheme Name="SchmSelTVSDisable">
+	       <Property Name="WindowEnable" Value="false" />
+	       <Property Name="Image" Value="screen/btnScrnSelTVS" /> 
+      </Scheme>
+      <Scheme Name="SchmCancleSelTVS">
+	       <Property Name="WindowEnable" Value="true" />
+	       <Property Name="Image" Value="screen/btnCancleScrnSelTVS" /> 
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnCancleSrcnSelWatch" /> 
+      </Scheme>
+      <Scheme Name="SchmCancleSelTVSDisable">
+	       <Property Name="WindowEnable" Value="false" />
+	       <Property Name="Image" Value="screen/btnCancleScrnSelTVS" /> 
+      </Scheme>
+    </Window>
+    
+    <Window Type="CButton" Image="Button" Name="btnScrnSelDual" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:6 y:63" />
+      <Property Name="WindowSize" Value="x:86 y:55" />
+      <Property Name="WindowCaption" Value="演示" /> 
+      <Property Name="WindowVisible" Value="true" /> 
+      <Scheme Name="SchmDual">
+	       <Property Name="WindowEnable" Value="true" />
+	       <Property Name="Image" Value="screen/btnScrnDspDual" />
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnSrcnDispDual" />
+      </Scheme>
+      <Scheme Name="SchmCancleDual">
+	       <Property Name="WindowEnable" Value="true" />
+	       <Property Name="Image" Value="screen/btnScrnDspCancleDual" />
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnCancleSrcnDispDual" />
+      </Scheme> 
+      <Scheme Name="SchmNotRcvDual">
+	       <Property Name="WindowEnable" Value="false" />
+	       <Property Name="Image" Value="screen/btnScrnDspDual" /> 
+      </Scheme> 
+    </Window>
+   
+    
+    <Window Type="CButton" Image="Button" Name="btnScrnSelLocal" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:6 y:120" />
+			<Property Name="WindowSize" Value="x:86 y:55" /> 
+			<Property Name="WindowCaption" Value="回显" />  
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="WindowEnable" Value="true" /> 
+      <Scheme Name="SchmLocal"> 
+	       <Property Name="Image" Value="screen/btnScrnDspLocal" />
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnSrcnDispLocal" />
+      </Scheme>
+      <Scheme Name="SchmCancleLocal"> 
+	       <Property Name="Image" Value="screen/btnScrnDspCancleLocal" />
+	       <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::BtnCancleSrcnDispLocal" />
+      </Scheme> 
+    </Window> 
+   
+    <CallBackFunc Type="CallBackFunc" Value="CScrnDisplayMenuLogic::InitWnd" />
+  </Window>
+</UILayout>

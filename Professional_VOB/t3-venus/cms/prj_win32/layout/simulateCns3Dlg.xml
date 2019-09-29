@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+	
+	<!--
+	坐席scheme
+    SchmSeatSpk        当前会场在会议中且为发言会场，三个发言坐席全亮  点对点时，单屏都亮
+	  SchmSeatNotSpk     当前会场在会议中为非发言会场，三个坐席都不亮
+		
+	 座席策略  
+	  点对点场合：
+			三屏对一屏 三屏会场对应语音激励结果 点亮一个座席
+			其他场合   座席全亮
+	 多点场合
+		 为发言会场则全亮 
+		 不为发言会场则全灭
+
+   其他更改：
+
+    多点会议中 单屏音频接受采用混音器方式
+
+    12月 在演讲模式添加语音激励开关
+    
+    
+	屏scheme
+	  SchmScrnSelDual     当前屏选看双流
+	  SchmScrnSelLocal    当前屏回显
+	  SchmScrnSelCns      选看会场 
+	  -->
+	
+  <!--模拟屏3  Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle=""-->
+  <Window Type="CDlgChild" Name="SimulateCns3Dlg" >
+    <Property Name="WindowPos" Value="x:140 y:77" />
+    <Property Name="WindowSize" Value="x:1086 y:590" />
+    <Property Name="Image" Value="" />
+    <Property Name="WindowVisible" Value="false"/> 
+    <Scheme Name="SchmSimulateCnsBkg">
+        <Property Name="WindowVisible" Value="true"/> 
+    </Scheme>
+      <Scheme Name="SchmBlankBkg">
+        <Property Name="WindowVisible" Value="false"/> 
+    </Scheme>
+    
+    
+       
+    <Window Type="CStaticEx" Name="stcConfTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:0 y:35" />
+      <Property Name="WindowSize" Value="x:1085 y:45" />
+      <Property Name="FontColor" Value="r:255 g:255 b:255" /> 
+      <Property Name="FontSize" Value="18" />
+      <Property Name="Alignment" Value="1" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+    </Window>
+     
+    
+     <Window Type="CStatic" Name="stcScreen1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:0 y:0" />
+      <Property Name="WindowSize" Value="x:361 y:348" />
+      <Property Name="WindowCaption" Value="" /> 
+      <Property Name="Image" Value="screen/screen3Bkg.png" /> 
+      <Property Name="WindowVisible" Value="True" />  
+    </Window>
+    
+    
+    <Window Type="CStatic" Name="stcScreen2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:362 y:0" />
+      <Property Name="WindowSize" Value="x:361 y:348" />
+      <Property Name="WindowCaption" Value="" /> 
+      <Property Name="Image" Value="screen/screen3Bkg.png" /> 
+      <Property Name="WindowVisible" Value="True" /> 
+    </Window>
+    
+    
+     
+    <Window Type="CStatic" Name="stcScreen3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:724 y:0" />
+      <Property Name="WindowSize" Value="x:361 y:348" />
+      <Property Name="WindowCaption" Value="" /> 
+      <Property Name="Image" Value="screen/screen3Bkg.png" />  
+      <Property Name="WindowVisible" Value="True" /> 
+    </Window>
+     
+    
+    
+     <Window Type="CTransparentSwitchButton" Name="btnSwithcScreen1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:5 y:65" />
+      <Property Name="WindowSize" Value="x:351 y:205" />
+      <Property Name="WindowCaption" Value="屏1" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="SwitchState" Value="false" />
+      <Property Name="BindWnd" Value="SelViewLstDlg" />  
+      <Event Type="WM_BUTTON_CLICK" Value="CSimulateCnsLogic::BtnSrcn1Click" />	 
+   <!--   <Event Type="WM_LBUTTONDBLCLK" Value="CSimulateCnsLogic::BtnSrcn1CancleSelWatch" /> -->
+      <Scheme Name="SchmInConf">
+      	<Property Name="WindowEnable" Value="true" /> 
+      	<Property Name="Image" Value="screen/switchBtnScreen3" /> 
+      </Scheme>
+
+      <Scheme Name="SchmNotInConf">
+        <Property Name="Image" Value="screen/switchBtnScreen3Idle" /> 
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+    
+      <Property Name="WindowVisible" Value="True" /> 
+    </Window>
+    
+    
+    <Window Type="CTransparentSwitchButton" Name="btnSwithcScreen2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:367 y:65" />
+      <Property Name="WindowSize" Value="x:351 y:205" />
+      <Property Name="WindowCaption" Value="屏2" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="SwitchState" Value="false" /> 
+      <Property Name="BindWnd" Value="SelViewLstDlg" />  
+      <Event Type="WM_BUTTON_CLICK" Value="CSimulateCnsLogic::BtnSrcn2Click" />	 
+   <!--   <Event Type="WM_LBUTTONDBLCLK" Value="CSimulateCnsLogic::BtnSrcn2CancleSelWatch" /> -->
+      <Scheme Name="SchmInConf">
+      	<Property Name="WindowEnable" Value="true" /> 
+      	<Property Name="Image" Value="screen/switchBtnScreen3" /> 
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+        <Property Name="Image" Value="screen/switchBtnScreen3Idle" /> 
+         <Property Name="WindowEnable" Value="false" />
+      </Scheme> 
+      <Scheme Name="SchmLocalPIP">
+         <Property Name="Image" Value="screen/switchBtnPIPScreen3" /> 
+         <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmNoLocalPIP">
+         <Property Name="Image" Value="screen/switchBtnScreen3" /> 
+         <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Property Name="WindowVisible" Value="True" /> 
+    </Window>
+    
+    
+    
+     <Window Type="CTransparentSwitchButton" Name="btnSwithcScreen3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:729 y:65" />
+      <Property Name="WindowSize" Value="x:351 y:205" />
+      <Property Name="WindowCaption" Value="屏3" /> 
+      <Property Name="SwitchState" Value="false" /> 
+      <Property Name="BindWnd" Value="SelViewLstDlg" />  
+      <Event Type="WM_BUTTON_CLICK" Value="CSimulateCnsLogic::BtnSrcn3Click" />	 
+  <!--    <Event Type="WM_LBUTTONDBLCLK" Value="CSimulateCnsLogic::BtnSrcn3CancleSelWatch" /> -->
+      <Property Name="WindowEnable" Value="false" /> 
+      <Scheme Name="SchmInConf">
+      	<Property Name="WindowEnable" Value="true" /> 
+      	<Property Name="Image" Value="screen/switchBtnScreen3" /> 
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+        <Property Name="Image" Value="screen/switchBtnScreen3Idle" /> 
+        <Property Name="WindowEnable" Value="false" /> 
+      </Scheme>      
+      <Property Name="WindowVisible" Value="True" /> 
+    </Window>
+    
+     
+    <Window Type="CStatic" Name="stcScreenName1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:38 y:270" />
+      <Property Name="WindowSize" Value="x:285 y:20" />
+      <Property Name="WindowCaption" Value="" />  
+      <Property Name="WindowVisible" Value="True" /> 
+      <Property Name="FontColor" Value="r:255 g:255 b:255" /> 
+      <Property Name="FontSize" Value="12" />
+      <Property Name="Alignment" Value="1" />
+      <Scheme Name="SchmInConf">
+	  <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+	<Property Name="WindowCaption" Value="" /> 
+        <Property Name="WindowVisible" Value="false" />	  
+      </Scheme>
+    </Window>
+    
+    <Window Type="CStaticEx" Name="stcScreen1State" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+      <Property Name="WindowPos" Value="x:320 y:273" />
+      <Property Name="WindowSize" Value="x:29 y:27" />
+      <Property Name="WindowCaption" Value="" />  
+      <Property Name="WindowVisible" Value="false" /> 
+      <Scheme Name="SchmNotInConf">
+        <Property Name="WindowVisible" Value="false" />	  
+      </Scheme> 
+      <Scheme Name="SchmScrnSelDual">
+        <Property Name="Image" Value="screen/scrnSelDual.png" />
+        <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmScrnSelLocal">
+        <Property Name="Image" Value="screen/scrnSelLocal.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme> 
+      <Scheme Name="SchmScrnSelCns"> 
+        <Property Name="Image" Value="screen/scrnSelCns.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme> 
+      <Scheme Name="SchmScrnSelTVS"> 
+        <Property Name="Image" Value="screen/scrnSelTVS.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+    </Window> 
+   
+   
+    <Window Type="CStatic" Name="stcScreenName2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:400 y:270" />
+      <Property Name="WindowSize" Value="x:285 y:20" />
+      <Property Name="FontColor" Value="r:255 g:255 b:255" /> 
+      <Property Name="FontSize" Value="12" />
+      <Property Name="Alignment" Value="1" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmInConf">
+	<Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+	<Property Name="WindowCaption" Value="" /> 
+        <Property Name="WindowVisible" Value="false" />	
+      </Scheme>
+    </Window>
+    <Window Type="CStatic" Name="stcScreen2State" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+      <Property Name="WindowPos" Value="x:682 y:273" />
+      <Property Name="WindowSize" Value="x:29 y:27" /> 
+      <Property Name="WindowCaption" Value="" />  
+      <Property Name="WindowVisible" Value="false" /> 
+      <Scheme Name="SchmNotInConf">
+        <Property Name="WindowVisible" Value="false" />	  
+      </Scheme> 
+      <Scheme Name="SchmScrnSelDual">
+        <Property Name="Image" Value="screen/scrnSelDual.png" />
+        <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmScrnSelLocal">
+        <Property Name="Image" Value="screen/scrnSelLocal.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme> 
+      <Scheme Name="SchmScrnSelCns"> 
+        <Property Name="Image" Value="screen/scrnSelCns.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme> 
+    </Window>
+    
+    
+   
+    <Window Type="CStatic" Name="stcScreenName3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:762 y:270" />
+      <Property Name="WindowSize" Value="x:285 y:20" />
+      <Property Name="FontColor" Value="r:255 g:255 b:255" /> 
+      <Property Name="FontSize" Value="12" />
+      <Property Name="Alignment" Value="1" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmInConf">
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+			<Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="false" />	
+      </Scheme>
+    </Window>
+    <Window Type="CStatic" Name="stcScreen3State" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+      <Property Name="WindowPos" Value="x:1044 y:273" />
+      <Property Name="WindowSize" Value="x:29 y:27" />
+       <Property Name="WindowCaption" Value="" />  
+      <Property Name="WindowVisible" Value="false" /> 
+      <Scheme Name="SchmNotInConf">
+        <Property Name="WindowVisible" Value="false" />	  
+      </Scheme> 
+      <Scheme Name="SchmScrnSelDual">
+        <Property Name="Image" Value="screen/scrnSelDual.png" />
+        <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmScrnSelLocal">
+        <Property Name="Image" Value="screen/scrnSelLocal.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme> 
+      <Scheme Name="SchmScrnSelCns"> 
+        <Property Name="Image" Value="screen/scrnSelCns.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmScrnSelTVS"> 
+        <Property Name="Image" Value="screen/scrnSelTVS.png" /> 
+	      <Property Name="WindowVisible" Value="true" /> 
+      </Scheme> 
+    </Window>
+    
+ 
+    
+    <!--发言人1-->
+    <Window Type="CStatic" Name="stcSpoksman1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:24 y:349" />
+      <Property Name="WindowSize" Value="x:234 y:173" />
+      <Property Name="WindowCaption" Value="" />
+      <Scheme Name="SchmInConf">
+          <Property Name="Image" Value="screen/stcSitInConf3.png" />
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+          <Property Name="Image" Value="screen/stcSitConf3Idl.png" />
+      </Scheme>
+      <Scheme Name="SchmSeatNotSpk">
+          <Property Name="Image" Value="screen/stcSitInConf3.png" />
+      </Scheme>
+      <Scheme Name="SchmSeatSpk">
+          <Property Name="Image" Value="screen/stcSitConf3Spk.png" />
+      </Scheme> 
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="WindowEnable" Value="false" />
+    </Window>
+    
+    <Window Type="CButton" Name="btnSetSpokesman1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:74 y:527" />
+      <Property Name="WindowSize" Value="x:134 y:53" />
+      <Property Name="WindowCaption" Value="设为发言人" />    
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="screen/btnBecomeSpeaker" />
+      <Event Type="WM_LBUTTONUP" Value="CSimulateCnsLogic::BtnSetSpokesman1Click" />	
+      
+      <Scheme Name="SchmNotInConf">
+          <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+       <Scheme Name="SchmShowSpokeBtn">
+          <Property Name="WindowVisible" Value="true" />
+      </Scheme> 
+      <Scheme Name="SchmHideSpokeBtn">
+          <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      
+       <Scheme Name="SchmSeatNotSpk">
+          <Property Name="WindowEnable" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmSeatSpk">
+          <Property Name="WindowEnable" Value="false" /> 
+      </Scheme> 
+     
+    </Window>
+    
+    <!--发言人2-->
+    <Window Type="CStatic" Name="stcSpoksman2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:426 y:349" />
+      <Property Name="WindowSize" Value="x:234 y:173" />
+      <Property Name="WindowCaption" Value="" />
+      <Scheme Name="SchmInConf">
+          <Property Name="Image" Value="screen/stcSitInConf3.png" />
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+          <Property Name="Image" Value="screen/stcSitConf3Idl.png" />
+      </Scheme>
+      <Scheme Name="SchmSeatNotSpk">
+          <Property Name="Image" Value="screen/stcSitInConf3.png" />
+      </Scheme>
+      <Scheme Name="SchmSeatSpk">
+          <Property Name="Image" Value="screen/stcSitConf3Spk.png" />
+      </Scheme> 
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="WindowEnable" Value="false" />
+    </Window>
+    
+    
+    <Window Type="CButton" Name="btnSetSpokesman2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:476 y:527" />
+      <Property Name="WindowSize" Value="x:134 y:53" />
+      <Property Name="WindowCaption" Value="设为发言人" />  
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="screen/btnBecomeSpeaker" />
+      <Event Type="WM_LBUTTONUP" Value="CSimulateCnsLogic::BtnSetSpokesman2Click" />	      
+      <Scheme Name="SchmNotInConf">
+          <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+       <Scheme Name="SchmShowSpokeBtn">
+          <Property Name="WindowVisible" Value="true" />
+      </Scheme> 
+      <Scheme Name="SchmHideSpokeBtn">
+          <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+       <Scheme Name="SchmSeatNotSpk">
+          <Property Name="WindowEnable" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmSeatSpk">
+          <Property Name="WindowEnable" Value="false" /> 
+      </Scheme> 
+     
+    </Window>
+    
+    <!--发言人3-->
+    <Window Type="CStatic" Name="stcSpoksman3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:828 y:349" />
+      <Property Name="WindowSize" Value="x:234 y:173" />
+      <Property Name="WindowCaption" Value="" />
+      <Scheme Name="SchmInConf">
+          <Property Name="Image" Value="screen/stcSitInConf3.png" />
+      </Scheme>
+      <Scheme Name="SchmNotInConf">
+          <Property Name="Image" Value="screen/stcSitConf3Idl.png" />
+      </Scheme>
+      <Scheme Name="SchmSeatNotSpk">
+          <Property Name="Image" Value="screen/stcSitInConf3.png" />
+      </Scheme>
+      <Scheme Name="SchmSeatSpk">
+          <Property Name="Image" Value="screen/stcSitConf3Spk.png" />
+      </Scheme> 
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="WindowEnable" Value="false" />
+    </Window> 
+    
+    
+    <Window Type="CButton" Name="btnSetSpokesman3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:878 y:527" />
+      <Property Name="WindowSize" Value="x:134 y:53" />
+      <Property Name="WindowCaption" Value="设为发言人" />  
+      <Property Name="WindowVisible" Value="false" />
+      <Property Name="Image" Value="screen/btnBecomeSpeaker" />
+      <Event Type="WM_LBUTTONUP" Value="CSimulateCnsLogic::BtnSetSpokesman3Click" />	
+			<Scheme Name="SchmSeatNotSpk">
+			  <Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmSeatSpk">
+			  <Property Name="WindowEnable" Value="false" /> 
+			</Scheme> 
+			<Scheme Name="SchmShowSpokeBtn">
+			  <Property Name="WindowVisible" Value="true" />
+			</Scheme> 
+			<Scheme Name="SchmHideSpokeBtn">
+          <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+			<Scheme Name="SchmNotInConf">
+			  <Property Name="WindowVisible" Value="false" />
+			</Scheme>
+    </Window>
+    <CallBackFunc Type="CallBackFunc" Value="CSimulateCnsLogic::InitWnd" />	
+  </Window>
+</UILayout>

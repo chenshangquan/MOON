@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+    <!--用户自定义界面-->
+    <!--
+    1.SchmUserDefined :显示自定义界面
+    2.SchmSysName : 显示设置系统名称界面
+    3.SchmScreenPswd: 显示锁屏密码设置界面
+    4.SchmSysTime:系统时间设界面
+    5.SchmFuncLst:功能列表界面
+   Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"
+   -->
+    <Window Type="CDlgPopup" Name="UserdefinedDlg">
+        <Property Name="AutoHideStatus" Value="true" />
+        <Property Name="WindowPos" Value="x:441 y:53" />
+        <Property Name="WindowSize" Value="x:483 y:618" />
+        <Property Name="Image" Value="windowBkg" />
+        <Property Name="WindowVisible" Value="false" />
+        <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:161 y:10" />
+            <Property Name="WindowSize" Value="x:161 y:25" />
+            <Property Name="Image" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="FontColor" Value="r:228 g:238 b:255" />
+            <Property Name="Alignment" Value="1" />
+            <Property Name="FontSize" Value="12" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowCaption" Value="自定义设置" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowCaption" Value="系统名称" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowCaption" Value="屏幕解锁密码" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowCaption" Value="系统时间" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowCaption" Value="功能列表设置" />
+            </Scheme>
+        </Window>
+        <Window Type="CButton" Name="BtnToUserDefined" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:8 y:7" />
+            <Property Name="WindowSize" Value="x:99 y:37" />
+            <Property Name="WindowCaption" Value="自定义设置" />
+            <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnToUserDefinedClick" />
+            <Property Name="Image" Value="btnToUserDefined" />
+            <Property Name="WindowVisible" Value="False" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CButton" Name="BtnCancle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:409 y:7" />
+            <Property Name="WindowSize" Value="x:65 y:37" />
+            <Property Name="WindowCaption" Value="取消" />
+            <Property Name="Image" Value="btnCancel" />
+            <Property Name="WindowVisible" Value="false" />
+            <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnTCancleClick" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CButton" Name="BtnSave" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:342 y:7" />
+            <Property Name="WindowSize" Value="x:65 y:37" />
+            <Property Name="WindowCaption" Value="保存" />
+            <Property Name="Image" Value="btnSave" />
+            <Property Name="WindowVisible" Value="false" />
+            <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnSaveClick" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <!--配置选项 列表-->
+        <Window Type="CAddrList" Name="UserDefinedLst" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:10 y:50" />
+            <Property Name="WindowSize" Value="x:463 y:550" />
+            <Property Name="WindowCaption" Value="配置列表" />
+            <Property Name="ListImage" Value="" />
+            <Property Name="LayoutAlgorithm" Value="Vert" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="ClickNoSel" Value="true" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+        </Window>
+        <!--功能列表 -->
+        <Window Type="CAddrList" Name="LstFunc" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:11 y:52" />
+            <Property Name="WindowSize" Value="x:461 y:552" />
+            <Property Name="WindowCaption" Value="功能列表设置" />
+            <Property Name="WindowVisible" Value="False" />
+            <Property Name="ListImage" Value="listBkg" />
+            <Property Name="ClickNoSel" Value="false" />
+            <Property Name="WindowVisible" Value="False" />
+            <Property Name="TransparentListOffset" Value="0" />
+            <Property Name="TransparentListSelItem" Value="-1" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="TransparentListOffset" Value="0" />
+                <Property Name="TransparentListSelItem" Value="-1" />
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+        </Window>
+        <!--系统名设置界面
+     Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+        <Window Type="CDlgChild" Name="DlgSysName">
+            <Property Name="WindowPos" Value="x:0 y:50" />
+            <Property Name="WindowSize" Value="x:483 y:567" />
+            <Property Name="WindowCaption" Value="系统名设置界面" />
+            <Property Name="Image" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Window Type="CEdit" Name="EdtSysName" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+                <Property Name="WindowPos" Value="x:22 y:14" />
+                <Property Name="WindowSize" Value="x:439 y:55" />
+                <Property Name="WindowCaption" Value="网呈会场控制台" />
+                <Property Name="Image" Value="Edit" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="LimitLength" Value="31" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+        </Window>
+        <!--屏幕解锁密码界面
+        Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+        <Window Type="CDlgChild" Name="DlgScreenPswd">
+            <Property Name="WindowPos" Value="x:0 y:50" />
+            <Property Name="WindowSize" Value="x:483 y:567" />
+            <Property Name="WindowCaption" Value="屏幕解锁密码界面" />
+            <Property Name="Image" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Window Type="CStatic" Name="StcScreenPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:27 y:30" />
+                <Property Name="WindowSize" Value="x:153 y:21" />
+                <Property Name="WindowCaption" Value="屏幕密码解锁" />
+                <Property Name="Image" Value="" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+            <Window Type="CTransparentSwitchButton" Name="BtnScreenPswdSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:343 y:24" />
+                <Property Name="WindowSize" Value="x:113 y:37" />
+                <Property Name="Image" Value="switchbutton" />
+                <Property Name="WindowEnable" Value="True" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="SwitchState" Value="False" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnSwitchClick" />
+            </Window>
+            <Window Type="CStatic" Name="StcPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:27 y:91" />
+                <Property Name="WindowSize" Value="x:105 y:21" />
+                <Property Name="WindowCaption" Value="密码" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+            <Window Type="CEdit" Name="EdtPswd" Style="ES_PASSWORD|WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+                <Property Name="WindowPos" Value="x:123 y:72" />
+                <Property Name="WindowSize" Value="x:338 y:55" />
+                <Property Name="WindowCaption" Value="" />
+                <Property Name="Image" Value="Edit" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="LimitLength" Value="31" />
+                <Property Name="FontSize" Value="12" />
+                <Property Name="DisableImg" Value="true" />
+                <Scheme Name="SchmScreenPswdOn">
+                    <Property Name="WindowEnable" Value="True" />
+                </Scheme>
+                <Scheme Name="SchmScreenPswdOff">
+                    <Property Name="WindowEnable" Value="false" />
+                </Scheme>
+            </Window>
+        </Window>
+        <!--系统时间设置界面
+        Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+        <Window Type="CDlgChild" Name="DlgSysTime">
+            <Property Name="WindowPos" Value="x:0 y:50" />
+            <Property Name="WindowSize" Value="x:483 y:567" />
+            <Property Name="WindowCaption" Value="系统时间设置界面" />
+            <Property Name="Image" Value="" />
+            <Property Name="WindowVisible" Value="false" />
+            <Scheme Name="SchmUserDefined">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysName">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmScreenPswd">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmSysTime">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmFuncLst">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Window Type="CStatic" Name="StcScreenPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:27 y:31" />
+                <Property Name="WindowSize" Value="x:70 y:22" />
+                <Property Name="WindowCaption" Value="日期" />
+                <Property Name="Image" Value="" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+            <Window Type="CButton" Name="BtnCalender" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:411 y:17" />
+                <Property Name="WindowSize" Value="x:45 y:48" />
+                <Property Name="WindowCaption" Value="日历" />
+                <Property Name="WindowEnable" Value="true" />
+                <Property Name="Image" Value="btnCalendar" />
+                <Property Name="WindowVisible" Value="True" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnCalendarClick" />
+                <Scheme Name="SchmShowCalendar">
+                    <Property Name="WindowEnable" Value="true" />
+                </Scheme>
+                <Scheme Name="SchmHideCalendar">
+                    <Property Name="WindowEnable" Value="true" />
+                </Scheme>
+            </Window>
+            <Window Type="CStatic" Name="StcPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:27 y:90" />
+                <Property Name="WindowSize" Value="x:70 y:21" />
+                <Property Name="WindowCaption" Value="时间" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+            <Window Type="CButton" Name="BtnDelHour" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:129 y:79" />
+                <Property Name="WindowSize" Value="x:46 y:46" />
+                <Property Name="WindowCaption" Value="-" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="btnTimeDel" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnDeleteHourClick" />
+            </Window>
+            <Window Type="CEdit" Name="EdtMin" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+                <Property Name="WindowPos" Value="x:352 y:74" />
+                <Property Name="WindowSize" Value="x:55 y:55" />
+                <Property Name="WindowCaption" Value="1" />
+                <Property Name="Image" Value="Edit" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="LimitLength" Value="2" />
+                <Property Name="ShowIcon" Value="false" />
+                <Property Name="FontSize" Value="12" />
+                <Event Type="WM_CHAR" Value="CUserDefinedLogic::EdtMinOnChar" />
+                <Property Name="Alignment" Value="1" />
+            </Window>
+            <Window Type="CEdit" Name="EdtHour" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+                <Property Name="WindowPos" Value="x:178 y:74" />
+                <Property Name="WindowSize" Value="x:55 y:55" />
+                <Property Name="WindowCaption" Value="16" />
+                <Property Name="Image" Value="Edit" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="LimitLength" Value="2" />
+                <Property Name="ShowIcon" Value="false" />
+                <Event Type="WM_CHAR" Value="CUserDefinedLogic::EdtHourOnChar" />
+                <Property Name="FontSize" Value="12" />
+                <Property Name="Alignment" Value="1" />
+            </Window>
+            <Window Type="CEdit" Name="EdtDate" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY|WS_TABSTOP">
+                <Property Name="WindowPos" Value="x:123 y:14" />
+                <Property Name="WindowSize" Value="x:285 y:55" />
+                <Property Name="Image" Value="Edit" />
+                <Property Name="WindowVisible" Value="True" />
+                <!-- <Event Type="WM_LBUTTONUP" Value="CUserDefinedLogic::BtnSaveClick" /> -->
+                <Property Name="LimitLength" Value="14" />
+                <Property Name="ShowIcon" Value="false" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+            <Window Type="CButton" Name="BtnAddHour" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:236 y:79" />
+                <Property Name="WindowSize" Value="x:46 y:46" />
+                <Property Name="WindowCaption" Value="+" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="btnTimeAdd" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnAddHourClick" />
+            </Window>
+            <Window Type="CStatic" Name="StcPoint" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:283 y:85" />
+                <Property Name="WindowSize" Value="x:18 y:30" />
+                <Property Name="WindowCaption" Value=":" />
+                <Property Name="FontSize" Value="20" />
+                <Property Name="FontColor" Value="r:228 g:238 b:255" />
+                <Property Name="Alignment" Value="1" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="" />
+                <Property Name="FontSize" Value="12" />
+            </Window>
+            <Window Type="CButton" Name="BtnDelMin" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:303 y:79" />
+                <Property Name="WindowSize" Value="x:47 y:47" />
+                <Property Name="WindowCaption" Value="-" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="btnTimeDel" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnDeleteMinClick" />
+            </Window>
+            <Window Type="CButton" Name="BtnAddMin" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:410 y:79" />
+                <Property Name="WindowSize" Value="x:46 y:46" />
+                <Property Name="WindowCaption" Value="+" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="btnTimeAdd" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnAddMinClick" />
+            </Window>
+            <Window Type="CButton" Name="BtnSyncTimToServ" Style="WS_CHILD|WS_CLIPSIBLINGS">
+                <Property Name="WindowPos" Value="x:65 y:503" />
+                <Property Name="WindowSize" Value="x:354 y:51" />
+                <Property Name="WindowCaption" Value="同步至服务器" />
+                <Property Name="WindowVisible" Value="True" />
+                <Property Name="Image" Value="btnSyncTimeToServ" />
+                <Event Type="WM_BUTTON_CLICK" Value="CUserDefinedLogic::BtnSyncTimeToServClick" />
+            </Window>
+        </Window>
+        <CallBackFunc Type="CallBackFunc" Value="CUserDefinedLogic::InitWnd" />
+    </Window>
+    <Window Type="CDlgPopup" Name="CalendarDlg">
+        <Property Name="AutoHideStatus" Value="true" />
+        <Property Name="WindowPos" Value="x:441 y:72" />
+        <Property Name="WindowSize" Value="x:415 y:370" />
+        <Property Name="Image" Value="" />
+        <Property Name="WindowVisible" Value="false" />
+        <Window Type="CTransparentCalendar" Name="Calender" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:0" />
+            <Property Name="WindowSize" Value="x:415 y:370" />
+            <Property Name="Image" Value="Calendar" />
+            <Property Name="WindowVisible" Value="true" />
+            <Event Type="UI_CALENDAR_SELECT_DATE" Value="CTimeSetLogic::OnCalendarDateChange" />
+        </Window>
+    </Window>
+</UILayout>

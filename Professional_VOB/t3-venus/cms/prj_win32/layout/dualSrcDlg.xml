@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout> 
+  <!-- 演示源设置  
+   -->
+  <Window Type="CDlgPopup" Name="DualSrcDlg">
+	<Property Name="AutoHideStatus" Value="true" />
+	<Property Name="WindowPos" Value="x:441 y:53" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="Image" Value="windowBkg" />
+	<Property Name="WindowVisible" Value="False" />
+    
+	<Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:161 y:10" />
+		<Property Name="WindowSize" Value="x:161 y:25" />
+		<Property Name="WindowCaption" Value="演示源选择" />
+		<Property Name="Image" Value="" />
+		<Property Name="WindowVisible" Value="True" />
+		<Property Name="FontColor" Value="r:228 g:238 b:255" />
+		<Property Name="Alignment" Value="1" />
+		<Property Name="FontSize" Value="12" /> 
+	</Window>
+	
+	
+	<!--列表 -->
+	<Window Type="CAddrList" Name="LstDualSrc" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:17 y:52" />
+		<Property Name="WindowSize" Value="x:449 y:552" />
+		<Property Name="WindowCaption" Value="" />
+		<Property Name="WindowVisible" Value="true" />
+		<Property Name="ListImage" Value="listBkg" />
+		<Property Name="ClickNoSel" Value="true" />
+		<Property Name="TransparentListOffset" Value="0" />
+		<Property Name="TransparentListSelItem" Value="-1" />
+	
+	</Window>
+    
+    <!--
+    <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="LstUser" />
+      <Property Name="WindowVisible" Value="False" />
+      <Property Name="Image" Value="letterindex" />
+       <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme> 
+    </Window>
+    -->
+
+   
+    <CallBackFunc Type="CallBackFunc" Value="CDualSrcLogic::InitWnd" />
+  </Window>
+</UILayout>

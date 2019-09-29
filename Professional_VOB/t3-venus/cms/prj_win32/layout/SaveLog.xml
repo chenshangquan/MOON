@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--系统配置/日志下载 2012-5-28  --> 
+  <Window Type="CDlgModal" Name="SaveLogDlg" >    
+    <Property Name="WindowPos" Value="x:414 y:189" />
+    <Property Name="WindowSize" Value="x:532 y:346" />
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="msgBoxBkg.png" />
+    <Property Name="WindowVisible" Value="true" />
+
+ 	  <Window Type="CButton" Name="BtnOk" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      	<Property Name="WindowPos" Value="x:110 y:241" />
+      	<Property Name="WindowSize" Value="x:138 y:58" />
+      	<Property Name="WindowCaption" Value="确定" />
+      	<Property Name="WindowVisible" Value="true" />
+      	<Property Name="Image" Value="SaveLog\btnOk" />
+      	<Event Type="WM_LBUTTONUP" Value="CSaveLog::OnBtnOk" />
+      	<Scheme Name="SchmDownLoad">	
+			         <Property Name="WindowVisible" Value="false" />
+		</Scheme> 
+    </Window>
+    
+  	<Window Type="CButton" Name="BtnCancel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+    	<Property Name="WindowPos" Value="x:284 y:241" />
+    	<Property Name="WindowSize" Value="x:138 y:58" />
+    	<Property Name="WindowCaption" Value="退出" />
+    	<Property Name="WindowVisible" Value="true" />
+    	<Property Name="Image" Value="SaveLog\btnCancel" />      
+    	<Event Type="WM_LBUTTONUP" Value="CSaveLog::OnBtnExit" />
+    	<Scheme Name="SchmDownLoad">	
+	       	<Property Name="WindowVisible" Value="false" />
+	    </Scheme> 
+    </Window> 
+    
+    <Window Type="CStaticEx" Name="StInfo" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:110 y:132" />
+			<Property Name="WindowSize" Value="x:290 y:28" />
+			<Property Name="WindowCaption" Value="系统日志文件保存至*./log" />	 
+			<Property Name="FontColor" Value="r:241 g:252 b:252" />
+			<Property Name="FontSize"  Value="14" />
+			<Property Name="Alignment" Value="1" />
+			<Property Name="WindowVisible" Value="true" />
+			<Scheme Name="SchmDownLoadOk">
+				<Property Name="WindowCaption" Value="系统日志文件下载完成！" />	
+				<Property Name="WindowVisible" Value="true" />							
+			</Scheme>	 
+			<Scheme Name="SchmDownLoad">	
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>	 
+	</Window>
+	
+	<Window Type="CStaticEx" Name="StDwonInfo" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:200 y:52" />
+		<Property Name="WindowSize" Value="x:130 y:28" />
+		<Property Name="WindowCaption" Value="正在下载..." />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="FontSize" Value="14" />
+		<Scheme Name="SchmDownLoad">			
+		 	<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmDownLoadOk">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>	
+		<Property Name="FontColor" Value="r:241 g:252 b:252" />		
+		<Property Name="Alignment" Value="1" />
+	</Window>
+	<Window Type="CTransparentProgress" Name="Progress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:42 y:130" />
+		<Property Name="WindowSize" Value="x:449 y:10" />	
+		<Property Name="WindowVisible" Value="false" />
+		<Scheme Name="SchmDownLoad">			
+		 	<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmDownLoadOk">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>	
+		  <Property Name="Image" Value="Progress" />
+	</Window>
+	<Window Type="CButton" Name="BtnUnDownload" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:198 y:248" />
+		<Property Name="WindowSize" Value="x:138 y:58" />	
+		<Property Name="WindowVisible" Value="false" />
+		<Scheme Name="SchmDownLoad">			
+		 	<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmDownLoadOk">			
+		 	<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Property Name="Image" Value="SaveLog\btnCancel" />
+		<Event Type="WM_LBUTTONUP" Value="CSaveLog::OnBtnCancel" />
+	</Window>
+	<Window Type="CButton" Name="BtnDownloadOk" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:198 y:248" />
+		<Property Name="WindowSize" Value="x:138 y:58" />	
+		<Property Name="WindowVisible" Value="false" />
+		<Scheme Name="SchmDownLoadOk">			
+		 	<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Property Name="Image" Value="SaveLog\btnOk" />
+		<Event Type="WM_LBUTTONUP" Value="CSaveLog::OnBtnDwnOk" />
+	</Window>	
+	<Window Type="CStaticEx" Name="StDwonProg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:370 y:160" />
+		<Property Name="WindowSize" Value="x:130 y:28" />
+		<Property Name="WindowCaption" Value="" />
+		<Property Name="WindowVisible" Value="false" />
+		<Property Name="FontSize" Value="12" />
+		<Scheme Name="SchmDownLoad">			
+		 	<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		<Scheme Name="SchmDownLoadOk">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>	
+		<Property Name="FontColor" Value="r:241 g:252 b:252" />
+		<Property Name="FontSize"  Value="14" />
+		<Property Name="Alignment" Value="1" />
+	</Window>
+    <CallBackFunc Type="CallBackFunc" Value="CSaveLog::InitWnd" />
+  </Window>
+</UILayout>

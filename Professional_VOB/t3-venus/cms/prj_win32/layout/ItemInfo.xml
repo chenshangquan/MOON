@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--tp主界面-->
+  <ItemInfo>
+    <Item Name="TextItem" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" SelColor="r:255 g:255 b:255" Alignment="0" /> 
+    <Item Name="TextItemAgtMid" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" SelColor="r:255 g:255 b:255" Alignment="1" /> 
+    <Item Name="TextItemWhite" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:146 g:157 b:183" FontSize="12" Alignment="0" />
+    <Item Name="TextItemSuperWhite" Type="Text" Size="x:400 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:255 g:255 b:255" FontSize="14" Alignment="0" />
+    <Item Name="TextItemNoSel" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" Alignment="0" /> 
+    <Item Name="ImageItem" Type="Image" Size="x:10 y:60" Text="" Func="" Image="Item" />
+    <Item Name="AddrListItem" Type="ListItem" Size="x:10 y:60" Text="" Func="" Image="addrListItem" />
+    <Item Name="TempListItem" Type="ListItem" Size="x:10 y:44" Text="" Func="" Image="tempListItem" />
+    <Item Name="MainCnsItem" Type="ListItem" Size="x:10 y:60" Text="" Func="" Image="mainCnsItem" />
+    <Item Name="AutoHeightItem" Type="ListItem" Size="x:10 y:44" Text="" Func="" Image="autoHeightItem" />
+    <Item Name="SysCfgItem" Type="ListItem" Size="x:10 y:44" Text="" Func="" Image="sysCfgItem" />
+    <Item Name="AddrOptnItem" Type="ListItem" Size="x:10 y:50" Text="" Func="" Image="autoHeightItem" />
+
+    <Item Name="ConnectCnsItem" Type="Image" Size="x:427 y:56" Text="" Func="" Image="connectCnsItem" />
+    <Item Name="BlankPageItem" Type="Image" Size="x:960 y:440" Text="" Func="" Image="" />
+    <Item Name="ConfMenuPageItem" Type="Image" Size="x:744 y:97" Text="" Func="" Image="" />
+    <Item Name="ConfMenuCheckItem" Type="CheckItem" Size="x:124 y:97" Text="" Func="" Image="" />
+    <Item Name="ConfMenuButtonItem" Type="ButtonItem" Size="x:124 y:97" Text="" Func="" Image="" />
+    <!--会议模板列表的“显示模板详细信息”子条目-->
+    <Item Name="ImageItemConftempShowInfo" Type="Image" Size="x:39 y:47" Text="" Func="CConftempLstLogic::BtnToTempInfoClick" Image="moreImg" />
+    <!--会议模板列表的“删除”子条目-->
+    <Item Name="ImageItemConftempDelete" Type="Image" Size="x:30 y:30" Text="" Func="CConftempEdtLogic::OnTempLstDelIcon" Image="delImg" AlwaysShow = "false" />
+    <!--会议模板中cns列表中 的“删除”子条目-->
+    <Item Name="ImageItemConftempCnsDelete" Type="Image" Size="x:30 y:30" Text="" Func="CConftempEdtLogic::OnCnsLstDelIcon" Image="delImg" />
+    <!--会议模板中轮询列表 中的可拖动图标-->
+    <Item Name="ImageItemConftempPollDrag" Type="Image" Size="x:40 y:40" Text="" Func="OnIconPollItemDrag" Image="dragImg" />
+    <Item Name="ImageItemConftempCnsAddToPoll" Type="Image" Size="x:30 y:30" Text="" Func="CConftempEdtLogic::OnCnsLstAddICon" Image="addImg" />
+    <Item Name="ImageItemConftempAddrToCns" Type="Image" Size="x:30 y:30" Text="" Func="CConftempEdtLogic::OnAddrAddIcon" Image="addImg">
+      <!--会议模板中地址簿中的添加图标：添加到会议模板的cns列表中-->
+    </Item>
+    <Item Name="ImageItemConftempAddrGrpToCns" Type="Image" Size="x:30 y:30" Text="" Func="CConftempEdtLogic::OnAddGrpAddIcon" Image="addImg">
+      <!--会议模板中地址簿分组中的添加图标：添加到会议模板的cns列表中-->
+    </Item>
+
+    <!-- 两行字符 -->
+    <Item Name="ExTextItem" Type="ExText" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" Alignment="0" SecondText="" SecondFontName="微软雅黑" SecondFontColor="r:108 g:124 b:148" SecondFontSize="12" SecondAlignment="0" SelColor="r:255 g:255 b:255"></Item>
+ 
+<Item Name="TextItemConfLst" Type="ExText" Size="x:100 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" Alignment="0" SecondText="" SecondFontName="微软雅黑" SecondFontColor="r:46 g:55 b:76" SecondFontSize="12" SecondAlignment="0" SelColor="r:255 g:255 b:255" />
+
+    <!-- 不在线会场 -->
+    <Item Name="TextItemOfflineCns" Type="Text" Size="x:350 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:164 g:171 b:183" FontSize="12" Alignment="0" SelColor="r:255 g:255 b:255" />
+
+    <Item Name="AddrSelItem" Type="Image" Size="x:40 y:40" Text="" Func="CAddrBookLogic::OnSelAddrItem" Image="addrbook/addrSelImg" />
+    <Item Name="AddrUnSelItem" Type="Image" Size="x:40 y:40" Text="" Func="CAddrBookLogic::OnUnSelAddrItem" Image="addrbook/addrUnSelImg" />
+    <Item Name="AddrEditSelItem" Type="Image" Size="x:40 y:40" Text="" Func="CAddrEditLogic::OnSelAddrItem" Image="addrbook/addrSelImg" />
+    <Item Name="AddrEditUnSelItem" Type="Image" Size="x:40 y:40" Text="" Func="CAddrEditLogic::OnUnSelAddrItem" Image="addrbook/addrUnSelImg" />
+
+    <!-- 地址簿组条目 -->
+    <Item Name="GroupNumItem" Type="Text" Size="x:48 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:108 g:124 b:148" FontSize="12" Alignment="1" SelColor="r:255 g:255 b:255" />
+    <Item Name="GroupNameItem" Type="Text" Size="x:320 y:10" Text="" Func="" FontName="微软雅黑" FontColor="r:46 g:55 b:76" FontSize="12" Alignment="0" SelColor="r:255 g:255 b:255" />
+    <Item Name="ImageItemAddrGroup" Type="Image" Size="x:30 y:25" Text="" Func="" Image="addrbook/addrGroupImg" />
+    <!-- 地址簿删除按钮 -->
+    <Item Name="AddrDelItem" Type="Image" Size="x:30 y:30" Text="" Func="CAddrEditLogic::OnBtnDelItem" Image="delImg" />
+    <!-- <Item Name="AddrAddItem" Type="Image" Size="x:30 y:30" Text="" Func="CAddrEditLogic::OnBtnAddItem" Image="addImg" /> -->
+    <!-- <Item Name="AddrDelEntry" Type="Image" Size="x:30 y:30" Text="" Func="CAddrEditLogic::OnBtnDelEntry" Image="delImg" AlwaysShow = "false" /> -->
+    
+    <!-- 地址簿进入组按钮 -->
+    <Item Name="AddrEnterGroupItem" Type="Image" Size="x:39 y:47" Text="" Func="CAddrBookLogic::OnEnterAddrGroup" Image="moreImg" />
+    <Item Name="AddrEditEnterGroupItem" Type="Image" Size="x:39 y:47" Text="" Func="CAddrEditLogic::OnEnterAddrGroup" Image="moreImg" />
+    <!-- 地址簿删除多会场呼叫按钮 -->
+    <Item Name="AddrDelMultiItem" Type="Image" Size="x:30 y:30" Text="" Func="CAddrBookLogic::OnDelFromMultiList" Image="delImg" />
+    
+    <!-- 地址簿会场在线条目 -->
+    <Item Name="AddrOnlineItem" Type="Image" Size="x:40 y:40" Text="" Func="" Image="addrbook/addronline" />
+    <Item Name="AddrOfflineItem" Type="Image" Size="x:40 y:40" Text="" Func="" Image="addrbook/addroffline" />
+    <Item Name="AddrAddGroupItem" Type="Image" Size="x:35 y:32" Text="" Func="" Image="addrbook/addradd" />
+    <Item Name="AddrLoadItem" Type="Image" Size="x:35 y:32" Text="" Func="" Image="addrbook/addrload" />
+
+    <!--会议中会场列表的哑音条目-->
+    <Item Name="ImageItemCnsMute" Type="Image" Size="x:35 y:32" Text="" Func="" Image="confctrl/muteImg" />
+    <!--会议中会场列表的静音图标-->
+    <Item Name="ImageItemCnsSilence" Type="Image" Size="x:35 y:32" Text="" Func="" Image="confctrl/slienceImg" />
+    <!--会议中会场列表的双流图标-->
+    <Item Name="ImageItemCnsDual" Type="Image" Size="x:35 y:32" Text="" Func="" Image="confctrl/dualImg" />
+    <!--会议中会场列表的发言人图标-->
+    <Item Name="ImageItemCnsSpeaker" Type="Image" Size="x:35 y:32" Text="" Func="" Image="confctrl/speakerImg" />
+    <!--会议中会场列表的不在线图标-->
+    <Item Name="ImageItemCnsOffline" Type="Image" Size="x:35 y:32" Text="" Func="" Image="confctrl/offLineImg" />
+  
+    <!--混音列表待选择图标-->
+    <Item Name="ImageItemAudMixCheck" Type="Image" Size="x:40 y:40" Text="" Func="CAudmixLogic::OnAddToAudMixList" Image="addrbook/addrSelImg" AlwaysShow = "true" />
+	<Item Name="ImageMixItemSelected" Type="Image" Size="x:40 y:40" Text="" Func="" Image="MixselectImg" />
+	<!--多处选中item公用图标-->
+    <Item Name="ImageItemSelected" Type="Image" Size="x:35 y:32" Text="" Func="" Image="selectImg" />
+    <!-- cns连接会场展开按钮 -->
+    <Item Name="ImageItemOpenCns" Type="Image" Size="x:39 y:47" Text="" Func="CCnsCfgLogic::OnOpenCnsInfo" Image="moreImg" />
+    <Item Name="ImageItemConfHuangup" Type="Image" Size="x:50 y:50" Text="" Func="CConfInfoLogic::BtnConfLstItemHungupClick" Image="hungupImg" />
+    <!--用户管理界面的展开图标-->
+    <Item Name="ImageItemUserConfig" Type="Image" Size="x:39 y:47" Text="" Func="" Image="moreImg" />
+    <!--用户列表中的展开图标-->
+    <Item Name="ImageItemUserLstToInfo" Type="Image" Size="x:39 y:47" Text="" Func="" Image="moreImg" />
+    <!--系统配置列表中的展开图标-->
+    <Item Name="ImageItemSysCfg" Type="Image" Size="x:39 y:47" Text="" Func="" Image="moreImg"></Item>
+    <!--系统配置列表中的 日志下载图标-->
+    <Item Name="ImgItemDownloadLog" Type="Image" Size="x:40 y:40" Text="" Func="" Image="downloadLog"></Item>
+    <!--电视墙界面 cns 添加到电视的图标-->
+    <!-- <Item Name="ImageItemCnsToTvw" Type="Image" Size="x:30 y:30" Text="" Func="CTvwLogic::OnIconCnsLstAddClick" Image="checkImg" AlwaysShow = "false" /> -->
+    <!--会场选看界面 cns 添加到屏-->
+    <Item Name="ImageItemCnsToView" Type="Image" Size="x:30 y:30" Text="" Func="CScrnDisplayMenuLogic::OnIconCnsLstAddClick" Image="checkImg" AlwaysShow = "false" />
+    <Item Name="ImageItemUserdinfed" Type="Image" Size="x:39 y:47" Text="" Func="" Image="moreImg"/>
+    <Item Name="ImageItemHide" Type="Image" Size="x:39 y:47" Text="" Func="" Image="funlstctrl/itemImgHide"/>
+    <!--灰色文字条目-->
+    <Item Name="GrayTextItem" Type="Text" Size="x:90 y:44" Text="" Func="" FontName="微软雅黑" FontColor="r:108 g:124 b:148" FontSize="12" Alignment="0" SelColor="r:255 g:255 b:255" />
+  </ItemInfo>
+</UILayout>

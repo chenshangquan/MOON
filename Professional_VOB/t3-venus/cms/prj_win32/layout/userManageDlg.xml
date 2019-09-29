@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--用户管理界面-->
+  <!--
+    0 SchmShowUserManage 用户管理菜单界面
+    1.SchmShowUserLst :显示用户列表界面，同时 title切换为“用户管理”，btn "用户配置"显示，“新建用户”显示，其他界面隐藏
+    2.SchmShowUserInfo :显示用户信息界面, 同时 title切换为“用户信息”，btn "用户管理"显示，“编辑”显示 
+    3.SchmEdtUser: 用户信息界面显示为 可编辑的， 同时 title切换为“编辑用户信息”，btn "保存"显示，“取消”显示  4.SchmNewUser:新建用户，界面可编辑，同时 title切换为“新建用户”
+  Note:默认不显示
+   Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgPopup" Name="UserManageDlg">
+			<Property Name="AutoHideStatus" Value="true" />
+			<Property Name="WindowPos" Value="x:441 y:53" />
+			<Property Name="WindowSize" Value="x:483 y:618" />
+			<Property Name="Image" Value="windowBkg" />
+			<Property Name="WindowVisible" Value="False" /> <!----True-->
+			<Scheme Name="SchmShowUserManage">
+			<Property Name="WindowVisible" Value="true" />
+      </Scheme>
+    
+      <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		      <Property Name="WindowPos" Value="x:161 y:10" />
+          <Property Name="WindowSize" Value="x:161 y:25" />
+		      <Property Name="WindowCaption" Value="用户管理" />  <!-- 用户配置 -->
+		      <Property Name="Image" Value="" />
+		      <Property Name="WindowVisible" Value="True" />
+		      <Property Name="FontColor" Value="r:228 g:238 b:255" />
+		      <Property Name="Alignment" Value="1" />
+		      <Property Name="FontSize" Value="12" />
+		      <Scheme Name="SchmShowUserManage">
+		        <Property Name="WindowCaption" Value="用户配置" />
+		      </Scheme>
+		      <Scheme Name="SchmShowUserLst">
+		        <Property Name="WindowCaption" Value="用户管理" />
+		      </Scheme>
+		      <Scheme Name="SchmShowUserInfo">
+		        <Property Name="WindowCaption" Value="用户信息" />
+		      </Scheme>
+		      <Scheme Name="SchmEdtUser">
+		        <Property Name="WindowCaption" Value="编辑用户信息" />
+		      </Scheme>
+		      <Scheme Name="SchmShowManagerInfo">
+		        <Property Name="WindowCaption" Value="管理员密码修改" />
+		      </Scheme>
+    </Window>
+    
+    
+    <Window Type="CButton" Name="BtnToUserConfig" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:8 y:7" />
+      <Property Name="WindowSize" Value="x:99 y:37" />
+      <Property Name="WindowCaption" Value="用户管理" /> <!--配置-->
+      <Property Name="WindowVisible" Value="False" />
+       <Scheme Name="SchmShowUserManage">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>   
+      <Scheme Name="SchmShowUserLst">
+      <Property Name="WindowCaption" Value="用户配置" />
+        <Property Name="WindowVisible" Value="False" /><!--True-->
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToUserConfigClick" />
+        <Property Name="Image" Value="btnUserSet" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowCaption" Value="用户管理" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::ToUserLstIconClick" />
+        <Property Name="Image" Value="btnUserManage" />
+      </Scheme>
+      <Scheme Name="SchmEdtUser">
+        <Property Name="WindowCaption" Value="用户管理" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::ToUserLstIconClick" />
+        <Property Name="Image" Value="btnUserManage" />
+      </Scheme><!--
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowCaption" Value="用户配置" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToUserConfigClick" />
+        <Property Name="Image" Value="btnUserSet" />
+      </Scheme> --> 
+    </Window>
+    
+    
+    <Window Type="CButton" Name="BtnEdt" Style="WS_CHILD|WS_CLIPSIBLINGS"> 
+      <Property Name="WindowVisible" Value="True" /><!-- false -->
+    <!--默认界面变为用户管理 新建用户按钮可见 dyy-->      
+      	<Property Name="WindowPos" Value="x:401 y:7" />
+        <Property Name="WindowSize" Value="x:73 y:37" />
+        <Property Name="WindowCaption" Value="新建用户" />
+        <Property Name="Image" Value="btnNewUser" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToNewUserClick" />        
+      <Scheme Name="SchmShowUserManage">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+      	<Property Name="WindowPos" Value="x:401 y:7" />
+        <Property Name="WindowSize" Value="x:73 y:37" />
+        <Property Name="WindowCaption" Value="新建用户" />
+        <Property Name="Image" Value="btnNewUser" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToNewUserClick" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowCaption" Value="编辑" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToEdtClick" />
+        <Property Name="WindowPos" Value="x:409 y:7" />
+	      <Property Name="WindowSize" Value="x:65 y:37" />
+        <Property Name="Image" Value="btnEdit" />
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmEdtUser">
+        <Property Name="WindowCaption" Value="取消" />
+        <Property Name="WindowPos" Value="x:409 y:7" />
+        <Property Name="WindowSize" Value="x:65 y:37" />
+        <Property Name="Image" Value="btnCancel" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToCancleClick" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowCaption" Value="取消" />
+        <Property Name="WindowPos" Value="x:484 y:7" />
+        <Property Name="WindowSize" Value="x:65 y:37" />
+        <Property Name="Image" Value="btnCancel" />
+        <Property Name="WindowVisible" Value="True" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToCancleClick" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CButton" Name="BtnSave" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:342 y:7" />
+      <Property Name="WindowSize" Value="x:65 y:37" />
+      <Property Name="WindowCaption" Value="保存" />
+      <Property Name="Image" Value="btnSave" />
+      <Property Name="WindowVisible" Value="False" />
+    <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToSaveClick" />
+      <Scheme Name="SchmEdtUser">
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+    </Window>
+    <!--配置选项
+    <Window Type="CAddrList" Name="Lst" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:10 y:50" />
+      <Property Name="WindowSize" Value="x:463 y:550" />
+      <Property Name="WindowCaption" Value="配置列表" />
+      <Property Name="ListImage" Value="" />
+      <Property Name="LayoutAlgorithm" Value="Vert" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="ClickNoSel" Value="true" />
+      <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmEdtUser">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+    </Window>
+    
+       列表-->
+       
+       
+    <!--用户列表 -->
+    <Window Type="CAddrList" Name="LstUser" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:42 y:52" />
+      <Property Name="WindowSize" Value="x:427 y:552" />
+      <Property Name="WindowCaption" Value="用户列表" />
+      <Property Name="WindowVisible" Value="False" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="ClickNoSel" Value="true" />
+      <Property Name="WindowVisible" Value="True" /> <!-- False-->
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+      <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmEdtUser">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="LstUser" />
+      <Property Name="WindowVisible" Value="True" /><!--False-->
+      <Property Name="Image" Value="letterindex" />
+       <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmEdtUser">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+    </Window>
+    
+
+    
+    
+    <!--用户编辑界面-->
+    <!--SchmEdtState: 可编辑状态
+    Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+    <Window Type="CDlgChild" Name="DlgUserInfo" >
+      <Property Name="WindowPos" Value="x:10 y:52" />
+      <Property Name="WindowSize" Value="x:483 y:618" />
+      <Property Name="WindowCaption" Value="用户信息面" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="false" />
+      
+      <Window Type="CStatic" Name="StcUserNameTable" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:17 y:29" />
+        <Property Name="WindowSize" Value="x:82 y:21" />
+        <Property Name="WindowCaption" Value="用户名" />
+        <Property Name="Image" Value="Item" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      
+      <Window Type="CStatic" Name="StcPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:17 y:92" />
+        <Property Name="WindowSize" Value="x:82 y:21" />
+        <Property Name="WindowCaption" Value="密码" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+        <Property Name="Image" Value="Item" />
+      </Window>
+      
+      <!-- 
+       <Window Type="CEdit" Name="EdtUserName" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+        <Property Name="WindowPos" Value="x:143 y:122" />
+        <Property Name="WindowSize" Value="x:360 y:455" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="False" />
+        <Property Name="LimitLength" Value="31" />
+
+        <Scheme Name="SchmEdtUser">
+          <Property Name="WindowEnable" Value="True" />
+        </Scheme>
+             <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      </Window>
+      -->
+      
+      <Window Type="CEdit" Name="EdtPswd" Style="ES_PASSWORD|WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+        <Property Name="WindowPos" Value="x:105 y:73" />
+        <Property Name="WindowSize" Value="x:350 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="WindowEnable" Value="False" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="LimitLength" Value="31" />
+        <Property Name="FontSize" Value="12" />
+        <Event Type="WM_EDIT_SETFOCUS" Value="CUserManageLogic::OnPswdEdtSetFocus" /> 
+        <Scheme Name="SchmEdtUser">
+          <Property Name="WindowEnable" Value="True" />
+        </Scheme>
+         <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      </Window>
+      
+      
+      <Window Type="CEdit" Name="EdtNote" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+        <Property Name="WindowPos" Value="x:105 y:10" />
+        <Property Name="WindowSize" Value="x:350 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowEnable" Value="False" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="WindowEnable" Value="False" />
+        <Property Name="LimitLength" Value="31" />
+        <Property Name="FontSize" Value="12" />
+        <Scheme Name="SchmEdtUser">
+          <Property Name="WindowEnable" Value="false" />
+        </Scheme>
+         <Scheme Name="SchmNewUser">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+        <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      </Window>
+      
+    <!--  
+      <Window Type="CStatic" Name="StcNote" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:138" />
+        <Property Name="WindowSize" Value="x:90 y:22" />
+        <Property Name="WindowCaption" Value="备注" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="Image" Value="Item" />
+      </Window>
+     --> 
+      
+     
+      <Window Type="CButton" Name="BtnDelete" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:163 y:500" />
+        <Property Name="WindowSize" Value="x:159 y:51" />
+        <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnToDeleteClick" />
+        <Property Name="WindowCaption" Value="删除" />
+        <Property Name="Image" Value="btnDelete" />
+        <Property Name="WindowVisible" Value="True" />
+        <Scheme Name="SchmEdtUser">
+          <Property Name="WindowVisible" Value="False" />
+        </Scheme>
+        <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      </Window>
+   
+   
+     <Scheme Name="SchmEdtUser">
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="FontSize" Value="12" />
+      </Scheme>
+      <Scheme Name="SchmShowUserLst">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowUserInfo">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      
+    </Window>
+    <!--管理员编辑界面
+    Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+    <Window Type="CDlgChild" Name="DlgEdtManager" >
+      <Property Name="WindowPos" Value="x:10 y:52" />
+      <Property Name="WindowSize" Value="x:538 y:648" />
+      <Property Name="WindowCaption" Value="管理员编辑界面" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="False"></Property>
+       <Scheme Name="SchmShowUserManage">
+       <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+      <Scheme Name="SchmShowManagerInfo">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Window Type="CStatic" Name="StcUserNameTable" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:26" />
+        <Property Name="WindowSize" Value="x:90 y:22" />
+        <Property Name="WindowCaption" Value="用户名" />
+        <Property Name="WindowVisible" Value="true" />
+      </Window>
+      <Window Type="CEdit" Name="EdtUserName" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL">
+        <Property Name="WindowPos" Value="x:143 y:7" />
+        <Property Name="WindowSize" Value="x:360 y:50" />
+        <Property Name="WindowCaption" Value="admin" />
+        <Property Name="WindowEnable" Value="False" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="LimitLength" Value="64" />
+
+      </Window>
+      <Window Type="CStatic" Name="StcOriPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:82" />
+        <Property Name="WindowSize" Value="x:90 y:22" />
+        <Property Name="WindowCaption" Value="原密码" />
+        <Property Name="WindowVisible" Value="true" />
+      </Window>
+      <Window Type="CEdit" Name="EdtOriPswd" Style="ES_PASSWORD|WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL">
+        <Property Name="WindowPos" Value="x:143 y:65" />
+        <Property Name="WindowSize" Value="x:361 y:50" />
+        <Property Name="WindowCaption" Value="pswd" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="LimitLength" Value="64" />
+
+      </Window>
+      <Window Type="CStatic" Name="StcNewPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:134" />
+        <Property Name="WindowSize" Value="x:90 y:22" />
+        <Property Name="WindowCaption" Value="新密码" />
+        <Property Name="Image" Value="Item" />
+        <Property Name="WindowVisible" Value="true" />
+      </Window>
+      <Window Type="CEdit" Name="EdtNewPswd" Style="ES_PASSWORD|WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL">
+        <Property Name="WindowPos" Value="x:143 y:122" />
+        <Property Name="WindowSize" Value="x:360 y:50" />
+        <Property Name="WindowCaption" Value="新密码" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="LimitLength" Value="64" />
+
+      </Window>
+      <Window Type="CStatic" Name="StcReNewPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:37 y:190" />
+        <Property Name="WindowSize" Value="x:140 y:22" />
+        <Property Name="WindowCaption" Value="重复新密码" />
+        <Property Name="Image" Value="Item" />
+        <Property Name="WindowVisible" Value="true" />
+      </Window>
+      <Window Type="CEdit" Name="EdtReNewPswd" Style="ES_PASSWORD|WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL">
+        <Property Name="WindowPos" Value="x:143 y:179" />
+        <Property Name="WindowSize" Value="x:360 y:50" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="Image" Value="Edit" />
+        <Property Name="LimitLength" Value="64" />
+
+      </Window>
+    </Window>
+    <!--
+    <Window Type="CButton" Name="BtnSave2File" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:123 y:0" />
+      <Property Name="WindowSize" Value="x:57 y:35" />
+      <Property Name="WindowCaption" Value="保存到文件" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CUserManageLogic::BtnSaveToFileClick" />
+      <Property Name="Image" Value="Item" />
+    </Window>
+    -->
+    <CallBackFunc Type="CallBackFunc" Value="CUserManageLogic::InitWnd" />
+  </Window>
+</UILayout>

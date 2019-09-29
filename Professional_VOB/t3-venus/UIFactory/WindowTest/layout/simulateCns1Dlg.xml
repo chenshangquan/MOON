@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+
+<!--一屏模拟会场--> 
+ <Window Type="Window" Name="SimulateCnsDlg1">
+    <Window Type="CStatic" Name="stcSimulatedScreen"> 
+      <Property Name="Pos" Value="x:21y:17" />
+      <Property Name="Size" Value="h:738l:138" />
+      <Property Name="Name" Value="SimulatedScreen" />
+      <Property Name="Visible" Value="1" /> 
+    </Window>
+    
+    <Window Type="CStatic" Name="stcScreenName1">
+      <Property Name="Pos" Value="x:94y:175" />
+      <Property Name="Size" Value="h:50l:14" />
+      <Property Name="Name" Value="ScreenName1" /> 
+      <Property Name="Visible" Value="1" />    
+    </Window> 
+    
+    <Window Type="CStatic" Name="stcSeat">
+      <Property Name="Pos" Value="x:789y:175" />
+      <Property Name="Size" Value="h:538l:138" />
+      <Property Name="Name" Value="Seat" /> 
+      <Property Name="Visible" Value="1" />  
+    </Window> 
+   
+    <Window Type="CButton" Name="BtnSetSPokes">
+      <Property Name="Pos" Value="x:789y:175" />
+      <Property Name="Size" Value="h:50l:14" /> 
+      <Property Name="Name" Value="发言人"/> 
+      <Property Name="Tooltip" Value="点击设置该坐席为发言人"/>
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="confManage::Click" />  
+    </Window> 
+    
+     
+  </Window>
+  
+  <Property Name="InitData" Value="simulateCnsLogic::InitData1" />  
+</UILayout>

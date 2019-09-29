@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--会场列表界面-->
+  <!--
+  scheme
+  1. SchmLocalCnsChairMan  本地cns为主席：显示   结束会议button ，双流 button
+  2. SchmLocalCnsNotChairMan  本地cns不是主席：显示 离开会议 button ，不显示 双流 button
+  Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgPopup" Name="CnsLstDlg" >
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:441 y:53" /> 
+    <Property Name="WindowSize" Value="x:483 y:618" /> 
+    <Property Name="WindowVisible" Value="false" />
+    <Property Name="Image" Value="windowBkg" />
+    <!--Style="WS_CLIPSIBLINGS|WS_CHILD" --> 
+    
+    
+    <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:107 y:15" />
+      <Property Name="WindowSize" Value="x:269 y:21" />
+      <Property Name="WindowCaption" Value="会场控制" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="FontColor" Value="r:228 g:238 b:255" /> 
+      <Property Name="Alignment" Value="1" />
+    </Window>
+    
+    <Window Type="CTransparentSwitchButton" Name="BtnCnsShowSel" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:370 y:7" />
+      <Property Name="WindowSize" Value="x:104 y:37" />
+      <Property Name="WindowCaption" Value="会场显示选择" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="SwitchState" Value="false" /> 
+      <Event Type="WM_BUTTON_CLICK" Value="CConfCnsLstLogic::BtnCnsShowOptnClick" />
+      <Property Name="BindWnd" Value="CnsShowOptnDlg" />
+      <Property Name="Image" Value="btnCnsDisplaySel" />
+    </Window>
+    
+    
+    <Window Type="CAddrList" Name="LstCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:42 y:52" />
+      <Property Name="WindowSize" Value="x:427 y:552" />
+      <Property Name="WindowCaption" Value="会场列表" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="LayoutAlgorithm" Value="Vert" />
+      <Property Name="EveryItemSizeSame" Value="false" />
+    </Window>
+
+    <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <!-- <Property Name="AutoHideStatus" Value="true" /> -->
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="Image" Value="letterindex" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="LstCns" />
+    </Window> 
+    
+   
+    <CallBackFunc Type="CallBackFunc" Value="CConfCnsLstLogic::InitWnd" />
+  </Window>
+</UILayout>

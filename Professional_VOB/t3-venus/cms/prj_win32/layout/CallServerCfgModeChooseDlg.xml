@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+    <Window Type="CDlgChild" Name="CallServerCfgModeChooseDlg" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+        <Property Name="Image" Value="" />
+	<Scheme Name="SchmSysCfg">
+           <Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+	<Scheme Name="SchmCallServerCfgModeChoose">
+           <Property Name="WindowVisible" Value="true" />
+  </Scheme>
+  <Scheme Name="SchmCallServerCfg">
+           <Property Name="WindowVisible" Value="false" />
+  </Scheme>
+  
+<!-- 	<Window Type="CStatic" Name="StcHPBP" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					 <Property Name="WindowPos" Value="x:20 y:77" />
+					 <Property Name="WindowSize" Value="x:80 y:21" />
+					 <Property Name="WindowCaption" Value="视频协议" />
+					 <Property Name="WindowVisible" Value="true" />
+					 <Property Name="FontSize" Value="12" />
+	</Window>   	
+
+	<Window Type="CTransparentCheckButton" Name="H.264 BP" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+			<Property Name="WindowPos" Value="x:310 y:77" />
+			<Property Name="WindowSize" Value="x:20 y:20" />
+			<Property Name="WindowCaption" Value="H.264 BP" />
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="true" />
+			<Property Name="Image" Value="checkbutton" />
+			<Property Name="CButtonCheckState" Value="0" />
+			<Property Name="FontSpan" Value="0" />
+			<Property Name="FontColor" Value="r:146 g:157 b:183" />
+			<Property Name="FontSize" Value="12" />
+			<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnSelectH264BP" />
+			<Scheme Name="SchmClear">
+					 <Property Name="CButtonCheckState" Value="0" />
+			</Scheme>
+	 </Window>
+   	
+	 <Window Type="CTransparentCheckButton" Name="H.264 HP" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON|WS_GROUP">
+			<Property Name="WindowPos" Value="x:155 y:77" />
+			<Property Name="WindowSize" Value="x:20 y:20" />
+			<Property Name="WindowCaption" Value="H.264 HP" />
+			<Property Name="WindowVisible" Value="true" />
+			<Property Name="WindowEnable" Value="true" />
+			<Property Name="Image" Value="checkbutton" />
+			<Property Name="CButtonCheckState" Value="0" />
+			<Property Name="FontSpan" Value="0" />
+			<Property Name="FontColor" Value="r:146 g:157 b:183" />
+			<Property Name="FontSize" Value="12" />
+			<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnSelectH264HP" />
+			<Scheme Name="SchmClear">
+					 <Property Name="CButtonCheckState" Value="0" />
+			</Scheme>
+	 </Window>
+ -->
+	 <Window Type="CStatic" Name="StcImageRes" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					 <Property Name="WindowPos" Value="x:20 y:77" />
+					 <Property Name="WindowSize" Value="x:80 y:21" />
+					 <Property Name="WindowCaption" Value="分辨率" />
+					 <Property Name="WindowVisible" Value="true" />
+					 <Property Name="FontSize" Value="12" />
+	 </Window>   	
+
+	 <Window Type="CTransparentCheckButton" Name="720P" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:310 y:77" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="720P" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnNoSelect4CIF" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+
+	 <Window Type="CTransparentCheckButton" Name="4CIF" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:155 y:137" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="4CIF" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnSelect4CIF" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+				<Scheme Name="SchmH264HP">
+					   <Property Name="WindowEnable" Value="false" />
+			  </Scheme>
+				<Scheme Name="SchmH264BP">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>			  
+	  </Window>
+   	   	
+	  <Window Type="CTransparentCheckButton" Name="1080P" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON|WS_GROUP">
+				<Property Name="WindowPos" Value="x:155 y:77" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="1080P" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnNoSelect4CIF" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+
+	 <Window Type="CStatic" Name="StcFPS" Style="WS_CHILD|WS_CLIPSIBLINGS">
+					 <Property Name="WindowPos" Value="x:20 y:197" />
+					 <Property Name="WindowSize" Value="x:80 y:21" />
+					 <Property Name="WindowCaption" Value="帧率" />
+					 <Property Name="WindowVisible" Value="true" />
+					 <Property Name="FontSize" Value="12" />
+	 </Window>   	
+
+	 <Window Type="CTransparentCheckButton" Name="50fps" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:310 y:197" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="50fps" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+				<Scheme Name="Schm4CIF">
+					   <Property Name="WindowEnable" Value="false" />
+			  </Scheme>
+				<Scheme Name="SchmNo4CIF">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>	
+				<Scheme Name="SchmH264HP">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>			  		  
+	  </Window>
+   	
+	  <Window Type="CTransparentCheckButton" Name="30fps" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:155 y:257" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="30fps" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+				<Scheme Name="Schm4CIF">
+					   <Property Name="WindowEnable" Value="false" />
+			  </Scheme>
+				<Scheme Name="SchmNo4CIF">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>
+			  <Scheme Name="SchmH264HP">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>			  
+	  </Window>	
+
+	 <Window Type="CTransparentCheckButton" Name="25fps" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:310 y:257" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="25fps" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+   	
+	  <Window Type="CTransparentCheckButton" Name="60fps" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON|WS_GROUP">
+				<Property Name="WindowPos" Value="x:155 y:197" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="60fps" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+				<Scheme Name="Schm4CIF">
+					   <Property Name="WindowEnable" Value="false" />
+			  </Scheme>
+				<Scheme Name="SchmNo4CIF">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>
+			  <Scheme Name="SchmH264HP">
+					   <Property Name="WindowEnable" Value="true" />
+			  </Scheme>			  				
+	  </Window>		
+	
+  <Window Type="CButton" Name="BtnBack" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	  <Property Name="WindowPos" Value="x:10 y:6" />
+	  <Property Name="WindowSize" Value="x:72 y:37" />
+	  <Property Name="WindowCaption" Value="返回" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="btnBack" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallServerCfgModeChooseLogic::OnBtnBack" />
+	</Window>
+		
+	<CallBackFunc Type="CallBackFunc" Value="CCallServerCfgModeChooseLogic::InitWnd" />
+    </Window>
+</UILayout>

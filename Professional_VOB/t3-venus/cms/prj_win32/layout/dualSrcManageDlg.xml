@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout> 
+  <!-- 演示源设置 
+    1.SchmShowDualLst : 
+    2.SchmShowDualInfo : 
+    3.SchmEdtDual:  
+   Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"
+   -->
+  <Window Type="CDlgChild" Name="DualSrcManageDlg">
+		<Property Name="WindowPos" Value="x:0 y:0" />
+		<Property Name="WindowSize" Value="x:483 y:618" />
+		<Property Name="Image" Value="windowBkg" />
+		<Property Name="WindowVisible" Value="False" />
+		<Scheme Name="SchmSysCfg">
+                  	<Property Name="WindowVisible" Value="false" />
+        	</Scheme>
+		<Scheme Name="SchmDualSrc">
+          		<Property Name="WindowVisible" Value="true" />
+        	</Scheme>
+  
+
+      <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		      <Property Name="WindowPos" Value="x:161 y:10" />
+          <Property Name="WindowSize" Value="x:161 y:25" />
+		      <Property Name="WindowCaption" Value="演示源设置" />
+		      <Property Name="Image" Value="" />
+		      <Property Name="WindowVisible" Value="True" />
+		      <Property Name="FontColor" Value="r:228 g:238 b:255" />
+		      <Property Name="Alignment" Value="1" />
+		      <Property Name="FontSize" Value="12" />
+		       
+		      <Scheme Name="SchmShowDualLst">
+		        <Property Name="WindowCaption" Value="演示源设置" />
+		      </Scheme>
+		      <Scheme Name="SchmShowDualInfo">
+		        <Property Name="WindowCaption" Value="演示源信息" />
+		      </Scheme>
+		      <Scheme Name="SchmEdit">
+		        <Property Name="WindowCaption" Value="编辑演示源信息" />
+		      </Scheme> 
+    </Window>
+    
+    
+    <Window Type="CButton" Name="BtnToDualConfig" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:8 y:7" />
+      <Property Name="WindowSize" Value="x:99 y:37" />
+      <Property Name="WindowCaption" Value="演示源设置" />
+      <Property Name="Image" Value="btnToSysCfg" />
+      <Property Name="WindowVisible" Value="true" />
+      <Event Type="WM_BUTTON_CLICK" Value="CDualSrcManageLogic::BtnToSysCfg" />
+         <Scheme Name="SchmShowDualLst">
+            <Property Name="Image" Value="btnToSysCfg" />
+ 	    <Event Type="WM_BUTTON_CLICK" Value="CDualSrcManageLogic::BtnToSysCfg" />
+	  </Scheme>
+	  <Scheme Name="SchmShowDualInfo">
+            <Event Type="WM_BUTTON_CLICK" Value="CDualSrcManageLogic::BtnToDualConfig" />
+            <Property Name="Image" Value="btnToDualSrc" />
+            <Property Name="WindowVisible" Value="True" />
+	  </Scheme> 
+    </Window>
+    
+    
+    <Window Type="CButton" Name="BtnEdit" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowCaption" Value="编辑" />       
+      <Property Name="WindowPos" Value="x:409 y:7" />
+      <Property Name="WindowSize" Value="x:65 y:37" />
+      <Property Name="Image" Value="btnEdit" /> 
+      <Event Type="WM_BUTTON_CLICK" Value="CDualSrcManageLogic::OnEdit" />
+      <Property Name="WindowVisible" Value="false" />
+      <Scheme Name="SchmShowDualLst">
+         <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmShowDualInfo">
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmEdit"> 
+	<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CButton" Name="BtnSave" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:342 y:7" />
+      <Property Name="WindowSize" Value="x:65 y:37" />
+      <Property Name="WindowCaption" Value="保存" />
+      <Property Name="Image" Value="btnSave" />
+      <Property Name="WindowVisible" Value="False" />
+      <Event Type="WM_BUTTON_CLICK" Value="CDualSrcManageLogic::OnSave" />
+      <Scheme Name="SchmShowDualLst">
+         <Property Name="WindowVisible" Value="False" />
+	    </Scheme>
+	    <Scheme Name="SchmShowDualInfo"> 
+	    	<Property Name="WindowVisible" Value="False" />
+	    </Scheme>
+	    <Scheme Name="SchmEdit">
+	      <Property Name="WindowVisible" Value="True" />
+	    </Scheme> 
+    </Window>
+    
+    <Window Type="CButton" Name="BtnCancel" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:409 y:7" />
+	   <Property Name="WindowSize" Value="x:65 y:37" />
+	   <Property Name="WindowCaption" Value="取消" />
+	   <Property Name="WindowVisible" Value="false" />
+	   <Property Name="Image" Value="btnCancel" />
+	   <Event Type="WM_BUTTON_CLICK" Value="CDualSrcManageLogic::OnCancel" />
+           <Scheme Name="SchmShowDualLst">
+             <Property Name="WindowVisible" Value="false" />
+	   </Scheme>
+	   <Scheme Name="SchmEdit">
+	     <Property Name="WindowVisible" Value="true" /> 
+	   </Scheme>
+	   <Scheme Name="SchmShowDualInfo">
+	     <Property Name="WindowVisible" Value="false" />
+	   </Scheme>
+    </Window> 
+    
+      
+    <!--用户列表 -->
+    <Window Type="CAddrList" Name="LstDualSrc" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:17 y:52" />
+      <Property Name="WindowSize" Value="x:449 y:552" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="ClickNoSel" Value="true" />
+      <Property Name="TransparentListOffset" Value="0" />
+      <Property Name="TransparentListSelItem" Value="-1" />
+       <Scheme Name="SchmShowDualLst">
+         <Property Name="WindowVisible" Value="true" />
+	</Scheme>
+	<Scheme Name="SchmShowDualInfo"> 
+	  <Property Name="WindowVisible" Value="False" />
+	</Scheme>
+	<Scheme Name="SchmEdit">
+	  <Property Name="WindowVisible" Value="false" />
+	</Scheme> 
+    </Window>
+    
+
+    <Window Type="CDlgChild" Name="DlgDualInfo" >
+      <Property Name="WindowPos" Value="x:0 y:52" />
+      <Property Name="WindowSize" Value="x:483 y:618" />
+      <Property Name="WindowCaption" Value="演示源信息面" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="false" />
+      <Scheme Name="SchmShowDualLst">
+         <Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmShowDualInfo"> 
+	  <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      
+      <Window Type="CStatic" Name="StcDefaultDual" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	      <Property Name="WindowPos" Value="x:27 y:30" />
+	      <Property Name="WindowSize" Value="x:153 y:21" />
+	      <Property Name="WindowCaption" Value="指定为默认演示源" />
+	      <Property Name="Image" Value="" />
+	      <Property Name="WindowVisible" Value="True" />
+	      <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CTransparentSwitchButton" Name="BtnDefaultDualSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	      <Property Name="WindowPos" Value="x:343 y:24" />
+	      <Property Name="WindowSize" Value="x:113 y:37" />
+	      <Property Name="Image" Value="switchbutton" />
+	      <Property Name="WindowEnable" Value="True" />
+	      <Property Name="WindowVisible" Value="True" />
+	      <Property Name="SwitchState" Value="False" />
+	<Scheme Name="SchmEdit">
+          <Property Name="WindowEnable" Value="True" />
+        </Scheme>
+       <Scheme Name="SchmShowDualInfo">
+        <Property Name="WindowEnable" Value="false" />
+       </Scheme>
+	  </Window>
+	  <Window Type="CStatic" Name="StcDualName" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	      <Property Name="WindowPos" Value="x:27 y:90" />
+	      <Property Name="WindowSize" Value="x:105 y:21" />
+	      <Property Name="WindowCaption" Value="演示源名称" />
+	      <Property Name="WindowVisible" Value="True" />
+	      <Property Name="Image" Value="" />
+	      <Property Name="FontSize" Value="12" />
+	  </Window>
+	  <Window Type="CEdit" Name="EdtDualName" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+	      <Property Name="WindowPos" Value="x:119 y:71" />
+	      <Property Name="WindowSize" Value="x:340 y:55" />
+	      <Property Name="WindowCaption" Value="" />
+	      <Property Name="Image" Value="Edit" />
+	      <Property Name="WindowVisible" Value="True" />
+	      <Property Name="LimitLength" Value="31" />
+	      <Property Name="FontSize" Value="12" />
+	      <Scheme Name="SchmShowDualInfo">
+	          <Property Name="WindowEnable" Value="false" />
+	      </Scheme>
+	      <Scheme Name="SchmEdit">
+	          <Property Name="WindowEnable" Value="true" />
+	      </Scheme> 
+	  </Window>
+      </Window>
+    <CallBackFunc Type="CallBackFunc" Value="CDualSrcManageLogic::InitWnd" />
+  </Window>
+</UILayout>

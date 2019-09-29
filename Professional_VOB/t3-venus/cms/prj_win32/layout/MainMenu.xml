@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--tp主界面--> 
+  <!--包含如下scheme 
+     1.SchmMainMenuCnsManage：未开启会议的会场管理菜单  
+     2.SchmMainMenuConfManage:会议管理菜单方案(去除会议管理中各个界面，把地址簿管理添加到系统配置中)
+     3.SchmMainMenuCnsManageInconfBase:会议中基本会场管理菜单，该方案是指无会场操作权限的菜单
+     4.SchmMainMenuCnsManageInConf:会议中菜单方案，有会场操作权限 
+     5.SchmMainMenuSysManage系统管理菜单
+     6.SchmMainMenuDisableVideoBtn
+     7.SchmMainMenuEnableVideoBtn
+     Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgChild" Name="MainMenu" >
+    <Property Name="WindowPos" Value="x:0 y:671" />
+    <Property Name="WindowSize" Value="x:1366 y:97" />
+    <Property Name="Image" Value="" />
+        
+    <Window Type="CButton" Name="btnToolMenu" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:24 y:12" />
+      <Property Name="WindowSize" Value="x:110 y:76" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="Tooltip" Value="工具箱" />
+      <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnToolMenuClick" />
+      <Property Name="Image" Value="mainmenu/btnTool" />
+      <Property Name="WindowVisible" Value="True" />    
+    </Window>
+    
+    <Window Type="CTransparentSwitchButton" Name="btnVedio" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:150 y:18" />
+      <Property Name="WindowSize" Value="x:72 y:61" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="Tooltip" Value="双流观看" /> 
+      <Property Name="Image" Value="mainmenu\swthbtnVedio" />
+      <Property Name="WindowVisible" Value="false" /> 
+      <Property Name="SwitchState" Value="false" /> 
+     <!-- <Property Name="BindWnd" Value="MediaDlg" /> -->
+      <Property Name="WindowEnable" Value="true" />
+      <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnVideoClick" />
+      <Scheme Name="SchmMainMenuDisableVideoBtn">
+           <Property Name="WindowEnable" Value="false" />
+      </Scheme> 
+      <Scheme Name="SchmMainMenuEnableVideoBtn">
+           <Property Name="WindowEnable" Value="true" />
+      </Scheme> 
+    </Window>
+  
+  
+    <Window Type="CTransparentSwitchButton" Name="btnAddrBook" Style="WS_CHILD|WS_CLIPSIBLINGS">
+    	<Property Name="WindowPos" Value="x:500 y:0" />  
+      <Property Name="SwitchState" Value="false" /> 
+      <Scheme Name="SchmMainMenuCnsManage"> 
+      	<Property Name="WindowSize" Value="x:183 y:97" />
+	      <Property Name="WindowCaption" Value="地址簿" /> 
+	      <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnAddrbookClick" />
+	      <Property Name="BindWnd" Value="AddrBookDlg" /> 
+	      <Property Name="Image" Value="mainmenu\btnAddr" />
+	      <Property Name="WindowVisible" Value="True" />
+      </Scheme> 
+      <Scheme Name="SchmMainMenuSysManage"> 
+      	<Property Name="WindowSize" Value="x:180 y:97" />
+        <Property Name="WindowCaption" Value="系统设置" />
+        <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnSysCfgClick"></Event>
+        <Property Name="BindWnd" Value="SysCfgDlg" />  
+        <Property Name="Image" Value="mainmenu\btnSysSetting" />
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmMainMenuCnsManageInConf">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+
+     <Window Type="CTransparentSwitchButton" Name="btnAddrBookMg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:317 y:0" />
+        <Property Name="WindowSize" Value="x:183 y:97" />
+        <Property Name="WindowCaption" Value="地址簿管理" />
+        <Property Name="Image" Value="mainmenu\btnConfManageAddr" />
+        <Property Name="SwitchState" Value="false" />
+        <Property Name="BindWnd" Value="AddrEditDlg" />  
+        <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnAddrbookManageClick" /> 
+        <Scheme Name="SchmMainMenuCnsManage">
+            <Property Name="WindowVisible" Value="false" />
+        </Scheme> 	
+        <Scheme Name="SchmMainMenuSysManage">
+        		<Property Name="WindowVisible" Value="True" />
+        </Scheme> 
+        <Scheme Name="SchmMainMenuCnsManageInConf">
+        		<Property Name="WindowVisible" Value="false" />
+        </Scheme>    
+     </Window>
+    
+    
+    <Window Type="CTransparentSwitchButton" Name="btnConfTemplateLst" Style="WS_CHILD|WS_CLIPSIBLINGS"> 
+      <Scheme Name="SchmMainMenuCnsManage">
+      	<Property Name="WindowPos" Value="x:683 y:0" />
+	      <Property Name="WindowSize" Value="x:183 y:97" />
+	      <Property Name="WindowCaption" Value="会议模版" />
+	      <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnConftempClick" />
+	      <Property Name="BindWnd" Value="ConftempDlg" />  
+	      <Property Name="Image" Value="mainmenu\btnConftemp" />
+	      <Property Name="WindowVisible" Value="True" />
+      </Scheme> 
+      <Scheme Name="SchmMainMenuSysManage"> 
+      	<Property Name="WindowPos" Value="x:680 y:0" />
+	      <Property Name="WindowSize" Value="x:180 y:97" />
+        <Property Name="WindowCaption" Value="用户管理" /><!-- 用户配置 -->
+        <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnUserManageClick" />
+        <Property Name="BindWnd" Value="UserManageDlg" /> 
+        <Property Name="Image" Value="mainmenu\btnUserSetting" />
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmMainMenuCnsManageInConf">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+
+
+    <Window Type="CTransparentSwitchButton" Name="btnMixaud" Style="WS_CHILD|WS_CLIPSIBLINGS">           
+		<Scheme Name="SchmMainMenuCnsManage">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>  
+      <Scheme Name="SchmMainMenuSysManage">
+	        <Property Name="WindowPos" Value="x:860 y:0" />
+	        <Property Name="WindowSize" Value="x:183 y:97" />
+	        <Property Name="WindowCaption" Value="自定义设置" />
+	        <Property Name="Image" Value="mainmenu\btnSelfSetting" />
+	        <Property Name="WindowVisible" Value="True" />
+	        <Property Name="WindowEnable" Value="true" />
+	        <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnUserDefineClick" />
+	        <Property Name="BindWnd" Value="UserdefinedDlg" /> 
+      </Scheme>
+      <Scheme Name="SchmMainMenuCnsManageInConf">
+		<Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+
+    <Window Type="CDlgChild" Name="ConfManageMenuDlg">
+        <Property Name="WindowPos" Value="x:248 y:0" />
+        <Property Name="WindowSize" Value="x:870 y:97" />
+        <Property Name="Image" Value="confmainmenu\confManageMenuBkg.png" />
+        <Property Name="WindowVisible" Value="false" />
+	<Scheme Name="SchmMainMenuCnsManage">
+	    <Property Name="WindowVisible" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmMainMenuConfManage">
+            <Property Name="WindowVisible" Value="false" />
+        </Scheme>
+        <Scheme Name="SchmMainMenuSysManage">
+	     <Property Name="WindowVisible" Value="false" />
+        </Scheme>
+        <Scheme Name="SchmMainMenuCnsManageInConf">
+            <Property Name="WindowVisible" Value="true" />
+        </Scheme>
+	    
+	<Window Type="CButton" Name="btnPrePage" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:0 y:0" />
+          <Property Name="WindowSize" Value="x:63 y:97" />
+          <Property Name="Image" Value="confmainmenu\btnMenuPrePage" />
+          <Property Name="WindowVisible" Value="true" />
+          <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnBtnPrePage" />
+        </Window>
+	     
+	<Window Type="CHoriList" Name="ConfManageList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:63 y:0" />
+          <Property Name="WindowSize" Value="x:744 y:97" />
+          <Property Name="ListImage" Value="" />
+          <Property Name="WindowVisible" Value="True" />	    
+          <Event Type="UI_LISTOFFSET_NOTIFY" Value="CMainMenuLogic::OnListOffsetNotify" />
+          <Scheme Name="SchmMainMenuCnsManageInConf">
+	        <Property Name="HoriListSelItem" Value="-1" />
+              	<Property Name="BindWnd" Value="AddrBookDlg" />
+		<Property Name="BindWnd" Value="CnsLstDlg" />
+		<Property Name="BindWnd" Value="AudMixDlg" />
+		<Property Name="BindWnd" Value="VolumCtrlDlg" />
+		<Property Name="BindWnd" Value="DualSrcDlg" />
+          </Scheme>
+        </Window>
+              
+        <Window Type="CButton" Name="btnNextPage" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		<Property Name="WindowPos" Value="x:807 y:0" />
+		<Property Name="WindowSize" Value="x:63 y:93" />
+		<Property Name="Image" Value="confmainmenu\btnMenuNextPage" />
+		<Property Name="WindowVisible" Value="true" />
+		<Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnBtnNextPage" />
+        </Window>
+        
+     </Window>   
+
+    <Window Type="CStatic" Name="btnAlarm" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+      <Property Name="WindowPos" Value="x:1142 y:18" />
+      <Property Name="WindowSize" Value="x:72 y:61" />
+      <Property Name="WindowCaption" Value="" />
+      <Event Type="WM_LBUTTONUP" Value="CMainFrameLogic::BtnAlarmClick" />
+      <Property Name="Image" Value="mainmenu\btnAlarm\Normal.png" />
+      <Property Name="WindowVisible" Value="False" />
+      <Scheme Name="SchmAlarmOff">
+      	<Property Name="Image" Value="mainmenu\btnAlarm\Normal.png" />
+      </Scheme>
+      <Scheme Name="SchmAlarmOn">
+      	<Property Name="Image" Value="mainmenu\btnAlarm\Sel.png" />
+      </Scheme>
+    </Window>
+    
+    <Window Type="CButton" Name="btnLockScreen" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:1252 y:18" />
+      <Property Name="WindowSize" Value="x:72 y:61" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="Tooltip" Value="锁屏" />
+      <Event Type="WM_BUTTON_CLICK" Value="CMainFrameLogic::BtnLockScreenClick" />
+      <Property Name="Image" Value="mainmenu\btnLocker" />
+      <Property Name="WindowVisible" Value="True" />    
+    </Window>
+   
+    <CallBackFunc Type="CallBackFunc" Value="CMainMenuLogic::InitWnd" />
+  </Window>
+</UILayout>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+	<!--Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+<Window Type="CDlgChild" Name="CnsCfgDlg" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+  <Property Name="Image" Value="" />
+	<Scheme Name="SchmSysCfg">
+    <Property Name="WindowVisible" Value="false" />
+  </Scheme>
+	<Scheme Name="SchmCnsCfg">
+    <Property Name="WindowVisible" Value="true" />
+  </Scheme>
+  
+  	      
+	<Window Type="CFlatButton" Name="BtnSysCfg" Style="WS_CHILD">
+      <Property Name="WindowPos" Value="x:8 y:7" />
+      <Property Name="WindowSize" Value="x:99 y:37" />
+      <Property Name="WindowCaption" Value="系统设置" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="btnToSysCfg" />
+      <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::OnSysCfg" />
+	  <!--
+	  <Scheme Name="SchmList">
+         <Property Name="WindowCaption" Value="系统设置" />
+	     <Property Name="WindowEnable" Value="true" />
+	     <Property Name="Image" Value="btnToSysCfg" />
+	     <Property Name="WindowVisible" Value="true" />
+         <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::OnSysCfg" />	     
+      </Scheme>
+      <Scheme Name="SchmConfig">
+  	     <Property Name="WindowCaption" Value="会场设置" />
+         <Property Name="Image" Value="btnToCnsCfg" />
+	     <Property Name="WindowVisible" Value="true" />
+         <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::OnCfgCnsList" />
+      </Scheme>
+          
+	  	<Scheme Name="SchmEdit">
+			<Property Name="WindowVisible" Value="false" />
+        </Scheme>  
+        -->
+      <Scheme Name="Schmnormal"> 
+              <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+   </Window>	
+  <Window Type="CStaticEx" Name="StTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:161 y:10" />
+     <Property Name="WindowSize" Value="x:161 y:25" />
+     <Property Name="WindowCaption" Value="会场设置" />
+     <Property Name="WindowVisible" Value="true" />
+     <Property Name="FontColor" Value="r:228 g:238 b:255" />
+     <Property Name="FontSize" Value="12" />
+     <Property Name="Alignment" Value="1" />
+  </Window> 
+	<Window Type="CFlatButton" Name="BtnEdit" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:409 y:7" />
+	   <Property Name="WindowSize" Value="x:65 y:37" />
+	   <Property Name="WindowCaption" Value="编辑" />
+	   <Property Name="WindowVisible" Value="true" />
+	   <Property Name="Image" Value="btnEdit" />
+	   <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::OnEdit" />
+	   <Scheme Name="SchmEdit">
+	     <Property Name="WindowVisible" Value="false" /> 
+	   </Scheme>
+	   <Scheme Name="SchmNormal">
+	     <Property Name="WindowVisible" Value="true" />
+	   </Scheme>
+	 </Window>
+  <Window Type="CFlatButton" Name="BtnSave" Style="WS_CHILD">
+     <Property Name="WindowPos" Value="x:342 y:7" />
+     <Property Name="WindowSize" Value="x:65 y:37" />
+     <Property Name="WindowCaption" Value="保存" />
+     <Property Name="WindowVisible" Value="false" />
+     <Property Name="Image" Value="btnSave" />
+     <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::OnSave" />
+     <Scheme Name="SchmEdit">
+       <Property Name="WindowVisible" Value="true" /> 
+     </Scheme>
+     <Scheme Name="SchmNormal">
+       <Property Name="WindowVisible" Value="false" />
+     </Scheme>
+  </Window>
+	<Window Type="CFlatButton" Name="BtnCancel" Style="WS_CHILD">
+	   <Property Name="WindowPos" Value="x:409 y:7" />
+	   <Property Name="WindowSize" Value="x:65 y:37" />
+	   <Property Name="WindowCaption" Value="取消" />
+	   <Property Name="WindowVisible" Value="false" />
+	   <Property Name="Image" Value="btnCancel" />
+	   <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::OnCancel" />
+	   <Scheme Name="SchmEdit">
+	     <Property Name="WindowVisible" Value="true" /> 
+	   </Scheme>
+	   <Scheme Name="SchmNormal">
+	     <Property Name="WindowVisible" Value="false" />
+	   </Scheme>
+	</Window> 
+
+        <!-- Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+  <Window Type="CDlgChild" Name="DlgCnsConfig">
+      <Property Name="WindowPos" Value="x:0 y:50" />
+      <Property Name="WindowSize" Value="x:483 y:568" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="Image" Value="" />
+      
+	<Window Type="CStatic" Name="StcScreenPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:27 y:33" />
+      <Property Name="WindowSize" Value="x:229 y:21" />
+      <Property Name="WindowCaption" Value="显示会场名称" />
+      <Property Name="Image" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="FontSize" Value="12" />
+  </Window>
+			
+  <Window Type="CTransparentSwitchButton" Name="BtnCnsCfgSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:342 y:28" />
+			<Property Name="WindowSize" Value="x:113 y:37" />
+			<Property Name="Image" Value="switchbutton" />
+			<Property Name="WindowEnable" Value="false" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="SwitchState" Value="true" />
+			<Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::BtnSwitchCnsCfgClick" />
+      <Scheme Name="SchmEdit">
+        <Property Name="WindowEnable" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNormal">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+	</Window>
+          
+	<Window Type="CStatic" Name="StCnsName" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:93" />
+     <Property Name="WindowSize" Value="x:80 y:21" />
+     <Property Name="WindowCaption" Value="会场名称" />
+     <Property Name="WindowVisible" Value="true" />
+     <Property Name="FontSize" Value="12" />
+  </Window> 
+	<Window Type="CEdit" Name="EdtCnsName" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+     <Property Name="WindowPos" Value="x:111 y:74" /> <!--87-->
+     <Property Name="WindowSize" Value="x:350 y:55" />
+     <Property Name="WindowCaption" Value="" />
+     <Property Name="Image" Value="Edit" />
+     <Property Name="WindowVisible" Value="True" />
+     <Property Name="FontSize" Value="12" />
+     <Property Name="WindowEnable" Value="false" />
+     <Property Name="LimitLength" Value="31" />
+     <Scheme Name="SchmEdit">
+       <Property Name="WindowEnable" Value="true" /> 
+     </Scheme>
+     <Scheme Name="SchmNormal">
+       <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+  </Window>  
+	<Window Type="CStatic" Name="StCnsNumber" Style="WS_CHILD|WS_CLIPSIBLINGS">
+     <Property Name="WindowPos" Value="x:27 y:153" />
+     <Property Name="WindowSize" Value="x:80 y:21" />
+     <Property Name="WindowCaption" Value="会场号码" />
+     <Property Name="WindowVisible" Value="true" />
+     <Property Name="FontSize" Value="12" />
+  </Window> 
+	<Window Type="CEdit" Name="EdtCnsNumber" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|WS_TABSTOP">
+     <Property Name="WindowPos" Value="x:111 y:134" /><!--147-->
+     <Property Name="WindowSize" Value="x:350 y:55" />
+     <Property Name="WindowCaption" Value="" />
+     <Property Name="Image" Value="Edit" />
+     <Property Name="WindowVisible" Value="True" />
+     <Property Name="WindowEnable" Value="false" />
+     <Property Name="LimitLength" Value="13" />
+     <Property Name="FontSize" Value="12" />
+     <Scheme Name="SchmEdit">
+       <Property Name="WindowEnable" Value="true" /> 
+     </Scheme>
+     <Scheme Name="SchmNormal">
+       <Property Name="WindowEnable" Value="false" />
+     </Scheme>
+  </Window>     
+
+
+		<!--
+          <Window Type="CStaticEx" Name="StCnsLevel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:27 y:140" />
+             <Property Name="WindowSize" Value="x:80 y:20" />
+             <Property Name="WindowCaption" Value="会场等级" />
+             <Property Name="WindowVisible" Value="true" />
+          </Window>   
+	  <Window Type="CTransparentCheckButton" Name="RadioCnsLevel1" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+             <Property Name="WindowPos" Value="x:149 y:136" />
+             <Property Name="WindowSize" Value="x:100 y:28" />
+             <Property Name="WindowCaption" Value="一级" />
+             <Property Name="WindowVisible" Value="True" />
+	     <Property Name="WindowEnable" Value="false" />
+             <Property Name="Image" Value="checkbutton" />
+	     <Event Type="WM_LBUTTONUP" Value="CCnsCfgLogic::OnBtnCnsLevel1" />
+             <Scheme Name="SchmEdit">
+                <Property Name="WindowEnable" Value="true" />
+             </Scheme>
+             <Scheme Name="SchmNormal">
+                <Property Name="WindowEnable" Value="false" />
+             </Scheme>
+          </Window>
+	  <Window Type="CTransparentCheckButton" Name="RadioCnsLevel2" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+             <Property Name="WindowPos" Value="x:260 y:136" />
+             <Property Name="WindowSize" Value="x:100 y:28" />
+             <Property Name="WindowCaption" Value="二级" />
+             <Property Name="WindowVisible" Value="True" />
+	     <Property Name="WindowEnable" Value="false" />
+             <Property Name="Image" Value="checkbutton" />
+	     <Event Type="WM_LBUTTONUP" Value="CCnsCfgLogic::OnBtnCnsLevel2" />
+             <Scheme Name="SchmEdit">
+                <Property Name="WindowEnable" Value="true" />
+             </Scheme>
+             <Scheme Name="SchmNormal">
+                <Property Name="WindowEnable" Value="false" />
+             </Scheme>
+          </Window>
+	  <Window Type="CTransparentCheckButton" Name="RadioCnsLevel3" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+             <Property Name="WindowPos" Value="x:371 y:136" />
+             <Property Name="WindowSize" Value="x:100 y:28" />
+             <Property Name="WindowCaption" Value="三级" />
+             <Property Name="WindowVisible" Value="True" />
+	     <Property Name="WindowEnable" Value="false" />
+             <Property Name="Image" Value="checkbutton" />
+	     <Event Type="WM_LBUTTONUP" Value="CCnsCfgLogic::OnBtnCnsLevel3" />
+             <Scheme Name="SchmEdit">
+                <Property Name="WindowEnable" Value="true" />
+             </Scheme>
+             <Scheme Name="SchmNormal">
+                <Property Name="WindowEnable" Value="false" />
+             </Scheme>
+          </Window>
+
+          <Window Type="CStaticEx" Name="StCnsScreenIP" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:27 y:154" />
+             <Property Name="WindowSize" Value="x:130 y:20" />
+             <Property Name="WindowCaption" Value="会场屏幕对应IP" />
+             <Property Name="WindowVisible" Value="true" />
+             <Property Name="FontSize" Value="12" />
+          </Window> 
+          <Window Type="CStaticEx" Name="StScreen1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:181 y:146" />
+             <Property Name="WindowSize" Value="x:45 y:34" />
+             <Property Name="WindowCaption" Value="1" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+	     <Property Name="Image" Value="cnsscreen.png" />
+	     <Property Name="FontColor" Value="r:46 g:55 b:76" />
+	     <Property Name="Alignment" Value="1" />
+          </Window> 
+          <Window Type="CStaticEx" Name="StScreen2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:239 y:146" />
+             <Property Name="WindowSize" Value="x:45 y:34" />
+             <Property Name="WindowCaption" Value="2" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="Image" Value="cnsscreen.png" />
+	     <Property Name="FontColor" Value="r:46 g:55 b:76" />
+             <Property Name="Alignment" Value="1" />
+             <Property Name="FontSize" Value="12" />
+          </Window> 
+          <Window Type="CStaticEx" Name="StScreen3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:297 y:146" />
+             <Property Name="WindowSize" Value="x:45 y:34" />
+             <Property Name="WindowCaption" Value="3" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="Image" Value="cnsscreen.png" />
+	     <Property Name="FontColor" Value="r:46 g:55 b:76" />
+             <Property Name="Alignment" Value="1" />
+             <Property Name="FontSize" Value="12" />
+          </Window> 
+          <Window Type="CStaticEx" Name="StScreen4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:355 y:146" />
+             <Property Name="WindowSize" Value="x:45 y:34" />
+             <Property Name="WindowCaption" Value="4" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="Image" Value="cnsscreen.png" />
+	     <Property Name="FontColor" Value="r:46 g:55 b:76" />
+             <Property Name="Alignment" Value="1" />
+             <Property Name="FontSize" Value="12" />
+          </Window> 
+          <Window Type="CStaticEx" Name="StScreen5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:413 y:146" />
+             <Property Name="WindowSize" Value="x:45 y:34" />
+             <Property Name="WindowCaption" Value="5" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="Image" Value="cnsscreen.png" />
+	     <Property Name="FontColor" Value="r:46 g:55 b:76" />
+             <Property Name="Alignment" Value="1" />
+             <Property Name="FontSize" Value="12" />
+          </Window> 
+          <Window Type="CStaticEx" Name="StCnsScreen1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:182 y:210" />
+             <Property Name="WindowSize" Value="x:60 y:20" />
+             <Property Name="WindowCaption" Value="第1屏" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          </Window>
+          <Window Type="CStaticEx" Name="StScreenIP1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:260 y:210" />
+             <Property Name="WindowSize" Value="x:160 y:20" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          </Window>
+          <Window Type="CStaticEx" Name="StCnsScreen2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:182 y:264" />
+             <Property Name="WindowSize" Value="x:60 y:20" />
+             <Property Name="WindowCaption" Value="第2屏" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          </Window>
+	  <Window Type="CStaticEx" Name="StScreenIP2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:260 y:264" />
+             <Property Name="WindowSize" Value="x:160 y:20" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="WindowVisible" Value="false" />
+          </Window>
+          	<Window Type="CStaticEx" Name="StCnsScreen3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:182 y:316" />
+             <Property Name="WindowSize" Value="x:60 y:20" />
+             <Property Name="WindowCaption" Value="第3屏" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          	</Window>
+          	<Window Type="CStaticEx" Name="StScreenIP3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:260 y:316" />
+             <Property Name="WindowSize" Value="x:160 y:20" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          	</Window>
+	  		<Window Type="CStaticEx" Name="StCnsScreen4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:182 y:369" />
+             <Property Name="WindowSize" Value="x:60 y:21" />
+             <Property Name="WindowCaption" Value="第4屏" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          	</Window>
+          	<Window Type="CStaticEx" Name="StScreenIP4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:260 y:369" />
+             <Property Name="WindowSize" Value="x:160 y:21" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          	</Window>
+	  		<Window Type="CStaticEx" Name="StCnsScreen5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:182 y:421" />
+             <Property Name="WindowSize" Value="x:60 y:21" />
+             <Property Name="WindowCaption" Value="第5屏" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          	</Window>
+	  		<Window Type="CStaticEx" Name="StScreenIP5" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:260 y:421" />
+             <Property Name="WindowSize" Value="x:160 y:21" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="WindowVisible" Value="false" />
+             <Property Name="FontSize" Value="12" />
+          </Window>
+	  <Window Type="CStaticEx" Name="StCnsDual" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:27 y:516" />
+             <Property Name="WindowSize" Value="x:60 y:21" />
+             <Property Name="WindowCaption" Value="演示源" />
+             <Property Name="WindowVisible" Value="true" />
+             <Property Name="FontSize" Value="12" />
+      	  </Window>
+	  <Window Type="CStaticEx" Name="StDualIP" Style="WS_CHILD|WS_CLIPSIBLINGS">
+             <Property Name="WindowPos" Value="x:149 y:516" />
+             <Property Name="WindowSize" Value="x:160 y:21" />
+             <Property Name="WindowCaption" Value="" />
+             <Property Name="WindowVisible" Value="true" />
+             <Property Name="FontSize" Value="12" />
+          </Window>
+	-->
+	<Window Type="CStaticEx" Name="StIpAddress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:27 y:213" />
+      <Property Name="WindowSize" Value="x:82 y:21" />
+      <Property Name="WindowCaption" Value="IP地址" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="FontSize" Value="12" />
+  </Window>
+      
+  <Window Type="CStaticEx" Name="StSubMask" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:27 y:273" />
+      <Property Name="WindowSize" Value="x:82 y:21" />
+      <Property Name="WindowCaption" Value="子网掩码" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="FontSize" Value="12" />
+  </Window>
+  
+  <Window Type="CStaticEx" Name="StGateway" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:27 y:333" />
+      <Property Name="WindowSize" Value="x:82 y:21" />
+      <Property Name="WindowCaption" Value="默认网关" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="FontSize" Value="12" />
+  </Window>
+  
+  <Window Type="CStatic" Name="StcNAT" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:27 y:393" />
+      <Property Name="WindowSize" Value="x:82 y:21" />
+      <Property Name="WindowCaption" Value="静态NAT" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="FontSize" Value="12" />
+  </Window> 
+		
+  <Window Type="CStaticEx" Name="ExNATAddr" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:27 y:453" />
+      <Property Name="WindowSize" Value="x:82 y:21" />
+      <Property Name="WindowCaption" Value="NAT地址" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="FontSize" Value="12" />
+  </Window>
+  
+    <Window Type="CTransparentIpEdit" Name="IPCtrlAddress" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+      <Property Name="WindowPos" Value="x:111 y:194" />
+      <Property Name="WindowSize" Value="x:350 y:55" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="Image" Value="Edit" />
+      <Property Name="FontSize" Value="12" />
+      <Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+  </Window>
+  
+  <Window Type="CTransparentIpEdit" Name="IPCtrlSubMask" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+      <Property Name="WindowPos" Value="x:111 y:254" />
+      <Property Name="WindowSize" Value="x:350 y:55" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="Image" Value="Edit" />
+      <Property Name="FontSize" Value="12" />
+      <Scheme Name="SchmEdit">
+	      <Property Name="WindowEnable" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+  </Window>  
+          
+  <Window Type="CTransparentIpEdit" Name="IPCtrlGateway" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+      <Property Name="WindowPos" Value="x:111 y:314" />
+      <Property Name="WindowSize" Value="x:350 y:55" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="WindowEnable" Value="false" />
+      <Property Name="Image" Value="Edit" />
+      <Property Name="FontSize" Value="12" />
+      <Scheme Name="SchmEdit">
+        <Property Name="WindowEnable" Value="true" /> 
+      </Scheme>
+      <Scheme Name="SchmNormal">
+	      <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+  </Window>   
+        
+  <Window Type="CTransparentSwitchButton" Name="BtnNATSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			  <Property Name="WindowPos" Value="x:342 y:388" />
+			  <Property Name="WindowSize" Value="x:113 y:37" />
+			  <Property Name="Image" Value="switchbutton" />
+			  <Property Name="WindowEnable" Value="false" />
+			  <Property Name="WindowVisible" Value="True" />
+			  <Property Name="SwitchState" Value="true" />
+			  <Event Type="WM_BUTTON_CLICK" Value="CCnsCfgLogic::BtnSwitchNATClick" />
+        <Scheme Name="SchmEdit">
+          <Property Name="WindowEnable" Value="true" /> 
+        </Scheme>
+        <Scheme Name="SchmNormal">
+          <Property Name="WindowEnable" Value="false" />
+        </Scheme>
+	</Window>
+    
+  <Window Type="CTransparentIpEdit" Name="IPCtrlNATIp" Style="WS_CHILD|WS_TABSTOP"> 
+       <Property Name="WindowPos" Value="x:111 y:434" /> 
+       <Property Name="WindowSize" Value="x:350 y:55" />
+       <Property Name="WindowCaption" Value="" />
+       <Property Name="WindowVisible" Value="true" />
+       <Property Name="WindowEnable" Value="false" />
+       <Property Name="Image" Value="Edit" />
+       <Property Name="FontSize" Value="12" />
+       <Scheme Name="SchmEdit">
+         <Property Name="WindowEnable" Value="true" /> 
+	       <Property Name="DisableImg" Value="true" />
+       </Scheme>
+       <Scheme Name="SchmNormal">
+         <Property Name="WindowEnable" Value="false" />
+	       <Property Name="DisableImg" Value="false" />
+       </Scheme>
+  </Window>   
+           
+	</Window> <!---->
+	      
+	<CallBackFunc Type="CallBackFunc" Value="CCnsCfgLogic::InitWnd" />
+</Window>
+</UILayout>

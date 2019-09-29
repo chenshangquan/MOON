@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+	<Window Type="CDlgChild" Name="DlgSysTime">
+		<Property Name="WindowPos" Value="x:0 y:0" />
+		<Property Name="WindowSize" Value="x:483 y:618" />
+		<Property Name="WindowCaption" Value="系统时间设置界面" />
+		<Property Name="Image" Value="" />
+		<Property Name="WindowVisible" Value="false" />
+		<Scheme Name="SchmSysCfg">
+			<Property Name="WindowVisible" Value="false" />
+		</Scheme>
+		<Scheme Name="SchmSetTime">
+			<Property Name="WindowVisible" Value="true" />
+		</Scheme>
+		
+		<Window Type="CFlatButton" Name="BtnSysCfg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		  <Property Name="WindowPos" Value="x:8 y:7" />
+		  <Property Name="WindowSize" Value="x:99 y:37" />
+		  <Property Name="WindowCaption" Value="系统设置" />
+		  <Property Name="WindowVisible" Value="true" />
+		  <Property Name="Image" Value="btnToSysCfg" />
+		  <Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::OnSysCfg" />
+	  </Window>
+		
+		
+	  <Window Type="CFlatButton" Name="BtnSave" Style="WS_CHILD">
+		  <Property Name="WindowPos" Value="x:342 y:7" />
+		  <Property Name="WindowSize" Value="x:65 y:37" />
+		  <Property Name="WindowCaption" Value="保存" />
+		  <Property Name="WindowVisible" Value="false" />
+		  <Property Name="Image" Value="btnSave" />
+		  <Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnSaveClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CFlatButton" Name="BtnCancel" Style="WS_CHILD">
+			<Property Name="WindowPos" Value="x:409 y:7" />
+			<Property Name="WindowSize" Value="x:65 y:37" />
+			<Property Name="WindowCaption" Value="取消" />
+			<Property Name="WindowVisible" Value="false" />
+			<Property Name="Image" Value="btnCancel" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnTCancleClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CFlatButton" Name="BtnEdit" Style="WS_CHILD">
+		  <Property Name="WindowPos" Value="x:409 y:7" />
+		  <Property Name="WindowSize" Value="x:65 y:37" />
+		  <Property Name="WindowCaption" Value="编辑" />
+		  <Property Name="WindowVisible" Value="true" />
+		  <Property Name="Image" Value="btnEdit" />
+		  <Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BeginEditSysTime" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="false" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="true" />
+			</Scheme>
+		</Window>
+			
+			
+		
+		<Window Type="CStatic" Name="StcScreenPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:27 y:83" />
+			<Property Name="WindowSize" Value="x:70 y:21" />
+			<Property Name="WindowCaption" Value="日期" />
+			<Property Name="Image" Value="" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="FontSize" Value="12" />
+		</Window> 
+		
+		
+		<Window Type="CButton" Name="BtnCalender" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:418 y:68" />
+			<Property Name="WindowSize" Value="x:45 y:48" />
+			<Property Name="WindowCaption" Value="日历" />
+			<Property Name="WindowEnable" Value="true" />
+			<Property Name="Image" Value="btnCalendar" />
+			<Property Name="WindowVisible" Value="false" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnCalendarClick" />  
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+		</Window>
+	
+		<Window Type="CStatic" Name="StcPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:27 y:143" />
+			<Property Name="WindowSize" Value="x:70 y:21" />
+			<Property Name="WindowCaption" Value="时间" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="FontSize" Value="12" />
+			<Property Name="Image" Value="" />
+		</Window>
+		
+			<Window Type="CEdit" Name="EdtSec" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:263 y:124" />
+			<Property Name="WindowSize" Value="x:65 y:55" />
+			<Property Name="WindowCaption" Value="1" />
+			<Property Name="Image" Value="EditTimeR" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="LimitLength" Value="2" />
+			<Property Name="ShowIcon" Value="false" />
+			<Property Name="FontSize" Value="12" />
+			<Property Name="Alignment" Value="1" /> 
+			<Event Type="WM_EDIT_SETFOCUS" Value="CTimeSetLogic::EdtSecOnChar" /> 
+			<Event Type="WM_EDIT_ONCHAR" Value="CTimeSetLogic::EditTimeSetLimit" /> 
+			<Property Name="WindowEnable" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		
+		
+		
+		 <Window Type="CEdit" Name="EdtMPt" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:238 y:124" />
+			<Property Name="WindowSize" Value="x:25 y:55" />
+			<Property Name="WindowCaption" Value=":" />
+			<Property Name="Image" Value="EditTimeM" />
+			<Property Name="WindowVisible" Value="True" /> 		
+			<Property Name="ShowIcon" Value="false" /> 
+			<Property Name="FontSize" Value="18" />
+			<Property Name="Alignment" Value="1" /> 
+			<Property Name="FontColor" Value="r:228 g:238 b:255" />
+			<Property Name="WindowEnable" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>  
+		
+		<Window Type="CEdit" Name="EdtMin" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:173 y:124" />
+			<Property Name="WindowSize" Value="x:65 y:55" />
+			<Property Name="WindowCaption" Value="1" />
+			<Property Name="Image" Value="EditTimeM" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="LimitLength" Value="2" />
+			<Property Name="ShowIcon" Value="false" />
+			<Property Name="Alignment" Value="1" /> 
+			<Property Name="FontSize" Value="12" />
+			<Event Type="WM_EDIT_SETFOCUS" Value="CTimeSetLogic::EdtMinOnChar" />  
+			<Event Type="WM_EDIT_ONCHAR" Value="CTimeSetLogic::EditTimeSetLimit" />
+			<Property Name="WindowEnable" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+	  
+		
+   <Window Type="CEdit" Name="EdtHPt" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:148 y:124" />
+			<Property Name="WindowSize" Value="x:25 y:55" />
+			<Property Name="WindowCaption" Value=":" />
+			<Property Name="Image" Value="EditTimeM" />
+			<Property Name="WindowVisible" Value="True" /> 
+			<Property Name="ShowIcon" Value="false" /> 
+			<Property Name="FontSize" Value="18" />
+			<Property Name="Alignment" Value="1" /> 
+			<Property Name="FontColor" Value="r:228 g:238 b:255" />
+			<Property Name="WindowEnable" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>  
+		
+		  
+		  <Window Type="CEdit" Name="EdtHour" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:83 y:124" />
+			<Property Name="WindowSize" Value="x:65 y:55" />
+			<Property Name="WindowCaption" Value="1" />
+			<Property Name="Image" Value="EditTimeL" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="LimitLength" Value="2" />
+			<Property Name="FontSize" Value="12" />
+			<Property Name="Alignment" Value="1" /> 
+			<Property Name="ShowIcon" Value="false" />			
+			<Event Type="WM_EDIT_SETFOCUS" Value="CTimeSetLogic::EdtHourOnChar" />			
+			<Event Type="WM_EDIT_ONCHAR" Value="CTimeSetLogic::EditTimeSetLimit" /> 			
+			<!--<Event Type="WM_EDIT_CHANGED" Value="CTimeSetLogic::EditGetExTimeSet" />  -->
+						
+		  <Property Name="WindowEnable" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		<Window Type="CButton" Name="BtnAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:328 y:125" />
+			<Property Name="WindowSize" Value="x:46 y:27" />
+			<Property Name="WindowCaption" Value="+" />			 
+			<Property Name="Image" Value="btnTimeAdd" />
+			<Event Type="WM_LBUTTONDOWN" Value="CTimeSetLogic::BtnAddClick" />
+			<Event Type="WM_LBUTTONDBLCLK" Value="CTimeSetLogic::BtnAddClick" />
+			<Event Type="WM_BTN_HOLD" Value="CTimeSetLogic::OnAddBtnHold" /> 
+			<Event Type="WM_BTN_HOLD_END" Value="CTimeSetLogic::OnAddBtnHoldEnd" /> 
+			<Property Name="WindowVisible" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+		</Window>		
+		
+		<Window Type="CButton" Name="BtnDel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:328 y:151" />
+			<Property Name="WindowSize" Value="x:46 y:27" />
+			<Property Name="WindowCaption" Value="-" />			
+			<Property Name="Image" Value="btnTimeDel" />
+			<Event Type="WM_LBUTTONDOWN" Value="CTimeSetLogic::BtnDeleteClick" /> 
+			<Event Type="WM_LBUTTONDBLCLK" Value="CTimeSetLogic::BtnDeleteClick" />
+			<Event Type="WM_BTN_HOLD" Value="CTimeSetLogic::OnMinusBtnHold" /> 
+			<Event Type="WM_BTN_HOLD_END" Value="CTimeSetLogic::OnMinusBtnHoldEnd" /> 
+			<Property Name="WindowVisible" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+		</Window>		
+		
+		
+		<!--
+		<Window Type="CButton" Name="BtnDelHour" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:129 y:155" />
+			<Property Name="WindowSize" Value="x:46 y:46" />
+			<Property Name="WindowCaption" Value="-" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="Image" Value="btnTimeDel" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnDeleteHourClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CEdit" Name="EdtMin" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:352 y:150" />
+			<Property Name="WindowSize" Value="x:55 y:55" />
+			<Property Name="WindowCaption" Value="1" />
+			<Property Name="Image" Value="Edit" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="LimitLength" Value="2" />
+			<Property Name="ShowIcon" Value="false" />
+			<Event Type="WM_CHAR" Value="CTimeSetLogic::EdtMinOnChar" /> 
+			<Property Name="Alignment" Value="1" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CEdit" Name="EdtHour" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_AUTOHSCROLL|ES_NUMBER|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:178 y:150" />
+			<Property Name="WindowSize" Value="x:55 y:55" />
+			<Property Name="WindowCaption" Value="16" />
+			<Property Name="Image" Value="Edit" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="LimitLength" Value="2" />
+			<Property Name="ShowIcon" Value="false" />
+			<Event Type="WM_CHAR" Value="CTimeSetLogic::EdtHourOnChar" /> 
+			<Property Name="Alignment" Value="1" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CButton" Name="BtnAddHour" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:236 y:155" />
+			<Property Name="WindowSize" Value="x:46 y:46" />
+			<Property Name="WindowCaption" Value="+" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="Image" Value="btnTimeAdd" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnAddHourClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CStatic" Name="StcPoint" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:283 y:150" />
+			<Property Name="WindowSize" Value="x:18 y:30" />
+			<Property Name="WindowCaption" Value=":" />
+			<Property Name="FontSize" Value="20" />
+			<Property Name="FontColor" Value="r:228 g:238 b:255" />
+			<Property Name="Alignment" Value="1" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="Image" Value="" />
+		</Window>
+		
+		<Window Type="CButton" Name="BtnDelMin" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:303 y:155" />
+			<Property Name="WindowSize" Value="x:47 y:47" />
+			<Property Name="WindowCaption" Value="-" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="Image" Value="btnTimeDel" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnDeleteMinClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>
+		
+		<Window Type="CButton" Name="BtnAddMin" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:410 y:155" />
+			<Property Name="WindowSize" Value="x:46 y:46" />
+			<Property Name="WindowCaption" Value="+" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="Image" Value="btnTimeAdd" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnAddMinClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>   
+		-->  
+		
+		<Window Type="CEdit" Name="EdtDate" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY|WS_TABSTOP">
+			<Property Name="WindowPos" Value="x:83 y:64" />
+			<Property Name="WindowSize" Value="x:335 y:55" />
+			<Property Name="Image" Value="Edit" />
+			<Property Name="WindowVisible" Value="True" />
+			<Property Name="FontSize" Value="12" />		
+			<Property Name="LimitLength" Value="14" />
+			<Property Name="ShowIcon" Value="false" />
+			<Property Name="WindowEnable" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+		</Window>  
+		
+		
+		<Window Type="CButton" Name="BtnSyncTimToServ" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			<Property Name="WindowPos" Value="x:65 y:550" />
+			<Property Name="WindowSize" Value="x:354 y:51" />
+			<Property Name="WindowCaption" Value="同步至服务器" />			 
+			<Property Name="Image" Value="btnSyncTimeToServ" />
+			<Event Type="WM_BUTTON_CLICK" Value="CTimeSetLogic::BtnSyncTimeToServClick" />
+			<Property Name="WindowVisible" Value="false" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowVisible" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+		</Window> 
+		
+		
+		<CallBackFunc Type="CallBackFunc" Value="CTimeSetLogic::InitWnd" />
+  </Window>
+</UILayout>

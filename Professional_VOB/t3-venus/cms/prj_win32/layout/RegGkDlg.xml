@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+	<Window Type="CDlgChild" Name="RegGkDlg" >
+			<Property Name="WindowPos" Value="x:0 y:0" />
+			<Property Name="WindowSize" Value="x:483 y:618" />
+			<Property Name="WindowVisible" Value="false" />
+			<Property Name="Image" Value="" />
+			<Scheme Name="SchmSysCfg">
+				<Property Name="WindowVisible" Value="false" />
+			</Scheme>
+			<Scheme Name="SchmRegGk">
+				<Property Name="WindowVisible" Value="true" />
+			</Scheme>
+			 
+			<Window Type="CFlatButton" Name="BtnSysCfg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			  <Property Name="WindowPos" Value="x:8 y:7" />
+			  <Property Name="WindowSize" Value="x:99 y:37" />
+			  <Property Name="WindowCaption" Value="系统设置" />
+			  <Property Name="WindowVisible" Value="true" />
+			  <Property Name="Image" Value="btnToSysCfg" />
+			  <Event Type="WM_BUTTON_CLICK" Value="CRegGkLogic::OnSysCfg" />
+			</Window>
+			
+		 <Window Type="CTransparentIpEdit" Name="tabstop" Style="WS_CHILD|WS_TABSTOP"> 
+			   <Property Name="WindowPos" Value="x:0 y:0" /> 
+			   <Property Name="WindowSize" Value="x:0 y:0" />
+			   <Property Name="WindowCaption" Value="" />
+			   <Property Name="WindowVisible" Value="true" />  
+			</Window>
+			
+		<Window Type="CStatic" Name="StcScreenPswd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+			  <Property Name="WindowPos" Value="x:27 y:83" />
+			  <Property Name="WindowSize" Value="x:153 y:21" />
+			  <Property Name="WindowCaption" Value="启用GK" />
+			  <Property Name="Image" Value="" />
+			  <Property Name="WindowVisible" Value="True" />
+			  <Property Name="FontSize" Value="12" />
+			</Window>
+			
+			<Window Type="CTransparentSwitchButton" Name="BtnGkSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+			  <Property Name="WindowPos" Value="x:342 y:75" />
+			  <Property Name="WindowSize" Value="x:113 y:37" />
+			  <Property Name="Image" Value="switchbutton" />
+			  <Property Name="WindowEnable" Value="false" />
+			  <Property Name="WindowVisible" Value="True" />
+			  <Property Name="SwitchState" Value="true" />
+			  <Event Type="WM_BUTTON_CLICK" Value="CRegGkLogic::BtnSwitchGkClick" />
+			<Scheme Name="SchmEdit">
+				<Property Name="WindowEnable" Value="true" /> 
+			</Scheme>
+			<Scheme Name="SchmNormal">
+				<Property Name="WindowEnable" Value="false" />
+			</Scheme>
+			</Window>
+		  
+		            
+			<Window Type="CStaticEx" Name="ExSerAddr" Style="WS_CHILD">
+			   <Property Name="WindowPos" Value="x:27 y:147" />
+			   <Property Name="WindowSize" Value="x:90 y:21" />
+			   <Property Name="WindowCaption" Value="GK地址" />
+			   <Property Name="WindowVisible" Value="true" />
+			   <Property Name="FontSize" Value="12" />
+			</Window>
+			
+			<Window Type="CTransparentIpEdit" Name="IPCtrlGkIp" Style="WS_CHILD|WS_TABSTOP"> 
+			   <Property Name="WindowPos" Value="x:109 y:128" /> 
+			   <Property Name="WindowSize" Value="x:350 y:55" />
+			   <Property Name="WindowCaption" Value="" />
+			   <Property Name="WindowVisible" Value="true" />
+			   <Property Name="WindowEnable" Value="false" />
+			   <Property Name="Image" Value="Edit" />
+			   <Property Name="FontSize" Value="12" />
+				 <Scheme Name="SchmEdit">
+					 <Property Name="WindowEnable" Value="true" /> 
+					 <Property Name="DisableImg" Value="true" />
+				 </Scheme>
+				 <Scheme Name="SchmNormal">
+					 <Property Name="WindowEnable" Value="false" />
+				         <Property Name="DisableImg" Value="false" />
+				 </Scheme>
+			</Window>
+			 
+			
+			
+			
+			<Window Type="CFlatButton" Name="BtnSave" Style="WS_CHILD">
+			  <Property Name="WindowPos" Value="x:342 y:7" />
+			  <Property Name="WindowSize" Value="x:65 y:37" />
+			  <Property Name="WindowCaption" Value="保存" />
+			  <Property Name="WindowVisible" Value="false" />
+			  <Property Name="Image" Value="btnSave" />
+			  <Event Type="WM_BUTTON_CLICK" Value="CRegGkLogic::OnSave" />
+			  <Scheme Name="SchmEdit">
+			      <Property Name="WindowVisible" Value="true" /> 
+		          </Scheme>
+			  <Scheme Name="SchmNormal">
+			      <Property Name="WindowVisible" Value="false" />
+		          </Scheme>
+			</Window>
+			<Window Type="CFlatButton" Name="BtnCancel" Style="WS_CHILD">
+			  <Property Name="WindowPos" Value="x:409 y:7" />
+			  <Property Name="WindowSize" Value="x:65 y:37" />
+			  <Property Name="WindowCaption" Value="取消" />
+			  <Property Name="WindowVisible" Value="false" />
+			  <Property Name="Image" Value="btnCancel" />
+			  <Event Type="WM_BUTTON_CLICK" Value="CRegGkLogic::OnCancel" />
+			  <Scheme Name="SchmEdit">
+			      <Property Name="WindowVisible" Value="true" /> 
+		          </Scheme>
+			  <Scheme Name="SchmNormal">
+			      <Property Name="WindowVisible" Value="false" />
+		          </Scheme>
+			</Window>
+			<Window Type="CFlatButton" Name="BtnEdit" Style="WS_CHILD">
+			  <Property Name="WindowPos" Value="x:409 y:7" />
+			  <Property Name="WindowSize" Value="x:65 y:37" />
+			  <Property Name="WindowCaption" Value="编辑" />
+			  <Property Name="WindowVisible" Value="true" />
+			  <Property Name="Image" Value="btnEdit" />
+			  <Event Type="WM_BUTTON_CLICK" Value="CRegGkLogic::OnEdit" />
+			  <Scheme Name="SchmEdit">
+			      <Property Name="WindowVisible" Value="false" /> 
+		          </Scheme>
+			  <Scheme Name="SchmNormal">
+			      <Property Name="WindowVisible" Value="true" />
+		          </Scheme>
+			</Window>
+	   <CallBackFunc Type="CallBackFunc" Value="CRegGkLogic::InitWnd" />
+ </Window>
+</UILayout>

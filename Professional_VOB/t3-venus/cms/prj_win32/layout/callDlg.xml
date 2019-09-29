@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--呼叫界面
+   Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"-->
+  <Window Type="CDlgPopup" Name="CallDlg"> 
+    <Property Name="WindowPos" Value="x:884 y:249" />
+    <Property Name="WindowSize" Value="x:114 y:67" />
+    <Property Name="Image" Value="callDlgBkg" />
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowVisible" Value="false" />
+    <Window Type="CButton" Name="BtnCall" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:6" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowCaption" Value="呼叫" />
+      <Property Name="Tooltip" Value="呼叫" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnCallClick" />
+      <Property Name="Image" Value="btnOutCall" />
+    </Window>
+    <CallBackFunc Type="CallBackFunc" Value="" />
+  </Window>
+</UILayout>

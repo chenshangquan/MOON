@@ -1,0 +1,307 @@
+//Microsoft Developer Studio generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// Chinese (P.R.C.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE LANG_CHINESE, SUBLANG_CHINESE_SIMPLIFIED
+#pragma code_page(936)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE DISCARDABLE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 4, 2\r\n"
+    "#pragma code_page(936)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\cms.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""l.chs\\afxres.rc""          // Standard components\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON    DISCARDABLE     "res\\cnc32.ico"
+IDI_POPMSG_CLOSE_NORMAL ICON    DISCARDABLE     "res\\popmsg_close_normal.ico"
+IDI_POPMSG_CLOSE_PRESS  ICON    DISCARDABLE     "res\\popmsg_close_press.ico"
+IDI_POPMSG_ALERT        ICON    DISCARDABLE     "res\\msgtipalert.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOG DISCARDABLE  0, 0, 235, 55
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "关于 cms"
+FONT 9, "宋体"
+BEGIN
+    ICON            IDR_MAINFRAME,IDC_STATIC,11,17,20,20
+    LTEXT           "cms 1.0 版",IDC_STATIC,40,10,119,8,SS_NOPREFIX
+    LTEXT           "版权所有 (C) 2011",IDC_STATIC,40,25,119,8
+    DEFPUSHBUTTON   "确定",IDOK,178,7,50,14,WS_GROUP
+END
+
+IDD_CMS_DIALOG DIALOGEX 0, 0, 374, 241
+STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "cms"
+FONT 9, "宋体", 0, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",IDOK,260,7,50,14
+    PUSHBUTTON      "取消",IDCANCEL,317,7,50,14
+    LTEXT           "TODO: 在这里设置对话控制。",IDC_STATIC,50,90,200,8
+    PUSHBUTTON      "Test Cns",IDC_TEST_CNS,206,68,53,34
+    PUSHBUTTON      "Test Ums",IDC_BTN_TEST_UMS,207,119,53,34
+    PUSHBUTTON      "testUiFactory",IDC_BTN_TEST_UIFACTORY,91,39,61,35
+END
+
+IDD_DLG_CHILD DIALOG DISCARDABLE  0, 0, 187, 89
+STYLE WS_CHILD
+FONT 10, "System"
+BEGIN
+END
+
+IDD_DLG_POPUP DIALOG DISCARDABLE  0, 0, 187, 89
+STYLE WS_POPUP
+FONT 10, "System"
+BEGIN
+END
+
+IDD_DLG_OVERLAPPED DIALOG DISCARDABLE  0, 0, 187, 89
+STYLE 0x0L
+FONT 10, "System"
+BEGIN
+END
+
+IDD_DLG_HANDINPUTBOARD_DIALOG DIALOG DISCARDABLE  0, 0, 477, 200
+STYLE WS_POPUP | WS_BORDER
+FONT 10, "System"
+BEGIN
+    PUSHBUTTON      "hide",IDC_BTN_HIDE,18,14,31,18
+    PUSHBUTTON      "DEL",IDC_BTN_DEL,55,14,34,18
+    PUSHBUTTON      "space",IDC_BTN_SPACE,19,48,59,15
+    PUSHBUTTON      "enter",IDC_BTN_ENTER,20,81,59,15
+    PUSHBUTTON      "toKeyBoard",IDC_BTN_2KEYBOARD,19,125,59,15
+    LTEXT           "Static",IDC_STC_INPUT,98,15,287,150
+    LTEXT           "1",IDC_STC_CAND1,404,21,25,18,SS_NOTIFY
+    LTEXT           "2",IDC_STC_CAND2,439,21,25,18
+    LTEXT           "3",IDC_STC_CAND3,403,48,25,18
+    LTEXT           "4",IDC_STC_CAND4,438,48,25,18
+    LTEXT           "5",IDC_STC_CAND5,402,71,25,18
+    LTEXT           "6",IDC_STC_CAND6,437,71,25,18
+    LTEXT           "7",IDC_STC_CAND7,403,94,25,18
+    LTEXT           "8",IDC_STC_CAND8,438,94,25,18
+    LTEXT           "9",IDC_STC_CAND9,402,118,25,18
+    LTEXT           "10",IDC_STC_CAND10,437,118,25,18
+END
+
+IDD_POPUP_DLG DIALOG DISCARDABLE  0, 0, 187, 96
+STYLE WS_POPUP
+FONT 10, "System"
+BEGIN
+END
+
+
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,1,1,0
+ PRODUCTVERSION 1,1,1,0
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "080404b0"
+        BEGIN
+            VALUE "Comments", "科达网呈会场控制台\0"
+            VALUE "CompanyName", "苏州科达科技有限公司\0"
+            VALUE "FileDescription", "网呈会场控制台\0"
+            VALUE "FileVersion", "1.1.1.0.0\0"
+            VALUE "InternalName", "cnc\0"
+            VALUE "LegalCopyright", "2011-2012苏州科达科技有限公司\0"
+            VALUE "LegalTrademarks", "KEDACOM\0"
+            VALUE "OriginalFilename", "CNC.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "科达网呈视频会议系统\0"
+            VALUE "ProductVersion", "1, 1, 1, 0\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x804, 1200
+    END
+END
+
+#endif    // !_MAC
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO DISCARDABLE 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 228
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 48
+    END
+
+    IDD_CMS_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 367
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 234
+    END
+
+    IDD_DLG_CHILD, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_DLG_POPUP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_DLG_OVERLAPPED, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 82
+    END
+
+    IDD_DLG_HANDINPUTBOARD_DIALOG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 470
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 193
+    END
+
+    IDD_POPUP_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 89
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// 24
+//
+
+IDR_MANIFEST1           24      DISCARDABLE     "cnc.exe.manifest"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE DISCARDABLE 
+BEGIN
+    IDS_ABOUTBOX            "关于 cnc(&A)..."
+END
+
+#endif    // Chinese (P.R.C.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_CHS)
+#ifdef _WIN32
+LANGUAGE 4, 2
+#pragma code_page(936)
+#endif //_WIN32
+#include "res\cms.rc2"  // non-Microsoft Visual C++ edited resources
+#include "l.chs\afxres.rc"          // Standard components
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

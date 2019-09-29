@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--音量控制界面  Style="WS_POPUP|WS_CLIPSIBLINGS" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"-->
+  <Window Type="CDlgPopup" Name="VolumCtrlDlg">
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:376 y:314"></Property>
+    <Property Name="WindowSize" Value="x:613 y:138" />  <!--702 -->
+    <Property Name="Image" Value="volumBkg.png" />
+    <Property Name="WindowVisible" Value="false" /> 
+ <!--   
+    <Window Type="CButton" Name="btnMute" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:20 y:24" />
+      <Property Name="WindowSize" Value="x:69 y:87" />
+      <Scheme Name="SchmUnQuiet">
+        <Property Name="Image" Value="btnNotQuietInVolumn" />
+        <Event Type="WM_LBUTTONUP" Value="CVolumCtrlLogic::OnBntQuietClick" />
+        <Property Name="WindowCaption" Value="非静音" />
+      </Scheme>
+      <Scheme Name="SchmQuiet">
+        <Property Name="Image" Value="btnQuietInVolumn" />
+        <Event Type="WM_LBUTTONUP" Value="CVolumCtrlLogic::OnBntQuietClick" />
+        <Property Name="WindowCaption" Value="静音" />
+      </Scheme>
+      <Scheme Name="SchmMute">
+        <Property Name="Image" Value="btnMuteInVolumn" />
+        <Event Type="WM_LBUTTONUP" Value="CVolumCtrlLogic::OnBntMuteClick" />
+        <Property Name="WindowCaption" Value="哑音" />
+      </Scheme>
+      <Scheme Name="SchmUnMute">
+        <Property Name="Image" Value="btnNotMuteInVolumn" />
+        <Event Type="WM_LBUTTONUP" Value="CVolumCtrlLogic::OnBntMuteClick" />
+        <Property Name="WindowCaption" Value="非哑音" />
+      </Scheme>
+      <Property Name="WindowVisible" Value="True" />
+    </Window>
+    
+  -->  
+    <!--减音量按钮-->
+    <Window Type="CButton" Name="btnVolumnMinus" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:20 y:24" />  <!--x:112 -->
+      <Property Name="WindowSize" Value="x:69 y:87" />
+      <Property Name="Image" Value="btnVolumnMinus" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CVolumCtrlLogic::BtnMinusVolClick" />
+      <Scheme Name="SchmMute">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmUnMute">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmQuiet">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmUnQuiet">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window>
+    
+    
+    <!--加音量按钮-->
+    <Window Type="CButton" Name="btnVolumnAdd" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:521 y:24" />   <!--x:613 -->
+      <Property Name="WindowSize" Value="x:69 y:87" />
+      <Property Name="Image" Value="btnVolumnAdd" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CVolumCtrlLogic::BtnAddVolClick" />
+      <Scheme Name="SchmMute">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmUnMute">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmQuiet">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmUnQuiet">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window>
+    
+    
+    <Window Type="CSkinSlider" Name="SliderVolum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:115 y:48" />   <!--x:207 -->
+      <Property Name="WindowSize" Value="x:380 y:16" />
+      <Property Name="Image" Value="slider"></Property>
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="CSliderCtrlRange" Value="min:0 max:31" />
+      <Event Type="SLIDER_CHANGED" Value="CVolumCtrlLogic::OnReleasedcaptureVolumn" />
+      <Event Type="WM_MOUSEMOVE" Value="CVolumCtrlLogic::OnMouseMoveVolumn"></Event>
+      <Scheme Name="SchmMute">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmUnMute">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmQuiet">
+        <Property Name="WindowEnable" Value="false" />
+      </Scheme>
+      <Scheme Name="SchmUnQuiet">
+        <Property Name="WindowEnable" Value="true" />
+      </Scheme>
+    </Window>
+    
+    <!--
+    <Window Type="CButton" Image="Button" Name="btnSave2File" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:255 y:105" />
+      <Property Name="WindowSize" Value="x:87 y:42" />
+      <Property Name="WindowCaption" Value="保存到文件" />
+      <Property Name="Image" Value="Item" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_LBUTTONUP" Value="CVolumCtrlLogic::BtnSaveToFileClick" />
+    </Window>
+    <Window Type="CButton" Image="Button" Name="btnClose" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:355 y:107" />
+      <Property Name="WindowSize" Value="x:82 y:40" />
+      <Property Name="WindowCaption" Value="X" />
+      <Event Type="WM_LBUTTONUP" Value="CVolumCtrlLogic::BtnCloseClick" />
+      <Property Name="Image" Value="Item" />
+      <Property Name="WindowVisible" Value="True" />
+    </Window>
+    -->
+    <CallBackFunc Type="CallBackFunc" Value="CVolumCtrlLogic::InitWnd" />
+  </Window>
+</UILayout>

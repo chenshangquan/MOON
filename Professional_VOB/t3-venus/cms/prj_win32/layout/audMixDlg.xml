@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--混音配置界面
+  Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgPopup" Name="AudMixDlg" >
+   <Property Name="WindowPos" Value="x:203 y:53" />
+      <Property Name="WindowSize" Value="x:960 y:618" />
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="Image" Value="" />
+    <Property Name="WindowVisible" Value="false" />
+   
+    <Window Type="CDlgChild" Name="DlgLst" >
+      <Property Name="WindowPos" Value="x:0 y:0" />
+      <Property Name="WindowSize" Value="x:483 y:618" />
+      <Property Name="WindowCaption" Value="左侧界面" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="Image" Value="windowBkg" />
+      
+    <Window Type="CStaticEx" Name="StcCnsLstTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:0 y:10" />
+      <Property Name="WindowSize" Value="x:483 y:25" />
+      <Property Name="WindowCaption" Value="与会会场列表" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="FontColor" Value="r:228 g:238 b:255" />
+      <Property Name="Alignment" Value="1" />
+      <Property Name="FontSize" Value="12" />
+    </Window>
+    <!--
+    <Window Type="CButton" Name="BtnCloseDlg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:450 y:10" />
+      <Property Name="WindowSize" Value="x:80 y:22" />
+      <Property Name="WindowCaption" Value="X" />
+      <Property Name="WindowVisible" Value="false" />
+      <Event Type="WM_LBUTTONUP" Value="CAudmixLogic::CloseDlg" />
+      <Property Name="Image" Value="Item" />
+    </Window>
+    -->
+    <Window Type="CAddrList" Name="CnsList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:42 y:52" />
+      <Property Name="WindowSize" Value="x:427 y:552" />
+      <Property Name="WindowCaption" Value="会场列表" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="Drag" Value="false" />
+      <Property Name="ClickFocus" Value="false" />
+      <Scheme Name="SchmAudMixOn">
+        <Property Name="Drag" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmAudMixOff">
+        <Property Name="Drag" Value="true" />
+      </Scheme>
+    </Window>
+    <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+       <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="Image" Value="letterindex" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="CnsList" />
+    </Window>
+    
+    </Window>
+    
+    <!--Style="WS_CHILD|WS_CLIPSIBLINGS"-->
+    <!--右侧界面-->
+    <Window Type="CDlgChild" Name="DlgAudMixSet" >
+      <Property Name="WindowPos" Value="x:477 y:0" />
+	    <Property Name="WindowSize" Value="x:483 y:618" />
+      <Property Name="WindowCaption" Value="会议讨论设置界面" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="Image" Value="windowBkg" />
+      <Window Type="CStaticEx" Name="StcAudMixTitle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:0 y:10" />
+        <Property Name="WindowSize" Value="x:483 y:25" />
+        <Property Name="WindowCaption" Value="会议讨论设置" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontColor" Value="r:228 g:238 b:255" />
+        <Property Name="Alignment" Value="1" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CStaticEx" Name="StcAudmixLabel" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:28 y:78" />
+        <Property Name="WindowSize" Value="x:120 y:21" />
+        <Property Name="WindowCaption" Value="会议讨论" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CTransparentSwitchButton" Name="BtnAudmixSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:344 y:69" />
+        <Property Name="WindowSize" Value="x:113 y:37" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="WindowEnable" Value="true" />
+        <Property Name="Image" Value="switchbutton" />
+        <Event Type="WM_BUTTON_CLICK" Value="CAudmixLogic::OnBtnSwitchAudMixClick" />
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="SwitchState" Value="false" />
+        </Scheme>
+       </Window>
+      <Window Type="CStaticEx" Name="StcCnsLabel1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:28 y:133" />
+        <Property Name="WindowSize" Value="x:72 y:21" />
+        <Property Name="WindowCaption" Value="会场" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CStaticEx" Name="StcCnsLabel2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:28 y:194" />
+        <Property Name="WindowSize" Value="x:72 y:21" />
+        <Property Name="WindowCaption" Value="会场" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CStaticEx" Name="StcCnsLabel3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:28 y:256" />
+        <Property Name="WindowSize" Value="x:75 y:21" />
+        <Property Name="WindowCaption" Value="会场" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CStaticEx" Name="StcCnsLabel4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:28 y:317" />
+        <Property Name="WindowSize" Value="x:74 y:21" />
+        <Property Name="WindowCaption" Value="会场" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+      </Window>
+      <Window Type="CSkinEdit" Name="EdtAudmixCns1" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY">
+        <Property Name="WindowPos" Value="x:112 y:114" />
+        <Property Name="WindowSize" Value="x:349 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+	<Property Name="WindowEnable" Value="false" />
+	<Property Name="Image" Value="Edit" />
+	<Property Name="IconDeleteText" Value="false" />
+	<Property Name="ShowIcon" Value="false" />
+    <Event Type="UI_DRAG_END" Value="CAudmixLogic::OnDragEnd" />
+	<Event Type="WM_EDIT_SETFOCUS" Value="CAudmixLogic::OnBtnEdtAudMix1" />
+	<Event Type="UI_EDITDELETE_CLICK" Value="CAudmixLogic::OnDelEdtAudMix1" />
+	<Event Type="WM_KILL_FOCUS" Value="CAudmixLogic::OnEdtKillFocus" />
+	<Event Type="UI_DRAG_OVER" Value="CAudmixLogic::OnDragOverEdit" />
+	<Event Type="UI_DRAG_LEAVE" Value="CAudmixLogic::OnDragLeaveEdit" />
+        <Scheme Name="SchmAudMixOn">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+        
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+        
+	<Scheme Name="SchmSpeakCns">
+	  <Property Name="ShowIcon" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNormalCns">
+	  <Property Name="ShowIcon" Value="true" />
+	</Scheme>
+      </Window>
+      <Window Type="CSkinEdit" Name="EdtAudmixCns2" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY">
+        <Property Name="WindowPos" Value="x:112 y:177" />
+        <Property Name="WindowSize" Value="x:349 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+	<Property Name="WindowEnable" Value="false" />
+	<Property Name="Image" Value="Edit" />
+	<Property Name="IconDeleteText" Value="false" />
+	<Property Name="ShowIcon" Value="false" />
+    <Event Type="UI_DRAG_END" Value="CAudmixLogic::OnDragEnd" />
+	<Event Type="WM_EDIT_SETFOCUS" Value="CAudmixLogic::OnBtnEdtAudMix2" />
+	<Event Type="UI_EDITDELETE_CLICK" Value="CAudmixLogic::OnDelEdtAudMix2" />
+	<Event Type="WM_KILL_FOCUS" Value="CAudmixLogic::OnEdtKillFocus" />
+	<Event Type="UI_DRAG_OVER" Value="CAudmixLogic::OnDragOverEdit" />
+	<Event Type="UI_DRAG_LEAVE" Value="CAudmixLogic::OnDragLeaveEdit" />
+        <Scheme Name="SchmAudMixOn">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+  
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+        
+        <Scheme Name="SchmSpeakCns">
+	  <Property Name="ShowIcon" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNormalCns">
+	  <Property Name="ShowIcon" Value="true" />
+	</Scheme>
+      </Window>
+      <Window Type="CSkinEdit" Name="EdtAudmixCns3" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY">
+        <Property Name="WindowPos" Value="x:112 y:240" />
+        <Property Name="WindowSize" Value="x:349 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+	<Property Name="WindowEnable" Value="false" />
+	<Property Name="Image" Value="Edit" />
+	<Property Name="IconDeleteText" Value="false" />
+	<Property Name="ShowIcon" Value="false" />
+    <Event Type="UI_DRAG_END" Value="CAudmixLogic::OnDragEnd" />
+	<Event Type="WM_EDIT_SETFOCUS" Value="CAudmixLogic::OnBtnEdtAudMix3" />
+	<Event Type="UI_EDITDELETE_CLICK" Value="CAudmixLogic::OnDelEdtAudMix3" />
+	<Event Type="WM_KILL_FOCUS" Value="CAudmixLogic::OnEdtKillFocus" />
+	<Event Type="UI_DRAG_OVER" Value="CAudmixLogic::OnDragOverEdit" />
+	<Event Type="UI_DRAG_LEAVE" Value="CAudmixLogic::OnDragLeaveEdit" />
+        <Scheme Name="SchmAudMixOn">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+      
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+        
+        <Scheme Name="SchmSpeakCns">
+	  <Property Name="ShowIcon" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNormalCns">
+	  <Property Name="ShowIcon" Value="true" />
+	</Scheme>
+      </Window>
+      <Window Type="CSkinEdit" Name="EdtAudmixCns4" Style="WS_CHILD|WS_CLIPSIBLINGS|ES_READONLY">
+        <Property Name="WindowPos" Value="x:112 y:303" />
+        <Property Name="WindowSize" Value="x:349 y:55" />
+        <Property Name="WindowCaption" Value="" />
+        <Property Name="WindowVisible" Value="True" />
+        <Property Name="FontSize" Value="12" />
+	<Property Name="WindowEnable" Value="false" />
+	<Property Name="Image" Value="Edit" />
+	<Property Name="IconDeleteText" Value="false" />
+	<Property Name="ShowIcon" Value="false" />
+    <Event Type="UI_DRAG_END" Value="CAudmixLogic::OnDragEnd" />
+	<Event Type="WM_EDIT_SETFOCUS" Value="CAudmixLogic::OnBtnEdtAudMix4" />
+	<Event Type="UI_EDITDELETE_CLICK" Value="CAudmixLogic::OnDelEdtAudMix4" />
+	<Event Type="WM_KILL_FOCUS" Value="CAudmixLogic::OnEdtKillFocus" />
+	<Event Type="UI_DRAG_OVER" Value="CAudmixLogic::OnDragOverEdit" />
+	<Event Type="UI_DRAG_LEAVE" Value="CAudmixLogic::OnDragLeaveEdit" />
+        <Scheme Name="SchmAudMixOn">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+     
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+      
+        <Scheme Name="SchmSpeakCns">
+	  <Property Name="ShowIcon" Value="false" />
+	</Scheme>
+	<Scheme Name="SchmNormalCns">
+	  <Property Name="ShowIcon" Value="true" />
+	</Scheme>
+      </Window>
+      <Window Type="CTransparentCheckButton" Name="RadioSpokesCns1" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+        <Property Name="WindowPos" Value="x:123 y:183" />
+        <Property Name="WindowSize" Value="x:160 y:28" />
+        <Property Name="WindowCaption" Value="发言会场" />
+        <Property Name="WindowVisible" Value="false" />
+	<Property Name="WindowEnable" Value="false" />
+        <Property Name="Image" Value="checkbutton" />
+	<Event Type="WM_LBUTTONUP" Value="CAudmixLogic::OnBtnRadioSpeak1" />
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="false" />
+        </Scheme>
+      </Window>
+      <Window Type="CTransparentCheckButton" Name="RadioSpokesCns2" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+        <Property Name="WindowPos" Value="x:123 y:303" />
+        <Property Name="WindowSize" Value="x:160 y:28" />
+        <Property Name="WindowCaption" Value="发言会场" />
+        <Property Name="WindowVisible" Value="false" />
+	<Property Name="WindowEnable" Value="false" />
+        <Property Name="Image" Value="checkbutton" />
+	<Event Type="WM_LBUTTONUP" Value="CAudmixLogic::OnBtnRadioSpeak2" />
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="true" />
+        </Scheme>
+      </Window>
+      <Window Type="CTransparentCheckButton" Name="RadioSpokesCns3" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+        <Property Name="WindowPos" Value="x:123 y:423" />
+        <Property Name="WindowSize" Value="x:160 y:28" />
+        <Property Name="WindowCaption" Value="发言会场" />
+        <Property Name="WindowVisible" Value="false" />
+	<Property Name="WindowEnable" Value="false" />
+        <Property Name="Image" Value="checkbutton" />
+	<Event Type="WM_LBUTTONUP" Value="CAudmixLogic::OnBtnRadioSpeak3" />
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="false" />
+        </Scheme>
+      </Window>
+      <Window Type="CTransparentCheckButton" Name="RadioSpokesCns4" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+        <Property Name="WindowPos" Value="x:123 y:543" />
+        <Property Name="WindowSize" Value="x:160 y:28" />
+        <Property Name="WindowCaption" Value="发言会场" />
+        <Property Name="WindowVisible" Value="false" />
+	<Property Name="WindowEnable" Value="false" />
+        <Property Name="Image" Value="checkbutton" />
+	<Event Type="WM_LBUTTONUP" Value="CAudmixLogic::OnBtnRadioSpeak4" />
+        <Scheme Name="SchmAudMixOff">
+          <Property Name="WindowEnable" Value="false" />
+        </Scheme>
+      </Window>
+    </Window>
+    <CallBackFunc Type="CallBackFunc" Value="CAudmixLogic::InitWnd" />
+  </Window>
+</UILayout>

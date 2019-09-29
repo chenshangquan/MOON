@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<UILayout>
+    <Window Type="CDlgPopup" Name="AlarmInfoDlg" >
+        <Property Name="AutoHideStatus" Value="true" />
+	<Property Name="WindowPos" Value="x:1005 y:374" />
+	<Property Name="WindowSize" Value="x:342 y:314" />
+	<Property Name="WindowVisible" Value="false" />
+        <Property Name="Image" Value="AlarmInfoBkg.png" />
+	<Window Type="CStaticEx" Name="StTitle" Style="WS_CHILD">
+          <Property Name="WindowPos" Value="x:114 y:14" />
+          <Property Name="WindowSize" Value="x:114 y:21" />
+          <Property Name="WindowCaption" Value="系统信息" />
+          <Property Name="WindowVisible" Value="true" />
+          <Property Name="FontColor" Value="r:228 g:238 b:255" />
+          <Property Name="FontSize" Value="12" />
+	  <Property Name="Alignment" Value="1" />
+        </Window>
+	<Window Type="CFlatButton" Name="btnHideDlg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      	  <Property Name="WindowPos" Value="x:269 y:5" />
+          <Property Name="WindowSize" Value="x:64 y:37" />
+          <Property Name="WindowCaption" Value="隐藏" />
+      	  <Property Name="WindowVisible" Value="true" />
+      	  <Property Name="Image" Value="btnHideAlarm" />
+      	  <Event Type="WM_BUTTON_CLICK" Value="CAlarmInfoLogic::OnHideDlg" />
+	</Window>
+        <Window Type="CAddrList" Name="AlarmList" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:10 y:44" />
+          <Property Name="WindowSize" Value="x:322 y:238" />
+          <Property Name="LayoutAlgorithm" Value="Vert" />
+          <Property Name="WindowVisible" Value="True" />
+	        <Property Name="ListImage" Value="listBkg" />
+	        <Property Name="EveryItemSizeSame" Value="false" />
+        </Window>
+	<CallBackFunc Type="CallBackFunc" Value="CAlarmInfoLogic::InitWnd" />
+    </Window>
+</UILayout>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--交互界面-->
+  <!--
+  SchmMsgBoxNotShowBtn:不显示任何button
+  -->
+ <!-- <Window Type="CBmpWnd" Name="MsgBox" Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"> -->
+  <!--   <Window Type="CDlgModal" Name="MsgBox" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW" > -->
+   <Window Type="CTransparentDlg" Name="MsgBox" Style="WS_POPUP" >
+    <Property Name="WindowPos" Value="x:417 y:189" />
+    <Property Name="WindowSize" Value="x:532 y:346" />
+    <Property Name="Image" Value="msgBoxBkg.png" />
+    <Property Name="WindowVisible" Value="false" />
+    <Event Type="WM_POST_DOMODAL" Value="CMsgBoxLogic::OnPostDomodal" />
+    <Window Type="CStatic" Name="EdtMsg" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:110 y:50" />
+      <Property Name="WindowSize" Value="x:312 y:130" />
+      <Property Name="WindowCaption" Value="" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="FontColor" Value="r:255 g:255 b:255" />
+      <Property Name="FontSize" Value="14" />
+      <Property Name="Alignment" Value="1" />
+    </Window>
+    <Window Type="CButton" Name="BtnOk" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:110 y:241" />
+      <Property Name="WindowSize" Value="x:138 y:58" />
+      <Property Name="WindowCaption" Value="确认" />
+      <Property Name="Image" Value="btnMsgOK" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CMsgBoxLogic::OnBtnOkClick" />
+      <Scheme Name="SchmMsgBoxShowCancleBtn">
+        <Property Name="WindowPos" Value="x:110 y:241" />
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmMsgBoxNotShowCancleBtn">
+        <Property Name="WindowPos" Value="x:200 y:241" />
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmMsgBoxNotShowBtn">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    <Window Type="CButton" Name="BtnCancle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:284 y:241" />
+      <Property Name="WindowSize" Value="x:138 y:58" />
+      <Property Name="WindowCaption" Value="取消" />
+      <Property Name="Image" Value="btnMsgCancel" />
+      <Property Name="WindowVisible" Value="True" />
+      <Event Type="WM_BUTTON_CLICK" Value="CMsgBoxLogic::OnBtnCancleClick" />
+      <Scheme Name="SchmMsgBoxShowCancleBtn">
+        <Property Name="WindowVisible" Value="True" />
+      </Scheme>
+      <Scheme Name="SchmMsgBoxNotShowCancleBtn">
+        <Property Name="WindowVisible" Value="False" />
+      </Scheme>
+       <Scheme Name="SchmMsgBoxNotShowBtn">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window>
+    <!--
+    <Window Type="CButton" Name="BtnSave2File" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:62 y:7" />
+      <Property Name="WindowSize" Value="x:80 y:28" />
+      <Property Name="WindowCaption" Value="保存到文件" />
+      <Property Name="Image" Value="Item" />
+      <Property Name="WindowVisible" Value="false" />
+      <Event Type="WM_LBUTTONUP" Value="CMsgBoxLogic::BtnSaveToFileClick" />
+    </Window>
+    -->
+    <CallBackFunc Type="CallBackFunc" Value="CMsgBoxLogic::InitWnd" />
+  </Window>
+</UILayout>

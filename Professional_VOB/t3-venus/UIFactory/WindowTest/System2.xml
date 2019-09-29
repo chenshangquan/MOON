@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <SystemInfo name="ImagePath" value="Image/Btn" />
+  <SystemInfo name="DefaultFont" value="微软雅黑.font"></SystemInfo>
+  <WindowInfo name="LoginWnd" value="Layout.xml"></WindowInfo>
+  <WindowInfo name="MainWindow" value="mainwindow.xml" />
+  <WindowInfo name="AddrWindow" value="addrwindow.xml" />
+</System>

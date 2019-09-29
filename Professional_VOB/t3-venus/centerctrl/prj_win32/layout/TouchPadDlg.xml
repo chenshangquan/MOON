@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <Window Type="CTransparentDlg" Name="TouchPadDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+    <Property Name="WindowPos" Value="x:470 y:96" />
+    <Property Name="WindowSize" Value="x:574 y:576" />
+    <Property Name="WindowVisible" Value="false" />
+	<Property Name="Image" Value="touchpad/mainboard.png" /> 
+	<!--
+    <Scheme Name="SchmAirCondition">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+	-->
+	<Scheme Name="SchmCurtainCfg">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmCamera">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmMonitor">
+      <Property Name="WindowVisible" Value="false" />
+    </Scheme>
+    <Scheme Name="SchmTouchPad">
+      <Property Name="WindowVisible" Value="true" />
+    </Scheme>
+  
+  
+    <Window Type="CStatic" Name="StcLocalTemp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:190 y:114" />
+          <Property Name="WindowSize" Value="x:100 y:19" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="室内温度" /> 
+          <Property Name="FontColor" Value="r:149 g:169 b:189" />
+          <Property Name="Alignment" Value="0" />
+          <Property Name="FontSize" Value="14" />   
+    </Window>
+    
+    <Window Type="CStatic" Name="StcLeftNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:234 y:145" />
+          <Property Name="WindowSize" Value="x:59 y:87" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="air/normalnum/0.png" />	    
+    </Window>
+        
+    <Window Type="CStatic" Name="StcRightNum" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:295 y:145" />
+          <Property Name="WindowSize" Value="x:59 y:87" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="air/normalnum/0.png" />	    
+    </Window>
+
+    <Window Type="CStatic" Name="StcDegree" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:355 y:145" />
+          <Property Name="WindowSize" Value="x:36 y:28" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="air/normalnum/degree.png" />	    
+    </Window>
+	
+	<Window Type="CButton" Name="BtnSysSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:53 y:292" />
+          <Property Name="WindowSize" Value="x:112 y:106" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="touchpad/ClickBtn" />	
+		  <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnSysSwitch" />	
+    </Window>
+ 
+    <Window Type="CStatic" Name="StcSysSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:178 y:295" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/SysPowerOff.png" />
+<!--        <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnSysSwitch" />	 -->	
+    </Window>    
+	
+<!--     <Window Type="CStatic" Name="StcSysSwitch" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+            <Property Name="WindowPos" Value="x:178 y:295" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/SysPowerOff.png" />
+	    <Event Type="WM_LBUTTONUP" Value="CTouchPadLogic::OnBtnSysSwitch" />
+	    <Scheme Name="SchmPowerOn">
+      		<Property Name="Image" Value="touchpad/SysPowerOn.png" />
+    	    </Scheme>
+	    <Scheme Name="SchmPowerOff">
+      		<Property Name="Image" Value="touchpad/SysPowerOff.png" />
+    	    </Scheme>	    
+    </Window>
+
+    <Window Type="CStatic" Name="StcLight1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:167 y:328" />
+            <Property Name="WindowSize" Value="x:22 y:28" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/light.png" />
+	    <Scheme Name="SchmPowerOn">
+      		<Property Name="WindowVisible" Value="true" />
+    	    </Scheme>
+	    <Scheme Name="SchmPowerOff">
+      		<Property Name="WindowVisible" Value="false" />
+    	    </Scheme>	    
+    </Window> -->
+	
+<!-- 	<Window Type="CButton" Name="StcAllLight" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:296 y:295" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/AllLightOn" />
+            <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnAllLight" />		
+    </Window>
+	
+	<Window Type="CButton" Name="StcMainLight" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:178 y:401" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/MainLightSwitch" />
+            <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnMainLight" />		
+		<Scheme Name="SchmCurLogicExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+    </Window>
+	
+	<Window Type="CButton" Name="StcAuxiLight" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:296 y:401" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/AuxLightSwitch" />
+            <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnAuxiLight" />		
+		<Scheme Name="SchmCurLogicExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+    </Window> -->
+
+    <Window Type="CStatic" Name="StcAllLight" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+            <Property Name="WindowPos" Value="x:296 y:295" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/AllLightOff.png" />
+<!-- 	    <Event Type="WM_LBUTTONUP" Value="CTouchPadLogic::OnBtnAllLight" />	 -->
+	    <Scheme Name="SchmLightOn">
+      		<Property Name="Image" Value="touchpad/AllLightOn.png" />
+    	    </Scheme>
+	    <Scheme Name="SchmLightOff">
+      		<Property Name="Image" Value="touchpad/AllLightOff.png" />
+    	    </Scheme>    
+    </Window>
+
+    <Window Type="CStatic" Name="StcLight2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:385 y:328" />
+            <Property Name="WindowSize" Value="x:22 y:28" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/light.png" />
+	    <Scheme Name="SchmLightOn">
+      		<Property Name="WindowVisible" Value="true" />
+    	    </Scheme>
+	    <Scheme Name="SchmLightOff">
+      		<Property Name="WindowVisible" Value="false" />
+    	    </Scheme>	    
+    </Window> 
+	
+	<Window Type="CButton" Name="StcBtn2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:409 y:292" />
+          <Property Name="WindowSize" Value="x:112 y:106" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="touchpad/ClickBtn" />	
+		  <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnAllLight" />	
+    </Window>
+	
+	<Window Type="CButton" Name="StcBtn3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:53 y:401" />
+          <Property Name="WindowSize" Value="x:112 y:106" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="touchpad/ClickBtn" />	
+		<Scheme Name="SchmCurLogicExist">
+            <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnCurtainUp" />	
+    	</Scheme>
+		<Scheme Name="SchmCurLogicUnExist">
+      		<Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnMainLight" />
+    	</Scheme>	
+    </Window>
+
+     <Window Type="CStatic" Name="StcMainLight" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+            <Property Name="WindowPos" Value="x:178 y:401" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/MainLightOff.png" />	
+<!-- 	    <Event Type="WM_LBUTTONUP" Value="CTouchPadLogic::OnBtnMainLight" /> -->	
+        <Scheme Name="SchmMainLightOn">
+      		<Property Name="Image" Value="touchpad/MainLightOn.png" />
+    	</Scheme>
+	    <Scheme Name="SchmMainLightOff">
+      		<Property Name="Image" Value="touchpad/MainLightOff.png" />
+    	</Scheme>
+		<Scheme Name="SchmCurLogicExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+		<Scheme Name="SchmCurLogicUnExist">
+      		<Property Name="WindowVisible" Value="true" />
+    	</Scheme>		
+    </Window>
+
+    <Window Type="CStatic" Name="StcLight3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:167 y:435" />
+            <Property Name="WindowSize" Value="x:22 y:28" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/light.png" />
+	    <Scheme Name="SchmMainLightOn">
+      		<Property Name="WindowVisible" Value="true" />
+    	</Scheme>
+	    <Scheme Name="SchmMainLightOff">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+		<Scheme Name="SchmCurLogicExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>			
+    </Window>
+
+    <Window Type="CStatic" Name="StcAuxiLight" Style="WS_CHILD|WS_CLIPSIBLINGS|SS_NOTIFY">
+            <Property Name="WindowPos" Value="x:296 y:401" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/AuxiLightOff.png" />
+<!-- 	    <Event Type="WM_LBUTTONUP" Value="CTouchPadLogic::OnBtnAuxiLight" /> -->
+        <Scheme Name="SchmAuxiLightOn">
+      		<Property Name="Image" Value="touchpad/AuxiLightOn.png" />
+    	</Scheme>
+	    <Scheme Name="SchmAuxiLightOff">
+      		<Property Name="Image" Value="touchpad/AuxiLightOff.png" />
+    	</Scheme>
+		<Scheme Name="SchmCurLogicExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+		<Scheme Name="SchmCurLogicUnExist">
+      		<Property Name="WindowVisible" Value="true" />
+    	</Scheme>		
+    </Window>
+
+    <Window Type="CStatic" Name="StcLight4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:385 y:435" />
+            <Property Name="WindowSize" Value="x:22 y:28" />
+            <Property Name="WindowVisible" Value="false" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/light.png" />
+	    <Scheme Name="SchmAuxiLightOn">
+      		<Property Name="WindowVisible" Value="true" />
+    	</Scheme>
+	    <Scheme Name="SchmAuxiLightOff">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+		<Scheme Name="SchmCurLogicExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>			
+    </Window> 
+	
+	<Window Type="CButton" Name="StcBtn4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+          <Property Name="WindowPos" Value="x:409 y:401" />
+          <Property Name="WindowSize" Value="x:112 y:106" />
+          <Property Name="WindowVisible" Value="True" />
+          <Property Name="WindowCaption" Value="" />
+          <Property Name="Image" Value="touchpad/ClickBtn" />	
+		<Scheme Name="SchmCurLogicExist">
+            <Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnCurtainDown" />	
+    	</Scheme>
+		<Scheme Name="SchmCurLogicUnExist">
+			<Event Type="WM_BUTTON_CLICK" Value="CTouchPadLogic::OnBtnAuxiLight" />	
+    	</Scheme>
+    </Window>
+	
+    <Window Type="CStatic" Name="BtnCurtainUp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:178 y:401" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/CurtainUpOff.png" />           
+		<Scheme Name="SchmCurLogicUnExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>		
+    </Window>
+	
+	<Window Type="CStatic" Name="BtnCurtainDown" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:296 y:401" />
+            <Property Name="WindowSize" Value="x:100 y:106" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="touchpad/CurtainDownOff.png" />
+		<Scheme Name="SchmCurLogicUnExist">
+      		<Property Name="WindowVisible" Value="false" />
+    	</Scheme>			
+    </Window>
+
+    <CallBackFunc Type="CallBackFunc" Value="CTouchPadLogic::InitWnd" />
+  </Window>
+</UILayout>

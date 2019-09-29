@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--tp主界面-->
+  <Window Type="CBmpWnd" Name="TPDlg">
+    <Window Type="CTouchList" Name="TPDlg1" Style="WS_CHILD">
+      <Property Name="WindowPos" Value="x:0 y:0" />
+      <Property Name="WindowSize" Value="x:191 y:200" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="WindowCaption" Value="主" />
+      <Property Name="Image" Value="1.bmp" />
+    </Window>
+    <Property Name="WindowPos" Value="x:604 y:155" />
+    <Property Name="WindowSize" Value="x:880 y:900" />
+    <Property Name="WindowVisible" Value="True" />
+    <Property Name="WindowCaption" Value="TPDlg" />
+    <Property Name="Image" Value="1.bmp" />
+  </Window>
+</UILayout>

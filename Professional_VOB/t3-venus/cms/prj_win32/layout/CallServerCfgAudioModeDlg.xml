@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+    <Window Type="CDlgChild" Name="CallServerCfgAudioModeDlg" >
+	<Property Name="WindowPos" Value="x:0 y:0" />
+	<Property Name="WindowSize" Value="x:483 y:618" />
+	<Property Name="WindowVisible" Value="false" />
+  <Property Name="Image" Value="" />
+  <Scheme Name="SchmSysCfg">
+           <Property Name="WindowVisible" Value="false" />
+    	</Scheme>
+	<Scheme Name="CallServerCfgAudioModeDlg">
+           <Property Name="WindowVisible" Value="true" />
+  </Scheme>
+  <Scheme Name="SchmCallServerCfg">
+           <Property Name="WindowVisible" Value="false" />
+  </Scheme>
+  
+	<Window Type="CTransparentCheckButton" Name="G.711A" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:82 y:137" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="G.711A" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	 </Window>
+   	
+	 <Window Type="CTransparentCheckButton" Name="G.711U" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:82 y:197" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="G.711U" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	 </Window>	
+
+	 <Window Type="CTransparentCheckButton" Name="G.719" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:82 y:257" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="G.719" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+   	
+	 <Window Type="CTransparentCheckButton" Name="G.722.1" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:82 y:317" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="G.722.1 Annex C Polycom Siren14" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+   	
+	 <Window Type="CTransparentCheckButton" Name="MP3" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:82 y:377" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="MP3" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+   	
+	 <Window Type="CTransparentCheckButton" Name="MPEG4 AAC-LC" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+				<Property Name="WindowPos" Value="x:82 y:437" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="MPEG4 AAC-LC单声道" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>
+   	
+	  <Window Type="CTransparentCheckButton" Name="MPEG4 AAC-LD" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON|WS_GROUP">
+				<Property Name="WindowPos" Value="x:82 y:77" />
+				<Property Name="WindowSize" Value="x:20 y:20" />
+				<Property Name="WindowCaption" Value="MPEG4 AAC-LD单声道" />
+				<Property Name="WindowVisible" Value="true" />
+				<Property Name="WindowEnable" Value="true" />
+				<Property Name="Image" Value="checkbutton" />
+				<Property Name="CButtonCheckState" Value="0" />
+				<Property Name="FontSpan" Value="0" />
+				<Property Name="FontColor" Value="r:146 g:157 b:183" />
+				<Property Name="FontSize" Value="12" />
+				<Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnChangeCallMode" />
+				<Scheme Name="SchmClear">
+						 <Property Name="CButtonCheckState" Value="0" />
+				</Scheme>
+	  </Window>		
+	
+  <Window Type="CButton" Name="BtnBack" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	  <Property Name="WindowPos" Value="x:10 y:6" />
+	  <Property Name="WindowSize" Value="x:72 y:37" />
+	  <Property Name="WindowCaption" Value="返回" />
+	  <Property Name="WindowVisible" Value="true" />
+	  <Property Name="Image" Value="btnBack" />
+	  <Event Type="WM_BUTTON_CLICK" Value="CCallSerCfgAudioModeLogic::OnBtnBack" />
+	</Window>
+		
+	<CallBackFunc Type="CallBackFunc" Value="CCallSerCfgAudioModeLogic::InitWnd" />
+    </Window>
+</UILayout>

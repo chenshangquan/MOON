@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--主菜单界面-->
+  <Window Type="CTransparentDlg" Name="MainMenuDlg" Style="WS_CHILD|WS_CLIPSIBLINGS" >
+    <Property Name="WindowPos" Value="x:0 y:27" />
+    <Property Name="WindowSize" Value="x:149 y:741" />
+    <Property Name="WindowVisible" Value="true" />
+    <Property Name="Image" Value="mainmenu/MainMenuBkg.png" />
+    
+    <Window Type="CTransparentCheckButton" Name="BtnTouchPad" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:0 y:0" />
+            <Property Name="WindowSize" Value="x:141 y:115" />
+	  <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+			<Property Name="Image" Value="mainmenu/btnTouchPad" />	
+	  <Property Name="CButtonCheckState" Value="1" />
+			<Property Name="WindowEnable" Value="false" />
+            <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnClickTouchPad" /> 
+		<!--	
+            <Scheme Name="SchmAirCondition">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+		-->
+            <Scheme Name="SchmCamera">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+    	    <Scheme Name="SchmMonitor">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+       	    <Scheme Name="SchmTouchPad">
+		<Property Name="CButtonCheckState" Value="1" />
+      		<Property Name="WindowEnable" Value="false" />
+    	    </Scheme>	
+			<Scheme Name="SchmCurtainCfg">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+			
+    </Window>  
+
+    <Window Type="CStatic" Name="StcCutline1" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:115" />
+            <Property Name="WindowSize" Value="x:141 y:2" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="mainmenu/cutline.png" />	    
+    </Window>
+
+     <Window Type="CTransparentCheckButton" Name="BtnMonitor" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:0 y:117" />
+            <Property Name="WindowSize" Value="x:141 y:115" />
+	    <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+	    <Property Name="Image" Value="mainmenu/btnMonitor" />
+			<Property Name="CButtonCheckState" Value="0" />
+			<Property Name="WindowEnable" Value="true" />
+	    <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnClickMonitor" /> 
+		<!--
+            <Scheme Name="SchmAirCondition">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+		-->
+	    <Scheme Name="SchmCamera">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+    	    <Scheme Name="SchmMonitor">
+		<Property Name="CButtonCheckState" Value="1" />
+                <Property Name="WindowEnable" Value="false" />
+    	    </Scheme>
+    	    <Scheme Name="SchmTouchPad">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme> 
+			<Scheme Name="SchmCurtainCfg">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>		    
+    </Window>
+    
+    <Window Type="CStatic" Name="StcCutline2" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:232" />
+            <Property Name="WindowSize" Value="x:141 y:2" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="mainmenu/cutline.png" />	    
+    </Window>
+
+    <Window Type="CTransparentCheckButton" Name="BtnCamera" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:0 y:234" />
+            <Property Name="WindowSize" Value="x:141 y:115" />
+	    <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+	    <Property Name="Image" Value="mainmenu/btnCamera" />
+			<Property Name="CButtonCheckState" Value="0" />
+			<Property Name="WindowEnable" Value="true" />		
+	    <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnClickCamera" />
+		<!--
+	    <Scheme Name="SchmAirCondition">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+		-->
+	    <Scheme Name="SchmCamera">
+		<Property Name="CButtonCheckState" Value="1" />
+      		<Property Name="WindowEnable" Value="false" />
+    	    </Scheme>
+    	    <Scheme Name="SchmMonitor">
+		<Property Name="CButtonCheckState" Value="0" />
+                <Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+    	    <Scheme Name="SchmTouchPad">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+			<Scheme Name="SchmCurtainCfg">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>		    
+    </Window>
+	
+    <Window Type="CStatic" Name="StcCutline3" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:349" />
+            <Property Name="WindowSize" Value="x:141 y:2" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="mainmenu/cutline.png" />	    
+    </Window>
+
+
+<!--如需放开窗帘界面 显示窗帘控制按钮及界面 需删除此行
+	<Window Type="CTransparentCheckButton" Name="BtnCurtainCfg" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTORADIOBUTTON">
+            <Property Name="WindowPos" Value="x:0 y:351" />
+            <Property Name="WindowSize" Value="x:141 y:115" />
+	    <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+	    <Property Name="Image" Value="mainmenu/btnCurtainCfg" />
+			<Property Name="CButtonCheckState" Value="0" />
+			<Property Name="WindowEnable" Value="true" />		
+	    <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnClickCurtainCfg" />
+
+	    <Scheme Name="SchmCamera">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+    	    <Scheme Name="SchmMonitor">
+		<Property Name="CButtonCheckState" Value="0" />
+                <Property Name="WindowEnable" Value="true" />
+    	    </Scheme>
+    	    <Scheme Name="SchmTouchPad">
+		<Property Name="CButtonCheckState" Value="0" />
+      		<Property Name="WindowEnable" Value="true" />
+    	    </Scheme>	
+			<Scheme Name="SchmCurtainCfg">
+		<Property Name="CButtonCheckState" Value="1" />
+      		<Property Name="WindowEnable" Value="false" />
+    	    </Scheme>			
+    </Window>
+
+    <Window Type="CStatic" Name="StcCutline4" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:466" />
+            <Property Name="WindowSize" Value="x:141 y:2" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="mainmenu/cutline.png" />	    
+    </Window>
+如需放开窗帘界面 删除此行 并保存该文件重新运行-->
+	
+    <Window Type="CButton" Name="BtnConfManage" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:639" />
+            <Property Name="WindowSize" Value="x:141 y:50" />
+	    <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+	    <Property Name="Image" Value="mainmenu/btnConfManage" />
+            <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnBtnToCnc" />		    
+    </Window>
+    
+    <Window Type="CStatic" Name="StcCutline6" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:637" />
+            <Property Name="WindowSize" Value="x:141 y:2" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="mainmenu/cutline.png" />	    
+    </Window>
+   <!--
+    <Window Type="CButton" Name="BtnMinimize" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:639" />
+            <Property Name="WindowSize" Value="x:141 y:50" />
+	    <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+	    <Property Name="Image" Value="mainmenu/btnMinimize" />
+	    <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnBtnMinimize" />			    
+    </Window>
+    -->
+
+    <Window Type="CStatic" Name="StcCutline7" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:689" />
+            <Property Name="WindowSize" Value="x:141 y:2" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="Image" Value="mainmenu/cutline.png" />	    
+    </Window>
+     
+    <Window Type="CButton" Name="BtnExit" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:0 y:691" />
+            <Property Name="WindowSize" Value="x:141 y:50" />
+	    <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="True" />
+	    <Property Name="Image" Value="mainmenu/btnExit" />	
+	    <Event Type="WM_BUTTON_CLICK" Value="CMainMenuLogic::OnBtnExit" />
+    </Window>
+    <CallBackFunc Type="CallBackFunc" Value="CMainMenuLogic::InitWnd" />
+  </Window>
+</UILayout>

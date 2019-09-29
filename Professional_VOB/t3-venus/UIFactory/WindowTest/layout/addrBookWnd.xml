@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+  <Window Type="Window" Name="AddrBookDlg">
+    <Property Name="Pos" Value="x:0y:0" />
+    <Property Name="Size" Value="h:600l:450" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CList" Name="LstAddrBook">
+      <Property Name="Pos" Value="x:20y:10" />
+      <Property Name="Size" Value="h:280l:400" />
+      <Property Name="Name" Value="AddrBook" />
+      <Property Name="Tooltip" Value="AddrBook" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="CList" Name="ListGroup">
+      <Property Name="Pos" Value="x:320y:10" />
+      <Property Name="Size" Value="h:280l:400" />
+      <Property Name="Name" Value="AddrBook" />
+      <Property Name="Tooltip" Value="AddrBook" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+  </Window>
+</UILayout>

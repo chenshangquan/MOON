@@ -1,0 +1,454 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+  <!--模拟会场界面-->
+  <Window Type="Window" Name="SimulateCnsDlg">
+    <Window Type="Button" Name="stcSimulatedScreen">
+      <Property Name="Pos" Value="x:21y:17" />
+      <Property Name="Size" Value="h:738l:138" />
+      <Property Name="Name" Value="SimulatedScreen" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Button" Name="stcScreenName1">
+      <Property Name="Pos" Value="x:94y:175" />
+      <Property Name="Size" Value="h:50l:14" />
+      <Property Name="Name" Value="ScreenName1" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Button" Name="stcScreenName2">
+      <Property Name="Pos" Value="x:238y:175" />
+      <Property Name="Size" Value="h:50l:14" />
+      <Property Name="Name" Value="ScreenName2" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Button" Name="stcScreenName3">
+      <Property Name="Pos" Value="x:382y:175" />
+      <Property Name="Size" Value="h:50l:14" />
+      <Property Name="Name" Value="ScreenName3" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Button" Name="stcScreenName4">
+      <Property Name="Pos" Value="x:645y:175" />
+      <Property Name="Size" Value="h:50l:14" />
+      <Property Name="Name" Value="ScreenName4" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Button" Name="stcScreenName5">
+      <Property Name="Pos" Value="x:789y:175" />
+      <Property Name="Size" Value="h:50l:14" />
+      <Property Name="Name" Value="ScreenName5" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Window Type="Button" Name="stcSeat">
+      <Property Name="Pos" Value="x:789y:175" />
+      <Property Name="Size" Value="h:538l:138" />
+      <Property Name="Name" Value="Seat" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+    <Property Name="Visible" Value="1" />
+    <Property Name="Size" Value="h:804l:1038" />
+    <Property Name="Pos" Value="x:0y:0" />
+  </Window>
+  <!--主菜单界面-->
+  <Window Type="Window" Name="MainMenuDlg">
+    <Property Name="Pos" Value="x:300y:1000" />
+    <Property Name="Size" Value="h:300l:20" />
+    <Property Name="Visible" Value="1" />
+    <!---->
+    <Window Type="Button" Name="BtnAddrBook">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="AddrBook" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="MainMenuDlg::AddrBookClick" />
+    </Window>
+    <Window Type="Button" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:80y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfTemplateList" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="MainMenuDlg::ConfManageClick" />
+    </Window>
+    <Window Type="Button" Name="BtnTvWallManage">
+      <Property Name="Pos" Value="x:160y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfCnsList" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="MainMenuDlg::TvWallManageClick" />
+    </Window>
+    <Window Type="Button" Name="BtnConfDiscussion ">
+      <Property Name="Pos" Value="x:240y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="AddrBook" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="AddrBook::Click" />
+    </Window>
+  </Window>
+  <!--设置菜单界面-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:500" />
+    <Property Name="Size" Value="h:80l:100" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="Button" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="MainSetMenuDlg::ConfManageClick" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:0y:20" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="MainSetMenuDlg::SystemSetClick" />
+    </Window>
+    <Window Type="Button" Name="BtnLogout">
+      <Property Name="Pos" Value="x:0y:40" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="MainSetMenuDlg::logoutClick" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--地址簿-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--会议管理-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--huiyitaolun-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--dianshiqiangguanli-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--suopin-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--tishi-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+  <!--shezhi-->
+  <Window Type="Window" Name="MainSetMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    <Window Type="CButton" Name="BtnConfManage">
+      <Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ConfManage" />
+      <Property Name="Tooltip" Value="confManage" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="confManage::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+      <Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="systemSet" />
+      <Property Name="Visible" Value="0" />
+      <Event Type="Click" Value="SystemSet::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+      <Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="logout" />
+      <Event Type="Click" Value="logout::Click" />
+    </Window>
+    <Window Type="CButton" Name="BtnShotdown">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="SystemSet" />
+      <Property Name="Tooltip" Value="shotdown" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::shotdown" />
+    </Window>
+    <Window Type="CButton" Name="BtnPower-down">
+      <Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="power-down" />
+      <Property Name="Tooltip" Value="power-down" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="logout::power-down" />
+    </Window>
+  </Window>
+</UILayout>

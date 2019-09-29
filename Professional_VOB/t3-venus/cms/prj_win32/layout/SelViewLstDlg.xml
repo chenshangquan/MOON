@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--会场列表选看界面--> 
+  <Window Type="CDlgPopup" Name="SelViewLstDlg" >
+  <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:441 y:53" /> 
+    <Property Name="WindowSize" Value="x:483 y:618" /> 
+    <Property Name="Image" Value="windowBkg" />
+    
+    
+    <Window Type="CStatic" Name="StcTitle" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:0 y:10" />
+      <Property Name="WindowSize" Value="x:483 y:25" />
+      <Property Name="WindowCaption" Value="会场选看列表" />
+      <Property Name="WindowVisible" Value="True" />
+      <Property Name="FontColor" Value="r:228 g:238 b:255" /> 
+      <Property Name="Alignment" Value="1" />
+    </Window>
+
+    <!--
+    <Window Type="CButton" Name="BtnSynthesis" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:401 y:7" />
+      <Property Name="WindowSize" Value="x:73 y:37" />
+      <Property Name="WindowVisible" Value="True" />     
+      <Property Name="Image" Value="btnSynthesis" />
+      <Event Type="WM_BUTTON_CLICK" Value="CScrnDisplayMenuLogic::OnBtnSynthesis" />
+    </Window> -->
+    
+    <Window Type="CAddrList" Name="LstCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:42 y:52" />
+      <Property Name="WindowSize" Value="x:427 y:552" />
+      <Property Name="WindowCaption" Value="会场列表" /> 
+      <Property Name="ListImage" Value="listBkg" />
+      <Property Name="LayoutAlgorithm" Value="Vert" />
+      <Property Name="WindowVisible" Value="True" /> 
+    </Window>
+    
+  
+    
+      <Window Type="CLetterIndex" Name="IndexList" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <!-- <Property Name="AutoHideStatus" Value="true" /> -->
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="Image" Value="letterindex" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="LstCns" />
+    </Window>  
+    
+    <CallBackFunc Type="CallBackFunc" Value="InitWnd" />
+  </Window>
+</UILayout>

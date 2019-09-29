@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--会议cns管理菜单
+  Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOPMOST|WS_EX_TOOLWINDOW"-->
+  <Window Type="CDlgPopup" Name="ConfCnsCtrlDlg" > 
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:38 y:401" />
+    <Property Name="WindowSize" Value="x:114 y:250" /> 
+    <Property Name="Image" Value="callDlgBkg" />
+    <Property Name="WindowCaption" Value="会议cns管理菜单" />
+    <Property Name="WindowVisible" Value="false" /> 
+    <Scheme Name="SchmImgNormal">
+      <Property Name="Image" Value="callDlgBkg" />
+    </Scheme>
+    <Scheme Name="SchmImgEx">
+      <Property Name="Image" Value="callDlgBkgEx" />
+    </Scheme>
+    <!-- <Scheme Name="SchmSpeaker">
+      <Property Name="WindowSize" Value="x:114 y:311" />
+    </Scheme>
+    <Scheme Name="SchmUnSpeaker">
+      <Property Name="WindowSize" Value="x:114 y:250" />
+    </Scheme>
+    <Window Type="CButton" Image="Button" Name="btnSpeaker" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:6" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowCaption" Value="指定发言" />
+      <Property Name="WindowVisible" Value="false" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetSpokeCnsClick" />
+      <Property Name="Image" Value="confctrl/btnSelSpeaker" />
+      <Scheme Name="SchmSpeaker">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+      <Scheme Name="SchmUnSpeaker">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+    </Window> -->
+    
+    <Window Type="CButton" Image="Button" Name="btnHungupCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:6" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowCaption" Value="挂断会场" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnHungupCnsClick" />
+      <Property Name="Image" Value="confctrl/btnHangUpCns" />
+      <Property Name="WindowVisible" Value="True" />
+      <!--<Scheme Name="SchmSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:67" />
+      </Scheme>
+      <Scheme Name="SchmUnSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:6" />
+      </Scheme> -->
+    </Window>
+    <Window Type="CButton" Image="Button" Name="btnQuietCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:67" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="confctrl/btnQuiet" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmQuietCns">
+        <Property Name="WindowCaption" Value="静音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetQuietClick" />
+        <Property Name="Image" Value="confctrl/btnQuiet" />
+      </Scheme>
+      <Scheme Name="SchmUnQuietCns">
+        <Property Name="WindowCaption" Value="取消静音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetUnQuietClick" />
+        <Property Name="Image" Value="confctrl/btnUnQuiet" />
+      </Scheme>
+      <!-- <Scheme Name="SchmSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:128" />
+      </Scheme>
+      <Scheme Name="SchmUnSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:67" />
+      </Scheme> -->
+    </Window>
+        
+    <Window Type="CButton" Image="Button" Name="btnMute" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:128" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="confctrl/btnMute" />    
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmMuteCns">
+        <Property Name="WindowCaption" Value="哑音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetMuteClick" />
+        <Property Name="Image" Value="confctrl/btnMute" />
+      </Scheme>
+      <Scheme Name="SchmUnMuteCns">
+        <Property Name="WindowCaption" Value="取消哑音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetUnMuteClick" />
+        <Property Name="Image" Value="confctrl/btnUnMute" />
+      </Scheme>
+      <!-- <Scheme Name="SchmUnSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:128" />
+      </Scheme>
+      <Scheme Name="SchmSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:189" />
+      </Scheme> -->
+    </Window>     
+    
+    <Window Type="CButton" Image="Button" Name="btnDual" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:189" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="confctrl/btnDual" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmStartDual">
+        <Property Name="WindowCaption" Value="开始演示" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnStartDualClick" />
+        <Property Name="Image" Value="confctrl/btnDual" />
+      </Scheme>
+      <Scheme Name="SchmStopDual">
+        <Property Name="WindowCaption" Value="停止演示" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnStopDualClick" />
+        <Property Name="Image" Value="confctrl/btnUnDual" />
+      </Scheme>
+      <!-- <Scheme Name="SchmSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:250" />
+      </Scheme>
+      <Scheme Name="SchmUnSpeaker">
+        <Property Name="WindowPos" Value="x:21 y:189" />
+      </Scheme> -->
+    </Window>
+    
+    <CallBackFunc Type="CallBackFunc" Value="InitWnd" />
+  </Window>
+
+
+  <Window Type="CDlgPopup" Name="ConfCnsCtrlSpeakerDlg" > 
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:38 y:401" />
+    <Property Name="WindowSize" Value="x:114 y:311" /> 
+    <Property Name="Image" Value="callDlgBkg" />
+    <Property Name="WindowVisible" Value="false" /> 
+    <Scheme Name="SchmImgNormal">
+      <Property Name="Image" Value="callDlgBkg" />
+    </Scheme>
+    <Scheme Name="SchmImgEx">
+      <Property Name="Image" Value="callDlgBkgEx" />
+    </Scheme>
+
+    <Window Type="CButton" Image="Button" Name="btnSpeaker" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:6" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="WindowVisible" Value="true" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetSpokeCnsClick" />
+      <Property Name="Image" Value="confctrl/btnSelSpeaker" />
+    </Window>
+    
+    <Window Type="CButton" Image="Button" Name="btnHungupCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:67" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnHungupCnsClick" />
+      <Property Name="Image" Value="confctrl/btnHangUpCns" />
+      <Property Name="WindowVisible" Value="True" />
+    </Window>
+    <Window Type="CButton" Image="Button" Name="btnQuietCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:128" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="confctrl/btnQuiet" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmQuietCns">
+        <Property Name="WindowCaption" Value="静音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetQuietClick" />
+        <Property Name="Image" Value="confctrl/btnQuiet" />
+      </Scheme>
+      <Scheme Name="SchmUnQuietCns">
+        <Property Name="WindowCaption" Value="取消静音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetUnQuietClick" />
+        <Property Name="Image" Value="confctrl/btnUnQuiet" />
+      </Scheme>
+    </Window>
+        
+    <Window Type="CButton" Image="Button" Name="btnMute" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:189" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="confctrl/btnMute" />    
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmMuteCns">
+        <Property Name="WindowCaption" Value="哑音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetMuteClick" />
+        <Property Name="Image" Value="confctrl/btnMute" />
+      </Scheme>
+      <Scheme Name="SchmUnMuteCns">
+        <Property Name="WindowCaption" Value="取消哑音" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnSetUnMuteClick" />
+        <Property Name="Image" Value="confctrl/btnUnMute" />
+      </Scheme>
+    </Window>     
+    
+    <Window Type="CButton" Image="Button" Name="btnDual" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:21 y:250" />
+      <Property Name="WindowSize" Value="x:88 y:57" />
+      <Property Name="Image" Value="confctrl/btnDual" />
+      <Property Name="WindowVisible" Value="True" />
+      <Scheme Name="SchmStartDual">
+        <Property Name="WindowCaption" Value="开始演示" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnStartDualClick" />
+        <Property Name="Image" Value="confctrl/btnDual" />
+      </Scheme>
+      <Scheme Name="SchmStopDual">
+        <Property Name="WindowCaption" Value="停止演示" />
+        <Event Type="WM_BUTTON_CLICK" Value="CConfCtrlLogic::OnStopDualClick" />
+        <Property Name="Image" Value="confctrl/btnUnDual" />
+      </Scheme>
+    </Window>
+   
+  </Window>
+</UILayout>

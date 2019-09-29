@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="gb2312"?>
+<UILayout>
+  <!--会议模板列表界面   Style="WS_CLIPSIBLINGS|WS_POPUP" ExStyle="WS_EX_TOOLWINDOW|WS_EX_TOPMOST"-->
+  <Window Type="CDlgPopup" Name="ConftempDlg">
+    <Property Name="AutoHideStatus" Value="true" />
+    <Property Name="WindowPos" Value="x:441 y:53" /> 
+    <Property Name="WindowSize" Value="x:483 y:618" /> 
+    <Property Name="Image" Value="windowBkg" />
+  <!--  <Property Name="WindowVisible" Value="false" />  -->
+    
+  
+    <Window Type="CStatic" Name="StcConftempName" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:107 y:15" />
+      <Property Name="WindowSize" Value="x:269 y:21" />
+      <Property Name="WindowCaption" Value="会议模板" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="FontColor" Value="r:228 g:238 b:255" />
+      <Property Name="Alignment" Value="1" />
+      <Property Name="FontSize" Value="12" />
+    </Window>
+    
+    <!-- <Window Type="CButton" Name="BtnToConftempLst" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:8 y:7" />
+      <Property Name="WindowSize" Value="x:99 y:37" />
+      <Property Name="WindowCaption" Value="转到会议模板列表" />
+      <Property Name="WindowVisible" Value="false" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConftempLstLogic::BtnToTemplstClick" />
+      <Property Name="Image" Value="btnToConfTemp" />
+      <Scheme Name="SchmTempInfo">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+    </Window> -->
+       
+    <Window Type="CButton" Name="BtnRefresh" Style="WS_CHILD|WS_CLIPSIBLINGS ">
+      <Property Name="WindowPos" Value="x:401 y:7" />
+      <Property Name="WindowSize" Value="x:73 y:36" />
+      <Property Name="WindowCaption" Value="刷新" />
+      <Property Name="Image" Value="btnRefresh" />
+      <Property Name="WindowVisible" Value="true" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConftempLstLogic::BtnRefreshTemp" /> 
+    </Window>
+	    
+
+    <!--会议模板列表--> 
+      <Window Type="CAddrList" Name="LstConftemp" Style="WS_CHILD|WS_CLIPSIBLINGS">
+        <Property Name="WindowPos" Value="x:42 y:52" />
+        <Property Name="WindowSize" Value="x:427 y:552" />
+        <Property Name="WindowCaption" Value="会议模板列表" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="ListImage" Value="listBkg" />
+        <Property Name="WindowVisible" Value="true" />
+        <Property Name="LayoutAlgorithm" Value="Vert" />
+	      <Scheme Name="SchmTempInfo">
+          <Property Name="WindowVisible" Value="false" />
+        </Scheme>
+      </Window> 
+    
+      <Window Type="CLetterIndex" Name="IndexDlg" Style="WS_CLIPSIBLINGS|WS_CHILD" >
+      <!-- <Property Name="AutoHideStatus" Value="true" /> -->
+      <Property Name="WindowPos" Value="x:12 y:50" />
+      <Property Name="WindowSize" Value="x:25 y:554" />
+      <Property Name="Image" Value="letterindex" />
+      <Property Name="WindowVisible" Value="true" />
+      <Property Name="BindList" Value="ConftempDlg/DlgTempLst/LstConftemp" />
+      <Scheme Name="SchmTempInfo">
+        <Property Name="WindowVisible" Value="false" />
+      </Scheme>
+      </Window> 
+     
+    
+    <!--会议模板信息-->
+    <Window Type="CDlgChild" Name="DlgTempInfo" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	      <Property Name="WindowPos" Value="x:17 y:52" />
+	      <Property Name="WindowSize" Value="x:449 y:577" />
+	      <Property Name="WindowCaption" Value="会议模板信息" />
+	      <Property Name="Image" Value="" />
+	      <Property Name="WindowVisible" Value="False" />
+	      <Scheme Name="SchmTempInfo">
+		        <Property Name="WindowVisible" Value="true" />
+		    </Scheme>
+	    
+		     <Window Type="CStatic" Name="stcConfNameTable" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:24 y:15" />
+		        <Property Name="WindowSize" Value="x:139 y:22" />
+		        <Property Name="WindowCaption" Value="会议名称" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      <Window Type="CStatic" Name="StcConfName" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:163 y:15" />
+		        <Property Name="WindowSize" Value="x:286 y:22" />
+		        <Property Name="WindowCaption" Value="add_" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+	      <!--
+	            <Window Type="CButton"  Name="StcConfTypeTable" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	                <Property Name="WindowPos" Value="x:5 y:58" />
+	                <Property Name="WindowSize" Value="x:93 y:47" />
+	                <Property Name="WindowCaption" Value="会议类型" />
+	                <Property Name="WindowVisible" Value="True" />
+	            </Window>
+	            <Window Type="CButton"  Name="StcConfType" Style="WS_CHILD|WS_CLIPSIBLINGS">
+	                <Property Name="WindowPos" Value="x:109 y:61" />
+	                <Property Name="WindowSize" Value="x:203 y:44" />
+	                <Property Name="WindowCaption" Value="即时会议" />
+	                <Property Name="WindowVisible" Value="True" />
+	            </Window>
+	            -->
+		      <Window Type="CStatic" Name="stcMainCnsTable" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_THICKFRAME">
+		        <Property Name="WindowPos" Value="x:24 y:63" />
+		        <Property Name="WindowSize" Value="x:139 y:22" />
+		        <Property Name="WindowCaption" Value="会议主会场" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      <Window Type="CStatic" Name="stcPrimaCnsName" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_THICKFRAME">
+		        <Property Name="WindowPos" Value="x:163 y:63" />
+		        <Property Name="WindowSize" Value="x:286 y:22" />
+		        <Property Name="WindowCaption" Value="1" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      <!--
+		      <Window Type="CStatic" Name="StcConftempID" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:3 y:424" />
+		        <Property Name="WindowSize" Value="x:97 y:38" />
+		        <Property Name="WindowCaption" Value="会议模板ID" />
+		        <Property Name="WindowVisible" Value="false" />
+		        <Property Name="Image" Value="Edit" />
+		      </Window>
+		      -->
+		      <Window Type="CStatic" Name="stcSecondaryCnsTable" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:24 y:121" />
+		        <Property Name="WindowSize" Value="x:139 y:22" />
+		        <Property Name="WindowCaption" Value="会议分会场" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      <Window Type="CAddrList" Name="LstSecondaryCns" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:163 y:121" />
+		        <Property Name="WindowSize" Value="x:286 y:155" />
+		        <Property Name="WindowCaption" Value="分会场列表" /> 
+		        <Property Name="Image" Value="" /> 
+		        <Property Name="LayoutAlgorithm" Value="Vert" />
+		        <Property Name="WindowVisible" Value="true"></Property>
+		      </Window>
+		      <Window Type="CStatic" Name="stcTurnInterval" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_THICKFRAME">
+		        <Property Name="WindowPos" Value="x:24 y:311" />
+		        <Property Name="WindowSize" Value="x:139 y:22" />
+		        <Property Name="WindowCaption" Value="轮询间隔" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      <Window Type="CStatic" Name="stcIntervalValue" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_THICKFRAME">
+		        <Property Name="WindowPos" Value="x:163 y:311" />
+		        <Property Name="WindowSize" Value="x:50 y:22" />
+		        <Property Name="WindowCaption" Value="" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      
+		     <Window Type="CStatic" Name="stcIntervalUnit" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_THICKFRAME">
+		        <Property Name="WindowPos" Value="x:240 y:311" />
+		        <Property Name="WindowSize" Value="x:50 y:22" />
+		        <Property Name="WindowCaption" Value="秒" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      
+		      
+		      <Window Type="CStatic" Name="stcTurnOrder" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:24 y:364" />
+		        <Property Name="WindowSize" Value="x:139 y:22" />
+		        <Property Name="WindowCaption" Value="轮询排序" />
+		        <Property Name="WindowVisible" Value="true" />
+		        <Property Name="Image" Value="Item" />
+		        <Property Name="FontSize" Value="12" />
+		      </Window>
+		      
+		      <Window Type="CAddrList" Name="LstTurnOrder" Style="WS_CHILD|WS_CLIPSIBLINGS">
+		        <Property Name="WindowPos" Value="x:163 y:364" />
+		        <Property Name="WindowSize" Value="x:286 y:155" />
+		        <Property Name="WindowCaption" Value="" />
+		
+		        <Property Name="Image" Value="" />
+		        
+		        <Property Name="LayoutAlgorithm" Value="Vert" />
+		        <Property Name="WindowVisible" Value="true"></Property>
+		      </Window>
+	      
+	  </Window>
+	  
+    <Window Type="CButton" Name="BtnStartConf" Style="WS_CHILD|WS_CLIPSIBLINGS">
+      <Property Name="WindowPos" Value="x:63 y:552" />
+      <Property Name="WindowSize" Value="x:357 y:52" />
+      <Property Name="WindowCaption" Value="呼叫" />
+      <Property Name="WindowVisible" Value="false" />
+      <Event Type="WM_BUTTON_CLICK" Value="CConftempLstLogic::BtnStartConfClick" />
+      <Property Name="Image" Value="btnCall" />
+      <Scheme Name="SchmTempInfo">
+        <Property Name="WindowVisible" Value="true" />
+      </Scheme>
+    </Window>
+ 
+    <CallBackFunc Type="CallBackFunc" Value="CConftempLstLogic::InitWnd" />
+  </Window>
+</UILayout>

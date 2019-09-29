@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="gb2312"?>
+<System>
+  <SystemInfo Name="ImagePath" Value="..\layout\" />
+  <SystemInfo Name="LayoutPath" Value="..\layout\" />
+  <SystemInfo Name="DefaultFont" Value="微软雅黑.font"></SystemInfo>
+  <SystemInfo Name="ItemInfo" Value="ItemInfo.xml"></SystemInfo>
+  <WindowInfo Name="TPDlg" Value="mainFrame.xml" Parent=""></WindowInfo>
+  <WindowInfo Name="mainmenu" Value="mainmenu.xml" Parent="TPDlg"></WindowInfo>
+  <WindowInfo Name="SimulateCns1Dlg" Value="simulateCns1Dlg.xml" Parent="TPDlg"></WindowInfo>
+  <WindowInfo Name="SimulateCns3Dlg" Value="simulateCns3Dlg.xml" Parent="" />
+  <WindowInfo Name="SimulateCns5Dlg" Value="simulateCns5Dlg.xml" Parent="" />
+  <WindowInfo Name="ToolMenuDlg" Value="toolMenuDlg.xml" Parent="" />
+  <WindowInfo Name="AddrBookDlg" Value="addrBookWnd.xml" Parent="" />
+</System>

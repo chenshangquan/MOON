@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="gb2312"?>
+<System>
+  <SystemInfo Name="Version" Value="PC1.0" /><!--版本号，以决定是否要做pc版的特殊处理 2013.1.10-->
+  <SystemInfo Name="ImagePath" Value="src\\" />
+  <!-- <SystemInfo Name="DefaultFont" Value="微软雅黑.font" /> -->
+  <SystemInfo Name="DefaultResolution" Value="x:1366 y:768" />  
+  <SystemInfo Name="IsSelAdpResolution" Value="false" />  <!--是否自适应分辨率,若xml中无该项配置，则默认为true-->
+  <SystemInfo Name="LayoutPath" Value="layout\\" /> 
+  <SystemInfo Name="ItemInfo" Value="layout\\ItemInfo.xml" /> 
+  <SystemInfo Name="EditInfo" Value="" DisableImg="0" />
+
+  <WindowInfo Name="TPDlg" Value="mainFrame.xml" Parent="" />  
+  <WindowInfo Name="LoginDlg" Value="login.xml" Parent="TPDlg" />
+  <WindowInfo Name="ConnectCnsDlg" Value="ConnectCnsDlg.xml" Parent="TPDlg/LoginDlg" />
+  <WindowInfo Name="MainMenu" Value="mainMenu.xml" Parent="TPDlg" />
+  <WindowInfo Name="TitleBar" Value="TitleBar.xml" Parent="TPDlg" />
+  <WindowInfo Name="SimulateCns1Dlg" Value="simulateCns1Dlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="SimulateCns3Dlg" Value="simulateCns3Dlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="SimulateCns5Dlg" Value="simulateCns5Dlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="ToolMenuDlg" Value="toolMenuDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="LockScreenDlg" Value="lockScreenDlg.xml" Parent="" />
+  <WindowInfo Name="ConftempDlg" Value="conftempDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="CnsLstDlg" Value="confCnsLstDlg.xml" Parent="TPDlg" />
+  <!-- <WindowInfo Name="ConfLstDlg" Value="confLstDlg.xml" Parent="TPDlg" /> -->
+  <WindowInfo Name="CnsShowOptnDlg" Value="cnsShowOptnDlg.xml" Parent="" />
+  <WindowInfo Name="AudMixDlg" Value="audMixDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="AddrBookDlg" Value="Addrbookdlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="AddrEditDlg" Value="AddrEditDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="AddrShowOptnDlg" Value="AddrShowOptnDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="AddrEditShowOptnDlg" Value="" Parent="TPDlg" />
+  
+  <!-- <WindowInfo Name="ConftempEdtDlg" Value="conftempEdtDlg.xml" Parent="TPDlg" /> -->
+  <WindowInfo Name="ConfCnsCtrlDlg" Value="confCnsManageMenu.xml" Parent="TPDlg" />
+  <WindowInfo Name="ConfCnsCtrlSpeakerDlg" Value="" Parent="TPDlg" />
+  
+  <WindowInfo Name="SelViewLstDlg" Value="SelViewLstDlg.xml" Parent="TPDlg" />  
+  
+  <WindowInfo Name="SysCfgDlg" Value="SysCfgDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="DlgSysTime" Value="sysTimeDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <!--<WindowInfo Name="RegGkDlg" Value="RegGkDlg.xml" Parent="TPDlg/SysCfgDlg" />-->
+  <!--<WindowInfo Name="EthnetCfgDlg" Value="EthnetCfgDlg.xml" Parent="TPDlg/SysCfgDlg" />-->
+  <WindowInfo Name="CnsCfgDlg" Value="CnsCfgDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="RegServiceDlg" Value="RegServiceDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="DualSrcManageDlg" Value="dualSrcManageDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="SysStandByDlg" Value="SysStandByDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="NetManageCfgDlg" Value="NetManageCfgDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <!--<WindowInfo Name="UpdServiceDlg" Value="UpdServiceDlg.xml" Parent="TPDlg/SysCfgDlg" />-->
+  <WindowInfo Name="CallServerCfgDlg" Value="CallServerCfgDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="CallServerCfgModeChooseDlg" Value="CallServerCfgModeChooseDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="CallServerCfgShowModeChooseDlg" Value="CallServerCfgShowModeChooseDlg.xml" Parent="TPDlg/SysCfgDlg" />
+  <WindowInfo Name="CallServerCfgAudioModeDlg" Value="CallServerCfgAudioModeDlg.xml" Parent="TPDlg/SysCfgDlg" />
+
+
+  <WindowInfo Name="DualSrcDlg" Value="dualSrcDlg.xml" Parent="TPDlg" /> 
+  <WindowInfo Name="VolumCtrlDlg" Value="volumCtrlDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="UserManageDlg" Value="userManageDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="UserdefinedDlg" Value="userdefinedDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="TvwDlg" Value="tvwDlg.xml" Parent="TPDlg" /> 
+  <WindowInfo Name="PopDlgHungupConf" Value="" Parent="TPDlg" />
+  <WindowInfo Name="AddrAddDlg" Value="" Parent="TPDlg" /> 
+  <WindowInfo Name="AlarmInfoDlg" Value="AlarmInfoDlg.xml" Parent="TPDlg" /> 
+  <!-- <WindowInfo Name="IpCfgDlg" Value="IpCfgDlg.xml" Parent="TPDlg/LoginDlg" /> --> 
+  <WindowInfo Name="MediaDlg" Value="mediaDlg.xml" Parent="TPDlg" /> 
+  <WindowInfo Name="MediaFullDlg" Value="" Parent="TPDlg" />   
+  <!--系统配置/日志下载 2012-5-28  --> 
+  <WindowInfo Name="SaveLogDlg" Value="SaveLog.xml" Parent="TPDlg/SysCfgDlg" />    
+   
+  <!--菜单窗口 --> 
+  <WindowInfo Name="CallDlg" Value="callDlg.xml" Parent="TPDlg" />
+  <!-- <WindowInfo Name="PollLstManageMenu" Value="pollLstManageMenu.xml" Parent="" /> -->
+  <WindowInfo Name="FuncLstManageMenu" Value="funcLstManageMenu.xml" Parent="" />
+  <WindowInfo Name="MsgBox" Value="msgBox.xml" Parent="TPDlg" />
+  <WindowInfo Name="CallingDlg" Value="callingDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="PopMsgDlg" Value="popMsgDlg.xml" Parent="TPDlg" />
+  <WindowInfo Name="CalendarDlg" Value="" Parent="TPDlg" />  
+  <WindowInfo Name="ScrnDspMenu" Value="scrnDspMenu.xml" Parent="TPDlg" /> 
+  <WindowInfo Name="WaitingRefreshDlg" Value="WaitingRefreshDlg.xml" Parent="TPDlg" /> 
+  <!--列表-->
+  <WindowInfo Name="FuncLst" Value="funcLstData.xml" Parent="TPDlg" />
+  
+
+  <WindowType SrcType="TransparentBaseWnd" TagType="CTransparentBaseWnd" />
+  <WindowType SrcType="Wnd" TagType="CBaseWnd" />
+  
+  <WindowType SrcType="CButton" TagType="CTransparentBtn" />
+  <WindowType SrcType="CFlatButton" TagType="CTransparentBtn" />
+  <WindowType SrcType="CSkinStatic" TagType="CTransparentStatic" />
+  <WindowType SrcType="CSkinIPCtrl" TagType="CTransparentIPAddrCtrl" />
+  <WindowType SrcType="CEdit" TagType="CTransparentEdit" />
+  <WindowType SrcType="CAddrList" TagType="CTransparentAddrList" />
+  <WindowType SrcType="CSkinEdit" TagType="CTransparentEdit" />
+  <WindowType SrcType="CStaticEx" TagType="CTransparentStatic" />
+  <WindowType SrcType="CStatic" TagType="CTransparentStatic" />
+  <WindowType SrcType="StaticEx" TagType="CStaticEx" />
+  <WindowType SrcType="Static" TagType="CStatic" />
+  <WindowType SrcType="CSkinSlider" TagType="CTransparentSliderWnd" />  <!--CTransparentSliderCtrl-->
+  
+</System>

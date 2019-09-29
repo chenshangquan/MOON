@@ -1,0 +1,1650 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="Login::ini">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Size" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Window" Name="Test">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:180l:120" />
+      <Property Name="Name" Value="Test" />
+      <Property Name="Visable" Value="true" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="LoginLogic::OnLogin" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+  <Window Type="Window" Name="LoginWnd">
+    <Property Name="Name" Value="mxm" />
+    <Property Name="Visable" Value="true" />
+    <Property Name="Click" Value="h:300l:500" />
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:0" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:30" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login1" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:0y:60" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login2" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:90y:90" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login3" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="Login4" />
+    </Window>
+    <Window Type="Button" Name="login">
+      <Property Name="Pos" Value="x:150y:150" />
+      <Property Name="Size" Value="h:20l:20" />
+      <Property Name="Name" Value="Login" />
+    </Window>
+    <Window Type="Edit" Name="Tree">
+      <Property Name="UnifiedPosition" Value="{{0.05,0},{0.1,0}}" />
+      <Property Name="UnifiedMaxSize" Value="{{0.5,0},{1,0}}" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="Tree" />
+      <Property Name="Tooltip" Value="Tree" />
+    </Window>
+    <Window Type="ListBox" Name="List">
+      <Property Name="Pos" Value="x:200y:20" />
+      <Property Name="Size" Value="h:200l:200" />
+      <Property Name="UnifiedMinSize" Value="{{0,128},{0,128}}" />
+      <Property Name="UnifiedSize" Value="{{0.4,0},{0.3,0}}" />
+      <Property Name="Text" Value="List" />
+      <Property Name="Tooltip" Value="List" />
+    </Window>
+  </Window>
+</UILayout>

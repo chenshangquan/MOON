@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="gb2312" ?>
+<!--  
+schmUseIpDhcp:自动获取IP
+schmNotUseIpDhcp:
+schmUseDnsDhcp:自动获取DNS服务器，只有IP是使用DHCP后，才可以enable,否则为disable
+chmNotUseDnsDhcp:
+-->
+<UILayout>
+    <Window Type="CDlgChild" Name="IpCfgDlg">
+        <!-- <Property Name="AutoHideStatus" Value="true" /> -->
+        <Property Name="WindowPos" Value="x:521 y:91" />
+        <Property Name="WindowSize" Value="x:558 y:700" />
+        <Property Name="Image" Value="ipCfgBkg.png" />
+        <Window Type="CStatic" Name="StTitle" Style="WS_CHILD">
+            <Property Name="WindowPos" Value="x:0 y:0" />
+            <Property Name="WindowSize" Value="x:558 y:37" />
+            <Property Name="WindowCaption" Value="网络设置" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontColor" Value="r:42 g:43 b:45" />
+            <Property Name="Alignment" Value="1" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CFlatButton" Name="BtnSave" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:417 y:7" />
+            <Property Name="WindowSize" Value="x:65 y:37" />
+            <Property Name="WindowCaption" Value="保存" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="btnSave" />
+            <Event Type="WM_BUTTON_CLICK" Value="CIpCfgLogic::BtnSaveClick" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CFlatButton" Name="BtnCancle" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:484 y:7" />
+            <Property Name="WindowSize" Value="x:65 y:37" />
+            <Property Name="WindowCaption" Value="取消" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="btnCancel" />
+            <Event Type="WM_BUTTON_CLICK" Value="CIpCfgLogic::BtnCancleClick" />
+        </Window>
+        <Window Type="CStaticEx" Name="StAutoDNSAddress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:319" />
+            <Property Name="WindowSize" Value="x:200 y:21" />
+            <Property Name="WindowCaption" Value="自动获得DNS地址" />
+            <Property Name="FontColor" Value="r:67 g:67 b:68" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CTransparentSwitchButton" Name="BtnAutoGetDNS" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:397 y:313" />
+            <Property Name="WindowSize" Value="x:297 y:37" />
+            <Property Name="Image" Value="switchbutton" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="SwitchState" Value="False" />
+            <Property Name="WindowEnable" Value="false" />
+            <Event Type="WM_BUTTON_CLICK" Value="CIpCfgLogic::BtnAutoGetDNS" />
+            <Scheme Name="schmUseIpDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="schmNotUseIpDhcp">
+                <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="schmUseDnsDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="schmNotUseDnsDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+        </Window>
+        <!--
+        <Window Type="CStaticEx" Name="StUseDNSAddress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:464" />
+            <Property Name="WindowSize" Value="x:200 y:21" />
+            <Property Name="WindowCaption" Value="使用下面的DNS服务器地址" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+        </Window>
+        -->
+        <Window Type="CStaticEx" Name="StPriorityDNS" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:374" />
+            <Property Name="WindowSize" Value="x:80 y:21" />
+            <Property Name="WindowCaption" Value="首选DNS" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CStaticEx" Name="StBkupDNS" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:429" />
+            <Property Name="WindowSize" Value="x:80 y:21" />
+            <Property Name="WindowCaption" Value="备用DNS" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CTransparentIpEdit" Name="IPCtrlBkupDNS" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+            <Property Name="WindowPos" Value="x:154 y:412" />
+            <Property Name="WindowSize" Value="x:360 y:55" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="WindowEnable" Value="true" />
+            <Property Name="Image" Value="EditLight" />
+            <Property Name="FontSize" Value="12" />
+            <Scheme Name="schmNotUseIpDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="schmUseDnsDhcp">
+                <Property Name="WindowEnable" Value="false" />  
+            </Scheme>
+            <Scheme Name="schmNotUseDnsDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentIpEdit" Name="IPCtrlPriorityDNS" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+            <Property Name="WindowPos" Value="x:154 y:357" />
+            <Property Name="WindowSize" Value="x:360 y:55" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="WindowEnable" Value="true" />
+            <Property Name="Image" Value="EditLight" />
+            <Property Name="FontSize" Value="12" />
+            <Scheme Name="schmNotUseIpDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="schmUseDnsDhcp">
+                <Property Name="WindowEnable" Value="false" /> 
+            </Scheme>
+            <Scheme Name="schmNotUseDnsDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CStaticEx" Name="StAutoIpAddress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:79" />
+            <Property Name="WindowSize" Value="x:200 y:21" />
+            <Property Name="WindowCaption" Value="自动获得IP地址" />
+            <Property Name="FontColor" Value="r:67 g:67 b:68" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CTransparentSwitchButton" Name="BtnAutoGetIP" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:397 y:71" />
+            <Property Name="WindowSize" Value="x:113 y:37" />
+            <Property Name="Image" Value="switchbutton" />
+            <Property Name="WindowVisible" Value="True" />
+            <Property Name="SwitchState" Value="False" />
+            <Property Name="WindowEnable" Value="true" />
+            
+            <Event Type="WM_BUTTON_CLICK" Value="CIpCfgLogic::BtnAutoGetIP" />
+        </Window>
+        <!--
+        <Window Type="CStaticEx" Name="StUseIpAddress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:134" />
+            <Property Name="WindowSize" Value="x:200 y:21" />
+            <Property Name="WindowCaption" Value="使用下面的IP地址" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+        </Window>
+        -->
+        <Window Type="CStaticEx" Name="StIpAddress" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:134" />
+            <Property Name="WindowSize" Value="x:80 y:21" />
+            <Property Name="WindowCaption" Value="IP地址" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CStaticEx" Name="StSubMask" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:189" />
+            <Property Name="WindowSize" Value="x:80 y:21" />
+            <Property Name="WindowCaption" Value="子网掩码" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CStaticEx" Name="StGateway" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:47 y:244" />
+            <Property Name="WindowSize" Value="x:80 y:21" />
+            <Property Name="WindowCaption" Value="默认网关" />
+            <Property Name="FontColor" Value="r:170 g:175 b:183" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="FontSize" Value="12" />
+        </Window>
+        <Window Type="CTransparentIpEdit" Name="IPCtrlGateway" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+            <Property Name="WindowPos" Value="x:154 y:227" />
+            <Property Name="WindowSize" Value="x:360 y:55" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="EditLight" />
+            <Property Name="WindowEnable" Value="true" />
+            <Property Name="FontSize" Value="12" />
+            <Scheme Name="schmUseIpDhcp">
+                <Property Name="WindowEnable" Value="false" /> 
+            </Scheme>
+            <Scheme Name="schmNotUseIpDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentIpEdit" Name="IPCtrlSubMask" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+            <Property Name="WindowPos" Value="x:154 y:172" />
+            <Property Name="WindowSize" Value="x:360 y:55" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="WindowEnable" Value="true" />
+            <Property Name="Image" Value="EditLight" />
+            <Property Name="FontSize" Value="12" />
+            <Scheme Name="schmUseIpDhcp">
+                <Property Name="WindowEnable" Value="false" /> 
+            </Scheme>
+            <Scheme Name="schmNotUseIpDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+        </Window>
+        <Window Type="CTransparentIpEdit" Name="IPCtrlIP" Style="WS_CHILD|WS_CLIPSIBLINGS|WS_TABSTOP">
+            <Property Name="WindowPos" Value="x:154 y:117" />
+            <Property Name="WindowSize" Value="x:360 y:55" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="true" />
+            <Property Name="Image" Value="EditLight" />
+            <Property Name="WindowEnable" Value="true" />
+            <Property Name="FontSize" Value="12" />
+            <Scheme Name="schmUseIpDhcp">
+                <Property Name="WindowEnable" Value="false" /> 
+            </Scheme>
+            <Scheme Name="schmNotUseIpDhcp">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+        </Window>
+        <CallBackFunc Type="CallBackFunc" Value="CIpCfgLogic::InitWnd" />
+    </Window>
+</UILayout>

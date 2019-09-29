@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+	
+ <!--ʨ׃²˵¥½脦--> 
+  <Window Type="Window" Name="ToolMenuDlg">
+    <Property Name="Pos" Value="x:15y:307" />
+    <Property Name="Size" Value="h:37l:160" />
+    <Property Name="Visible" Value="1" />
+    
+    <Window Type="CButton" Name="BtnConfManage">
+    	<Property Name="Pos" Value="x:13y:331" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="»ⓩ¹݀렠/> 
+      <Property Name="Tooltip" Value="»ⓩ¹݀렠/>
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="confManage::Click" /> 
+    </Window>
+    <Window Type="CButton" Name="BtnSystemSet">
+    	<Property Name="Pos" Value="x:13y:361" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="ϵͳʨ׃" /> 
+      <Property Name="Tooltip" Value="ϵͳʨ׃" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="SystemSet::Click" />  
+    </Window>
+    <Window Type="CButton" Name="BtnLogout">
+    	<Property Name="Pos" Value="x:13y:391" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="µǳ�> 
+      <Property Name="Visible" Value="1" />
+      <Property Name="Tooltip" Value="µǳ�>
+      <Event Type="Click" Value="logout::Click" />  
+    </Window>
+    
+    <Window Type="CButton" Name="BtnPowerdown">
+    	<Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="¹رջⓩ˒µ蔴" /> 
+      <Property Name="Tooltip" Value="¹رջⓩ˒µ蔴" />
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="BtnPowerdown::powerDown" /> 
+    </Window> 
+     
+    <Window Type="CButton" Name="BtnShutdown">
+    	<Property Name="Pos" Value="x:13y:421" />
+      <Property Name="Size" Value="h:80l:20" />
+      <Property Name="Name" Value="¹ػ� 
+      <Property Name="Tooltip" Value="¹ػ�
+      <Property Name="Visible" Value="1" />
+      <Event Type="Click" Value="BtnShutdown::shutdown" />  
+    </Window> 
+    
+  </Window>
+  
+  <Property Name="InitData" Value="toolMenuLogic::InitData" /> -->
+</UILayout>

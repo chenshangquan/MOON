@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<UILayout>
+  <Window Type="Window" Name="AddrBookDlg">
+    <Property Name="Pos" Value="x:0y:0" />
+    <Property Name="Size" Value="h:804l:1038" />
+    <Property Name="Visible" Value="1" />
+    
+    <Window Type="CList" Name="LstConf">
+       <Property Name="Pos" Value="x:21y:17" />
+      <Property Name="Size" Value="h:738l:138" />
+      <Property Name="Name" Value="ConfList" /> 
+      <Property Name="Tooltip" Value="ConfList" />
+      <Property Name="Visible" Value="1" />
+    </Window>
+  </Window>
+</UILayout>
