@@ -1,0 +1,200 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: UIFactory - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPD64D.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\common\expat\include" /I "..\include\Tinyxml" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\uiexlib\include" /I "..\..\luaplus" /I "..\..\common\include\\" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/UIFactory.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\System.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\MfcDefaultArgs.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\MfcDefaultWndFactory.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\MfcDefaultWndProperty.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\MfcDefaultWndPropertySet.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\RegDefaultData.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\UIExLibWndFactory.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\UILibWndFactory.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\IValue.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\CallBackFuncTag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\DefaultXmlParser.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\EventTag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\ITag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\ItemXmlHandle.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\IXmlHanlde.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\IXmlParser.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\LayoutTag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\LayoutXmlHandle.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\listDataAssist.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\PropertyTag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\SaveXmlHelp.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\SchemeHelp.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\SchemeTag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\SystemXmlHandle.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WindowTag.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\XmlAttrib.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\ItemFactory.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\UILayoutHelp.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WindowFacotryManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WindowFactory.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WindowManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WndTreeHelp.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\CallFuncManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WndMsgEventManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\DefaultScript.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\IScript.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\IProperty.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\IPropertyAssist.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\PropertyHelp.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\PropertySet.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\DefaultLogger.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\Logger.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\SystemInfoManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\UILoadManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\WindowTypeManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\source\uifactorylib.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPD64D.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPD65E.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\common\expat\include" /I "..\include\Tinyxml" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\uiexlib\include" /I "..\..\luaplus" /I "..\..\common\include\\" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\include\Tinyxml\tinystr.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\include\Tinyxml\tinyxml.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\include\Tinyxml\tinyxmlerror.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\include\Tinyxml\tinyxmlparser.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPD65E.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPD65F.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\common\expat\include" /I "..\include\Tinyxml" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\uiexlib\include" /I "..\..\luaplus" /I "..\..\common\include\\" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/UIFactory.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\UIFactory\prj_win32\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPD65F.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPD670.tmp" with contents
+[
+/nologo /out:"..\..\..\10-common\lib\release\win32\uifactory.lib" 
+".\Release\StdAfx.obj"
+".\Release\System.obj"
+".\Release\MfcDefaultArgs.obj"
+".\Release\MfcDefaultWndFactory.obj"
+".\Release\MfcDefaultWndProperty.obj"
+".\Release\MfcDefaultWndPropertySet.obj"
+".\Release\RegDefaultData.obj"
+".\Release\UIExLibWndFactory.obj"
+".\Release\UILibWndFactory.obj"
+".\Release\IValue.obj"
+".\Release\CallBackFuncTag.obj"
+".\Release\DefaultXmlParser.obj"
+".\Release\EventTag.obj"
+".\Release\ITag.obj"
+".\Release\ItemXmlHandle.obj"
+".\Release\IXmlHanlde.obj"
+".\Release\IXmlParser.obj"
+".\Release\LayoutTag.obj"
+".\Release\LayoutXmlHandle.obj"
+".\Release\listDataAssist.obj"
+".\Release\PropertyTag.obj"
+".\Release\SaveXmlHelp.obj"
+".\Release\SchemeHelp.obj"
+".\Release\SchemeTag.obj"
+".\Release\SystemXmlHandle.obj"
+".\Release\WindowTag.obj"
+".\Release\XmlAttrib.obj"
+".\Release\ItemFactory.obj"
+".\Release\UILayoutHelp.obj"
+".\Release\WindowFacotryManage.obj"
+".\Release\WindowFactory.obj"
+".\Release\WindowManage.obj"
+".\Release\WndTreeHelp.obj"
+".\Release\CallFuncManage.obj"
+".\Release\WndMsgEventManage.obj"
+".\Release\DefaultScript.obj"
+".\Release\IScript.obj"
+".\Release\IProperty.obj"
+".\Release\IPropertyAssist.obj"
+".\Release\PropertyHelp.obj"
+".\Release\PropertySet.obj"
+".\Release\DefaultLogger.obj"
+".\Release\Logger.obj"
+".\Release\tinystr.obj"
+".\Release\tinyxml.obj"
+".\Release\tinyxmlerror.obj"
+".\Release\tinyxmlparser.obj"
+".\Release\SystemInfoManage.obj"
+".\Release\UILoadManage.obj"
+".\Release\WindowTypeManage.obj"
+".\Release\uifactorylib.obj"
+]
+Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSPD670.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+System.cpp
+MfcDefaultArgs.cpp
+MfcDefaultWndFactory.cpp
+MfcDefaultWndProperty.cpp
+MfcDefaultWndPropertySet.cpp
+RegDefaultData.cpp
+UIExLibWndFactory.cpp
+UILibWndFactory.cpp
+IValue.cpp
+CallBackFuncTag.cpp
+DefaultXmlParser.cpp
+EventTag.cpp
+ITag.cpp
+ItemXmlHandle.cpp
+IXmlHanlde.cpp
+IXmlParser.cpp
+LayoutTag.cpp
+LayoutXmlHandle.cpp
+listDataAssist.cpp
+PropertyTag.cpp
+Generating Code...
+Compiling...
+SaveXmlHelp.cpp
+SchemeHelp.cpp
+SchemeTag.cpp
+SystemXmlHandle.cpp
+WindowTag.cpp
+XmlAttrib.cpp
+ItemFactory.cpp
+UILayoutHelp.cpp
+WindowFacotryManage.cpp
+WindowFactory.cpp
+WindowManage.cpp
+WndTreeHelp.cpp
+CallFuncManage.cpp
+WndMsgEventManage.cpp
+DefaultScript.cpp
+IScript.cpp
+IProperty.cpp
+IPropertyAssist.cpp
+PropertyHelp.cpp
+PropertySet.cpp
+Generating Code...
+Compiling...
+DefaultLogger.cpp
+Logger.cpp
+SystemInfoManage.cpp
+UILoadManage.cpp
+WindowTypeManage.cpp
+uifactorylib.cpp
+Generating Code...
+Compiling...
+tinystr.cpp
+tinyxml.cpp
+tinyxmlerror.cpp
+tinyxmlparser.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+uifactory.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

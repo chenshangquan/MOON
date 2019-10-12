@@ -1,0 +1,10 @@
+*svn/
+
+*build/
+*lib/
+*version/
+
+*Debug/
+*Release/
+
+*producetest2/

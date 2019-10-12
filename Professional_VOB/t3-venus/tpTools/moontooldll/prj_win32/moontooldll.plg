@@ -1,0 +1,202 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: moontooldll - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP122D.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /Fp"Release/moontooldll.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP122D.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP122E.tmp" with contents
+[
+/nologo /subsystem:windows /dll /incremental:no /pdb:"../../prj_win32/Release/moontooldll.pdb" /map:"Release/moontooldll.map" /machine:I386 /nodefaultlib:"nafxcw.lib" /nodefaultlib:"libc.lib" /nodefaultlib:"msvcprt.lib" /def:".\moontooldll.def" /out:"../../prj_win32/Release/moontooldll.dll" /implib:"../../prj_win32/Release/moontooldll.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\lib" 
+".\Release\cameractrlLogic.obj"
+".\Release\COrderListDlgLogic.obj"
+".\Release\CorrectParamLogic.obj"
+".\Release\expcommonLogic.obj"
+".\Release\impcommonLogic.obj"
+".\Release\mainFrameLogic.obj"
+".\Release\MoonAdjustDlg.obj"
+".\Release\OrderPosInfoLogic.obj"
+".\Release\SetContrastAreaLogic.obj"
+".\Release\SysCfgDlgLogic.obj"
+".\Release\listAssist.obj"
+".\Release\logicBase.obj"
+".\Release\logicMgr.obj"
+".\Release\moonlibcommonif.obj"
+".\Release\moonlibdatamgr.obj"
+".\Release\moontooldll.obj"
+".\Release\moonToolDllIF.obj"
+".\Release\msgBoxLogic.obj"
+".\Release\msgdispatch.obj"
+".\Release\sessionmgr.obj"
+".\Release\StdAfx.obj"
+".\Release\uiDataMgr.obj"
+".\Release\warningLogic.obj"
+".\Release\moontooldll.res"
+]
+Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSP122E.tmp"
+<h3>Output Window</h3>
+Compiling...
+moonlibcommonif.cpp
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(87) : error C2039: 'SetCamZoomCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(93) : error C2039: 'SetCamZoomValueCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(99) : error C2039: 'SetCamZoomStopCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(105) : error C2039: 'SetCamAutoFocusCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(111) : error C2039: 'CamSelCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(117) : error C2039: 'SetMoonCamCfgSyncCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(123) : error C2039: 'CamStyleSelCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(129) : error C2039: 'GammaStyleSelCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(135) : error C2039: 'SetCamFocusNearCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(141) : error C2039: 'SetCamFocusStopCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(147) : error C2039: 'SetCamFocusFarCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(153) : error C2039: 'CamAutoExposureCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(159) : error C2039: 'CamApertureCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(165) : error C2039: 'CamShutSpdCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(171) : error C2039: 'CamTwShutSpdCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(177) : error C2039: 'CamGainCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(183) : error C2039: 'CamAutoWBCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(189) : error C2039: 'CamRGainCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(195) : error C2039: 'CamBGainCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(201) : error C2039: 'CamAdjustRangeCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(207) : error C2039: 'CamHoriStretchCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(213) : error C2039: 'CamImageParaCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(219) : error C2039: 'CamLightPensation' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(225) : error C2039: 'CamKeystoneAdjust' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(231) : error C2039: 'SetColorRGBDirectCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(237) : error C2039: 'CamNRCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(243) : error C2039: 'Cam2DNRCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(249) : error C2039: 'Cam3DNRCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(255) : error C2039: 'CamOrderPosCheckCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(261) : error C2039: 'RebootMoon' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(267) : error C2039: 'MoonCamResetCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(273) : error C2039: 'SetOutPortTypeCmd' : is not a member of 'CSysConfigIF'
+        ..\..\..\common_2010\include\sysconfigif.h(20) : see declaration of 'CSysConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(279) : error C2039: 'SetImageAdjustCmd' : is not a member of 'CSysConfigIF'
+        ..\..\..\common_2010\include\sysconfigif.h(20) : see declaration of 'CSysConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(285) : error C2039: 'UpdateEthnetCfg' : is not a member of 'CSysConfigIF'
+        ..\..\..\common_2010\include\sysconfigif.h(20) : see declaration of 'CSysConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(291) : error C2039: 'CamPreSetSaveCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(297) : error C2039: 'OrderPosDeleteReq' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(303) : error C2039: 'OrderPosInvokeCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(309) : error C2039: 'CamPreSetModifyCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(315) : error C2039: 'CamParamUploadCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(321) : error C2039: 'CamParamUploadNty' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(327) : error C2039: 'UpgradeMoon' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(333) : error C2039: 'UpdateMoonMechanism' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(339) : error C2039: 'SetBaudRateCmd' : is not a member of 'CSysConfigIF'
+        ..\..\..\common_2010\include\sysconfigif.h(20) : see declaration of 'CSysConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(345) : error C2039: 'SetReferenceLineCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(351) : error C2039: 'SetHorizontalFlipCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(357) : error C2039: 'SetTrapezoidalCorCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(363) : error C2039: 'SetShowRectRegionCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(369) : error C2039: 'SetRgbConsistSwitchCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(375) : error C2039: 'SetTraCorParamCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(381) : error C2039: 'SetCorConsistRGBCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(387) : error C2039: 'SetChangeDistortCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(393) : error C2039: 'SetDirectDistortCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(399) : error C2039: 'SetAutoSetColorConstancyCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(405) : error C2039: 'SetChooseRectangleCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(411) : error C2039: 'SnapShotCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp(417) : error C2039: 'SetDelayCorrectCmd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+moonlibdatamgr.cpp
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(71) : error C2039: 'GetCamCfg' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(77) : error C2039: 'GetCamZoom' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(83) : error C2039: 'GetExtCamZoom' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(89) : error C2039: 'GetCamSel' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(95) : error C2039: 'GetCamMoonMode' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(101) : error C2039: 'GetCamAperture' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(107) : error C2039: 'GetCamGain' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(113) : error C2039: 'GetCamShutSpd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(119) : error C2039: 'GetTwCamShutSpd' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(125) : error C2039: 'GetCamRGain' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(131) : error C2039: 'GetCamBGain' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(137) : error C2039: 'GetCamAdjustRange' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(143) : error C2039: 'GetCamHoriStretch' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(149) : error C2039: 'GetCamWBMode' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(155) : error C2039: 'GetCamPreInfo' : is not a member of 'CCamConfigIF'
+        ..\..\..\common_2010\include\camconfigif.h(20) : see declaration of 'CCamConfigIF'
+F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibdatamgr.cpp(160) : error C2039: 'GetEthnetCfg' : is not a member of 'CSysConfigIF'
+        ..\..\..\common_2010\include\sysconfigif.h(20) : see declaration of 'CSysConfigIF'
+Generating Code...
+Error executing cl.exe.
+
+
+
+<h3>Results</h3>
+moontooldll.dll - 72 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: umstooldll - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP665B.tmp" with contents
+[
+umclib.lib osplib.lib kdvsys.lib kdvaddrbook.lib nmscommon.lib umsmsg.lib xmlengine.lib tpmsgmgr.lib kdvlog.lib uiex.lib UIFactory.lib /nologo /subsystem:windows /dll /incremental:no /pdb:"..\..\prj_win32\Release/umstooldll.pdb" /debug /machine:I386 /nodefaultlib:"nafxcw" /nodefaultlib:"nafxcwd" /nodefaultlib:"libcd" /nodefaultlib:"libc" /nodefaultlib:"libcmt" /nodefaultlib:"msvcrtd" /nodefaultlib:"Imm32.lib" /nodefaultlib:"libcmtd.lib" /nodefaultlib:"strmiids.lib" /def:".\umstooldll.def" /out:"..\..\prj_win32\Release/umstooldll.dll" /implib:"..\..\prj_win32\Release/umstooldll.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\LIB" 
+".\Release\msgdispatch.obj"
+".\Release\msghandle.obj"
+".\Release\umstoolcommon.obj"
+".\Release\touchlistdataproperty.obj"
+".\Release\wndlogicbase.obj"
+".\Release\addrbookexplogic.obj"
+".\Release\boardcfglogic.obj"
+".\Release\boardoptdlglogic.obj"
+".\Release\backupcfglogic.obj"
+".\Release\correlativecfglogic.obj"
+".\Release\expcommondlglogic.obj"
+".\Release\impcommondlglogic.obj"
+".\Release\logicmanage.obj"
+".\Release\mainFrameLogic.obj"
+".\Release\msgboxdlglogic.obj"
+".\Release\netmngcfglogic.obj"
+".\Release\netmngoptdlglogic.obj"
+".\Release\sysinfologic.obj"
+".\Release\templateexplogic.obj"
+".\Release\tvwboardcfglogic.obj"
+".\Release\tvwstylecfglogic.obj"
+".\Release\tvwstyleoptdlglogic.obj"
+".\Release\umscfglogic.obj"
+".\Release\vtrcfglogic.obj"
+".\Release\vtroptdlglogic.obj"
+".\Release\warninglogic.obj"
+".\Release\umsboardcommmgr.obj"
+".\Release\umsconfigcommmgr.obj"
+".\Release\umsnetmngcommmgr.obj"
+".\Release\umssysinfocommmgr.obj"
+".\Release\umstvwboardcommmgr.obj"
+".\Release\commonmgrif.obj"
+".\Release\datamgrimp.obj"
+".\Release\sessionins.obj"
+".\Release\StdAfx.obj"
+".\Release\umstooldll.obj"
+".\Release\umstooldll.res"
+]
+Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSP665B.tmp"
+<h3>Output Window</h3>
+Linking...
+LINK : fatal error LNK1181: cannot open input file "umsmsg.lib"
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+umstooldll.dll - 1 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

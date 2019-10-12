@@ -74,8 +74,12 @@ u16 CMoonlibCommonIF::connect( u32 dwIp, u32 dwPort)
 
 u16	CMoonlibCommonIF::DisConnect()
 {
+#if 0
 	u16 re = MOONSESSION_MGR_PTR->GetSessionIF()->DisconnectMoon();
 	return re;
+#else
+    return true;
+#endif
 }
 
 u16 CMoonlibCommonIF::SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex)

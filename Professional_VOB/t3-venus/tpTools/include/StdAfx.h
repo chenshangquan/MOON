@@ -40,6 +40,10 @@
 #include "globalumstool.h"
 #include "cnsToolDllIF.h" //cnstoolDll接口文件
 #include "moonToolDllIF.h"
+
+#ifndef _MOON904K30
+#define _MOON904K30
+#endif
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 

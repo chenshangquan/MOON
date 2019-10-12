@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: tpTools - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP4967.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /ZI /Od /I "../include" /I "../source" /I "./" /I "..\..\common\include" /I "..\..\..\10-common\include\nms1" /I "..\..\..\10-common\include\system1" /I "..\..\..\10-common\include\protocol" /I "..\..\..\10-common\include\platform" /I "..\..\common\include\platform sdk\include" /I "..\..\..\10-common\include\tp" /I "..\..\uiexlib\include\\" /I "..\..\UIFactory\include\Tinyxml" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /FR"Release/" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\source\tpToolsDlg.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP4967.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP4978.tmp" with contents
+[
+umstooldll.lib WS2_32.LIB /nologo /subsystem:windows /incremental:no /pdb:"Release/tpTools.pdb" /map:"Release/tpTools.map" /debug /machine:I386 /nodefaultlib:"nafxcw" /nodefaultlib:"nafxcwd" /nodefaultlib:"libcd" /nodefaultlib:"libc" /nodefaultlib:"libcmt" /nodefaultlib:"msvcrtd" /nodefaultlib:"Imm32.lib" /nodefaultlib:"libcmtd.lib" /nodefaultlib:"strmiids.lib" /out:"Release/tpTools.exe" /libpath:".\bin" /libpath:".\Release" /libpath:"..\..\..\10-common\lib\release\win32" /libpath:"..\..\common\include\platform sdk\LIB" /mapinfo:lines 
+".\Release\StdAfx.obj"
+".\Release\tpTools.obj"
+".\Release\tpToolsDlg.obj"
+".\Release\tinystr.obj"
+".\Release\tinyxml.obj"
+".\Release\tinyxmlerror.obj"
+".\Release\tinyxmlparser.obj"
+".\Release\tpTools.res"
+]
+Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSP4978.tmp"
+<h3>Output Window</h3>
+Compiling...
+tpToolsDlg.cpp
+Linking...
+LINK : warning LNK4075: ignoring /EDITANDCONTINUE due to /INCREMENTAL:NO specification
+LINK : fatal error LNK1104: cannot open file "moontooldll.lib"
+Error executing link.exe.
+
+
+
+<h3>Results</h3>
+tpTools.exe - 1 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

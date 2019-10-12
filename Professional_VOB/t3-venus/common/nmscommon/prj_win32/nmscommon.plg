@@ -1,0 +1,66 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: NmsCommon - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP7BCD.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /I "..\..\include" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\nms1" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/nmscommon.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\CallAddr.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\chartoPY.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\FtpCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\LogManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\NmsCommon.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\parsecfgfile.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\Ping.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\printctrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\source\TraceRT.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP7BCD.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP7BCE.tmp" with contents
+[
+/nologo /MD /W3 /GX /O2 /I "..\..\include" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\nms1" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/nmscommon.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\common\nmscommon\prj_win32\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP7BCE.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP7BDF.tmp" with contents
+[
+/nologo /out:"..\..\..\..\10-common\lib\release\win32\nmscommon.lib" 
+".\Release\CallAddr.obj"
+".\Release\chartoPY.obj"
+".\Release\FtpCtrl.obj"
+".\Release\LogManage.obj"
+".\Release\NmsCommon.obj"
+".\Release\parsecfgfile.obj"
+".\Release\Ping.obj"
+".\Release\printctrl.obj"
+".\Release\StdAfx.obj"
+".\Release\TraceRT.obj"
+]
+Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSP7BDF.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+CallAddr.cpp
+chartoPY.cpp
+FtpCtrl.cpp
+LogManage.cpp
+NmsCommon.cpp
+parsecfgfile.cpp
+Ping.cpp
+printctrl.cpp
+TraceRT.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+nmscommon.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

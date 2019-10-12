@@ -60,7 +60,9 @@ LRESULT CMoonlibDataMgr::DefWindowProc( UINT message, WPARAM wParam, LPARAM lPar
 
 u16 CMoonlibDataMgr::GetLoginIp( u32 &dwIP ) const
 {
+#if 0
 	dwIP = MOONSESSION_MGR_PTR->GetSessionIF()->GetLoginIp();
+#endif
 	return NO_ERROR;
 }
 

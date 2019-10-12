@@ -13,7 +13,7 @@
 #ifndef __SESSIONMGR_H__
 #define __SESSIONMGR_H__
 
-#include "moonlib.h"
+#include "rkclib.h"
 
 class CMoonlibSessionMgr
 {
@@ -23,7 +23,7 @@ public:
  
 	void CreateSession();
 	void DestroySession();
-	CMoonSessionCtrlIF* GetSessionIF() const					{ return m_pMoonSessionIF; }
+	CRkcSessionCtrlIF* GetSessionIF() const					{ return m_pMoonSessionIF; }
 	CCamConfigIF* GetCamConfigIF() const                        { return m_pCamConfigIF; }
 	CSysConfigIF* GetSysConfigIF() const						{ return m_pSysConfigIF; }
 	
@@ -32,7 +32,7 @@ private:
 	CMoonlibSessionMgr();
 private:
  	static CMoonlibSessionMgr	*m_pThis;
- 	CMoonSessionCtrlIF	*m_pMoonSessionIF;
+ 	CRkcSessionCtrlIF	*m_pMoonSessionIF;
 	CCamConfigIF *m_pCamConfigIF;
 	CSysConfigIF *m_pSysConfigIF;
 };

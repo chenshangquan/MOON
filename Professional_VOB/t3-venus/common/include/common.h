@@ -22,7 +22,7 @@
 #define KDV_NMS_MOONTOOL_VER_PREFIX     (const char*)"V1.1.5.0.0." // V1R1B1
 #define KDV_NMS_UMC_VER_PREFIX          (const char*)"1.1.3.0.0." // V1R1B3
 #define KDV_NMS_UMSTOOL_VER_PREFIX      (const char*)"1.1.2.0.0." // V1R1B2
-#define KDV_NMS_MOONTOOL_VER_PREFIX_90H     (const char*)"V2.1.1.4.0." // V1R1B2
+#define KDV_NMS_MOONTOOL_VER_PREFIX_90H     (const char*)"V6.0.0.4.0." // V1R1B2
 
 s8* GetBuildVersion();
 s8* GetMcuBuildVersion();

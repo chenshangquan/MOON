@@ -1,0 +1,93 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: UIFactory - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\MUXING~1\LOCALS~1\Temp\RSP8EC.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GR /GX /ZI /Od /I "..\include" /I "..\..\common\expat\include" /I "..\include\Tinyxml" /I "..\..\..\10-common\include\nms1" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "COMPILED_FROM_DSP" /Fp"Debug/UIFactory.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"E:\ccroot\20110212_HD2_V1R1_TP_2\Professional_VOB\70-neptune\UIFactory\source\UILibWndFactory.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\MUXING~1\LOCALS~1\Temp\RSP8EC.tmp" 
+Creating temporary file "C:\DOCUME~1\MUXING~1\LOCALS~1\Temp\RSP8ED.tmp" with contents
+[
+/nologo /out:"..\..\..\10-common\lib\debug\win32\uifactory.lib" 
+".\Debug\StdAfx.obj"
+".\Debug\System.obj"
+".\Debug\MfcDefaultArgs.obj"
+".\Debug\MfcDefaultWndFactory.obj"
+".\Debug\MfcDefaultWndProperty.obj"
+".\Debug\MfcDefaultWndPropertySet.obj"
+".\Debug\RegDefaultData.obj"
+".\Debug\UILibWndFactory.obj"
+".\Debug\IValue.obj"
+".\Debug\CallBackFuncTag.obj"
+".\Debug\DefaultXmlParser.obj"
+".\Debug\EventTag.obj"
+".\Debug\ITag.obj"
+".\Debug\IXmlHanlde.obj"
+".\Debug\IXmlParser.obj"
+".\Debug\LayoutXmlHandle.obj"
+".\Debug\PropertyTag.obj"
+".\Debug\SaveXmlHelp.obj"
+".\Debug\SystemXmlHandle.obj"
+".\Debug\WindowTag.obj"
+".\Debug\XmlAttrib.obj"
+".\Debug\WindowFacotryManage.obj"
+".\Debug\WindowFactory.obj"
+".\Debug\WindowManage.obj"
+".\Debug\WndTreeHelp.obj"
+".\Debug\CallFuncManage.obj"
+".\Debug\WndMsgEventManage.obj"
+".\Debug\DefaultScript.obj"
+".\Debug\IScript.obj"
+".\Debug\IProperty.obj"
+".\Debug\IPropertyAssist.obj"
+".\Debug\PropertyHelp.obj"
+".\Debug\PropertySet.obj"
+".\Debug\DefaultLogger.obj"
+".\Debug\Logger.obj"
+".\Debug\tinystr.obj"
+".\Debug\tinyxml.obj"
+".\Debug\tinyxmlerror.obj"
+".\Debug\tinyxmlparser.obj"
+"\ccroot\20110212_HD2_V1R1_TP_2\Professional_VOB\10-common\lib\debug\win32\expat.lib"
+]
+Creating command line "link.exe -lib @C:\DOCUME~1\MUXING~1\LOCALS~1\Temp\RSP8ED.tmp"
+<h3>Output Window</h3>
+Compiling...
+UILibWndFactory.cpp
+Creating library...
+<h3>
+--------------------Configuration: WindowTest - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\MUXING~1\LOCALS~1\Temp\RSP8EE.tmp" with contents
+[
+uifactory.lib uilib.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/WindowTest.pdb" /debug /machine:I386 /out:"Debug/WindowTest.exe" /pdbtype:sept /libpath:"..\..\..\10-common\lib\debug\win32\\" 
+".\Debug\LogicTest.obj"
+".\Debug\ProperyTest.obj"
+".\Debug\StdAfx.obj"
+".\Debug\TestLog.obj"
+".\Debug\TestWnd.obj"
+".\Debug\WindowTest.obj"
+".\Debug\WindowTestDlg.obj"
+".\Debug\WndFactory.obj"
+".\Debug\WindowTest.res"
+"\ccroot\20110212_HD2_V1R1_TP_2\Professional_VOB\10-common\lib\debug\win32\uifactory.lib"
+"\ccroot\20110212_HD2_V1R1_TP_2\Professional_VOB\10-common\lib\debug\win32\expat.lib"
+]
+Creating command line "link.exe @C:\DOCUME~1\MUXING~1\LOCALS~1\Temp\RSP8EE.tmp"
+<h3>Output Window</h3>
+Linking...
+
+
+
+<h3>Results</h3>
+WindowTest.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

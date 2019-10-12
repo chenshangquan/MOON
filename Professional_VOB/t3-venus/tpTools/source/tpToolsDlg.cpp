@@ -84,7 +84,7 @@ BOOL CTpToolsDlg::InitControl()
 	m_stCoryRight.SetWindowPos( NULL, rectClient.Width()/2-m_stCoryRight.GetImageSize().cx-111,  rectClient.bottom - 29, m_stCoryRight.GetImageSize().cx, m_stCoryRight.GetImageSize().cy, SWP_SHOWWINDOW );
 
 
-	CString strVersion = "             2012-2017 苏州科达科技股份有限公司 ";
+	CString strVersion = "             2012-2019 苏州科达科技股份有限公司 ";
 	strVersion += KDV_NMS_MOONTOOL_VER_PREFIX_90H;
 	strVersion = strVersion.Left(strVersion.GetLength()-1);
 	m_stVersion.SetWindowPos( NULL, 0,  rectClient.bottom - 31, rectClient.Width(), 14, SWP_SHOWWINDOW );
@@ -122,9 +122,13 @@ BOOL CTpToolsDlg::InitControl()
 // 	m_btnRadioCns.SetImage( "res\\CheckCns");
 // 	m_btnRadioCns.SetWindowPos( NULL, 227, rectClient.top + 61, 219, 60, SWP_SHOWWINDOW );
 
+#ifndef _MOON904K30
 	m_btnRadioMoon.SetImage("res\\CheckMoon");
 	m_btnRadioMoon.SetWindowPos( NULL, 120, rectClient.top + 61, 219, 60, SWP_SHOWWINDOW );
-	
+#else
+    m_btnRadioMoon.SetImage("res\\CheckMoon904K30");
+	m_btnRadioMoon.SetWindowPos( NULL, 172, rectClient.top + 71, 114, 50, SWP_SHOWWINDOW );
+#endif
 // 	m_btnRadioUms.SetCheck(BST_CHECKED);
 // 	m_btnRadioCns.SetCheck(BST_UNCHECKED);
 //	m_btnRadioMoon.SetCheck(BST_UNCHECKED);

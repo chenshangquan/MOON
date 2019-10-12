@@ -3541,7 +3541,8 @@ enum EmTPCamNoiseLevel
 enum EmTPMechanism
 {
     emH650 = 0,
-    emSony = 1
+    emSony = 1,
+    emSonyFCBCS8230 = 2
 };
 
 enum EmH650Gamma

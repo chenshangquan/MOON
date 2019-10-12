@@ -10,7 +10,7 @@
 日  期         版本        修改人      修改内容
 2014/11/26     1.0						创建
 ******************************************************************************/
-#include "moonlib.h"
+#include "rkclib.h"
 #include "moonToolDll.h"
 #ifndef CMOONLIBCOMMONIF_H
 #define CMOONLIBCOMMONIF_H

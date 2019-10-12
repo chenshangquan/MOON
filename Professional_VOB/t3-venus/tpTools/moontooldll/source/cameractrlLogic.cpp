@@ -383,7 +383,9 @@ bool CCameraCtrlLogic::OnComboboxCameraStyleClick(const IArgs& args)
 	}
     else if ( strComboText == "SONY FCB-CS8230" )
     {
-        //
+        emTPMechanism = emSonyFCBCS8230;
+        bHide = false;
+
     }
 	else
 	{

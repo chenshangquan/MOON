@@ -11,7 +11,7 @@
 2012/11/23     1.0						´´½¨
 ******************************************************************************/
 #include "moonToolDll.h"
-#include "moonlib.h"
+#include "rkclib.h"
 #include "msgdispatch.h"
 #include "sessionmgr.h"
 
