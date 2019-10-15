@@ -1,0 +1,63 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: moonlib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP3F8E.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\source" /I "..\..\common\include" /I "..\..\common\source" /I "..\..\..\..\10-common\include\um" /I "..\..\..\..\10-common\include\radstack" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\mt" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\snmp" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/moonlib.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\common\source\commandqueue.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\common\source\kdvdispevent.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\source\camconfig.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\source\moonlib.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\source\moonmsgdriver.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\source\moonmsgrecver.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\source\moonSession.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\source\sysconfig.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP3F8E.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP3F9F.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\source" /I "..\..\common\include" /I "..\..\common\source" /I "..\..\..\..\10-common\include\um" /I "..\..\..\..\10-common\include\radstack" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\mt" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\snmp" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/moonlib.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\moonlib\prj_win32\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP3F9F.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP3FA0.tmp" with contents
+[
+/nologo /out:"..\..\..\..\10-common\lib\Release\win32\moonlib.lib" 
+".\Release\commandqueue.obj"
+".\Release\kdvdispevent.obj"
+".\Release\camconfig.obj"
+".\Release\moonlib.obj"
+".\Release\moonmsgdriver.obj"
+".\Release\moonmsgrecver.obj"
+".\Release\moonSession.obj"
+".\Release\StdAfx.obj"
+".\Release\sysconfig.obj"
+]
+Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSP3FA0.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+commandqueue.cpp
+kdvdispevent.cpp
+camconfig.cpp
+moonlib.cpp
+moonmsgdriver.cpp
+moonmsgrecver.cpp
+moonSession.cpp
+sysconfig.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+moonlib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

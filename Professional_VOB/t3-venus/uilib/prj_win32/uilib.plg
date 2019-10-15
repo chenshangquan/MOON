@@ -1,0 +1,119 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: UILib - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP603F.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\common\include" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "WIN32" /D "NDEBUG" /Fp"Release/uilib.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\BMPDlg.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\CheckButton.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\ColorSelCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\ColourPopup.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\FlatButton.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\FlatDDButton.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinCheckList.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinComboBox.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinDateTime.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinDDListCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinEdit.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinFrame.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinGroup.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinHeaderCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinIPCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinListCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinMenu.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinPage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinScroll.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinSheet.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinSliderCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinSpinCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\SkinTab.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\StaticEx.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\TextButton30.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\UITools.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP603F.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP6040.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\common\include" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /D "WIN32" /D "NDEBUG" /Fp"Release/uilib.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uilib\source\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP6040.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP6051.tmp" with contents
+[
+/nologo /out:"..\..\..\10-common\lib\release\win32\uilib.lib" 
+".\Release\BMPDlg.obj"
+".\Release\CheckButton.obj"
+".\Release\ColorSelCtrl.obj"
+".\Release\ColourPopup.obj"
+".\Release\FlatButton.obj"
+".\Release\FlatDDButton.obj"
+".\Release\SkinCheckList.obj"
+".\Release\SkinComboBox.obj"
+".\Release\SkinDateTime.obj"
+".\Release\SkinDDListCtrl.obj"
+".\Release\SkinEdit.obj"
+".\Release\SkinFrame.obj"
+".\Release\SkinGroup.obj"
+".\Release\SkinHeaderCtrl.obj"
+".\Release\SkinIPCtrl.obj"
+".\Release\SkinListCtrl.obj"
+".\Release\SkinMenu.obj"
+".\Release\SkinPage.obj"
+".\Release\SkinScroll.obj"
+".\Release\SkinSheet.obj"
+".\Release\SkinSliderCtrl.obj"
+".\Release\SkinSpinCtrl.obj"
+".\Release\SkinTab.obj"
+".\Release\StaticEx.obj"
+".\Release\StdAfx.obj"
+".\Release\TextButton30.obj"
+".\Release\UITools.obj"
+]
+Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSP6051.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+BMPDlg.cpp
+CheckButton.cpp
+ColorSelCtrl.cpp
+ColourPopup.cpp
+FlatButton.cpp
+FlatDDButton.cpp
+SkinCheckList.cpp
+SkinComboBox.cpp
+SkinDateTime.cpp
+SkinDDListCtrl.cpp
+SkinEdit.cpp
+SkinFrame.cpp
+SkinGroup.cpp
+SkinHeaderCtrl.cpp
+SkinIPCtrl.cpp
+SkinListCtrl.cpp
+SkinMenu.cpp
+SkinPage.cpp
+SkinScroll.cpp
+SkinSheet.cpp
+Generating Code...
+Compiling...
+SkinSliderCtrl.cpp
+SkinSpinCtrl.cpp
+SkinTab.cpp
+StaticEx.cpp
+TextButton30.cpp
+UITools.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+uilib.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

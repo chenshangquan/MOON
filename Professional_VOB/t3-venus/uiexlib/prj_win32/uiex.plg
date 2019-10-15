@@ -1,0 +1,134 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: uiex - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP7810.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/uiex.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\BaseWnd.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\BitmapHelp.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\dragwindow.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\IAlgorithm.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\IBaseItem.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\IList.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\item.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\LetterIndex.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\listfuncmanage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\SrcManage.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentBaseWnd.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentBtn.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentCalendar.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentCheckButton.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentComboBox.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentDlg.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\transparentDlgBase.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentDragButton.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentEdit.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentHoriList.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentList.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentListHoriSlider.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentListSlider.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentProgress.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentSlideBlock.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentSliderCtrl.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\transparentSliderWnd.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentStatic.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentSwitchButton.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\TransparentViewList.cpp"
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\source\VirtualBattery.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP7810.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP7820.tmp" with contents
+[
+/nologo /MD /W3 /GR /GX /O2 /I "..\include" /I "..\..\..\10-common\include\nms1" /I "..\..\common\include\platform sdk\INCLUDE" /I "..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Release/uiex.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\uiexlib\prj_win32\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP7820.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP7821.tmp" with contents
+[
+/nologo /out:"..\..\..\10-common\lib\release\win32\uiex.lib" 
+".\Release\BaseWnd.obj"
+".\Release\BitmapHelp.obj"
+".\Release\dragwindow.obj"
+".\Release\IAlgorithm.obj"
+".\Release\IBaseItem.obj"
+".\Release\IList.obj"
+".\Release\item.obj"
+".\Release\LetterIndex.obj"
+".\Release\listfuncmanage.obj"
+".\Release\SrcManage.obj"
+".\Release\StdAfx.obj"
+".\Release\TransparentBaseWnd.obj"
+".\Release\TransparentBtn.obj"
+".\Release\TransparentCalendar.obj"
+".\Release\TransparentCheckButton.obj"
+".\Release\TransparentComboBox.obj"
+".\Release\TransparentDlg.obj"
+".\Release\transparentDlgBase.obj"
+".\Release\TransparentDragButton.obj"
+".\Release\TransparentEdit.obj"
+".\Release\TransparentHoriList.obj"
+".\Release\TransparentList.obj"
+".\Release\TransparentListHoriSlider.obj"
+".\Release\TransparentListSlider.obj"
+".\Release\TransparentProgress.obj"
+".\Release\TransparentSlideBlock.obj"
+".\Release\TransparentSliderCtrl.obj"
+".\Release\transparentSliderWnd.obj"
+".\Release\TransparentStatic.obj"
+".\Release\TransparentSwitchButton.obj"
+".\Release\TransparentViewList.obj"
+".\Release\VirtualBattery.obj"
+]
+Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSP7821.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+BaseWnd.cpp
+BitmapHelp.cpp
+dragwindow.cpp
+IAlgorithm.cpp
+IBaseItem.cpp
+IList.cpp
+item.cpp
+LetterIndex.cpp
+listfuncmanage.cpp
+SrcManage.cpp
+TransparentBaseWnd.cpp
+TransparentBtn.cpp
+TransparentCalendar.cpp
+TransparentCheckButton.cpp
+TransparentComboBox.cpp
+TransparentDlg.cpp
+transparentDlgBase.cpp
+TransparentDragButton.cpp
+TransparentEdit.cpp
+TransparentHoriList.cpp
+Generating Code...
+Compiling...
+TransparentList.cpp
+TransparentListHoriSlider.cpp
+TransparentListSlider.cpp
+TransparentProgress.cpp
+TransparentSlideBlock.cpp
+TransparentSliderCtrl.cpp
+transparentSliderWnd.cpp
+TransparentStatic.cpp
+TransparentSwitchButton.cpp
+TransparentViewList.cpp
+VirtualBattery.cpp
+Generating Code...
+Creating library...
+
+
+
+<h3>Results</h3>
+uiex.lib - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>
