@@ -20,7 +20,6 @@
 class CCamConfigIF : public CKdvDispEvent
 {
 public:
-#if 0
 	/** 
 	* 功能  	选择摄像机
 	* @param [in] 	 TCameraMemInfo  
@@ -348,7 +347,6 @@ public:
 
 	//设置延时矫正
     virtual u16 SetDelayCorrectCmd(u8 nPosition, u32 dwDelay) = 0;
-#endif
 };
 
 #endif

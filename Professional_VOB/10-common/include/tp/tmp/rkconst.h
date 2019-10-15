@@ -11,7 +11,7 @@
 #define     _ev_end
 
 #define MAX_PERIPHERAL_NUM          5//最大外设数
-//#define MAX_CHARLENGTH              64
+#define MAX_CHARLENGTH              64
 
 #define MAX_IP_LENGTH               16
 #define MAX_ALIAS_LENGTH            32

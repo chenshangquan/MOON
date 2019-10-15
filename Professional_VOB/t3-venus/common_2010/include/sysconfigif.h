@@ -20,7 +20,7 @@
 class CSysConfigIF : public CKdvDispEvent
 {
 public:
-#if 0
+
 	/** 功能   获得网络配置
 	 *  @return tagTTPEthnetInfo 网络配置信息
 	 */
@@ -48,7 +48,6 @@ public:
 	 *  @remarks 
 	 */
 	virtual u16 SetBaudRateCmd( EmTPLVDSBaud emBaudRate ) = 0;
-#endif
 };
 
 #endif

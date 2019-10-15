@@ -38,6 +38,7 @@ void CMoonlibSessionMgr::CreateSession()
 	m_pMoonSessionIF->InitEnv( AID_MOONTOOL2CAM_APP );
 #endif
 	// if point init 
+    m_pMoonSessionIF->RkcGetInterface( &m_pSysCtrlIf );
 	m_pMoonSessionIF->RkcGetInterface( &m_pCamConfigIF );
 	m_pMoonSessionIF->RkcGetInterface( &m_pSysConfigIF );
     

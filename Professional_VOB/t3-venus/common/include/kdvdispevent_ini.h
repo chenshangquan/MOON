@@ -5,7 +5,7 @@
 //#include "kdvsys.h"
 #include <map>
 #include "nmscommon.h"
-#include "crkmessage.h"
+//#include "nmsmtevent.h"
  
 using namespace std;
 
@@ -44,14 +44,8 @@ protected:
     HWND        m_hWnd;         // 消息发送界面的窗口句柄
 };
 //注册消息映射
-#if _MSC_VER <= 1200
 #define REG_PFUN(event, fun)        \
-    RegDispFunPointer(event, (void (CKdvDispEvent::*)(const CMessage &cMsg))fun);
-#else
-//支持VS2010
-#define REG_PFUN(event, fun)        \
-	RegDispFunPointer(event, (void (CKdvDispEvent::*)(const CMessage &cMsg))&fun);
-#endif
+    RegDispFunPointer(event, (void(CKdvDispEvent::*)(const CMessage &cMsg))fun);
 
 //分发消息映射
 #define DISP_FUN(clsName, cMsg)                                 \

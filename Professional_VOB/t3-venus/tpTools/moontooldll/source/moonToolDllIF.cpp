@@ -22,7 +22,7 @@
 #include "common.h"
 
 //#pragma comment(lib, "moonlib.lib") 
-#pragma comment(lib, "RkcLib.lib") 
+#pragma comment(lib, "rkclib.lib") 
 
 //cns组提供的库
 #pragma comment(lib, "xmlengine.lib")

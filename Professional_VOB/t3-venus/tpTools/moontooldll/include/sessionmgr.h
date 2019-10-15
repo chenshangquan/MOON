@@ -24,6 +24,7 @@ public:
 	void CreateSession();
 	void DestroySession();
 	CRkcSessionCtrlIF* GetSessionIF() const					{ return m_pMoonSessionIF; }
+    CRkcSysCtrlIF* GetSysCtrlIF() const                       { return m_pSysCtrlIf; }
 	CCamConfigIF* GetCamConfigIF() const                        { return m_pCamConfigIF; }
 	CSysConfigIF* GetSysConfigIF() const						{ return m_pSysConfigIF; }
 	
@@ -33,6 +34,8 @@ private:
 private:
  	static CMoonlibSessionMgr	*m_pThis;
  	CRkcSessionCtrlIF	*m_pMoonSessionIF;
+
+    CRkcSysCtrlIF *m_pSysCtrlIf;
 	CCamConfigIF *m_pCamConfigIF;
 	CSysConfigIF *m_pSysConfigIF;
 };

@@ -39,7 +39,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "moonlib"="..\..\cmslib\moonlib\prj_win32\moonlib.dsp" - Package Owner=<4>
+Project: "moontooldll"="..\moontooldll\prj_win32\moontooldll.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -51,7 +51,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "moontooldll"="..\moontooldll\prj_win32\moontooldll.dsp" - Package Owner=<4>
+Project: "rkclib"="..\..\cmslib\rkclib\prj_win32\rkclib.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{

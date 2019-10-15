@@ -70,7 +70,7 @@ namespace MOONTOOL
 	* 日期			版本		修改人		修改记录
 	* 2014.11.21    1.0         吴蒨蒨        创建
 	----------------------------------------------------------------------*/
-	MOONTOOLDLL_API UINT _stdcall ConnectMoon( DWORD dwCnsIP, DWORD dwCnsPort = 60002 );
+	MOONTOOLDLL_API UINT _stdcall ConnectMoon( DWORD dwCnsIP, DWORD dwCnsPort = 8000 );
  
  
 

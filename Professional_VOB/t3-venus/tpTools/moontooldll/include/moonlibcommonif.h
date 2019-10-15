@@ -24,6 +24,25 @@ public:
 
 	static CMoonlibCommonIF* GetComIF();
 	~CMoonlibCommonIF();
+
+    /**** rkcsysctrl ***/
+
+    //建立Socket连接
+    //u16 SocketConnect(s8* pchIP, u32 dwPort);
+    //断开Socket连接
+    //u16 CloseSocket();
+    //发送Socket消息
+    //u16 SendLoginReq(TRK100LoginInfo tRK100LoginInfo);
+    //发送修改密码请求消息
+    //u16 SendModifyPasswordReq(TRK100LoginInfo tRK100LoginInfo);
+    //判断是否登录
+    //bool IsLoginState();
+    
+    //获得登录错误反馈
+    //u16 GetLoginBackInfo(TRK100MsgHead& tRK100MsgHead);
+
+    /**** camerconfig ***/
+
 	u16 LinkMoon();
 	/** 功能:  连接cns 
 	*  @param[in] dwIp登录IP,nPort登录端口

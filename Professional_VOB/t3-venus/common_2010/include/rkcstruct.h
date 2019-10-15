@@ -4,8 +4,9 @@
 #ifndef _h_rkcstruct_h__
 #define _h_rkcstruct_h__
 
-#include "rkcConst.h"
+#include "rkcconst.h"
 #include "crkmessage.h"
+
 #if 1
 #define MAX_IP_LENGTH               16
 #define MAX_ALIAS_LENGTH            32

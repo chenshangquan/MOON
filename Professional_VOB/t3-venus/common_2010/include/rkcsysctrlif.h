@@ -44,12 +44,13 @@ public:
     /**
 	*   TFTPœ‡πÿ
 	*/ 
+#if 0
     virtual bool OpenTftp() = 0;
     virtual bool CloseTftp() = 0;
     virtual bool SetTftpPath(const s8 *pchPath) = 0;
     virtual bool SetDhcpBootFile(const s8 *pchPath) = 0;
     virtual bool KillTftpProcess() = 0;
-	
+#endif	
 };
 
 #endif __RKCSYSCTRLIF_H__

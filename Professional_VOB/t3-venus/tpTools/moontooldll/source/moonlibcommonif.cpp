@@ -1,8 +1,8 @@
 #include "StdAfx.h"
 #include "moonlibcommonif.h"
 #include "sessionmgr.h"
-
-
+#include "rkcprintctrl.h"
+#define PrtRkcMsg (CRkcPrintCtrl::GetPrintCtrl()->PrintMsg)
 
 CMoonlibCommonIF* CMoonlibCommonIF::m_pThis = NULL;
 
@@ -48,12 +48,21 @@ u16 CMoonlibCommonIF::LinkMoon()
 {
 #if 0
     u16 re =  ERR_CMS;
-	CMoonSessionCtrlIF* pMoonSession = MOONSESSION_MGR_PTR->GetSessionIF();
-    if ( pMoonSession )
+	CRkcSysCtrlIF* pSysCtrlIf = MOONSESSION_MGR_PTR->GetSysCtrlIF();
+    if ( pSysCtrlIf )
     {
-        re = pMoonSession->ConnectMoon( m_tCamLoginInfo.dwIp,  m_tCamLoginInfo.nPort );
+        in_addr tAddr;
+        tAddr.S_un.S_addr = m_tCamLoginInfo.dwIp;
+        re = pSysCtrlIf->SocketConnect( (char*)inet_ntoa(tAddr),  m_tCamLoginInfo.nPort );
     }
 #else
+    in_addr tAddr;
+    tAddr.S_un.S_addr = m_tCamLoginInfo.dwIp;
+    CString strTmp;
+    strTmp.Format("%d", m_tCamLoginInfo.nPort);
+    MessageBox(NULL, inet_ntoa(tAddr), "TITLE", MB_OK );
+    MessageBox(NULL, strTmp, "TITLE", MB_OK );
+    PrtRkcMsg( RK100_EVT_LOGIN, emEventTypeScoketSend, "connect IP = %s, port = %d", inet_ntoa(tAddr), m_tCamLoginInfo.nPort );
     u16 re = ERR_CNC_ACTIVE_CONNECT;
 #endif
     return re;
@@ -65,7 +74,7 @@ u16 CMoonlibCommonIF::connect( u32 dwIp, u32 dwPort)
 
     m_tCamLoginInfo.dwIp = dwIp;
     m_tCamLoginInfo.nPort = dwPort;
-	
+
 	//Á¬½Ócns
 	AfxBeginThread( ThreadConnectMoon , NULL );
 
