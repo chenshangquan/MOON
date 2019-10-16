@@ -202,11 +202,11 @@ bool CCameraCtrlLogic::InitWnd(  const IArgs & arg )
 	CLogicBase::InitWnd( arg );
 
 	std::vector<CString> vecCamera;																//设置摄像机下拉框数据
-	vecCamera.push_back("摄像机1");
-	vecCamera.push_back("摄像机2");
-	vecCamera.push_back("摄像机3");
+	vecCamera.push_back("机芯1");
+	vecCamera.push_back("机芯2");
+	vecCamera.push_back("机芯3");
 	UIFACTORYMGR_PTR->SetComboListData( "ComboboxCamera", vecCamera, m_pWndTree );
-	SetCamName( _T("摄像机1") );
+	SetCamName( _T("机芯1") );
 
 	std::vector<CString> vecCameraStyle;
 	vecCameraStyle.push_back("H650");
@@ -336,15 +336,15 @@ bool CCameraCtrlLogic::OnComboboxCameraClick( const IArgs& args )
 
 	u8 byCameraIndx = 0;
 	String strComboText = valueTransparentComboBoxText.strComboText;
-	if ( strComboText == "摄像机1" )
+	if ( strComboText == "机芯1" )
 	{
 		byCameraIndx = 0;
 	}
-	else if ( strComboText == "摄像机2" )
+	else if ( strComboText == "机芯2" )
 	{
 		byCameraIndx = 1;
 	}
-	else if ( strComboText == "摄像机3" )
+	else if ( strComboText == "机芯3" )
 	{
 		byCameraIndx = 2;
 	}
@@ -380,18 +380,20 @@ bool CCameraCtrlLogic::OnComboboxCameraStyleClick(const IArgs& args)
 		emTPMechanism = emSony;
 		bHide = true;
 		pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
+        UIFACTORYMGR_PTR->LoadScheme( _T("SchmCamNormal"), m_pWndTree );
 	}
     else if ( strComboText == "SONY FCB-CS8230" )
     {
         emTPMechanism = emSonyFCBCS8230;
         bHide = false;
-
+        UIFACTORYMGR_PTR->LoadScheme( _T("SchmMoon904K30"), m_pWndTree );
     }
 	else
 	{
 		emTPMechanism = emH650;
 		bHide = false;
 		pWnd->ModifyStyle(0, WS_CHILD|WS_CLIPSIBLINGS|ES_NUMBER );
+        UIFACTORYMGR_PTR->LoadScheme( _T("SchmCamNormal"), m_pWndTree );
 	}
 
 	u16 nRet = COMIFMGRPTR->CamStyleSelCmd( emTPMechanism );
@@ -417,15 +419,15 @@ bool CCameraCtrlLogic::OnBtnSyncClick(const IArgs& args)
 	
 	u8 byCameraIndx = 0;
 	String strComboText = valueTransparentComboBoxText.strComboText;
-	if ( strComboText == "摄像机1" )
+	if ( strComboText == "机芯1" )
 	{
 		byCameraIndx = 0;
 	}
-	else if ( strComboText == "摄像机2" )
+	else if ( strComboText == "机芯2" )
 	{
 		byCameraIndx = 1;
 	}
-	else if ( strComboText == "摄像机3" )
+	else if ( strComboText == "机芯3" )
 	{
 		byCameraIndx = 2;
 	}
@@ -1868,21 +1870,21 @@ void CCameraCtrlLogic::SetCameraCfg( TTPMoonCamInfo tMoonCameraCfg )
 	{
 	case 0:
 		{
-			strCaption = _T("摄像机1");
+			strCaption = _T("机芯1");
 			SetMechVersion( m_tTpMechver1.achMechSWVer, m_tTpMechver1.achMechHWVer );
 			m_byCamIndex = 0;
 			break;
 		}
 	case 1:
 		{
-			strCaption = _T("摄像机2");
+			strCaption = _T("机芯2");
 			SetMechVersion( m_tTpMechver2.achMechSWVer, m_tTpMechver2.achMechHWVer );
 			m_byCamIndex = 1;
 			break;
 		}
 	case 2:
 		{
-			strCaption = _T("摄像机3");
+			strCaption = _T("机芯3");
 			SetMechVersion( m_tTpMechver3.achMechSWVer, m_tTpMechver3.achMechHWVer );
 			m_byCamIndex = 2;
 			break;

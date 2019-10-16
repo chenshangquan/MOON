@@ -366,7 +366,7 @@ void CTpToolsDlg::OnBtnLogin()
 		{
 			MOONTOOL::InitMoonTool( AfxGetMainWnd()->GetSafeHwnd() );
 		}
-		MOONTOOL::ConnectMoon( htonl(inet_addr(strIP)));
+		MOONTOOL::ConnectMoon( (inet_addr(strIP)));
 		
 	}
 }

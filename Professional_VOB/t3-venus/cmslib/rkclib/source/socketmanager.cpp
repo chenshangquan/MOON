@@ -131,11 +131,14 @@ u8 CSocketManager::OpenSocket()
     serAddr.sin_port = htons(m_dwPort);
     serAddr.sin_addr.S_un.S_addr = inet_addr(m_achIP);
 
+    PrtRkcMsg( RK100_EVT_LOGIN, emEventTypeScoketSend, "Server ip: %s", m_achIP);
+
     // 超时时间  
     struct timeval tm;  
     tm.tv_sec  = 5;  
     tm.tv_usec = 0;  
 
+    PrtRkcMsg( RK100_EVT_LOGIN, emEventTypeScoketSend, "socket connect start...");
     if(connect(m_sclient, (sockaddr *)&serAddr, sizeof(serAddr)) == SOCKET_ERROR)
     {
         fd_set set;  
@@ -162,6 +165,7 @@ u8 CSocketManager::OpenSocket()
             }  
         }
     }
+    PrtRkcMsg( RK100_EVT_LOGIN, emEventTypeScoketSend, "socket connect success");
 
     // 设回为阻塞socket  
     iMode = 0;  
@@ -169,11 +173,13 @@ u8 CSocketManager::OpenSocket()
 
     CSocketManager::m_bIsSocketOpen = true;
     //启动发送数据线程
+    PrtRkcMsg( RK100_EVT_LOGIN, emEventTypeScoketSend, "ThreadSendData begin");
     AfxBeginThread(ThreadSendDadaPack, NULL);
     //启动接收数据线程
     //AfxBeginThread(ThreadRevcDadaPack, NULL);
     //启动心跳保活Timer
-    StartHeartBeat();
+    PrtRkcMsg( RK100_EVT_LOGIN, emEventTypeScoketSend, "ThreadHeartBeat start");
+    //StartHeartBeat();
     return NOERROR;
 }
 
@@ -195,7 +201,7 @@ bool CSocketManager::IsSocket()
     return CSocketManager::m_bIsSocketOpen;
 }
 
-void CSocketManager::SendDataPack(CRkMessage rkmsg)
+void CSocketManager::SendDataPack(CRkMessage &rkmsg)
 {
     EnterCriticalSection(&m_csMsgLock);
     m_RkcMsgQueue.PushMsg(rkmsg);

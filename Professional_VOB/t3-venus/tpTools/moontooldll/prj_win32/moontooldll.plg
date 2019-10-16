@@ -6,15 +6,15 @@
 --------------------Configuration: moontooldll - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP8D82.tmp" with contents
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPA0FE.tmp" with contents
 [
-/nologo /MD /W3 /GR /GX /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /D "_WINDLL" /D "_AFXDLL" /Fp"Release/moontooldll.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
-"F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\moonlibcommonif.cpp"
+/nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /D "_WINDLL" /D "_AFXDLL" /Fp"Release/moontooldll.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
+"F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\cameractrlLogic.cpp"
 ]
-Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP8D82.tmp" 
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP8D83.tmp" with contents
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPA0FE.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPA0FF.tmp" with contents
 [
-/nologo /subsystem:windows /dll /incremental:no /pdb:"../../prj_win32/Release/moontooldll.pdb" /map:"Release/moontooldll.map" /machine:I386 /nodefaultlib:"nafxcw.lib" /nodefaultlib:"libc.lib" /def:".\moontooldll.def" /out:"../../prj_win32/Release/moontooldll.dll" /implib:"../../prj_win32/Release/moontooldll.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\lib" 
+/nologo /subsystem:windows /dll /incremental:no /pdb:"../../prj_win32/Release/moontooldll.pdb" /map:"Release/moontooldll.map" /debug /machine:I386 /nodefaultlib:"nafxcw.lib" /nodefaultlib:"libc.lib" /def:".\moontooldll.def" /out:"../../prj_win32/Release/moontooldll.dll" /implib:"../../prj_win32/Release/moontooldll.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\lib" 
 ".\Release\cameractrlLogic.obj"
 ".\Release\COrderListDlgLogic.obj"
 ".\Release\CorrectParamLogic.obj"
@@ -40,19 +40,17 @@ Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP8D83.tmp" with co
 ".\Release\warningLogic.obj"
 ".\Release\moontooldll.res"
 ]
-Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSP8D83.tmp"
+Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSPA0FF.tmp"
 <h3>Output Window</h3>
 Compiling...
-moonlibcommonif.cpp
+cameractrlLogic.cpp
 Linking...
    Creating library ../../prj_win32/Release/moontooldll.lib and object ../../prj_win32/Release/moontooldll.exp
-LINK : warning LNK4089: all references to "ADVAPI32.dll" discarded by /OPT:REF
-LINK : warning LNK4089: all references to "ole32.dll" discarded by /OPT:REF
 
 
 
 <h3>Results</h3>
-moontooldll.dll - 0 error(s), 2 warning(s)
+moontooldll.dll - 0 error(s), 0 warning(s)
 </pre>
 </body>
 </html>

@@ -386,7 +386,19 @@ u16 CCamConfig::CamStyleSelCmd( const EmTPMechanism& emTPMechanism )
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpMechanismSelect_Cmd, emEventTypemoontoolSend, "emTPMechanism: %d", emTPMechanism); 
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpMechanismSelect_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPMechanism));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&emTPMechanism, sizeof(EmTPMechanism));//添加消息体
+    
+    PrtRkcMsg( ev_TpMechanismSelect_Cmd, emEventTypeScoketSend , "emTPMechanism: %d", emTPMechanism);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+	return NOERROR;
 }
 
 void CCamConfig::OnCamStyleSelInd(const CMessage& cMsg)
@@ -399,6 +411,27 @@ void CCamConfig::OnCamStyleSelInd(const CMessage& cMsg)
 	
 	PrtMsg( ev_TpMechanismSelect_Ind, emEventTypemoontoolRecv, "emTPMechanism: %d, bSelStyleCam: %d", emTPMechanism, bSelStyleCam );
 	PostEvent( UI_MOONTOOL_CamStyleSel_IND, (WPARAM)&emTPMechanism, (LPARAM)bSelStyleCam );*/
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    EmTPMechanism emTPMechanism = emH650;
+    if (tMsgHead.wMsgLen != 0)
+    {
+        emTPMechanism = *reinterpret_cast<EmTPMechanism*>( cMsg.content + sizeof(EmTPMechanism) );
+        SetCameraCfgPtr();
+    }
+    
+	PrtRkcMsg( ev_TpMechanismSelect_Ind, emEventTypeScoketRecv, "emTPMechanism: %d, bSelStyleCam: %d", emTPMechanism, tMsgHead.wOptRtn);
 }
 
 u16 CCamConfig::SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex)
@@ -425,7 +458,7 @@ u16 CCamConfig::SetCamZoomStopCmd(u8 byIndex)
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamSetZoonStop_Cmd, emEventTypemoontoolSend, "byIndex: %d", byIndex );
 	return wRet;*/
-	return true;
+	return true
 }
 
 void CCamConfig::OnCamZoomInd(const CMessage& cMsg)

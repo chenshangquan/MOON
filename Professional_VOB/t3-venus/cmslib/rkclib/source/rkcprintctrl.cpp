@@ -30,6 +30,7 @@ CRkcPrintCtrl::CRkcPrintCtrl()
     //m_bPrintAllMsg = TRUE;
     m_bayPrintLevel = 2;
 #endif
+    m_bayPrintLevel = 2;
 }
 
 

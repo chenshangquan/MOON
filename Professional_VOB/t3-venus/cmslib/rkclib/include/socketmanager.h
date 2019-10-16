@@ -15,7 +15,7 @@ public:
     CRkcScoketMsgQueue(){}
     ~CRkcScoketMsgQueue(){}
     // 将一条消息压入队列中
-    void PushMsg(CRkMessage const pMsg)
+    void PushMsg(CRkMessage const &pMsg)
     {
         m_queRkMsg.push(pMsg);
     }
@@ -68,7 +68,7 @@ public:
 
     bool IsSocket();
 
-    void SendDataPack(CRkMessage rkmsg);
+    void SendDataPack(CRkMessage &rkmsg);
 
     void SendDataPack();
 

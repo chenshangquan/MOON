@@ -43,7 +43,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_WINDLL" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /D "_WINDLL" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
+# ADD CPP /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /D "_WINDLL" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
 # SUBTRACT CPP /X
 # ADD BASE MTL /nologo /D "NDEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "NDEBUG" /mktyplib203 /win32
@@ -54,8 +54,8 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 /nologo /subsystem:windows /dll /machine:I386
-# ADD LINK32 /nologo /subsystem:windows /dll /map /machine:I386 /nodefaultlib:"nafxcw.lib" /nodefaultlib:"libc.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\lib"
-# SUBTRACT LINK32 /incremental:yes /debug
+# ADD LINK32 /nologo /subsystem:windows /dll /map /debug /machine:I386 /nodefaultlib:"nafxcw.lib" /nodefaultlib:"libc.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\lib"
+# SUBTRACT LINK32 /incremental:yes
 
 !ELSEIF  "$(CFG)" == "moontooldll - Win32 Debug"
 

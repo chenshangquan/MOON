@@ -88,6 +88,11 @@ void CRkcMsgDriver::MappingEventName()
 
     RKCMAPPING_HELPER( RK100_EVT_GET_DEBUG_MODE, _T("RK100_EVT_GET_DEBUG_MODE"));
     RKCMAPPING_HELPER( RK100_EVT_GET_DEBUG_MODE_ACK, _T("RK100_EVT_GET_DEBUG_MODE_ACK"));
+
+    //MOON
+    RKCMAPPING_HELPER( ev_TpMechanismSelect_Cmd, _T("ev_TpMechanismSelect_Cmd") );
+    RKCMAPPING_HELPER( ev_TpMechanismSelect_Ind, _T("ev_TpMechanismSelect_Ind") );
+
 }
 
 u16 CRkcMsgDriver::PostMsg(u32 dwType)

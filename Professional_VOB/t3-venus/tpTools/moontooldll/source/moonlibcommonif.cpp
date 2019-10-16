@@ -30,22 +30,19 @@ UINT ThreadConnectMoon(LPVOID lpParam)
 	re = COMIFMGRPTR->LinkMoon();
     if ( re != NO_ERROR )
     {   
-        if ( ERR_CNC_ACTIVE_CONNECT ==  re )
-        {
-            SendMessage( MOONLIBDATAMGRPTR->GetSafeHwnd() ,UI_MOONTOOL_CONNECTED, TRUE, NO_ERROR);
-        }
-        else
-        {
-            SendMessage( MOONLIBDATAMGRPTR->GetSafeHwnd() ,UI_MOONTOOL_CONNECTED, FALSE, ERR_CNC_TCPCONNECT);
-        }
+        SendMessage( MOONLIBDATAMGRPTR->GetSafeHwnd() ,UI_MOONTOOL_CONNECTED, FALSE, ERR_CNC_TCPCONNECT);
 	}
+    else
+    {
+        SendMessage( MOONLIBDATAMGRPTR->GetSafeHwnd() ,UI_MOONTOOL_CONNECTED, TRUE, NO_ERROR);
+    }
     
     return re;
 } 
 
 u16 CMoonlibCommonIF::LinkMoon()
 {
-#if 1
+#if 0
     u16 re =  ERR_CMS;
 	CRkcSysCtrlIF* pSysCtrlIf = MOONSESSION_MGR_PTR->GetSysCtrlIF();
     if ( pSysCtrlIf )
@@ -53,19 +50,9 @@ u16 CMoonlibCommonIF::LinkMoon()
         in_addr tAddr;
         tAddr.S_un.S_addr = m_tCamLoginInfo.dwIp;
         re = pSysCtrlIf->SocketConnect( (char*)inet_ntoa(tAddr),  m_tCamLoginInfo.nPort );
-        CString strTmp;
-        strTmp.Format("%d", m_tCamLoginInfo.nPort);
-        MessageBox(NULL, inet_ntoa(tAddr), "IP address", MB_OK );
-        MessageBox(NULL, strTmp, "Port", MB_OK );
     }
 #else
-    in_addr tAddr;
-    tAddr.S_un.S_addr = m_tCamLoginInfo.dwIp;
-    CString strTmp;
-    strTmp.Format("%d", m_tCamLoginInfo.nPort);
-    MessageBox(NULL, inet_ntoa(tAddr), "IP address", MB_OK );
-    MessageBox(NULL, strTmp, "Port", MB_OK );
-    u16 re = ERR_CNC_ACTIVE_CONNECT;
+    u16 re = 0;//ERR_CNC_ACTIVE_CONNECT
 #endif
     return re;
 }
