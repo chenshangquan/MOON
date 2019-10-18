@@ -108,6 +108,52 @@ enum EMRK100EvtId
      * 应答消息体:TRK100DebugMode */
     RK100_EVT_GET_DEBUG_MODE            =2533,
     RK100_EVT_GET_DEBUG_MODE_ACK        =2534,
+
+    //新增部分
+   /*=========================lpc1837控制sony机芯-xzy add========================*/
+	/*一、聚焦,消息体：CamFocusAutoManualMode
+	 *应答消息体：NULL*/
+    RK100_EVT_SET_CAM_FOCUS             =2535,
+    RK100_EVT_SET_CAM_FOCUS_ACK         =2536,
+	/*二、ZOOM值调节，消息体：CamZoomVal
+	 *应答消息体：NULL*/
+	RK100_EVT_SET_CAM_ZOOM_VAL            =2537,
+	RK100_EVT_SET_CAM_ZOOM_VAL_ACK        =2538,
+
+    /*三、光圈调节，消息体：ApertureAutoMode
+		 *应答消息体：NULL*/
+	RK100_EVT_SET_CAM_IRIS            =2539,
+	RK100_EVT_SET_CAM_IRIS_ACK        =2540,
+
+	/*四、曝光设置，消息体：ExposAutoMode
+	 *应答消息体：NULL*/
+	RK100_EVT_SET_CAM_EXPOSURE            =2541,
+	RK100_EVT_SET_CAM_EXPOSURE_ACK        =2542,
+
+    /*五、白平衡调节，消息体：CamWBMode
+		 *应答消息体：CamWBMode_Ack*/
+	RK100_EVT_SET_CAM_WB                  =2543,
+	RK100_EVT_SET_CAM_WB_ACK              =2544,
+
+	 /*六、图像参数调节,消息体：CamImagParam
+	  *应答消息体：NULL*/
+	RK100_EVT_SET_CAM_ImagParam           =2545,
+	RK100_EVT_SET_CAM_ImagParam_ACK       =2546,
+	
+	/*七、降噪调节，消息体：NULL
+	 *应答消息体：NULL*/		
+	RK100_EVT_SET_CAM_NR                  =2547,
+	RK100_EVT_SET_CAM_NR_ACK              =2548,
+	
+	/*八、预置位，消息体：NULL
+	 *应答消息体：NULL*/
+	RK100_EVT_SET_CAM_Memory             =2549,
+	RK100_EVT_SET_CAM_Memory_ACK         =2550,
+
+	/*九、获取白平衡值，消息体：NULL
+	 *应答消息体：CamWBMode_Ack*/
+	RK100_EVT_GET_CAM_WB                =2551,
+	RK100_EVT_GET_CAM_WB_ACK            =2552,
 };
 
 /* 事件处理返回值定义 */
@@ -256,3 +302,144 @@ typedef struct
     u8  DebugSW;              /* 1:开启串口 0:关闭串口 */
 } TRK100DebugMode;
 #endif
+
+
+/*=======================xzy add=======================*/
+//摄像机输出60/30fps  曝光--快门
+typedef struct 
+{
+	u8 SixtyFpsModeFlag;
+	u8 ThirtyFpsModeFlag;
+	u8 Shutter_30Sp ;         // 1/30
+	u8 Shutter_60Sp ;         // 1/60
+	u8 Shutter_90Sp ;         // 1/90
+	u8 Shutter_100Sp;         // 1/100(默认)
+	u8 Shutter_125Sp;         // 1/125
+	u8 Shutter_180Sp;         // 1/180
+	u8 Shutter_250Sp;         // 1/250
+	u8 Shutter_350Sp;         // 1/350
+	u8 Shutter_500Sp;         // 1/500
+	u8 Shutter_725Sp;         // 1/725
+	u8 Shutter_1000Sp;        // 1/1000
+	u8 Shutter_1500Sp;        // 1/1500
+	u8 Shutter_2000Sp;        // 1/2000
+	u8 Shutter_3000Sp;        // 1/3000
+	u8 Shutter_4000Sp;        // 1/4000
+	u8 Shutter_6000Sp;        // 1/6000
+	u8 Shutter_10000Sp;        // 1/10000
+}TPSOrThShutter;//xzy 
+
+//摄像机输出50/25fps  曝光--快门
+typedef struct  
+{
+	u8 FiftyFpsModeFlag;
+	u8 TenwFifFpsModeFlag;
+	u8 Shutter_25Spd ;         // 1/25
+	u8 Shutter_50Spd ;         // 1/50
+	u8 Shutter_60Spd ;         // 1/60
+	u8 Shutter_100Spd;         // 1/100(默认)
+	u8 Shutter_120Spd;         // 1/120
+	u8 Shutter_150Spd;         // 1/150
+	u8 Shutter_215Spd;         // 1/215
+	u8 Shutter_300Spd;         // 1/300
+	u8 Shutter_425Spd;         // 1/425
+	u8 Shutter_600Spd;         // 1/600
+	u8 Shutter_1000Spd;        // 1/1000
+	u8 Shutter_1250Spd;        // 1/1250
+	u8 Shutter_1750Spd;        // 1/1750
+	u8 Shutter_2500Spd;        // 1/2500
+	u8 Shutter_3500Spd;        // 1/3500
+	u8 Shutter_6000Spd;        // 1/6000
+	u8 Shutter_10000Spd;        // 1/10000
+}TPFOrTwShutter;//xzy
+
+
+typedef struct
+{
+    u8 AutoModeFlag;      /* 1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
+	  u8 ManualModeFlag;
+    u8 focusFarFlag;
+    u8 focusNearFlag;
+} TCamFocusAutoManualMode;
+
+typedef struct
+{
+    u32 InputVal;  //界面输入的精确Zoom值
+    u8 InputPreciseValFlag;   /* 输入精确值。1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
+	u8 ZoomUpFlag;  //Zoom+
+	u8 ZoomDownFlag;  //Zoom-
+	u8 CamIndex;  //摄像机索引
+} TCamZoomVal; 
+
+
+typedef struct
+{
+	u8 IrisAutoFlag;
+    u8 IrisManuFlag;  
+	u8 optIrisF4_4Flag;
+	u8 optIrisF4_0Flag;
+	u8 optIrisF3_7Flag;
+	u8 optIrisF3_4Flag;
+	u8 optIrisF3_1Flag;
+	u8 optIrisF2_8Flag;
+} TIrisAutoManuMode;  
+
+typedef struct
+{
+    u8 ExposAutoModeFlag;    /* 1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
+	  u8 ExposManuModeFlag;  
+	  TPSOrThShutter SixtyOrThirtyMode;  //
+	  TPFOrTwShutter FiftyOrTwentyMode;  //
+		u8 CAMGainCmdUpFlag;
+    u8 CAMGainCmdDownFlag;
+	  u8 CAMGainEnterPrecisValFlag;
+	  u8 InputVal;
+} TExposAutoMode;  
+
+typedef struct
+{
+  u8 CamWBAutoModeFlag; 
+	u8 CamWBManuModeFlag;
+   u8 CamRGainFlag;
+	 u8 CamRGainUpFlag;
+	 u8 CamRGainDownFlag;
+   u8 CamBGainFlag;    /* 1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
+	 u8 CamBGainUpFlag;
+	 u8 CamBGainDownFlag;
+} TCamWBMode;  
+
+typedef struct
+{
+   u8 BrightVal; //亮度
+   u8 ColorHueVal;//色度
+   u8 ColorGainVal;//饱和度
+   u8 Gamma_opt_1_flag;// /* 1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
+   u8 Gamma_opt_2_flag;//
+   u8 Gamma_opt_3_flag;//
+   
+} TCamImagParam;  
+
+typedef struct
+{
+   u8 D2NROnFlag;
+   u8 D2NROffFlag;
+   u8 D2NR_level_1_Flag;
+   u8 D2NR_level_2_Flag;
+   u8 D2NR_level_3_Flag;
+   u8 D2NR_level_4_Flag;
+   u8 D2NR_level_5_Flag;
+   u8 D3NROnFlag;
+   u8 D3NROffFlag;
+   u8 D3NR_level_1_Flag;
+   u8 D3NR_level_2_Flag;   /* 1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
+   u8 D3NR_level_3_Flag;
+   u8 D3NR_level_4_Flag;
+   u8 D3NR_level_5_Flag;
+} TCamNRMode;  //
+
+
+typedef struct
+{
+    u8 RVal;
+	  u8 BVal;
+}TCamWBMode_Ack;

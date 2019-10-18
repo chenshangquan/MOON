@@ -26,6 +26,7 @@ public:
 	* @remarks 
 	*/	
 	virtual u16 SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex);	
+    virtual u16 SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal);
 
 	virtual u16 SetCamZoomStopCmd(u8 byIndex);
 

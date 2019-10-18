@@ -13,6 +13,7 @@
 CCameraCtrlLogic::CCameraCtrlLogic()
 : m_strComboboxCamera("ComboboxCamera")
 , m_strComboboxCameraStyle("ComboboxCameraStyle")
+, m_strComboboxOutputFormat("ComboboxOutputFormat")
 , m_strBtnZoomPlus("BtnZoomPlus")
 , m_strBtnZoomSub("BtnZoomSub")
 , m_strEdtZoom("EdtZoom")
@@ -20,6 +21,7 @@ CCameraCtrlLogic::CCameraCtrlLogic()
 , m_strBtnCheckManuelFocus("BtnCheckManuelFocus")
 , m_strBtnCheckAutoFocus("BtnCheckAutoFocus")
 , m_strBtnSwitchAutoExposure("BtnSwitchAutoExposure")
+, m_strComboboxApertre("ComboboxApertre")  //MOON904K30
 , m_strComboboxAperture("ComboboxAperture")
 , m_strComboboxShut("ComboboxShut")
 , m_strComboboxExposureGain("ComboboxExposureGain")
@@ -131,6 +133,8 @@ void CCameraCtrlLogic::RegCBFun()
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxCameraClick", CCameraCtrlLogic::OnComboboxCameraClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxCameraStyleClick", CCameraCtrlLogic::OnComboboxCameraStyleClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSyncClick", CCameraCtrlLogic::OnBtnSyncClick, CAMERALOGICRPTR, CCameraCtrlLogic );
+    REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxOutputFormatClick", CCameraCtrlLogic::OnComboboxOutputFormatClick, CAMERALOGICRPTR, CCameraCtrlLogic );
+
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnZoomPlusClick", CCameraCtrlLogic::OnBtnZoomPlusClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnZoomSubClick", CCameraCtrlLogic::OnBtnZoomSubClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDownZoomPlus", CCameraCtrlLogic::OnLBtnDownZoomPlus, CAMERALOGICRPTR, CCameraCtrlLogic );
@@ -201,6 +205,7 @@ bool CCameraCtrlLogic::InitWnd(  const IArgs & arg )
 {
 	CLogicBase::InitWnd( arg );
 
+    //机芯
 	std::vector<CString> vecCamera;																//设置摄像机下拉框数据
 	vecCamera.push_back("机芯1");
 	vecCamera.push_back("机芯2");
@@ -208,12 +213,36 @@ bool CCameraCtrlLogic::InitWnd(  const IArgs & arg )
 	UIFACTORYMGR_PTR->SetComboListData( "ComboboxCamera", vecCamera, m_pWndTree );
 	SetCamName( _T("机芯1") );
 
+    //类型
 	std::vector<CString> vecCameraStyle;
 	vecCameraStyle.push_back("H650");
 	vecCameraStyle.push_back("Sony");
     vecCameraStyle.push_back("SONY FCB-CS8230");
     UIFACTORYMGR_PTR->SetComboListData( "ComboboxCameraStyle", vecCameraStyle, m_pWndTree );
 	SetCamStyleName( _T("H650") );
+
+    //输出制式
+    vecCamera.clear();
+    vecCamera.push_back("4K@25fps");
+    vecCamera.push_back("4K@30fps");
+    vecCamera.push_back("1080P@25fps");
+    vecCamera.push_back("1080P@30fps");
+    vecCamera.push_back("1080P@50fps");
+    vecCamera.push_back("1080P@60fps");
+    vecCamera.push_back("720P@50fps");
+    vecCamera.push_back("720P@60fps");
+    UIFACTORYMGR_PTR->SetComboListData( m_strComboboxOutputFormat, vecCamera, m_pWndTree );
+	UIFACTORYMGR_PTR->SetComboText( m_strComboboxOutputFormat, _T("4K@30fps"), m_pWndTree );
+
+    //MOON904K30光圈
+    vecCamera.clear();
+    vecCamera.push_back("F2.8");
+    vecCamera.push_back("F3.0");
+    vecCamera.push_back("F3.5");
+    vecCamera.push_back("F4.0");
+    vecCamera.push_back("F4.5");
+    UIFACTORYMGR_PTR->SetComboListData( m_strComboboxApertre, vecCamera, m_pWndTree );
+	UIFACTORYMGR_PTR->SetComboText( m_strComboboxApertre, _T("F3.5"), m_pWndTree );
 
 	//光圈数据初始化设置
 	vecCamera.clear();
@@ -386,6 +415,7 @@ bool CCameraCtrlLogic::OnComboboxCameraStyleClick(const IArgs& args)
     {
         emTPMechanism = emSonyFCBCS8230;
         bHide = false;
+        pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
         UIFACTORYMGR_PTR->LoadScheme( _T("SchmMoon904K30"), m_pWndTree );
     }
 	else
@@ -402,7 +432,8 @@ bool CCameraCtrlLogic::OnComboboxCameraStyleClick(const IArgs& args)
 		WARNMESSAGE( "选择摄像机机芯类型请求发送失败" );
 	}
 
-	showCameraInfo(bHide);
+    showCameraInfo(emTPMechanism, bHide);
+
 
 // 	String str;
 // 	UIFACTORYMGR_PTR->GetCaption( m_strEdtZoom, str, m_pWndTree );
@@ -438,6 +469,62 @@ bool CCameraCtrlLogic::OnBtnSyncClick(const IArgs& args)
 		WARNMESSAGE( "同步摄像机机芯请求发送失败" );
 	}
 	
+	return true;
+}
+
+bool CCameraCtrlLogic::OnComboboxOutputFormatClick(const IArgs& args)
+{
+    if ( m_pWndTree == NULL )
+    {
+        return false;
+    }
+    
+    Value_TransparentComboBoxText valueTransparentComboBoxText;
+    UIFACTORYMGR_PTR->GetPropertyValue( valueTransparentComboBoxText, m_strComboboxOutputFormat, m_pWndTree );
+    
+    u8 byOutputFormatIndx = 0;
+    String strComboText = valueTransparentComboBoxText.strComboText;
+    if ( strComboText == "4K@25fps" )
+    {
+        byOutputFormatIndx = 0;
+    }
+    else if ( strComboText == "4K@30fps" )
+    {
+        byOutputFormatIndx = 1;
+    }
+    else if ( strComboText == "1080P@25fps" )
+    {
+        byOutputFormatIndx = 2;
+    }
+    else if ( strComboText == "1080P@30fps" )
+    {
+        byOutputFormatIndx = 3;
+    }
+    else if ( strComboText == "1080P@50fps" )
+    {
+        byOutputFormatIndx = 4;
+    }
+    else if ( strComboText == "1080P@60fps" )
+    {
+        byOutputFormatIndx = 5;
+    }
+    else if ( strComboText == "720P@50fps" )
+    {
+        byOutputFormatIndx = 6;
+    }
+    else if ( strComboText == "720P@60fps" )
+    {
+        byOutputFormatIndx = 7;
+    }
+    
+    
+    //m_byCamIndex = byOutputFormatIndx;
+    u16 nRet = COMIFMGRPTR->CamSelCmd( byOutputFormatIndx );//need add
+    if ( nRet != NO_ERROR )
+    {
+        WARNMESSAGE( "选择输出制式请求发送失败" );
+    }
+    
 	return true;
 }
 
@@ -979,6 +1066,13 @@ HRESULT CCameraCtrlLogic::OnTpMechanismSelectNty(WPARAM wparam, LPARAM lparam)
 		pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
 		SetCamStyleName(_T("Sony"));
 	}
+    else if( emTPMechanism == emSonyFCBCS8230 )
+    {
+        emTPMechanism = emSonyFCBCS8230;
+        bhide = false;
+        pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
+		SetCamStyleName(_T("SONY FCB-CS8230"));
+    }
 	else
 	{
 		emTPMechanism = emH650;
@@ -987,7 +1081,7 @@ HRESULT CCameraCtrlLogic::OnTpMechanismSelectNty(WPARAM wparam, LPARAM lparam)
 		SetCamStyleName(_T("H650"));
 	}
 
-	showCameraInfo(bhide);
+	showCameraInfo(emTPMechanism, bhide);
 	return S_OK;
 }
 
@@ -1018,7 +1112,7 @@ HRESULT CCameraCtrlLogic::OnCameraStyleSelectInd(WPARAM wparam, LPARAM lparam)
 
 	if ( bRet == FALSE )
 	{
-		WARNMESSAGE( _T("选择摄像机机芯设置失败") );
+		WARNMESSAGE( _T("选择摄像机类型设置失败") );
 	}
 
 	TTPMoonCamInfo tMoonCameraCfg;
@@ -4152,7 +4246,7 @@ void CCameraCtrlLogic::SetHoriStretchCmd( CString str )
 //	u16 nRet = COMIFMGRPTR->CamKeystoneAdjust( tTPDistortParam );	
 }
 
-void CCameraCtrlLogic::showCameraInfo(bool bHide)
+void CCameraCtrlLogic::showCameraInfo(EmTPMechanism emCamType, bool bHide)
 {
 	UIFACTORYMGR_PTR->ShowWindow(m_strStcLineImagePara, !bHide, m_pWndTree);
 	UIFACTORYMGR_PTR->ShowWindow(m_strStcImageParam, !bHide, m_pWndTree);
@@ -4167,23 +4261,46 @@ void CCameraCtrlLogic::showCameraInfo(bool bHide)
 	UIFACTORYMGR_PTR->ShowWindow( m_strSliderSaturat, !bHide, m_pWndTree );
 	UIFACTORYMGR_PTR->ShowWindow( m_strEdtSaturat, !bHide, m_pWndTree );
 
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcLineContrast, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcContrast, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strSliderContrast, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strEdtContrast, !bHide, m_pWndTree );
+    if (emCamType == emSonyFCBCS8230)
+    {
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcLineContrast, FALSE, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcContrast, FALSE, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strSliderContrast, FALSE, m_pWndTree );
+	    UIFACTORYMGR_PTR->ShowWindow( m_strEdtContrast, FALSE, m_pWndTree );
 
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcLineSharp, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcSharp, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strSliderSharp, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strEdtSharp, !bHide, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcLineSharp, FALSE, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcSharp, FALSE, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strSliderSharp, FALSE, m_pWndTree );
+	    UIFACTORYMGR_PTR->ShowWindow( m_strEdtSharp, FALSE, m_pWndTree );
+
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcVersion, FALSE, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcVersionNum, FALSE, m_pWndTree );
+	    UIFACTORYMGR_PTR->ShowWindow( m_strBtnUpdateVersion, FALSE, m_pWndTree);
+
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcZoom, FALSE, m_pWndTree );
+    }
+    else
+    {
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcLineContrast, !bHide, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcContrast, !bHide, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strSliderContrast, !bHide, m_pWndTree );
+	    UIFACTORYMGR_PTR->ShowWindow( m_strEdtContrast, !bHide, m_pWndTree );
+
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcLineSharp, !bHide, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcSharp, !bHide, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strSliderSharp, !bHide, m_pWndTree );
+	    UIFACTORYMGR_PTR->ShowWindow( m_strEdtSharp, !bHide, m_pWndTree );
+
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcVersion, !bHide, m_pWndTree );
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcVersionNum, !bHide, m_pWndTree );
+	    UIFACTORYMGR_PTR->ShowWindow( m_strBtnUpdateVersion, !bHide, m_pWndTree);
+
+        UIFACTORYMGR_PTR->ShowWindow( m_strStcZoom, !bHide, m_pWndTree );
+    }
 
 	UIFACTORYMGR_PTR->ShowWindow( m_strStcLineGamma, !bHide, m_pWndTree );
 	UIFACTORYMGR_PTR->ShowWindow( m_strStcGamma, !bHide, m_pWndTree );
 	UIFACTORYMGR_PTR->ShowWindow( m_strComboboxGamma, !bHide, m_pWndTree );
-
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcVersion, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcVersionNum, !bHide, m_pWndTree );
-	UIFACTORYMGR_PTR->ShowWindow( m_strBtnUpdateVersion, !bHide, m_pWndTree);
 
 	UIFACTORYMGR_PTR->ShowWindow( m_strStcLine2DNR, !bHide, m_pWndTree);
 	UIFACTORYMGR_PTR->ShowWindow( m_strStc2DNR, !bHide, m_pWndTree);
@@ -4194,7 +4311,6 @@ void CCameraCtrlLogic::showCameraInfo(bool bHide)
 	UIFACTORYMGR_PTR->ShowWindow( m_strStc3DNR, !bHide, m_pWndTree);
 	UIFACTORYMGR_PTR->ShowWindow( m_strBtnSwitch3DNR, !bHide, m_pWndTree);
 	UIFACTORYMGR_PTR->ShowWindow( m_strCombobox3DNR, !bHide, m_pWndTree);
-	UIFACTORYMGR_PTR->ShowWindow( m_strStcZoom, !bHide, m_pWndTree );
 }
 
 String CCameraCtrlLogic::GetCamMechnismStyle()

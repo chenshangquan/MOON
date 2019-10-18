@@ -226,7 +226,9 @@ void CSocketManager::SendDataPack()
         LeaveCriticalSection(&m_csMsgLock);
         TRK100MsgHead tRK100MsgHead = *(TRK100MsgHead*)(rkmsg.GetBody());
         //设置等待回复的消息为发送的消息+1 没有回复这不可继续发送消息
-        m_evWaitMsg = ntohl(tRK100MsgHead.dwEvent) + 1;
+        //m_evWaitMsg = ntohl(tRK100MsgHead.dwEvent) + 1;
+        PrtRkcMsg( htonl(tRK100MsgHead.dwEvent), emEventTypeScoketSend, "event:%d,msglen:%d,bodylen:%d",
+            ntohl(tRK100MsgHead.dwEvent), ntohs(tRK100MsgHead.wMsgLen),rkmsg.GetBodyLen());
         int ret = send(m_sclient, (const char*)rkmsg.GetBody(), rkmsg.GetBodyLen(), 0);
         if (ret == -1)
         {
@@ -234,9 +236,9 @@ void CSocketManager::SendDataPack()
             PrtRkcMsg( tRK100MsgHead.dwEvent, emEventTypeScoketSend, "发送超时！");
         }
         //发送后等待接受消息
-        while (m_evWaitMsg != 0)
+        //while (m_evWaitMsg != 0)
         {
-            RecvDataPack();
+           // RecvDataPack();
         }
     }
 }

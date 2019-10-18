@@ -102,6 +102,14 @@ protected:
 	* @remarks	 
 	*/
 	bool OnBtnSyncClick( const IArgs& args );
+
+    /**	 
+	* 功能:  单击ComboboxOutputFormat的响应函数
+	* @return   bool
+	* @remarks	 
+	*/
+	bool OnComboboxOutputFormatClick( const IArgs& args );
+
 	/**	 
 	* 功能:  单击BtnZoomPlus的响应函数
 	* @return   bool
@@ -714,7 +722,7 @@ private:
 	void SetHueCmd( CString str );
 	void SetBrightCmd( CString str );
 	void SetShutComboxData();
-	void showCameraInfo(bool bHide);
+	void showCameraInfo(EmTPMechanism emCamType, bool bHide);
 
 private:
 	//该逻辑单元对应的所有控件名
@@ -735,9 +743,11 @@ private:
 	const String m_strBtnUpdateVersion;
 	const String m_strComboboxCamera;
 	const String m_strComboboxCameraStyle;
+    const String m_strComboboxOutputFormat;
 	const String m_strComboboxExposureGain;
 	const String m_strComboboxGamma;
 	const String m_strComboboxShut;
+    const String m_strComboboxApertre;//MOON904K30
 	const String m_strComboboxAperture;
 	const String m_strSliderAperture;
 	const String m_strEdtAperture;

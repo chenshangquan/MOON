@@ -272,7 +272,19 @@ u16 CCamConfig::CamSelCmd( const u8& byCameraIndx )
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamSelect_Cmd, emEventTypemoontoolSend, "" );
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamSelect_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPDVIOutPortType) + sizeof(EmTPMOONOutMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&byCameraIndx, sizeof(u8));//添加消息体
+    
+    PrtRkcMsg( ev_TpCamSelect_Cmd, emEventTypeScoketSend ,"byCameraIndx:%d", byCameraIndx);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 void CCamConfig::OnCamSelInd(const CMessage& cMsg)
@@ -285,11 +297,29 @@ void CCamConfig::OnCamSelInd(const CMessage& cMsg)
 	
 	PrtMsg( ev_TpCamSelect_Ind, emEventTypemoontoolRecv, "byCameraSel:%d", m_byCameraSel );
 	PostEvent( UI_MOONTOOL_CamSel_IND, NULL, (LPARAM)bSelCam );*/
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    if (tMsgHead.wMsgLen != 0)
+    {
+        m_byCameraSel = *reinterpret_cast<u8*>( cMsg.content + sizeof(TRK100MsgHead) );
+    }
+    
+    PrtRkcMsg( ev_TpCamSelect_Ind, emEventTypeScoketRecv, "byCameraSel:%d", m_byCameraSel);
+    PostEvent( UI_MOONTOOL_CamSel_IND, NULL, (LPARAM)tMsgHead.wOptRtn );
 }
 
 u16 CCamConfig::SetMoonCamCfgSyncCmd(const u8& byCameraIndx)
 {
-	
 	/*CTpMsg *pcTpMsg = m_pSession->GetKdvMsgPtr();
 	pcTpMsg->SetUserData(m_pSession->GetInst());
 	pcTpMsg->SetBody( &byCameraIndx, sizeof(u8) );
@@ -298,7 +328,19 @@ u16 CCamConfig::SetMoonCamCfgSyncCmd(const u8& byCameraIndx)
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_CamParaSynchronize_Cmd, emEventTypemoontoolSend, "" );
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_CamParaSynchronize_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(u8));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&byCameraIndx, sizeof(u8));//添加消息体
+    
+    PrtRkcMsg( ev_CamParaSynchronize_Cmd, emEventTypeScoketSend ,"byCameraIndx:%d", byCameraIndx);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 void CCamConfig::OnCamParaSynchronizeInd(const CMessage& cMsg)
@@ -312,6 +354,27 @@ void CCamConfig::OnCamParaSynchronizeInd(const CMessage& cMsg)
 	
 	PrtMsg( ev_CamParaSynchronize_Ind, emEventTypemoontoolRecv, "byCameraSyncSel:%d", m_byCameraSyncSel );
 	PostEvent( UI_MOONTOOL_CamParamSync_IND, (WPARAM)&m_byCameraSyncSel, (LPARAM)bSelCamSync );*/
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    if (tMsgHead.wMsgLen != 0)
+    {
+        m_byCameraSyncSel = *reinterpret_cast<u8*>( cMsg.content + sizeof(TRK100MsgHead) );
+    }
+
+    SetCameraParamSync();
+    
+    PrtRkcMsg( ev_TpCamOutPortInfo_Ind, emEventTypeScoketRecv, "byCameraSyncSel:%d", m_byCameraSyncSel );
+    PostEvent( UI_MOONTOOL_CamParamSync_IND, (WPARAM)&m_byCameraSyncSel, (LPARAM)tMsgHead.wOptRtn );
 }
 
 TTPMoonCamInfo CCamConfig::GetCamCfg()
@@ -393,10 +456,11 @@ u16 CCamConfig::CamStyleSelCmd( const EmTPMechanism& emTPMechanism )
     tRK100MsgHead.wMsgLen = htons(sizeof(EmTPMechanism));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    //EmTPMechanism emTPMechanismTmp = (EmTPMechanism)htonl(emTPMechanism);
     rkmsg.CatBody(&emTPMechanism, sizeof(EmTPMechanism));//添加消息体
     
     PrtRkcMsg( ev_TpMechanismSelect_Cmd, emEventTypeScoketSend , "emTPMechanism: %d", emTPMechanism);
-    
+
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
 	return NOERROR;
 }
@@ -427,11 +491,33 @@ void CCamConfig::OnCamStyleSelInd(const CMessage& cMsg)
     EmTPMechanism emTPMechanism = emH650;
     if (tMsgHead.wMsgLen != 0)
     {
-        emTPMechanism = *reinterpret_cast<EmTPMechanism*>( cMsg.content + sizeof(EmTPMechanism) );
+        emTPMechanism = *reinterpret_cast<EmTPMechanism*>( cMsg.content + sizeof(TRK100MsgHead) );
         SetCameraCfgPtr();
     }
     
 	PrtRkcMsg( ev_TpMechanismSelect_Ind, emEventTypeScoketRecv, "emTPMechanism: %d, bSelStyleCam: %d", emTPMechanism, tMsgHead.wOptRtn);
+    PostEvent( UI_MOONTOOL_CamStyleSel_IND, (WPARAM)&emTPMechanism, (LPARAM)tMsgHead.wOptRtn );
+}
+
+u16 CCamConfig::SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal)
+{
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_ZOOM_VAL);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TCamZoomVal));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    TCamZoomVal tCamZoomValTmp = tCamZoomVal;
+    tCamZoomValTmp.InputVal = htonl(tCamZoomValTmp.InputVal);
+
+    rkmsg.CatBody(&tCamZoomValTmp, sizeof(TCamZoomVal));//添加消息体
+    
+    PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL, emEventTypeScoketSend , "InputVal:%d, InputPreciseValFlag:%d, ZoomUpFlag:%d, ZoomDownFlag:%d, CamIndex:%d",
+        tCamZoomVal.InputVal, tCamZoomVal.InputPreciseValFlag, tCamZoomVal.ZoomUpFlag, tCamZoomVal.ZoomDownFlag, tCamZoomVal.CamIndex);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 u16 CCamConfig::SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex)
@@ -445,7 +531,20 @@ u16 CCamConfig::SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex)
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamSetZoonStart_Cmd, emEventTypemoontoolSend, "emZoom:%d, byIndex:%d", emZoom, byIndex );
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamSetZoonStart_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPZOOM) + sizeof(u8));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&emZoom, sizeof(EmTPZOOM));//添加消息体
+    rkmsg.CatBody(&byIndex, sizeof(u8));
+    
+    PrtRkcMsg( ev_TpCamSetZoonStart_Cmd, emEventTypeScoketSend , "emZoom:%d, byIndex:%d", emZoom, byIndex);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 u16 CCamConfig::SetCamZoomStopCmd(u8 byIndex)
@@ -458,7 +557,19 @@ u16 CCamConfig::SetCamZoomStopCmd(u8 byIndex)
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamSetZoonStop_Cmd, emEventTypemoontoolSend, "byIndex: %d", byIndex );
 	return wRet;*/
-	return true
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamSetZoonStop_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(u8));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&byIndex, sizeof(u8));//添加消息体
+    
+    PrtRkcMsg( ev_TpCamSetZoonStop_Cmd, emEventTypeScoketSend , "byIndex: %d", byIndex);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 void CCamConfig::OnCamZoomInd(const CMessage& cMsg)
@@ -474,6 +585,32 @@ void CCamConfig::OnCamZoomInd(const CMessage& cMsg)
 	u8 byIndex = *(u8*)( cTpMsg.GetBody() + sizeof(EmTPZOOM) );
 	BOOL bCamZoom = *(BOOL*)( cTpMsg.GetBody() + sizeof(EmTPZOOM) + sizeof(u8) );
 	PrtMsg( ev_TpCamSetZoonStart_Ind, emEventTypemoontoolRecv, "EmTPZOOM:%d, byIndex:%d, BOOL:%d", emZoom, byIndex, bCamZoom );*/
+    if ( m_pTPMoonCamCfg == NULL )
+    {
+        SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    EmTPZOOM emZoom = emEnlarge;
+    u8 byIndex = 0;
+    if (tMsgHead.wMsgLen != 0)
+    {
+        emZoom = *reinterpret_cast<EmTPZOOM*>( cMsg.content + sizeof(TRK100MsgHead) );
+        byIndex = *reinterpret_cast<u8*>( cMsg.content + sizeof(TRK100MsgHead) + sizeof(EmTPZOOM) );
+    }
+    
+    PrtRkcMsg( ev_TpCamSetZoonStart_Ind, emEventTypeScoketRecv, "EmTPZOOM:%d, byIndex:%d, BOOL:%d", emZoom, byIndex, tMsgHead.wOptRtn);
 }
 
 void CCamConfig::OnCamZoomStopInd(const CMessage& cMsg)
@@ -525,6 +662,73 @@ void CCamConfig::OnCamZoomStopInd(const CMessage& cMsg)
 	//{
 	//	PostEvent( UI_MOONTOOL_SET_CAMERA_ZOOM_IND, 0, (LPARAM)bCamZoom );
 	//}
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    u8 byIndex = 0;
+    u32 dwZoom = 0;
+    BOOL bCamZoom = FALSE;
+	u32 dwZoomPos = 0;
+    if (tMsgHead.wMsgLen != 0)
+    {
+        byIndex = *reinterpret_cast<u8*>( cMsg.content + sizeof(TRK100MsgHead) );
+        dwZoom = *reinterpret_cast<u32*>( cMsg.content + sizeof(TRK100MsgHead) + sizeof(u8) );
+        bCamZoom = *reinterpret_cast<BOOL*>( cMsg.content + sizeof(TRK100MsgHead) + sizeof(u8) +sizeof(u32) );
+        dwZoomPos = *reinterpret_cast<u32*>( cMsg.content + sizeof(TRK100MsgHead) + sizeof(u8) +sizeof(u32) + sizeof(BOOL) );
+        dwZoom = ntohl(dwZoom);
+        bCamZoom = ntohl(bCamZoom);
+        dwZoomPos = ntohl(dwZoomPos);
+    }
+
+    switch(byIndex)
+    {
+    case 0:
+    	{
+    		m_tCnCameraCfg1.dwZoom = dwZoom;
+    		m_tCnCameraCfg1.dwZoomPos = dwZoomPos;
+    		PostEvent( UI_MOONTOOL_CAMSETZOON_STOP_IND, (WPARAM)&m_tCnCameraCfg1, (LPARAM)&bCamZoom );
+    		break;
+    	}
+    case 1:
+    	{
+    		m_tCnCameraCfg2.dwZoom = dwZoom;
+    		m_tCnCameraCfg2.dwZoomPos = dwZoomPos;
+    		m_tCnCameraCfg2.byIndex = 1;
+    		PostEvent( UI_MOONTOOL_CAMSETZOON_STOP_IND, (WPARAM)&m_tCnCameraCfg2, (LPARAM)&bCamZoom );
+    		break;
+    	}
+    case 2:
+    	{
+    		m_tCnCameraCfg3.dwZoom = dwZoom;
+    		m_tCnCameraCfg3.dwZoomPos = dwZoomPos;
+    		m_tCnCameraCfg3.byIndex = 2;
+    		PostEvent( UI_MOONTOOL_CAMSETZOON_STOP_IND, (WPARAM)&m_tCnCameraCfg3, (LPARAM)&bCamZoom );
+    		break;
+    	}
+    default:break;
+    }
+    
+    if (m_pTPMoonCamCfg->byIndex == byIndex)
+    {
+    	m_pTPMoonCamCfg->dwZoom = dwZoom;
+    	m_pTPMoonCamCfg->dwZoomPos = dwZoomPos;
+    }
+
+    PrtRkcMsg( ev_TpCamSetZoonStop_Ind, emEventTypeScoketRecv, "byIndex:%d, dwZoom: %d, dwZoomPos: %d\n", byIndex, dwZoom, dwZoomPos);
+    
+    if ( byIndex == m_byCameraSel )
+    {
+    	PostEvent( UI_MOONTOOL_SET_CAMERA_ZOOM_IND, 0, (LPARAM)bCamZoom );
+	}
 }
 
 u16 CCamConfig::SetCamZoomValueCmd( const u32& dwZoom, u8 byIndex)
@@ -538,7 +742,21 @@ u16 CCamConfig::SetCamZoomValueCmd( const u32& dwZoom, u8 byIndex)
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamSetDrectZoon_Cmd, emEventTypemoontoolSend, "dwZoom:%d, byIndex: %d", dwZoom, byIndex);
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamSetDrectZoon_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(u32) + sizeof(u8));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    u32 dwZoomTmp = htonl(dwZoom);
+    rkmsg.CatBody(&dwZoomTmp, sizeof(u32));//添加消息体
+    rkmsg.CatBody(&byIndex, sizeof(u8));
+    
+    PrtRkcMsg( ev_TpCamSetDrectZoon_Cmd, emEventTypeScoketSend, "dwZoom:%d, byIndex: %d", dwZoom, byIndex);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 void CCamConfig::OnCamZoomValueInd(const CMessage& cMsg)
@@ -592,6 +810,71 @@ void CCamConfig::OnCamZoomValueInd(const CMessage& cMsg)
 	{
 		PostEvent( UI_MOONTOOL_SET_CAMERA_ZOOM_IND, 0, (LPARAM)bOk );
 	}	*/
+
+    if ( m_pTPMoonCamCfg == NULL )
+    {
+        SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    u32 dwZoom = 0;
+    u8 byIndex = 0;
+	u32 dwZoomPos = 0;
+    if (tMsgHead.wMsgLen != 0)
+    {
+        dwZoom = *reinterpret_cast<u32*>( cMsg.content + sizeof(TRK100MsgHead) );
+        byIndex = *reinterpret_cast<u8*>( cMsg.content + sizeof(TRK100MsgHead) + sizeof(u32) );
+        dwZoomPos = *reinterpret_cast<u32*>( cMsg.content + sizeof(TRK100MsgHead) + sizeof(u32) + sizeof(u8) );
+        dwZoom = ntohl(dwZoom);
+        dwZoomPos = ntohl(dwZoomPos);
+    }
+
+    if( 0 == byIndex )
+    {
+        m_tCnCameraCfg1.dwZoom = dwZoom;
+        m_tCnCameraCfg1.dwZoomPos = dwZoomPos;
+        m_tCnCameraCfg1.byIndex = 0;
+        PostEvent( UI_MOONTOOL_CAMSETZOON_STOP_IND, (WPARAM)&m_tCnCameraCfg1, (LPARAM)&tMsgHead.wOptRtn );
+    }
+    else if( 1 == byIndex )
+    {
+        m_tCnCameraCfg2.dwZoom = dwZoom;
+        m_tCnCameraCfg2.dwZoomPos = dwZoomPos;
+        m_tCnCameraCfg2.byIndex = 1;
+        PostEvent( UI_MOONTOOL_CAMSETZOON_STOP_IND, (WPARAM)&m_tCnCameraCfg2, (LPARAM)&tMsgHead.wOptRtn );
+    }
+    else
+    {
+        m_tCnCameraCfg3.dwZoom = dwZoom;
+        m_tCnCameraCfg3.byIndex = 2;
+        m_tCnCameraCfg3.dwZoomPos = dwZoomPos;
+        PostEvent( UI_MOONTOOL_CAMSETZOON_STOP_IND, (WPARAM)&m_tCnCameraCfg3, (LPARAM)&tMsgHead.wOptRtn );
+    }
+
+    if (m_pTPMoonCamCfg->byIndex == byIndex)
+    {
+        m_pTPMoonCamCfg->dwZoom = dwZoom;
+        m_pTPMoonCamCfg->dwZoomPos = dwZoomPos;
+	}
+
+    PrtRkcMsg( ev_TpCamSetDrectZoon_Ind, emEventTypeScoketRecv, "byIndex:%d, dwZoom: %d, dwZoomPos: %d, bOk: %d",
+        byIndex, dwZoom, dwZoomPos, tMsgHead.wOptRtn);
+
+    if ( byIndex == m_byCameraSel )
+    {
+        PostEvent( UI_MOONTOOL_SET_CAMERA_ZOOM_IND, 0, (LPARAM)tMsgHead.wOptRtn );
+	}
 }
 
 u32 CCamConfig::GetCamZoom()
@@ -626,7 +909,19 @@ u16 CCamConfig::SetCamAutoFocusCmd(const EmTPMOOMMode& emFocusMode)
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamFocusMode_Cmd, emEventTypemoontoolSend, "EmTPMOOMMode:%d", emFocusMode );
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusMode_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPMOOMMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&emFocusMode, sizeof(EmTPMOOMMode));//添加消息体
+    
+    PrtRkcMsg( ev_TpCamFocusMode_Cmd, emEventTypeScoketSend, "EmTPMOOMMode:%d", emFocusMode);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 void CCamConfig::OnCamAutoFocusInd(const CMessage& cMsg)
@@ -644,6 +939,30 @@ void CCamConfig::OnCamAutoFocusInd(const CMessage& cMsg)
 
 	PrtMsg( ev_TpCamFocusMode_Ind, emEventTypemoontoolRecv, "EmTPMOOMMode:%d, BOOL:%d", m_pTPMoonCamCfg->emFocusMode, bOk );
 	PostEvent( UI_MOONTOOL_CAMERA_AUTO_FOCUS_IND, (WPARAM)(m_pTPMoonCamCfg->emFocusMode), (LPARAM)bOk );*/
+    if ( m_pTPMoonCamCfg == NULL )
+	{
+		SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+
+    if (tMsgHead.wMsgLen != 0)
+    {
+        m_pTPMoonCamCfg->emFocusMode = *reinterpret_cast<EmTPMOOMMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+    }
+    
+    PrtRkcMsg( ev_TpCamFocusMode_Ind, emEventTypeScoketRecv, "EmTPMOOMMode:%d, wRtn:%d", m_pTPMoonCamCfg->emFocusMode, tMsgHead.wOptRtn);
+    PostEvent( UI_MOONTOOL_CAMERA_AUTO_FOCUS_IND, (WPARAM)(m_pTPMoonCamCfg->emFocusMode), (LPARAM)tMsgHead.wOptRtn );
 }
 
 //聚焦 拉近/拉远
@@ -657,7 +976,18 @@ u16 CCamConfig::SetCamFocusNearCmd()
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamFocusNear_Cmd, emEventTypemoontoolSend, "" );
 	return wRet;*/
-	return true;
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusNear_Cmd);
+    tRK100MsgHead.wMsgLen = 0;
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+
+    PrtRkcMsg( ev_TpCamFocusNear_Cmd, emEventTypeScoketSend, "" );
+
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 u16 CCamConfig::SetCamFocusStopCmd()
@@ -670,7 +1000,18 @@ u16 CCamConfig::SetCamFocusStopCmd()
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamFocusStop_Cmd, emEventTypemoontoolSend, "" );
 	return wRet;*/
-	return true;
+	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusStop_Cmd);
+    tRK100MsgHead.wMsgLen = 0;
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+
+    PrtRkcMsg( ev_TpCamFocusStop_Cmd, emEventTypeScoketSend, "" );
+
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 u16 CCamConfig::SetCamFocusFarCmd()
@@ -683,7 +1024,18 @@ u16 CCamConfig::SetCamFocusFarCmd()
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamFocusFar_Cmd, emEventTypemoontoolSend, "" );
 	return wRet;*/
-	return true;
+	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusFar_Cmd);
+    tRK100MsgHead.wMsgLen = 0;
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+
+    PrtRkcMsg( ev_TpCamFocusFar_Cmd, emEventTypeScoketSend, "" );
+
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 void CCamConfig::OnCamFocusNearInd( const CMessage& cMsg )
@@ -696,6 +1048,24 @@ void CCamConfig::OnCamFocusNearInd( const CMessage& cMsg )
 	CTpMsg cTpMsg(&cMsg);	
 	BOOL bFocusNear =  *(BOOL*)( cTpMsg.GetBody() + sizeof(u8) );
 	PrtMsg( ev_TpCamFocusNear_Ind, emEventTypemoontoolRecv, "bFocusNear:%d", bFocusNear );*/
+    if ( m_pTPMoonCamCfg == NULL )
+	{
+		SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+
+    PrtRkcMsg( ev_TpCamFocusNear_Ind, emEventTypeScoketRecv, "bFocusNear:%d", tMsgHead.wOptRtn);
 }
 
 void CCamConfig::OnCamFocusStopInd( const CMessage& cMsg )
@@ -708,6 +1078,25 @@ void CCamConfig::OnCamFocusStopInd( const CMessage& cMsg )
 	CTpMsg cTpMsg(&cMsg);	
 	BOOL bIsStop =  *(BOOL*)( cTpMsg.GetBody() + sizeof(u8) );
 	PrtMsg( ev_TpCamFocusStop_Ind, emEventTypemoontoolRecv, "bIsStop:%d", bIsStop );*/
+
+    if ( m_pTPMoonCamCfg == NULL )
+	{
+		SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+
+    PrtRkcMsg( ev_TpCamFocusStop_Ind, emEventTypeScoketRecv, "bIsStop:%d", tMsgHead.wOptRtn);
 }
 
 void CCamConfig::OnCamFocusFarInd( const CMessage& cMsg )
@@ -720,6 +1109,25 @@ void CCamConfig::OnCamFocusFarInd( const CMessage& cMsg )
 	CTpMsg cTpMsg(&cMsg);	
 	BOOL bFocusFar =  *(BOOL*)( cTpMsg.GetBody() + sizeof(u8) );
 	PrtMsg( ev_TpCamFocusFar_Ind, emEventTypemoontoolRecv, "bFocusFar:%d", bFocusFar );	*/
+
+    if ( m_pTPMoonCamCfg == NULL )
+	{
+		SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+
+    PrtRkcMsg( ev_TpCamFocusFar_Ind, emEventTypeScoketRecv, "bFocusFar:%d", tMsgHead.wOptRtn);
 }
 
 
@@ -734,7 +1142,19 @@ u16 CCamConfig::CamAutoExposureCmd( const EmTPMOOMMode& emExpAuto )
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamExpMode_Cmd, emEventTypemoontoolSend, "CamAutoExposureCmd:%d", emExpAuto );
 	return wRet;*/
-	return true;
+	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamExpMode_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPMOOMMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&emExpAuto, sizeof(EmTPMOOMMode));//添加消息体
+
+    PrtRkcMsg( ev_TpCamExpMode_Cmd, emEventTypeScoketSend, "CamAutoExposureCmd:%d", emExpAuto);
+
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 EmTPMOOMMode CCamConfig::GetCamMoonMode()
@@ -761,6 +1181,30 @@ void CCamConfig::OnAutoExposureInd(const CMessage& cMsg)
 	
 	PrtMsg( ev_TpCamExpMode_Ind, emEventTypemoontoolRecv, "EmExpMode:%d, AutoExposureInd:%d", m_pTPMoonCamCfg->emExpMode, bAutoExposure );
 	PostEvent( UI_MOONTOOL_CAMERA_AUTO_EXPOSURE_IND, NULL, (LPARAM)bAutoExposure );*/
+    if ( m_pTPMoonCamCfg == NULL )
+	{
+		SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+
+    if (tMsgHead.wMsgLen != 0)
+    {
+        m_pTPMoonCamCfg->emExpMode = *reinterpret_cast<EmTPMOOMMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+    }
+
+    PrtRkcMsg( ev_TpCamExpMode_Ind, emEventTypeScoketRecv, "EmExpMode:%d, wRtn:%d", m_pTPMoonCamCfg->emExpMode, tMsgHead.wOptRtn);
+    PostEvent( UI_MOONTOOL_CAMERA_AUTO_EXPOSURE_IND, NULL, (LPARAM)tMsgHead.wOptRtn );
 }
 
 //光圈
@@ -774,7 +1218,19 @@ u16 CCamConfig::CamApertureCmd( const EmTPAperture& emAperture )
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamExpAperture_Cmd, emEventTypemoontoolSend, "CamApertureCmd:%d", emAperture );
 	return wRet;*/
-	return true;
+	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(ev_TpCamExpAperture_Cmd);
+    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPAperture));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&emAperture, sizeof(EmTPAperture));//添加消息体
+
+    PrtRkcMsg( ev_TpCamExpAperture_Cmd, emEventTypeScoketSend, "CamApertureCmd:%d", emAperture);
+
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 EmTPAperture CCamConfig::GetCamAperture()
@@ -801,6 +1257,29 @@ void CCamConfig::OnCamApertureInd(const CMessage& cMsg)
 	//PrtMsg( ev_TpCamExpAperture_Ind, emEventTypemoontoolRecv, "EmTPAperture:%d, BOOL:%d", m_pTPMoonCamCfg->emAper, bCamAperture );
 	//// 通知界面操作成功与否
 	//PostEvent( UI_MOONTOOL_CAMERA_APERTURE_IND, NULL, (LPARAM)bCamAperture );
+    if (m_pTPMoonCamCfg == NULL)
+	{
+		SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+
+    if (tMsgHead.wMsgLen != 0)
+    {
+        m_pTPMoonCamCfg->emAper = *reinterpret_cast<EmTPAperture*>( cMsg.content + sizeof(TRK100MsgHead) );
+    }
+
+    PrtRkcMsg( ev_TpCamExpAperture_Ind, emEventTypeScoketRecv, "EmTPAperture:%d, wRtn:%d", m_pTPMoonCamCfg->emAper, tMsgHead.wOptRtn);
 }
 
 // 快门

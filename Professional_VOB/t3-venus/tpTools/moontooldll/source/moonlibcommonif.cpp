@@ -36,13 +36,20 @@ UINT ThreadConnectMoon(LPVOID lpParam)
     {
         SendMessage( MOONLIBDATAMGRPTR->GetSafeHwnd() ,UI_MOONTOOL_CONNECTED, TRUE, NO_ERROR);
     }
+
+    TRK100LoginInfo tRK100LoginInfo;
+    ZeroMemory(tRK100LoginInfo.szUsr, 0, sizeof(tRK100LoginInfo.szUsr));
+    ZeroMemory(tRK100LoginInfo.szPwd, 0, sizeof(tRK100LoginInfo.szPwd));
+    strncpy(tRK100LoginInfo.szUsr, "Keda_User", sizeof(tRK100LoginInfo.szUsr));
+    strncpy(tRK100LoginInfo.szPwd, "Pwd_Change", sizeof(tRK100LoginInfo.szPwd));
+    MOONSESSION_MGR_PTR->GetSysCtrlIF()->SendLoginReq(tRK100LoginInfo);
     
     return re;
 } 
 
 u16 CMoonlibCommonIF::LinkMoon()
 {
-#if 0
+#if 1
     u16 re =  ERR_CMS;
 	CRkcSysCtrlIF* pSysCtrlIf = MOONSESSION_MGR_PTR->GetSysCtrlIF();
     if ( pSysCtrlIf )
@@ -52,7 +59,7 @@ u16 CMoonlibCommonIF::LinkMoon()
         re = pSysCtrlIf->SocketConnect( (char*)inet_ntoa(tAddr),  m_tCamLoginInfo.nPort );
     }
 #else
-    u16 re = 0;//ERR_CNC_ACTIVE_CONNECT
+    u16 re  = 0;//ERR_CNC_ACTIVE_CONNECT
 #endif
     return re;
 }

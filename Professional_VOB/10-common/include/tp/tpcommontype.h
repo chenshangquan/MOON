@@ -3405,6 +3405,7 @@ enum EmTPFOrTwShutter
 	em_Shutter_12Spd ,         // 1/12
 	em_Shutter_25Spd ,         // 1/25
 	em_Shutter_50Spd ,         // 1/50
+	em_Shutter_60Spd ,         // 1/60
 	em_Shutter_75Spd ,         // 1/75
 	em_Shutter_100Spd,         // 1/100(д╛хо)
 	em_Shutter_120Spd,         // 1/120
