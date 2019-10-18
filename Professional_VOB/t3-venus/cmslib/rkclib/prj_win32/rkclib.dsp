@@ -41,7 +41,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MD /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Yu"stdafx.h" /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\snmp" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /FD /c
+# ADD CPP /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\snmp" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /FD /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x804 /d "NDEBUG" /d "_AFXDLL"
 # ADD RSC /l 0x804 /d "NDEBUG" /d "_AFXDLL"
@@ -153,9 +153,61 @@ SOURCE=..\include\rkcsysctrl.h
 SOURCE=..\include\sysconfig.h
 # End Source File
 # End Group
-# Begin Group "common_2010"
+# Begin Group "common"
 
 # PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=..\..\..\common\include\camconfigif.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\kdvdispevent.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\moonstruct.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcconfigctrlif.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcConst.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcevent.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkceventstruct.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkclib.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcprintctrl.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcsearchctrlif.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcSessionCtrlIF.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcstruct.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\sysconfigif.h
+# End Source File
 # End Group
 # Begin Source File
 
@@ -172,6 +224,10 @@ SOURCE=..\include\rkcmsgrecver.h
 # Begin Source File
 
 SOURCE=..\include\rkcsession.h
+# End Source File
+# Begin Source File
+
+SOURCE=..\..\..\common\include\rkcsysctrlif.h
 # End Source File
 # Begin Source File
 
