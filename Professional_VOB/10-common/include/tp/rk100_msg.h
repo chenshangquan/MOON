@@ -368,7 +368,7 @@ typedef struct
     u8 InputPreciseValFlag;   /* 输入精确值。1:开启自动模式 0:关闭开启自动模式，开启手动模式 */
 	u8 ZoomUpFlag;  //Zoom+
 	u8 ZoomDownFlag;  //Zoom-
-	u8 CamIndex;  //摄像机索引
+	//u8 CamIndex;  //摄像机索引
 } TCamZoomVal; 
 
 

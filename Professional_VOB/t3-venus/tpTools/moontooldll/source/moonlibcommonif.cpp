@@ -38,8 +38,8 @@ UINT ThreadConnectMoon(LPVOID lpParam)
     }
 
     TRK100LoginInfo tRK100LoginInfo;
-    ZeroMemory(tRK100LoginInfo.szUsr, 0, sizeof(tRK100LoginInfo.szUsr));
-    ZeroMemory(tRK100LoginInfo.szPwd, 0, sizeof(tRK100LoginInfo.szPwd));
+    ZeroMemory(tRK100LoginInfo.szUsr, sizeof(tRK100LoginInfo.szUsr));
+    ZeroMemory(tRK100LoginInfo.szPwd, sizeof(tRK100LoginInfo.szPwd));
     strncpy(tRK100LoginInfo.szUsr, "Keda_User", sizeof(tRK100LoginInfo.szUsr));
     strncpy(tRK100LoginInfo.szPwd, "Pwd_Change", sizeof(tRK100LoginInfo.szPwd));
     MOONSESSION_MGR_PTR->GetSysCtrlIF()->SendLoginReq(tRK100LoginInfo);
@@ -91,6 +91,12 @@ u16 CMoonlibCommonIF::SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex)
 {
 	u16 re = MOONSESSION_MGR_PTR->GetCamConfigIF()->SetCamZoomCmd( emZoom, byIndex );
 	return re;
+}
+
+u16 CMoonlibCommonIF::SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal )
+{
+    u16 re = MOONSESSION_MGR_PTR->GetCamConfigIF()->SetCamZoomValCmd( tCamZoomVal );
+    return re;
 }
 
 u16 CMoonlibCommonIF::SetCamZoomValueCmd( const u32& dwZoom, u8 byIndex )	

@@ -63,6 +63,8 @@ public:
 	* @remarks 
 	*/	
 	u16 SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex);	
+    //moon904k30
+    u16 SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal);
 
 	u16 SetCamZoomValueCmd( const u32& dwZoom, u8 byIndex );
 

@@ -6,7 +6,7 @@
 --------------------Configuration: rkclib - Win32 Release--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP882B.tmp" with contents
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPE462.tmp" with contents
 [
 /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\snmp" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fo"Release/" /Fd"Release/" /FD /c 
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\rkclib\source\camconfig.cpp"
@@ -20,14 +20,14 @@ Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP882B.tmp" with co
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\rkclib\source\rkcsession.cpp"
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\rkclib\source\socketmanager.cpp"
 ]
-Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP882B.tmp" 
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP882C.tmp" with contents
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPE462.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPE463.tmp" with contents
 [
 /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\snmp" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_AFXDLL" /Fp"Release/rkclib.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\cmslib\rkclib\prj_win32\StdAfx.cpp"
 ]
-Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP882C.tmp" 
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP882D.tmp" with contents
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPE463.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPE474.tmp" with contents
 [
 /nologo /out:"..\..\..\..\10-common\lib\Release\win32\rkclib.lib" 
 ".\Release\camconfig.obj"
@@ -42,7 +42,7 @@ Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP882D.tmp" with co
 ".\Release\socketmanager.obj"
 ".\Release\StdAfx.obj"
 ]
-Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSP882D.tmp"
+Creating command line "link.exe -lib @C:\Users\csquan\AppData\Local\Temp\RSPE474.tmp"
 <h3>Output Window</h3>
 Compiling...
 StdAfx.cpp

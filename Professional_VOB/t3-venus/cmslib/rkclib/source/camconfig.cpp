@@ -88,6 +88,10 @@ void CCamConfig::BuildEventsMap()
 	//延时矫正
     REG_PFUN( ev_TpFpgaDelayCorrect_Ind, CCamConfig::OnDelayCorrectInd );
 	REG_PFUN( ev_TpFpgaDelayCorrect_Nty, CCamConfig::OnDelayCorrectNty );
+
+    //moon904k30
+    REG_PFUN( RK100_EVT_SET_CAM_ZOOM_VAL_ACK, CCamConfig::OnSetCamZoomValRsp );
+
 }
 
 void CCamConfig::DispEvent(const CMessage &cMsg)
@@ -513,11 +517,53 @@ u16 CCamConfig::SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal)
 
     rkmsg.CatBody(&tCamZoomValTmp, sizeof(TCamZoomVal));//添加消息体
     
-    PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL, emEventTypeScoketSend , "InputVal:%d, InputPreciseValFlag:%d, ZoomUpFlag:%d, ZoomDownFlag:%d, CamIndex:%d",
-        tCamZoomVal.InputVal, tCamZoomVal.InputPreciseValFlag, tCamZoomVal.ZoomUpFlag, tCamZoomVal.ZoomDownFlag, tCamZoomVal.CamIndex);
+    PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL, emEventTypeScoketSend , "InputVal:%d, InputPreciseValFlag:%d, ZoomUpFlag:%d, ZoomDownFlag:%d",
+        tCamZoomVal.InputVal, tCamZoomVal.InputPreciseValFlag, tCamZoomVal.ZoomUpFlag, tCamZoomVal.ZoomDownFlag);
     
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
     return NOERROR;
+}
+
+void CCamConfig::OnSetCamZoomValRsp(const CMessage& cMsg)
+{
+    if ( m_pTPMoonCamCfg == NULL )
+    {
+        SetCameraCfgPtr();
+	}
+
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    TCamZoomVal tCamZoomVal;
+    u8 byIndex = 0;
+    if (tMsgHead.wMsgLen != 0)
+    {
+        tCamZoomVal = *reinterpret_cast<TCamZoomVal*>( cMsg.content + sizeof(TRK100MsgHead) );
+        tCamZoomVal.InputVal = ntohl(tCamZoomVal.InputVal);
+    }
+
+    if ( tCamZoomVal.ZoomUpFlag )
+    {
+        m_pTPMoonCamCfg->dwZoom = tCamZoomVal.InputVal + 1;
+    }
+    else
+    {
+        m_pTPMoonCamCfg->dwZoom = tCamZoomVal.InputVal - 1;
+    }
+    
+    PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL_ACK, emEventTypeScoketRecv, "wRtn:%d, InputVal:%d, InputPreciseValFlag:%d, ZoomUpFlag:%d, ZoomDownFlag:%d",
+        tMsgHead.wOptRtn, tCamZoomVal.InputVal, tCamZoomVal.InputPreciseValFlag, tCamZoomVal.ZoomUpFlag, tCamZoomVal.ZoomDownFlag);
+
+    PostEvent( UI_MOONTOOL_SET_CAMERA_ZOOM_IND, 0, (LPARAM)tMsgHead.wOptRtn );
 }
 
 u16 CCamConfig::SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex)

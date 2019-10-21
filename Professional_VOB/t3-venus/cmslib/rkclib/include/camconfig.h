@@ -446,6 +446,9 @@ protected:
 	void OnDelayCorrectInd( const CMessage& cMsg );
 	void OnDelayCorrectNty( const CMessage& cMsg );
 
+    //moon904k30
+    void OnSetCamZoomValRsp( const CMessage& cMsg );
+
 public:
 	void SetCameraCfgPtr();
 	void SetCameraParamSync();

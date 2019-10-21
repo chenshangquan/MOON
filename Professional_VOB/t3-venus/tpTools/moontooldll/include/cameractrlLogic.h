@@ -806,6 +806,7 @@ private:
 	TTPMechVer m_tTpMechver3;
 
 	u8 m_byCamIndex;
+    EmTPMechanism m_emTPMechanism;
 };
 
 #define CAMERALOGICRPTR    CCameraCtrlLogic::GetSingletonPtr()               //CameraCtrllogic÷∏’Î

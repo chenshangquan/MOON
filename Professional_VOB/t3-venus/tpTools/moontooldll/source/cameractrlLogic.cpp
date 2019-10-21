@@ -81,6 +81,7 @@ CCameraCtrlLogic::CCameraCtrlLogic()
     m_dwContrast = 0;
 	m_bSourceCfg = 0;
 	m_byCamIndex = 0;
+    m_emTPMechanism = emH650;
 }
 
 CCameraCtrlLogic::~CCameraCtrlLogic()
@@ -138,10 +139,10 @@ void CCameraCtrlLogic::RegCBFun()
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnZoomPlusClick", CCameraCtrlLogic::OnBtnZoomPlusClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnZoomSubClick", CCameraCtrlLogic::OnBtnZoomSubClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDownZoomPlus", CCameraCtrlLogic::OnLBtnDownZoomPlus, CAMERALOGICRPTR, CCameraCtrlLogic );
-	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDoubleDownZoomPlus", CCameraCtrlLogic::OnLBtnDoubleDownZoomPlus, CAMERALOGICRPTR, CCameraCtrlLogic );
+	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDoubleDownZoomPlus", CCameraCtrlLogic::OnLBtnDownZoomPlus, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpZoomPlus", CCameraCtrlLogic::OnLBtnUpZoomPlus, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDownZoomSub", CCameraCtrlLogic::OnLBtnDownZoomSub, CAMERALOGICRPTR, CCameraCtrlLogic );
-	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDoubleDownZoomSub", CCameraCtrlLogic::OnLBtnDoubleDownZoomSub, CAMERALOGICRPTR, CCameraCtrlLogic );	
+	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDoubleDownZoomSub", CCameraCtrlLogic::OnLBtnDownZoomSub, CAMERALOGICRPTR, CCameraCtrlLogic );	
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpZoomSub", CCameraCtrlLogic::OnLBtnUpZoomSub, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnEdtZoomChange", CCameraCtrlLogic::OnEdtZoomChange, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnEdtZoomKillFocus", CCameraCtrlLogic::OnEdtZoomKillFocus, CAMERALOGICRPTR, CCameraCtrlLogic );
@@ -220,6 +221,7 @@ bool CCameraCtrlLogic::InitWnd(  const IArgs & arg )
     vecCameraStyle.push_back("SONY FCB-CS8230");
     UIFACTORYMGR_PTR->SetComboListData( "ComboboxCameraStyle", vecCameraStyle, m_pWndTree );
 	SetCamStyleName( _T("H650") );
+    m_emTPMechanism = emH650;
 
     //输出制式
     vecCamera.clear();
@@ -399,40 +401,40 @@ bool CCameraCtrlLogic::OnComboboxCameraStyleClick(const IArgs& args)
 	Value_TransparentComboBoxText valueTransparentComboBoxText;
 	UIFACTORYMGR_PTR->GetPropertyValue( valueTransparentComboBoxText, m_strComboboxCameraStyle, m_pWndTree );
 
-	EmTPMechanism emTPMechanism;
+	//EmTPMechanism emTPMechanism;
 	String strComboText = valueTransparentComboBoxText.strComboText;
 
 	bool bHide = false;
 	Window *pWnd = UIFACTORYMGR_PTR->GetWindowPtr( m_strEdtZoom, m_pWndTree );
 	if( strComboText == "Sony")
 	{
-		emTPMechanism = emSony;
+		m_emTPMechanism = emSony;
 		bHide = true;
 		pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
         UIFACTORYMGR_PTR->LoadScheme( _T("SchmCamNormal"), m_pWndTree );
 	}
     else if ( strComboText == "SONY FCB-CS8230" )
     {
-        emTPMechanism = emSonyFCBCS8230;
+        m_emTPMechanism = emSonyFCBCS8230;
         bHide = false;
         pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
         UIFACTORYMGR_PTR->LoadScheme( _T("SchmMoon904K30"), m_pWndTree );
     }
 	else
 	{
-		emTPMechanism = emH650;
+		m_emTPMechanism = emH650;
 		bHide = false;
 		pWnd->ModifyStyle(0, WS_CHILD|WS_CLIPSIBLINGS|ES_NUMBER );
         UIFACTORYMGR_PTR->LoadScheme( _T("SchmCamNormal"), m_pWndTree );
 	}
 
-	u16 nRet = COMIFMGRPTR->CamStyleSelCmd( emTPMechanism );
+	u16 nRet = COMIFMGRPTR->CamStyleSelCmd( m_emTPMechanism );
 	if ( nRet != NO_ERROR )
 	{
 		WARNMESSAGE( "选择摄像机机芯类型请求发送失败" );
 	}
 
-    showCameraInfo(emTPMechanism, bHide);
+    showCameraInfo(m_emTPMechanism, bHide);
 
 
 // 	String str;
@@ -595,9 +597,25 @@ bool CCameraCtrlLogic::OnBtnZoomSubClick( const IArgs& args )
 
 bool CCameraCtrlLogic::OnLBtnDownZoomPlus( const IArgs& args )
 {
-	EmTPZOOM emZoom = emEnlarge;
+    u16 nRet = NO_ERROR;
+    if ( m_emTPMechanism == emSonyFCBCS8230 )
+    {
+        TCamZoomVal tCamZoomVal;
+        ZeroMemory(&tCamZoomVal, sizeof(TCamZoomVal));
+
+        Value_WindowCaption valueWindowCaption;
+        UIFACTORYMGR_PTR->GetPropertyValue( valueWindowCaption, m_strEdtZoom, m_pWndTree );
+        tCamZoomVal.InputVal = atoi(valueWindowCaption.strCaption.c_str());
+        tCamZoomVal.InputPreciseValFlag = 0;
+        tCamZoomVal.ZoomUpFlag = 1;
+        nRet = COMIFMGRPTR->SetCamZoomValCmd( tCamZoomVal );
+    }
+    else
+    {
+        EmTPZOOM emZoom = emEnlarge;
+	    nRet = COMIFMGRPTR->SetCamZoomCmd( emZoom, m_byCamIndex );
+    }
 	
-	u16 nRet = COMIFMGRPTR->SetCamZoomCmd( emZoom, m_byCamIndex );
 	if ( nRet != NO_ERROR )
 	{
 		WARNMESSAGE( "Zoom请求发送失败" );
@@ -621,15 +639,35 @@ bool CCameraCtrlLogic::OnLBtnDoubleDownZoomPlus( const IArgs& args )
 
 bool CCameraCtrlLogic::OnLBtnUpZoomPlus( const IArgs& args )
 {
-	u16 nRet = COMIFMGRPTR->SetCamZoomStopCmd( m_byCamIndex );
+    if (m_emTPMechanism != emSonyFCBCS8230)
+    {
+        u16 nRet = COMIFMGRPTR->SetCamZoomStopCmd( m_byCamIndex );
+    }
+	
 	return true;
 }
 
 bool CCameraCtrlLogic::OnLBtnDownZoomSub( const IArgs& args )
 {
-	EmTPZOOM emZoom = emReduce;
-	
-	u16 nRet = COMIFMGRPTR->SetCamZoomCmd( emZoom, m_byCamIndex );
+    u16 nRet = NO_ERROR;
+    if ( m_emTPMechanism == emSonyFCBCS8230 )
+    {
+        TCamZoomVal tCamZoomVal;
+        ZeroMemory(&tCamZoomVal, sizeof(TCamZoomVal));
+
+        Value_WindowCaption valueWindowCaption;
+        UIFACTORYMGR_PTR->GetPropertyValue( valueWindowCaption, m_strEdtZoom, m_pWndTree );
+        tCamZoomVal.InputVal = atoi(valueWindowCaption.strCaption.c_str());
+        tCamZoomVal.InputPreciseValFlag = 0;
+        tCamZoomVal.ZoomDownFlag = 1;
+        nRet = COMIFMGRPTR->SetCamZoomValCmd( tCamZoomVal );
+    }
+    else
+    {
+        EmTPZOOM emZoom = emReduce;
+        nRet = COMIFMGRPTR->SetCamZoomCmd( emZoom, m_byCamIndex );
+    }
+
 	if ( nRet != NO_ERROR )
 	{
 		WARNMESSAGE( "Zoom请求发送失败" );
@@ -653,7 +691,11 @@ bool CCameraCtrlLogic::OnLBtnDoubleDownZoomSub( const IArgs& args )
 
 bool CCameraCtrlLogic::OnLBtnUpZoomSub( const IArgs& args )
 {
-	u16 nRet = COMIFMGRPTR->SetCamZoomStopCmd( m_byCamIndex );
+    if (m_emTPMechanism != emSonyFCBCS8230)
+    {
+        u16 nRet = COMIFMGRPTR->SetCamZoomStopCmd( m_byCamIndex );
+    }
+
 	return true;
 }
 
@@ -1061,27 +1103,27 @@ HRESULT CCameraCtrlLogic::OnTpMechanismSelectNty(WPARAM wparam, LPARAM lparam)
 	Window *pWnd = UIFACTORYMGR_PTR->GetWindowPtr( m_strEdtZoom, m_pWndTree );
 	if( emTPMechanism == emSony )
 	{
-		emTPMechanism = emSony;
+		m_emTPMechanism = emSony;
 		bhide = true;
 		pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
 		SetCamStyleName(_T("Sony"));
 	}
     else if( emTPMechanism == emSonyFCBCS8230 )
     {
-        emTPMechanism = emSonyFCBCS8230;
+        m_emTPMechanism = emSonyFCBCS8230;
         bhide = false;
         pWnd->ModifyStyle(ES_NUMBER, WS_CHILD|WS_CLIPSIBLINGS|ES_MULTILINE);
 		SetCamStyleName(_T("SONY FCB-CS8230"));
     }
 	else
 	{
-		emTPMechanism = emH650;
+		m_emTPMechanism = emH650;
 		bhide = false;
 		pWnd->ModifyStyle(0, WS_CHILD|WS_CLIPSIBLINGS|ES_NUMBER );
 		SetCamStyleName(_T("H650"));
 	}
 
-	showCameraInfo(emTPMechanism, bhide);
+	showCameraInfo(m_emTPMechanism, bhide);
 	return S_OK;
 }
 
@@ -3256,7 +3298,11 @@ HRESULT CCameraCtrlLogic::OnSetCameraZoomInd( WPARAM wparam, LPARAM lparam )
 	{
 		SetZoomValue((float)dwZoom/100);
 	}
-	else
+	else if ( strComboText == "SONY FCB-CS8230" )
+    {
+        SetZoomValue((float)dwZoom/100);
+    }
+    else
 	{
 		//SetZoomValue((float)dwZoom);
 		SetH650ZoomValue( dwZoom, dwZoomPos );
@@ -3316,6 +3362,19 @@ void CCameraCtrlLogic::SetZoomCmd( CString str )
 
 		dwZoom = (fZoom+1.0e-6)*100;
 	}
+    else if ( strComboText == "SONY FCB-CS8230" )
+    {
+        dwZoom = atoi(LPCTSTR(str));
+
+        if( dwZoom < 0 )
+        {
+            dwZoom = 0;
+        }
+        else if( dwZoom > 31424 )
+        {
+            dwZoom = 31424;
+        }
+    }
 	else
 	{
 		dwZoom = atoi(LPCTSTR(str));
@@ -3332,7 +3391,20 @@ void CCameraCtrlLogic::SetZoomCmd( CString str )
 		dwZoom += 199;
 	}
 
-	u16 nRet = COMIFMGRPTR->SetCamZoomValueCmd( dwZoom, m_byCamIndex );
+    u16 nRet = NO_ERROR;
+    if ( strComboText == "SONY FCB-CS8230" )
+    {
+        TCamZoomVal tCamZoomVal;
+        ZeroMemory(&tCamZoomVal, sizeof(TCamZoomVal));
+        tCamZoomVal.InputVal = dwZoom;
+        tCamZoomVal.InputPreciseValFlag = 1;
+        nRet = COMIFMGRPTR->SetCamZoomValCmd(tCamZoomVal);
+    }
+    else
+    {
+        nRet = COMIFMGRPTR->SetCamZoomValueCmd( dwZoom, m_byCamIndex );
+    }
+
 	if ( nRet != NO_ERROR )
 	{
 		WARNMESSAGE( "zoom请求发送失败" );

@@ -58,7 +58,9 @@ public:
 	* @return  
 	* @remarks 
 	*/	
-	virtual u16 SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex ) = 0;	
+	virtual u16 SetCamZoomCmd( const EmTPZOOM& emZoom, u8 byIndex ) = 0;
+    //moon904k30
+    virtual u16 SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal) = 0;
 
 	virtual u16 SetCamZoomStopCmd(u8 byIndex) = 0;
 
