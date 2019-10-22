@@ -133,6 +133,14 @@ public:
 	*/	
 	u16 SetCamFocusFarCmd();
 
+    /** 
+	* 功能: 光圈设置命令
+	* @param [in] 	 TIrisAutoManuMode  
+	* @return  
+	* @remarks 
+	*/
+	u16 SetCamApertreCmd( const TIrisAutoManuMode& tIrisAutoManuMode );
+
 	/** 
 	* 功能: 是否自动曝光
 	* @param [in] 	 TCameraMemInfo  

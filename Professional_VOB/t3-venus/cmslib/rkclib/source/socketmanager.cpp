@@ -6,7 +6,7 @@
 #include "rkcConst.h"
 #include "rkcmsgrecver.h"
 #include "rkcmsgdriver.h"
-#include "rkcevent.h"
+//#include "rkcevent.h"
 #include "rkcprintctrl.h"
 
 static UINT     g_nHeartBeatLostCount;                      //心跳包丢失个数

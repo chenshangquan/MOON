@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "camconfig.h"
 #include "socketmanager.h"
-#include "rkcevent.h"
+//#include "rkcevent.h"
 #include "rkcprintctrl.h"
 
 //////////////////////////////////////////////////////////////////////
@@ -17,6 +17,7 @@ CCamConfig::CCamConfig(CRkcSession &cSession) : CCamConfigIF()
 	m_pTPMoonCamCfg = NULL;
 	m_byCameraSel = 0;
 	m_byCameraSyncSel = 0;
+    m_emTPMechanism = emSonyFCBCS8230;
 
 	BuildEventsMap();
 }
@@ -512,10 +513,7 @@ u16 CCamConfig::SetCamZoomValCmd( const TCamZoomVal& tCamZoomVal)
     tRK100MsgHead.wMsgLen = htons(sizeof(TCamZoomVal));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
-    TCamZoomVal tCamZoomValTmp = tCamZoomVal;
-    tCamZoomValTmp.InputVal = htonl(tCamZoomValTmp.InputVal);
-
-    rkmsg.CatBody(&tCamZoomValTmp, sizeof(TCamZoomVal));//添加消息体
+    rkmsg.CatBody(&tCamZoomVal, sizeof(TCamZoomVal));//添加消息体
     
     PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL, emEventTypeScoketSend , "InputVal:%d, InputPreciseValFlag:%d, ZoomUpFlag:%d, ZoomDownFlag:%d",
         tCamZoomVal.InputVal, tCamZoomVal.InputPreciseValFlag, tCamZoomVal.ZoomUpFlag, tCamZoomVal.ZoomDownFlag);
@@ -548,21 +546,10 @@ void CCamConfig::OnSetCamZoomValRsp(const CMessage& cMsg)
     if (tMsgHead.wMsgLen != 0)
     {
         tCamZoomVal = *reinterpret_cast<TCamZoomVal*>( cMsg.content + sizeof(TRK100MsgHead) );
-        tCamZoomVal.InputVal = ntohl(tCamZoomVal.InputVal);
+        m_pTPMoonCamCfg->dwZoom = tCamZoomVal.InputVal;
     }
 
-    if ( tCamZoomVal.ZoomUpFlag )
-    {
-        m_pTPMoonCamCfg->dwZoom = tCamZoomVal.InputVal + 1;
-    }
-    else
-    {
-        m_pTPMoonCamCfg->dwZoom = tCamZoomVal.InputVal - 1;
-    }
-    
-    PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL_ACK, emEventTypeScoketRecv, "wRtn:%d, InputVal:%d, InputPreciseValFlag:%d, ZoomUpFlag:%d, ZoomDownFlag:%d",
-        tMsgHead.wOptRtn, tCamZoomVal.InputVal, tCamZoomVal.InputPreciseValFlag, tCamZoomVal.ZoomUpFlag, tCamZoomVal.ZoomDownFlag);
-
+    PrtRkcMsg( RK100_EVT_SET_CAM_ZOOM_VAL_ACK, emEventTypeScoketRecv, "wRtn:%d, InputVal:%d", tMsgHead.wOptRtn, tCamZoomVal.InputVal);
     PostEvent( UI_MOONTOOL_SET_CAMERA_ZOOM_IND, 0, (LPARAM)tMsgHead.wOptRtn );
 }
 
@@ -958,13 +945,25 @@ u16 CCamConfig::SetCamAutoFocusCmd(const EmTPMOOMMode& emFocusMode)
     TRK100MsgHead tRK100MsgHead;//定义消息头结构体
     memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
     //整型传数据集的转网络序
-    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusMode_Cmd);
-    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPMOOMMode));
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_FOCUS);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TCamFocusAutoManualMode));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
-    rkmsg.CatBody(&emFocusMode, sizeof(EmTPMOOMMode));//添加消息体
+
+    TCamFocusAutoManualMode tCamFocusMode;
+    ZeroMemory(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));
+    if ( emFocusMode == emAuto )
+    {
+        tCamFocusMode.AutoModeFlag = 1;
+    }
+    else
+    {
+        tCamFocusMode.ManualModeFlag = 1;
+    }
+
+    rkmsg.CatBody(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));//添加消息体
     
-    PrtRkcMsg( ev_TpCamFocusMode_Cmd, emEventTypeScoketSend, "EmTPMOOMMode:%d", emFocusMode);
+    PrtRkcMsg( RK100_EVT_SET_CAM_FOCUS, emEventTypeScoketSend, "EmTPMOOMMode:%d", emFocusMode);
     
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
     return NOERROR;
@@ -1176,6 +1175,48 @@ void CCamConfig::OnCamFocusFarInd( const CMessage& cMsg )
     PrtRkcMsg( ev_TpCamFocusFar_Ind, emEventTypeScoketRecv, "bFocusFar:%d", tMsgHead.wOptRtn);
 }
 
+//光圈设置 mooon904k30 新增
+u16 CCamConfig::SetCamApertreCmd( const TIrisAutoManuMode& tIrisAutoManuMode )
+{
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_IRIS);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TIrisAutoManuMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+    rkmsg.CatBody(&tIrisAutoManuMode, sizeof(TIrisAutoManuMode));//添加消息体
+    
+    PrtRkcMsg( RK100_EVT_SET_CAM_IRIS, emEventTypeScoketSend, "IsAuto:%d, IsManual:%d",
+        tIrisAutoManuMode.IrisAutoFlag, tIrisAutoManuMode.IrisManuFlag);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
+}
+
+void CCamConfig::OnSetCamApertreRsp( const CMessage& cMsg )
+{
+    TRK100MsgHead tMsgHead = *reinterpret_cast<TRK100MsgHead*>( cMsg.content );
+    tMsgHead.dwEvent = ntohl(tMsgHead.dwEvent);
+    tMsgHead.dwHandle = ntohl(tMsgHead.dwHandle);
+    tMsgHead.dwProtocolVer = ntohl(tMsgHead.dwProtocolVer);
+    tMsgHead.dwRsvd = ntohl(tMsgHead.dwRsvd);
+    tMsgHead.dwSerial = ntohl(tMsgHead.dwSerial);
+    tMsgHead.nArgv = ntohl(tMsgHead.nArgv);
+    tMsgHead.wExtLen = ntohs(tMsgHead.wExtLen);
+    tMsgHead.wMsgLen = ntohs(tMsgHead.wMsgLen);
+    tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
+    tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
+    
+    TIrisAutoManuMode tIrisAutoManuMode;
+    if (tMsgHead.wMsgLen != 0)
+    {
+        tIrisAutoManuMode = *reinterpret_cast<TIrisAutoManuMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+    }
+    
+    PrtRkcMsg( RK100_EVT_SET_CAM_IRIS_ACK, emEventTypeScoketRecv, "bOk:%d", tMsgHead.wOptRtn);
+    PostEvent( UI_MOONTOOL_CAMERA_APERTRE_RSP, NULL, (LPARAM)tMsgHead.wOptRtn );
+}
 
 //是否开启自动曝光
 u16 CCamConfig::CamAutoExposureCmd( const EmTPMOOMMode& emExpAuto )

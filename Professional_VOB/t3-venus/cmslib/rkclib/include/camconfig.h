@@ -121,6 +121,14 @@ public:
 	*/
 	virtual u16 SetCamFocusFarCmd();
 
+    /** 
+	* 功能  	光圈设置消息
+	* @param [in] 	 
+	* @return  
+	* @remarks 
+	*/
+	virtual u16 SetCamApertreCmd( const TIrisAutoManuMode& tIrisAutoManuMode );
+
 	/** 
 	* 功能  	是否开启自动曝光
 	* @param [in] 	 
@@ -448,6 +456,7 @@ protected:
 
     //moon904k30
     void OnSetCamZoomValRsp( const CMessage& cMsg );
+    void OnSetCamApertreRsp( const CMessage& cMsg );
 
 public:
 	void SetCameraCfgPtr();
@@ -465,6 +474,7 @@ private:
 	TTPMoonCamInfo *m_pTPMoonCamCfg;
 
 	TTPCamPre       m_atTPCamPre[MAX_CAMERA_Pre_NUM];   //显示器信息 
+    EmTPMechanism  m_emTPMechanism;  //机芯类型
 };
 
 #endif // !defined(AFX_CNCCONFIG_H__40492EAF_0B43_4101_A0B9_FDD4C21B1D4A__INCLUDED_)

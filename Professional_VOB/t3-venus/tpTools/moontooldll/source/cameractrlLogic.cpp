@@ -21,7 +21,6 @@ CCameraCtrlLogic::CCameraCtrlLogic()
 , m_strBtnCheckManuelFocus("BtnCheckManuelFocus")
 , m_strBtnCheckAutoFocus("BtnCheckAutoFocus")
 , m_strBtnSwitchAutoExposure("BtnSwitchAutoExposure")
-, m_strComboboxApertre("ComboboxApertre")  //MOON904K30
 , m_strComboboxAperture("ComboboxAperture")
 , m_strComboboxShut("ComboboxShut")
 , m_strComboboxExposureGain("ComboboxExposureGain")
@@ -74,6 +73,10 @@ CCameraCtrlLogic::CCameraCtrlLogic()
 , m_bIsCameraPowerOn(false)
 , m_bLoginByOther(false)
 ,m_bIsOrderPos(FALSE)
+//MOON904K30 新增
+, m_strComboboxApertre("ComboboxApertre")
+, m_strBtnSwitchManuelApertre("BtnSwitchManuelApertre")
+, m_strBtnSwitchAutoApertre("BtnSwitchAutoApertre")
 {
 	m_dwSaturat = 0;
 	m_dwBright = 0;
@@ -82,6 +85,7 @@ CCameraCtrlLogic::CCameraCtrlLogic()
 	m_bSourceCfg = 0;
 	m_byCamIndex = 0;
     m_emTPMechanism = emH650;
+    m_emApertre = emAuto;
 }
 
 CCameraCtrlLogic::~CCameraCtrlLogic()
@@ -98,6 +102,7 @@ void CCameraCtrlLogic::RegMsg()
 	REG_MSG_HANDLER( UI_MOONTOOL_CamSel_IND, CCameraCtrlLogic::OnCameraSelectInd, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_MSG_HANDLER( UI_MOONTOOL_CamParamSync_IND, CCameraCtrlLogic::OnCamParamSyncInd, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_MSG_HANDLER( UI_MOONTOOL_CamStyleSel_IND, CCameraCtrlLogic::OnCameraStyleSelectInd, CAMERALOGICRPTR, CCameraCtrlLogic );
+    REG_MSG_HANDLER( UI_MOONTOOL_CAMERA_APERTRE_RSP, CCameraCtrlLogic::OnApertreRsp,  CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_MSG_HANDLER( UI_MOONTOOL_CAMERA_AUTO_EXPOSURE_IND, CCameraCtrlLogic::OnAutoExposureInd,  CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_MSG_HANDLER( UI_MOONTOOL_CAMERA_APERTURE_IND, CCameraCtrlLogic::OnCameraApertureInd,  CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_MSG_HANDLER( UI_MOONTOOL_CAMERA_SHUT_SPD_IND, CCameraCtrlLogic::OnCameraShutSpdInd,  CAMERALOGICRPTR, CCameraCtrlLogic );
@@ -152,6 +157,10 @@ void CCameraCtrlLogic::RegCBFun()
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpFocusNear", CCameraCtrlLogic::OnLBtnUpFocusNear, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDownFocusFar", CCameraCtrlLogic::OnLBtnDownFocusFar, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpFocusFar", CCameraCtrlLogic::OnLBtnUpFocusFar, CAMERALOGICRPTR, CCameraCtrlLogic );
+    REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchManuelApertre", CCameraCtrlLogic::OnBtnSwitchManuelApertre, CAMERALOGICRPTR, CCameraCtrlLogic );
+    REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchAutoApertre", CCameraCtrlLogic::OnBtnSwitchAutoApertre, CAMERALOGICRPTR, CCameraCtrlLogic );
+    REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxApertreClick", CCameraCtrlLogic::OnComboboxApertreClick, CAMERALOGICRPTR, CCameraCtrlLogic );
+
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchAutoExposure", CCameraCtrlLogic::OnBtnSwitchAutoExposure, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxApertureClick", CCameraCtrlLogic::OnComboboxApertureClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchAutoWB", CCameraCtrlLogic::OnBtnSwitchAutoWB, CAMERALOGICRPTR, CCameraCtrlLogic );
@@ -239,12 +248,13 @@ bool CCameraCtrlLogic::InitWnd(  const IArgs & arg )
     //MOON904K30光圈
     vecCamera.clear();
     vecCamera.push_back("F2.8");
-    vecCamera.push_back("F3.0");
-    vecCamera.push_back("F3.5");
+    vecCamera.push_back("F3.1");
+    vecCamera.push_back("F3.4");
+    vecCamera.push_back("F3.7");
     vecCamera.push_back("F4.0");
     vecCamera.push_back("F4.5");
     UIFACTORYMGR_PTR->SetComboListData( m_strComboboxApertre, vecCamera, m_pWndTree );
-	UIFACTORYMGR_PTR->SetComboText( m_strComboboxApertre, _T("F3.5"), m_pWndTree );
+	UIFACTORYMGR_PTR->SetComboText( m_strComboboxApertre, _T("F2.8"), m_pWndTree );
 
 	//光圈数据初始化设置
 	vecCamera.clear();
@@ -773,6 +783,126 @@ bool CCameraCtrlLogic::OnLBtnUpFocusFar( const IArgs& args )
 	return true;
 }
 
+bool CCameraCtrlLogic::OnBtnSwitchManuelApertre( const IArgs& args )
+{	
+    /*Value_SwitchState valueSwitchState;
+	UIFACTORYMGR_PTR->GetPropertyValue( valueSwitchState, m_strBtnSwitchManuelApertre, m_pWndTree );
+    if ( valueSwitchState.bState )
+    {
+        return false;
+    }*/
+
+    UIFACTORYMGR_PTR->LoadScheme( _T("SchManuelApertre"), m_pWndTree );
+
+    TIrisAutoManuMode tIrisAutoManuMode;
+    ZeroMemory(&tIrisAutoManuMode, sizeof(TIrisAutoManuMode));
+    tIrisAutoManuMode.IrisManuFlag = 1;
+
+    Value_TransparentComboBoxText valueTransparentComboBoxText;
+	UIFACTORYMGR_PTR->GetPropertyValue( valueTransparentComboBoxText, m_strComboboxApertre, m_pWndTree );
+    String strApertreValue = valueTransparentComboBoxText.strComboText;
+    if ( strApertreValue == "F2.8" )
+    {
+        tIrisAutoManuMode.optIrisF2_8Flag = 1;
+    }
+    else if ( strApertreValue == "F3.1" )
+    {
+        tIrisAutoManuMode.optIrisF3_1Flag = 1;
+    }
+    else if ( strApertreValue == "F3.4" )
+    {
+        tIrisAutoManuMode.optIrisF3_4Flag = 1;
+    }
+    else if ( strApertreValue == "F3.7" )
+    {
+        tIrisAutoManuMode.optIrisF3_7Flag = 1;
+    }
+    else if ( strApertreValue == "F4.0" )
+    {
+        tIrisAutoManuMode.optIrisF4_0Flag = 1;
+    }
+    else
+    {
+        tIrisAutoManuMode.optIrisF4_4Flag = 1;
+    }
+
+    u16 nRet = COMIFMGRPTR->SetCamApertreCmd(tIrisAutoManuMode);
+    if ( nRet != NO_ERROR )
+    {
+        WARNMESSAGE( "光圈手动请求发送失败" );
+    }
+    
+    return true;
+}
+
+bool CCameraCtrlLogic::OnBtnSwitchAutoApertre( const IArgs& args )
+{	
+    /*Value_SwitchState valueSwitchState;
+    UIFACTORYMGR_PTR->GetPropertyValue( valueSwitchState, m_strBtnSwitchAutoApertre, m_pWndTree );
+    if ( valueSwitchState.bState )
+    {
+        return false;
+    }*/
+
+    UIFACTORYMGR_PTR->LoadScheme( _T("SchAutoApertre"), m_pWndTree );
+    
+    TIrisAutoManuMode tIrisAutoManuMode;
+    ZeroMemory(&tIrisAutoManuMode, sizeof(TIrisAutoManuMode));
+    tIrisAutoManuMode.IrisAutoFlag = 1;
+    
+    u16 nRet = COMIFMGRPTR->SetCamApertreCmd(tIrisAutoManuMode);
+    if ( nRet != NO_ERROR )
+    {
+        WARNMESSAGE( "光圈自动请求发送失败" );
+    }
+    
+    return true;
+}
+
+bool CCameraCtrlLogic::OnComboboxApertreClick( const IArgs& args )
+{
+    Value_TransparentComboBoxText valueTransparentComboBoxText;
+    UIFACTORYMGR_PTR->GetPropertyValue( valueTransparentComboBoxText, m_strComboboxApertre, m_pWndTree );
+    String strApertreValue = valueTransparentComboBoxText.strComboText;
+
+    TIrisAutoManuMode tIrisAutoManuMode;
+    ZeroMemory(&tIrisAutoManuMode, sizeof(TIrisAutoManuMode));
+    tIrisAutoManuMode.IrisManuFlag = 1;
+
+    if ( strApertreValue == "F2.8" )
+    {
+        tIrisAutoManuMode.optIrisF2_8Flag = 1;
+    }
+    else if ( strApertreValue == "F3.1" )
+    {
+        tIrisAutoManuMode.optIrisF3_1Flag = 1;
+    }
+    else if ( strApertreValue == "F3.4" )
+    {
+        tIrisAutoManuMode.optIrisF3_4Flag = 1;
+    }
+    else if ( strApertreValue == "F3.7" )
+    {
+        tIrisAutoManuMode.optIrisF3_7Flag = 1;
+    }
+    else if ( strApertreValue == "F4.0" )
+    {
+        tIrisAutoManuMode.optIrisF4_0Flag = 1;
+    }
+    else
+    {
+        tIrisAutoManuMode.optIrisF4_4Flag = 1;
+    }
+    
+    u16 nRet = COMIFMGRPTR->SetCamApertreCmd(tIrisAutoManuMode);
+    if ( nRet != NO_ERROR )
+    {
+        WARNMESSAGE( "光圈选择请求发送失败" );
+    }
+    
+    return true;
+}
+
 bool CCameraCtrlLogic::OnBtnSwitchAutoExposure( const IArgs& args )
 {
 	if ( m_pWndTree == NULL )
@@ -1262,6 +1392,22 @@ HRESULT CCameraCtrlLogic::OnCameraPersetMoveInd( WPARAM wparam, LPARAM lparam )
 //	SetPresetValue( bUsed );
 	
 	return S_OK;
+}
+
+HRESULT CCameraCtrlLogic::OnApertreRsp( WPARAM wparam, LPARAM lparam )
+{
+    if ( m_pWndTree == NULL )
+    {
+        return S_FALSE;
+    }
+    
+    BOOL bRet = static_cast<BOOL>(lparam);
+    if ( bRet == FALSE )
+    {
+        WARNMESSAGE( "光圈设置失败" );
+    }
+    
+    return S_OK;
 }
 
 HRESULT CCameraCtrlLogic::OnAutoExposureInd( WPARAM wparam, LPARAM lparam )
@@ -3281,30 +3427,28 @@ HRESULT CCameraCtrlLogic::OnSetCameraZoomInd( WPARAM wparam, LPARAM lparam )
 	}
 	
 	u32 dwZoom;
-	u32 dwZoomPos;
 	MOONLIBDATAMGRPTR->GetCamZoom( dwZoom );
-	MOONLIBDATAMGRPTR->GetExtCamZoom( dwZoomPos );
+	
 	BOOL bRet = static_cast<BOOL>(lparam);
 	if ( bRet == FALSE )
 	{
 		WARNMESSAGE( "zoom设置失败");
 	}
 
-	Value_TransparentComboBoxText valueTransparentComboBoxText;
-	UIFACTORYMGR_PTR->GetPropertyValue( valueTransparentComboBoxText, m_strComboboxCameraStyle, m_pWndTree );
-	String strComboText = valueTransparentComboBoxText.strComboText;
-
-	if( strComboText == "Sony" )
+	if( m_emTPMechanism == emSony )
 	{
 		SetZoomValue((float)dwZoom/100);
 	}
-	else if ( strComboText == "SONY FCB-CS8230" )
+	else if ( m_emTPMechanism == emSonyFCBCS8230 )
     {
-        SetZoomValue((float)dwZoom/100);
+        CString strCaption;
+        strCaption.Format( "%d", dwZoom );
+	    UIFACTORYMGR_PTR->SetCaption( m_strEdtZoom, (String)strCaption, m_pWndTree );
     }
     else
 	{
-		//SetZoomValue((float)dwZoom);
+        u32 dwZoomPos;
+        MOONLIBDATAMGRPTR->GetExtCamZoom( dwZoomPos );
 		SetH650ZoomValue( dwZoom, dwZoomPos );
 	}
 	

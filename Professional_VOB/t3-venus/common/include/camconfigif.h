@@ -114,6 +114,14 @@ public:
 	*/
     virtual u16 SetCamFocusFarCmd() = 0;
 
+    /** 
+	* 功能: 光圈设置命令
+	* @param [in] 	TIrisAutoManuMode  
+	* @return  
+	* @remarks 
+	*/
+	virtual u16 SetCamApertreCmd( const TIrisAutoManuMode& tIrisAutoManuMode ) = 0;
+
 	/** 
 	* 功能: 是否开启自动曝光
 	* @param [in] 	EmTPMOOMMode  

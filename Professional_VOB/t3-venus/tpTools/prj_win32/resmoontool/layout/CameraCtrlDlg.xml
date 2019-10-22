@@ -368,10 +368,10 @@
             <Property Name="SwitchState" Value="true" />
             <Event Type="WM_BUTTON_CLICK" Value="CCameraCtrlLogic::OnBtnSwitchManuelApertre" />
             <Scheme Name="SchAutoApertre">
-                <Property Name="SwitchState" Value="true" />
+                <Property Name="SwitchState" Value="false" />
             </Scheme>
             <Scheme Name="SchManuelApertre">
-                <Property Name="SwitchState" Value="false" />
+                <Property Name="SwitchState" Value="true" />
             </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="False" />
@@ -421,6 +421,48 @@
             </Scheme>
             <Scheme Name="SchManuelApertre">
                 <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="SchmCamNormal">
+                <Property Name="WindowVisible" Value="False" />
+            </Scheme>
+            <Scheme Name="SchmMoon904K30">
+                <Property Name="WindowVisible" Value="True" />
+            </Scheme>
+        </Window>
+        <Window Type="TransCheckButton" Name="BtnCheckBkLight" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTOCHECKBOX|WS_GROUP">
+            <Property Name="WindowPos" Value="x:380 y:148" />
+            <Property Name="WindowSize" Value="x:20 y:20" />
+            <Property Name="WindowCaption" Value="" />
+            <Property Name="WindowVisible" Value="False" />
+            <Property Name="WindowEnable" Value="true" />
+            <Property Name="Image" Value="Checkbtn" />
+            <Event Type="WM_BUTTON_CLICK" Value="CCameraCtrlLogic::OnBtnCheckBackLightClick" />   
+            <!--背光补偿 手动/自动 禁用/启用-->
+            <Scheme Name="SchAutoApertre">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="SchManuelApertre">
+                <Property Name="WindowEnable" Value="false" />
+            </Scheme>
+            <Scheme Name="SchmCamNormal">
+                <Property Name="WindowVisible" Value="False" />
+            </Scheme>
+            <Scheme Name="SchmMoon904K30">
+                <Property Name="WindowVisible" Value="True" />
+            </Scheme>
+        </Window>
+        <Window Type="TransStatic" Name="StcBkLight" Style="WS_CHILD|WS_CLIPSIBLINGS">
+            <Property Name="WindowPos" Value="x:408 y:150" />
+            <Property Name="WindowSize" Value="x:95 y:14" />
+            <Property Name="WindowCaption" Value="背光补偿" />
+            <Property Name="WindowVisible" Value="False" />
+            <Property Name="FontSize" Value="9" />
+            <!--背光补偿 手动/自动 禁用/启用 -->
+            <Scheme Name="SchAutoApertre">
+                <Property Name="WindowEnable" Value="true" />
+            </Scheme>
+            <Scheme Name="SchManuelApertre">
+                <Property Name="WindowEnable" Value="false" />
             </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="False" />

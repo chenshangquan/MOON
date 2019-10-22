@@ -2,7 +2,7 @@
 #include "rkcsysctrl.h"
 //#include "event.h"
 #include "socketmanager.h"
-#include "rkcevent.h"
+//#include "rkcevent.h"
 #include "rkcprintctrl.h"
 //#include "Tftp.h"
 #include "cmd5.h"

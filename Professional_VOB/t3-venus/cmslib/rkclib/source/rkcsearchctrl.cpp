@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "rkcsearchctrl.h"
 #include "event.h"
-#include "rkcevent.h"
+//#include "rkcevent.h"
 //#include <Windows.h>
 #pragma    comment(lib,"ws2_32.lib")
 #include <stdio.h>

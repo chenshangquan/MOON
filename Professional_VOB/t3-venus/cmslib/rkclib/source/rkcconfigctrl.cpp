@@ -2,7 +2,7 @@
 #include "rkcconfigctrl.h"
 #include "event.h"
 #include "socketmanager.h"
-#include "rkcevent.h"
+//#include "rkcevent.h"
 #include "rkcprintctrl.h"
 
 CRkcConfigCtrl::CRkcConfigCtrl(CRkcSession &cSession) : CRkcConfigCtrlIF()

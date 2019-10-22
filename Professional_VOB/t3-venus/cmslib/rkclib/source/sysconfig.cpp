@@ -5,7 +5,7 @@
 #include "stdafx.h"
 #include "sysconfig.h"
 #include "socketmanager.h"
-#include "rkcevent.h"
+//#include "rkcevent.h"
 #include "rkcprintctrl.h"
 
 //////////////////////////////////////////////////////////////////////

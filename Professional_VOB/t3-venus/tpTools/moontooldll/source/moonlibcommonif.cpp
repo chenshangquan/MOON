@@ -159,6 +159,12 @@ u16 CMoonlibCommonIF::SetCamFocusFarCmd()
 	return re;
 }
 
+u16 CMoonlibCommonIF::SetCamApertreCmd( const TIrisAutoManuMode& tIrisAutoManuMode )
+{
+    u16 re = MOONSESSION_MGR_PTR->GetCamConfigIF()->SetCamApertreCmd( tIrisAutoManuMode );
+    return re;
+}
+
 u16 CMoonlibCommonIF::CamAutoExposureCmd( EmTPMOOMMode emExpAuto )
 {
 	u16 re = MOONSESSION_MGR_PTR->GetCamConfigIF()->CamAutoExposureCmd( emExpAuto );

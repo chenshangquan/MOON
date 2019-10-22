@@ -198,6 +198,27 @@ protected:
 	*/
 	bool OnLBtnUpFocusFar( const IArgs& args );
 
+    /**	 
+	* 功能:  BtnSwitchManuelApertre的响应函数
+	* @return   bool
+	* @remarks	 
+	*/
+	bool OnBtnSwitchManuelApertre( const IArgs& args );
+
+    /**	 
+	* 功能:  BtnSwitchAutoApertre的响应函数
+	* @return   bool
+	* @remarks	 
+	*/
+	bool OnBtnSwitchAutoApertre( const IArgs& args );
+
+    /**	 
+	* 功能:  BtnSwitchAutoApertre的响应函数
+	* @return   bool
+	* @remarks	 
+	*/
+	bool OnComboboxApertreClick( const IArgs& args );
+
 	/**	 
 	* 功能:  单击BtnSwitchAutoExposure的响应函数
 	* @return   bool
@@ -515,6 +536,13 @@ protected:
 	HRESULT OnCameraPersetMoveInd( WPARAM wparam, LPARAM lparam );
 
 	/**	 
+	* 功能: 响应服务器发来的UI_MOONTOOL_CAMERA_APERTRE_RSP的函数
+	* @return   LRESULT
+	* @remarks	 
+	*/
+	HRESULT OnApertreRsp( WPARAM wparam, LPARAM lparam );
+
+    /**	 
 	* 功能: 响应服务器发来的UI_MOONTOOL_CAMERA_AUTO_EXPOSURE_IND的函数
 	* @return   LRESULT
 	* @remarks	 
@@ -747,7 +775,6 @@ private:
 	const String m_strComboboxExposureGain;
 	const String m_strComboboxGamma;
 	const String m_strComboboxShut;
-    const String m_strComboboxApertre;//MOON904K30
 	const String m_strComboboxAperture;
 	const String m_strSliderAperture;
 	const String m_strEdtAperture;
@@ -791,6 +818,13 @@ private:
 	const String m_strBtnSwitchLightPensation;
 	const String m_strBtnSwitchKeystoneAdjust;
 	const String m_strBtnCheckBackLight;
+
+    //moon904k30 新增
+    const String m_strBtnSwitchManuelApertre;
+    const String m_strBtnSwitchAutoApertre;
+    const String m_strComboboxApertre;
+
+    //自定义成员变量
 	bool         m_bIsCameraPowerOn;   //摄像机是否正在上电   by xhx
 	bool         m_bLoginByOther;      //tptools是否被抢登    by xhx
 	bool         m_bSourceCfg;         //信号源帧数不同时快门参数不同
@@ -807,6 +841,7 @@ private:
 
 	u8 m_byCamIndex;
     EmTPMechanism m_emTPMechanism;
+    EmTPMOOMMode m_emApertre;
 };
 
 #define CAMERALOGICRPTR    CCameraCtrlLogic::GetSingletonPtr()               //CameraCtrllogic指针
