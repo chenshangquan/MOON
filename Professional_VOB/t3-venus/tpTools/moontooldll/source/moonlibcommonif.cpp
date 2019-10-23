@@ -195,6 +195,12 @@ u16 CMoonlibCommonIF::CamGainCmd( const EmTPExpGain& emGain )
 	return re;
 }
 
+u16 CMoonlibCommonIF::SetCamGainCmd( u8 byExpGain )
+{
+    u16 re = MOONSESSION_MGR_PTR->GetCamConfigIF()->SetCamGainCmd( byExpGain );
+	return re;
+}
+
 u16 CMoonlibCommonIF::CamAutoWBCmd( const EmTPMOOMMode& emWBAuto )
 {
 	u16 re = MOONSESSION_MGR_PTR->GetCamConfigIF()->CamAutoWBCmd( emWBAuto );

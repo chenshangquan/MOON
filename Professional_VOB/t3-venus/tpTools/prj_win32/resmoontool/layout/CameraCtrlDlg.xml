@@ -190,7 +190,7 @@
                 <Property Name="WindowPos" Value="x:496 y:57" />
             </Scheme>
         </Window>
-        <Window Type="TransEdit" Name="EdtZoom" Style="WS_CHILD|ES_WANTRETURN|ES_MULTILINE">
+        <Window Type="TransEdit" Name="EdtZoom" Style="WS_CHILD|ES_WANTRETURN|ES_NUMBER">
             <Property Name="WindowPos" Value="x:272 y:57" />
             <Property Name="WindowSize" Value="x:68 y:32" />
             <Property Name="WindowCaption" Value="" />
@@ -507,13 +507,13 @@
             <Property Name="WindowCaption" Value="" />
             <Property Name="Image" Value="Camera\BtnCheckManuel" />
             <Property Name="WindowVisible" Value="False" />
-            <Property Name="SwitchState" Value="true" />
+            <Property Name="SwitchState" Value="false" />
             <Event Type="WM_BUTTON_CLICK" Value="CCameraCtrlLogic::OnBtnSwitchManuelExposure" />
             <Scheme Name="SchAutoExposure">
-                <Property Name="SwitchState" Value="true" />
+                <Property Name="SwitchState" Value="false" />
             </Scheme>
             <Scheme Name="SchManuelExposure">
-                <Property Name="SwitchState" Value="false" />
+                <Property Name="SwitchState" Value="true" />
             </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="False" />
@@ -528,7 +528,7 @@
             <Property Name="WindowCaption" Value="" />
             <Property Name="Image" Value="Camera\BtnCheckAuto" />
             <Property Name="WindowVisible" Value="True" />
-            <Property Name="SwitchState" Value="true" />
+            <Property Name="SwitchState" Value="false" />
             <Event Type="WM_BUTTON_CLICK" Value="CCameraCtrlLogic::OnBtnSwitchAutoExposure" />
             <Scheme Name="SchAutoExposure">
                 <Property Name="SwitchState" Value="true" />
@@ -572,12 +572,6 @@
             <Property Name="ComboEditFrontLen" Value="14" />
             <Property Name="ComboEditBackLen" Value="5" />
             <Event Type="WM_CLICK_COMBOLIST" Value="CCameraCtrlLogic::OnComboboxApertureClick" />
-            <Scheme Name="SchAutoExposure">
-                <Property Name="WindowEnable" Value="false" />
-            </Scheme>
-            <Scheme Name="SchManuelExposure">
-                <Property Name="WindowEnable" Value="true" />
-            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="True" />
             </Scheme>
@@ -593,6 +587,12 @@
             <Property Name="WindowVisible" Value="True" />
             <Property Name="FontColor" Value="r:15 g:79 b:81" />
             <Property Name="FontSize" Value="9" />
+            <Scheme Name="SchAutoExposure">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchManuelExposure">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowPos" Value="x:314 y:108" />
             </Scheme>
@@ -616,10 +616,10 @@
             <Property Name="ComboEditBackLen" Value="5" />
             <Event Type="WM_CLICK_COMBOLIST" Value="CCameraCtrlLogic::OnComboboxShutClick" />
             <Scheme Name="SchAutoExposure">
-                <Property Name="WindowEnable" Value="false" />
+                <Property Name="WindowVisible" Value="false" />
             </Scheme>
             <Scheme Name="SchManuelExposure">
-                <Property Name="WindowEnable" Value="true" />
+                <Property Name="WindowVisible" Value="true" />
             </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowPos" Value="x:351 y:99" />
@@ -636,6 +636,12 @@
             <Property Name="WindowVisible" Value="True" />
             <Property Name="FontColor" Value="r:15 g:79 b:81" />
             <Property Name="FontSize" Value="9" />
+            <Scheme Name="SchAutoExposure">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchManuelExposure">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowPos" Value="x:464 y:108" />
             </Scheme>
@@ -658,12 +664,6 @@
             <Property Name="ComboEditFrontLen" Value="14" />
             <Property Name="ComboEditBackLen" Value="5" />
             <Event Type="WM_CLICK_COMBOLIST" Value="CCameraCtrlLogic::OnComboboxExposureGainClick" />
-            <Scheme Name="SchAutoExposure">
-                <Property Name="WindowEnable" Value="false" />
-            </Scheme>
-            <Scheme Name="SchManuelExposure">
-                <Property Name="WindowEnable" Value="true" />
-            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="True" />
             </Scheme>
@@ -681,6 +681,12 @@
             <Event Type="WM_LBUTTONDOWN" Value="CCameraCtrlLogic::OnLBtnDownExpGainPlus" />
             <Event Type="WM_LBUTTONUP" Value="CCameraCtrlLogic::OnLBtnUpExpGainPlus" />
             <Event Type="WM_LBUTTONDBLCLK" Value="CCameraCtrlLogic::OnLBtnDoubleDownExpGainPlus" />
+            <Scheme Name="SchAutoExposure">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchManuelExposure">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="False" />
             </Scheme>
@@ -698,6 +704,12 @@
             <Event Type="WM_LBUTTONDOWN" Value="CCameraCtrlLogic::OnLBtnDownExpGainSub" />
             <Event Type="WM_LBUTTONUP" Value="CCameraCtrlLogic::OnLBtnUpExpGainSub" />
             <Event Type="WM_LBUTTONDBLCLK" Value="CCameraCtrlLogic::OnLBtnDoubleDownExpGainSub" />
+            <Scheme Name="SchAutoExposure">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchManuelExposure">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="False" />
             </Scheme>
@@ -705,7 +717,7 @@
                 <Property Name="WindowVisible" Value="True" />
             </Scheme>
         </Window>
-        <Window Type="TransEdit" Name="EdtExpGain" Style="WS_CHILD|ES_WANTRETURN|ES_MULTILINE">
+        <Window Type="TransEdit" Name="EdtExpGain" Style="WS_CHILD|ES_WANTRETURN|ES_NUMBER">
             <Property Name="WindowPos" Value="x:644 y:183" />
             <Property Name="WindowSize" Value="x:68 y:32" />
             <Property Name="WindowCaption" Value="" />
@@ -717,6 +729,12 @@
             <Property Name="LimitLength" Value="5" />
             <Event Type="WM_EDIT_ONCHAR" Value="CCameraCtrlLogic::OnEdtExpGainChange" />
             <Event Type="WM_KILL_FOCUS" Value="CCameraCtrlLogic::OnEdtExpGainKillFocus" />
+            <Scheme Name="SchAutoExposure">
+                <Property Name="WindowVisible" Value="false" />
+            </Scheme>
+            <Scheme Name="SchManuelExposure">
+                <Property Name="WindowVisible" Value="true" />
+            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="False" />
             </Scheme>
@@ -724,6 +742,7 @@
                 <Property Name="WindowVisible" Value="True" />
             </Scheme>
         </Window>
+        <!-- 背光补偿 -->
         <Window Type="TransCheckButton" Name="BtnCheckBackLight" Style="WS_CHILD|WS_CLIPSIBLINGS|BS_AUTOCHECKBOX|WS_GROUP">
           <Property Name="WindowPos" Value="x:618 y:106" />
           <Property Name="WindowSize" Value="x:20 y:20" />
@@ -733,12 +752,6 @@
           <Property Name="Image" Value="Checkbtn" />
           <Event Type="WM_BUTTON_CLICK" Value="CCameraCtrlLogic::OnBtnCheckBackLightClick" />   
           <!--背光补偿 手动/自动 禁用/启用-->
-            <Scheme Name="SchAutoExposure">
-                <Property Name="WindowEnable" Value="true" />
-            </Scheme>
-            <Scheme Name="SchManuelExposure">
-                <Property Name="WindowEnable" Value="false" />
-            </Scheme>
             <Scheme Name="SchmCamNormal">
                 <Property Name="WindowVisible" Value="True" />
             </Scheme>
@@ -750,7 +763,7 @@
           <Property Name="WindowPos" Value="x:646 y:108" />
           <Property Name="WindowSize" Value="x:95 y:14" />
           <Property Name="WindowCaption" Value="背光补偿" />
-          <Property Name="WindowVisible" Value="true" />
+          <Property Name="WindowVisible" Value="false" />
           <Property Name="FontSize" Value="9" />
           <!--背光补偿 手动/自动 禁用/启用
             <Scheme Name="SchAutoExposure">

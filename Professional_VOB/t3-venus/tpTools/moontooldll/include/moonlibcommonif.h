@@ -175,6 +175,14 @@ public:
 	*/
 	u16 CamGainCmd( const EmTPExpGain& emGain );
 
+    /** 
+	* 功能: 增益设置消息发送
+	* @param [in] 	 TCameraMemInfo  
+	* @return  
+	* @remarks 
+	*/
+    u16 SetCamGainCmd( u8 byExpGain );
+
 	/** 
 	* 功能: 是否自动白平衡
 	* @param [in] 	   

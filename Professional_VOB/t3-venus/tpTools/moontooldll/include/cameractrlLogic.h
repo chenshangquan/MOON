@@ -19,6 +19,8 @@
 
 #include "logicBase.h"
 
+#define ZOOM_MAX_LIMIT  31424  //ZOOM调节范围最大限值
+
 class CCameraCtrlLogic : public CLogicBase, public ISingleTon<CCameraCtrlLogic>
 {
 public:
@@ -219,6 +221,13 @@ protected:
 	*/
 	bool OnComboboxApertreClick( const IArgs& args );
 
+    /**	 
+	* 功能:  单击BtnSwitchManuelExposure的响应函数
+	* @return   bool
+	* @remarks	 
+	*/
+	bool OnBtnSwitchManuelExposure( const IArgs& args );
+
 	/**	 
 	* 功能:  单击BtnSwitchAutoExposure的响应函数
 	* @return   bool
@@ -232,6 +241,14 @@ protected:
 	* @remarks	 
 	*/
 	bool OnComboboxApertureClick( const IArgs& args );
+
+
+    /**	 
+	* 功能:  单击BtnSwitchManuelWB的响应函数
+	* @return   bool
+	* @remarks	 
+	*/
+	bool OnBtnSwitchManuelWB( const IArgs& args );
 
 	/**	 
 	* 功能:  单击BtnSwitchAutoWB的响应函数
@@ -807,6 +824,7 @@ private:
 	const String m_strBtnCheckManuelFocus;
 	const String m_strBtnCheckAutoFocus;
 	
+    const String m_strBtnSwitchManuelExposure;
 	const String m_strBtnSwitchAutoExposure;
 	const String m_strBtnSwitchAutoWB;
 	const String m_strBtnZoomPlus;
@@ -823,6 +841,7 @@ private:
     const String m_strBtnSwitchManuelApertre;
     const String m_strBtnSwitchAutoApertre;
     const String m_strComboboxApertre;
+    const String m_strEdtExpGain;
 
     //自定义成员变量
 	bool         m_bIsCameraPowerOn;   //摄像机是否正在上电   by xhx

@@ -173,6 +173,8 @@ public:
 	*/
 	virtual u16 CamGainCmd( const EmTPExpGain& emExpGain );
 
+    virtual u16 SetCamGainCmd( u8 byExpGain );
+
 	virtual EmTPExpGain GetCamGain();
 
 	virtual EmTPAperture GetCamAperture();

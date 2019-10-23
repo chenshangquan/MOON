@@ -20,6 +20,7 @@ CCameraCtrlLogic::CCameraCtrlLogic()
 , m_strStcZoom("StcZoom")
 , m_strBtnCheckManuelFocus("BtnCheckManuelFocus")
 , m_strBtnCheckAutoFocus("BtnCheckAutoFocus")
+, m_strBtnSwitchManuelExposure("BtnSwitchManuelExposure")
 , m_strBtnSwitchAutoExposure("BtnSwitchAutoExposure")
 , m_strComboboxAperture("ComboboxAperture")
 , m_strComboboxShut("ComboboxShut")
@@ -77,6 +78,7 @@ CCameraCtrlLogic::CCameraCtrlLogic()
 , m_strComboboxApertre("ComboboxApertre")
 , m_strBtnSwitchManuelApertre("BtnSwitchManuelApertre")
 , m_strBtnSwitchAutoApertre("BtnSwitchAutoApertre")
+, m_strEdtExpGain("EdtExpGain")
 {
 	m_dwSaturat = 0;
 	m_dwBright = 0;
@@ -154,16 +156,20 @@ void CCameraCtrlLogic::RegCBFun()
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnManuelFocusClick", CCameraCtrlLogic::OnBtnManuelFocusClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnAutoFocusClick", CCameraCtrlLogic::OnBtnAutoFocusClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDownFocusNear", CCameraCtrlLogic::OnLBtnDownFocusNear, CAMERALOGICRPTR, CCameraCtrlLogic );
-	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpFocusNear", CCameraCtrlLogic::OnLBtnUpFocusNear, CAMERALOGICRPTR, CCameraCtrlLogic );
+	//REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpFocusNear", CCameraCtrlLogic::OnLBtnUpFocusNear, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnDownFocusFar", CCameraCtrlLogic::OnLBtnDownFocusFar, CAMERALOGICRPTR, CCameraCtrlLogic );
-	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpFocusFar", CCameraCtrlLogic::OnLBtnUpFocusFar, CAMERALOGICRPTR, CCameraCtrlLogic );
+	//REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnLBtnUpFocusFar", CCameraCtrlLogic::OnLBtnUpFocusFar, CAMERALOGICRPTR, CCameraCtrlLogic );
     REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchManuelApertre", CCameraCtrlLogic::OnBtnSwitchManuelApertre, CAMERALOGICRPTR, CCameraCtrlLogic );
     REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchAutoApertre", CCameraCtrlLogic::OnBtnSwitchAutoApertre, CAMERALOGICRPTR, CCameraCtrlLogic );
     REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxApertreClick", CCameraCtrlLogic::OnComboboxApertreClick, CAMERALOGICRPTR, CCameraCtrlLogic );
 
+    REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchManuelExposure", CCameraCtrlLogic::OnBtnSwitchManuelExposure, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchAutoExposure", CCameraCtrlLogic::OnBtnSwitchAutoExposure, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnComboboxApertureClick", CCameraCtrlLogic::OnComboboxApertureClick, CAMERALOGICRPTR, CCameraCtrlLogic );
+
+    REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchManuelWB", CCameraCtrlLogic::OnBtnSwitchManuelWB, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnBtnSwitchAutoWB", CCameraCtrlLogic::OnBtnSwitchAutoWB, CAMERALOGICRPTR, CCameraCtrlLogic );
+
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnSliderRGainChanged", CCameraCtrlLogic::OnSliderRGainChanged, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnSliderBGainChanged", CCameraCtrlLogic::OnSliderBGainChanged, CAMERALOGICRPTR, CCameraCtrlLogic );
 	REG_GOBAL_MEMBER_FUNC( "CCameraCtrlLogic::OnSliderContrastChanged", CCameraCtrlLogic::OnSliderContrastChanged, CAMERALOGICRPTR, CCameraCtrlLogic );
@@ -225,12 +231,13 @@ bool CCameraCtrlLogic::InitWnd(  const IArgs & arg )
 
     //类型
 	std::vector<CString> vecCameraStyle;
-	vecCameraStyle.push_back("H650");
-	vecCameraStyle.push_back("Sony");
+	//vecCameraStyle.push_back("H650");
+	//vecCameraStyle.push_back("Sony");
     vecCameraStyle.push_back("SONY FCB-CS8230");
     UIFACTORYMGR_PTR->SetComboListData( "ComboboxCameraStyle", vecCameraStyle, m_pWndTree );
-	SetCamStyleName( _T("H650") );
-    m_emTPMechanism = emH650;
+	SetCamStyleName( _T("SONY FCB-CS8230") );
+    m_emTPMechanism = emSonyFCBCS8230;
+    UIFACTORYMGR_PTR->LoadScheme( _T("SchmMoon904K30"), m_pWndTree );
 
     //输出制式
     vecCamera.clear();
@@ -618,6 +625,7 @@ bool CCameraCtrlLogic::OnLBtnDownZoomPlus( const IArgs& args )
         tCamZoomVal.InputVal = atoi(valueWindowCaption.strCaption.c_str());
         tCamZoomVal.InputPreciseValFlag = 0;
         tCamZoomVal.ZoomUpFlag = 1;
+        if ( tCamZoomVal.InputVal < ZOOM_MAX_LIMIT )
         nRet = COMIFMGRPTR->SetCamZoomValCmd( tCamZoomVal );
     }
     else
@@ -903,6 +911,62 @@ bool CCameraCtrlLogic::OnComboboxApertreClick( const IArgs& args )
     return true;
 }
 
+bool CCameraCtrlLogic::OnBtnSwitchManuelExposure( const IArgs& args )
+{
+    if ( m_pWndTree == NULL )
+    {
+        return false;
+    }
+    
+    //Value_SwitchState valueSwitchState;
+    //UIFACTORYMGR_PTR->GetPropertyValue( valueSwitchState, m_strBtnSwitchManuelExposure, m_pWndTree );
+    
+    //if ( valueSwitchState.bState )
+
+    u16 nRet = COMIFMGRPTR->CamAutoExposureCmd( emManual );
+    if ( nRet != NO_ERROR )
+    {
+        WARNMESSAGE( "手动曝光请求发送失败" );
+    }
+    else
+    {
+        if ( m_bSourceCfg )
+        {
+            EmTPSOrThShutter emShutSpd;
+            GetShutSpdValue( emShutSpd );
+            u16 nRetShutSpd = COMIFMGRPTR->CamShutSpdCmd( emShutSpd );
+            if ( nRetShutSpd != NO_ERROR )
+            {
+                WARNMESSAGE( "快门请求发送失败" );
+            }
+        }
+        else
+        {
+            EmTPFOrTwShutter emTwShutter;
+            GetTwShutterValue( emTwShutter );
+            u16 nRetShutSpd = COMIFMGRPTR->CamTwShutSpdCmd( emTwShutter );
+            if ( nRetShutSpd != NO_ERROR )
+            {
+                WARNMESSAGE( "快门请求发送失败" );
+            }
+        }
+        
+        Value_WindowCaption valueWindowCaption;
+	    UIFACTORYMGR_PTR->GetPropertyValue( valueWindowCaption, m_strEdtExpGain, m_pWndTree );
+        u8 byEdtExpGain = atoi(valueWindowCaption.strCaption.c_str());
+        u16 nRetGain = COMIFMGRPTR->SetCamGainCmd( byEdtExpGain );
+        if ( nRetGain != NO_ERROR )
+        {
+            WARNMESSAGE( "增益请求发送失败" );
+        }
+        
+    }
+
+    SetAutoExp(emManual);
+    
+    return true;
+}
+
 bool CCameraCtrlLogic::OnBtnSwitchAutoExposure( const IArgs& args )
 {
 	if ( m_pWndTree == NULL )
@@ -910,82 +974,73 @@ bool CCameraCtrlLogic::OnBtnSwitchAutoExposure( const IArgs& args )
 		return false;
 	}
 	
-	Value_SwitchState valueSwitchState;
-	UIFACTORYMGR_PTR->GetPropertyValue( valueSwitchState, m_strBtnSwitchAutoExposure, m_pWndTree );
+	//Value_SwitchState valueSwitchState;
+	//UIFACTORYMGR_PTR->GetPropertyValue( valueSwitchState, m_strBtnSwitchAutoExposure, m_pWndTree );
+	//if ( valueSwitchState.bState )
 
-	if ( valueSwitchState.bState )
-	{
-		u16 nRet = COMIFMGRPTR->CamAutoExposureCmd( emAuto );
-		if ( nRet != NO_ERROR )
-		{
-			WARNMESSAGE( "自动曝光请求发送失败" );
-		}
-		//手动变为自动时，如果背光补偿勾选，还需再发遍消息
-		s32 nCheckState = 0;
-		UIFACTORYMGR_PTR->GetCheckState( m_strBtnCheckBackLight, nCheckState, m_pWndTree );	
-		if ( nCheckState )
-		{
-			u16 nRet = COMIFMGRPTR->CamLightPensation( TRUE );	
-			if ( nRet != NO_ERROR )
-			{
-				WARNMESSAGE( "背光补偿请求发送失败" );
-			}
-		}
-	}
-	else
-	{
-		u16 nRet = COMIFMGRPTR->CamAutoExposureCmd( emManual );
-		if ( nRet != NO_ERROR )
-		{
-			WARNMESSAGE( "手动曝光请求发送失败" );
-		}
-		else
-		{
-			EmTPAperture emTPAperture;
-			GetApertureValue( emTPAperture );
-			u16 nRetAperture = COMIFMGRPTR->CamApertureCmd( emTPAperture );
-			if ( nRetAperture != NO_ERROR )
-			{
-				WARNMESSAGE( "光圈请求发送失败" );
- 			}
+    u16 nRet = COMIFMGRPTR->CamAutoExposureCmd( emAuto );
+    if ( nRet != NO_ERROR )
+    {
+        WARNMESSAGE( "自动曝光请求发送失败" );
+    }
 
-			if ( m_bSourceCfg )
-			{
-				EmTPSOrThShutter emShutSpd;
-				GetShutSpdValue( emShutSpd );
-				u16 nRetShutSpd = COMIFMGRPTR->CamShutSpdCmd( emShutSpd );
-				if ( nRetShutSpd != NO_ERROR )
-				{
-					WARNMESSAGE( "快门请求发送失败" );
- 				}
-			}
-			else
-			{
-				EmTPFOrTwShutter emTwShutter;
-				GetTwShutterValue( emTwShutter );
-				u16 nRetShutSpd = COMIFMGRPTR->CamTwShutSpdCmd( emTwShutter );
-				if ( nRetShutSpd != NO_ERROR )
-				{
-					WARNMESSAGE( "快门请求发送失败" );
- 				}
-			}
-
-			EmTPExpGain emGain;
-			GetExpGainValue( emGain );
-			
-			u16 nRetGain = COMIFMGRPTR->CamGainCmd( emGain );
-			if ( nRetGain != NO_ERROR )
-			{
-				WARNMESSAGE( "增益请求发送失败" );
-			}
-			
-		}
-	}
+    SetAutoExp(emAuto);
 
 	return true;
 }
 
 // 白平衡
+bool CCameraCtrlLogic::OnBtnSwitchManuelWB( const IArgs& args )
+{
+    if ( m_pWndTree == NULL )
+    {
+        return false;
+    }
+    
+    Value_SwitchState valueSwitchState;
+    UIFACTORYMGR_PTR->GetPropertyValue( valueSwitchState, m_strBtnSwitchAutoWB, m_pWndTree );
+    
+    if ( valueSwitchState.bState )
+    {
+        u16 nRet = COMIFMGRPTR->CamAutoWBCmd( emAuto );
+        if ( nRet != NO_ERROR )
+        {
+            WARNMESSAGE( "自动白平衡请求发送失败" );
+        }
+    }
+    else
+    {
+        u16 nRet = COMIFMGRPTR->CamAutoWBCmd( emManual );
+        if ( nRet != NO_ERROR )
+        {
+            WARNMESSAGE( "手动白平衡请求发送失败" );
+        }
+        
+        String strRGain;
+        UIFACTORYMGR_PTR->GetCaption( m_strEdtRGain, strRGain, m_pWndTree );
+        
+        u32 dwRGain = atoi(strRGain.c_str());
+        u32 nRetRGain = COMIFMGRPTR->CamRGainCmd( dwRGain );
+        if ( nRetRGain != NO_ERROR )
+        {
+            WARNMESSAGE( "RGain调节请求发送失败" );
+        }
+        
+        
+        String strBGain;
+        UIFACTORYMGR_PTR->GetCaption( m_strEdtBGain, strBGain, m_pWndTree );
+        
+        u32 dwBGain = atoi(strBGain.c_str());
+        u32 nRetBGain = COMIFMGRPTR->CamBGainCmd( dwBGain );
+        if ( nRetBGain != NO_ERROR )
+        {
+            WARNMESSAGE( "BGain调节请求发送失败" );
+        }
+    }
+    
+    return true;
+}
+
 bool CCameraCtrlLogic::OnBtnSwitchAutoWB( const IArgs& args )
 {
 	if ( m_pWndTree == NULL )
@@ -1423,7 +1478,7 @@ HRESULT CCameraCtrlLogic::OnAutoExposureInd( WPARAM wparam, LPARAM lparam )
 
 	if ( bRet == FALSE )
 	{
-		WARNMESSAGE( "自动曝光设置失败" );
+		WARNMESSAGE( "曝光设置失败" );
 	}
 
 	SetAutoExp(emExpMode);
@@ -1989,23 +2044,25 @@ bool CCameraCtrlLogic::OnEdtZoomChange( const IArgs& args )
 	Value_WindowCaption valueWindowCaption;
 	UIFACTORYMGR_PTR->GetPropertyValue( valueWindowCaption, m_strEdtZoom, m_pWndTree );
 	
-	CString str;
-	str = OnlyFloat( valueWindowCaption.strCaption.c_str() );
-	//UIFACTORYMGR_PTR->SetCaption( m_strEdtZoom, (String)str, m_pWndTree );
-	
-	/*Window* pWnd = UIFACTORYMGR_PTR->GetWindowPtr( m_strEdtZoom, m_pWndTree );
-	//DWORD dwPos = (( CEdit *) pWnd)->GetSel() & 0xFFFF;	//获取鼠标当前位置
-	if ( pWnd )
-	{
-		(( CEdit *) pWnd)->SetSel( -1 );		
-	}*/
+    CString str =  valueWindowCaption.strCaption.c_str();
+    //str = OnlyFloat( valueWindowCaption.strCaption.c_str() );
 
-	if ( nChar == 0x0d )
-	{
-		SetZoomCmd(str);
+    if ( atoi(valueWindowCaption.strCaption.c_str()) > ZOOM_MAX_LIMIT )
+    {
+        str.Format("%d", ZOOM_MAX_LIMIT);
+        UIFACTORYMGR_PTR->SetCaption( m_strEdtZoom, (String)str, m_pWndTree );
+        Window* pWnd = UIFACTORYMGR_PTR->GetWindowPtr( m_strEdtZoom, m_pWndTree );
+        if ( pWnd )
+        {
+            (( CEdit *) pWnd)->SetSel( -1 );		
+	    }
+    }
 
-
-		SetFocus(NULL);
+    if ( nChar == 0x0d )
+    {
+        SetZoomCmd(str);
+        SetFocus(NULL);
+        return true;
 	}
 
 	return true;
@@ -2521,6 +2578,10 @@ void CCameraCtrlLogic::GetTwShutterValue( EmTPFOrTwShutter &emTwShutter)
 	else if ( strComboText == "1/50" )
 	{
 		emTwShutter = em_Shutter_50Spd;
+	}
+    else if ( strComboText == "1/60" )
+    {
+        emTwShutter = em_Shutter_60Spd;
 	}
 	else if ( strComboText == "1/75" )
 	{

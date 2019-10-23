@@ -269,9 +269,9 @@ void CMainFrameLogic::InitFunMenu()
 	item.SetItemType("ImageItemCamCtrl");
 	m_VecOldMenuItem.push_back(item);
 	
- 	item.SetItemName("拼接调整" ); 
+ 	/*item.SetItemName("拼接调整" ); 
  	item.SetItemType("ImageItemMonAdjust");
- 	m_VecOldMenuItem.push_back(item);
+ 	m_VecOldMenuItem.push_back(item);*/
 
 	item.SetItemName("系统设置" );  
 	item.SetItemType("ImageItemSysCfg");

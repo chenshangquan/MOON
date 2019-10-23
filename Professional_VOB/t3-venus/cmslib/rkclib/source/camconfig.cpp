@@ -42,10 +42,12 @@ void CCamConfig::BuildEventsMap()
 	REG_PFUN( ev_TpCamSetZoonStop_Ind, CCamConfig::OnCamZoomStopInd );
 	REG_PFUN( ev_TpCamSetDrectZoon_Ind, CCamConfig::OnCamZoomValueInd );
 	REG_PFUN( ev_TpCamFocusMode_Ind, CCamConfig::OnCamAutoFocusInd );
+    REG_PFUN( RK100_EVT_SET_CAM_FOCUS_ACK, CCamConfig::OnCamAutoFocusInd );
 	REG_PFUN( ev_TpCamFocusNear_Ind, CCamConfig::OnCamFocusNearInd );
 	REG_PFUN( ev_TpCamFocusStop_Ind, CCamConfig::OnCamFocusStopInd );
 	REG_PFUN( ev_TpCamFocusFar_Ind, CCamConfig::OnCamFocusFarInd );
 	REG_PFUN( ev_TpCamExpMode_Ind, CCamConfig::OnAutoExposureInd );
+    REG_PFUN( RK100_EVT_SET_CAM_EXPOSURE_ACK, CCamConfig::OnAutoExposureInd );
 	REG_PFUN( ev_TpCamExpAperture_Ind, CCamConfig::OnCamApertureInd );
 	REG_PFUN( ev_TpCamExpGain_Ind, CCamConfig::OnCamGainInd );	
 	REG_PFUN( ev_TpCamExpSOrThShutter_Ind, CCamConfig::OnCamShutSpdCInd );
@@ -1003,10 +1005,18 @@ void CCamConfig::OnCamAutoFocusInd(const CMessage& cMsg)
 
     if (tMsgHead.wMsgLen != 0)
     {
-        m_pTPMoonCamCfg->emFocusMode = *reinterpret_cast<EmTPMOOMMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+        TCamFocusAutoManualMode tCamFocusAutoManualMode = *reinterpret_cast<TCamFocusAutoManualMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+        if (tCamFocusAutoManualMode.AutoModeFlag)
+        {
+            m_pTPMoonCamCfg->emFocusMode = emAuto;
+        }
+        else
+        {
+            m_pTPMoonCamCfg->emFocusMode = emManual;
+        }
     }
     
-    PrtRkcMsg( ev_TpCamFocusMode_Ind, emEventTypeScoketRecv, "EmTPMOOMMode:%d, wRtn:%d", m_pTPMoonCamCfg->emFocusMode, tMsgHead.wOptRtn);
+    PrtRkcMsg( RK100_EVT_SET_CAM_FOCUS_ACK, emEventTypeScoketRecv, "EmTPMOOMMode:%d, wRtn:%d", m_pTPMoonCamCfg->emFocusMode, tMsgHead.wOptRtn);
     PostEvent( UI_MOONTOOL_CAMERA_AUTO_FOCUS_IND, (WPARAM)(m_pTPMoonCamCfg->emFocusMode), (LPARAM)tMsgHead.wOptRtn );
 }
 
@@ -1024,12 +1034,18 @@ u16 CCamConfig::SetCamFocusNearCmd()
     TRK100MsgHead tRK100MsgHead;//定义消息头结构体
     memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
     //整型传数据集的转网络序
-    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusNear_Cmd);
-    tRK100MsgHead.wMsgLen = 0;
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_FOCUS);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TCamFocusAutoManualMode));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
 
-    PrtRkcMsg( ev_TpCamFocusNear_Cmd, emEventTypeScoketSend, "" );
+    TCamFocusAutoManualMode tCamFocusMode;
+    ZeroMemory(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));
+    tCamFocusMode.ManualModeFlag = 1;
+    tCamFocusMode.focusNearFlag = 1;
+    rkmsg.CatBody(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));//添加消息体
+
+    PrtRkcMsg( RK100_EVT_SET_CAM_FOCUS, emEventTypeScoketSend, "NearFlag:%d, FarFlag:%d", tCamFocusMode.focusNearFlag, tCamFocusMode.focusFarFlag);
 
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
     return NOERROR;
@@ -1048,12 +1064,17 @@ u16 CCamConfig::SetCamFocusStopCmd()
 	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
     memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
     //整型传数据集的转网络序
-    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusStop_Cmd);
-    tRK100MsgHead.wMsgLen = 0;
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_FOCUS);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TCamFocusAutoManualMode));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
 
-    PrtRkcMsg( ev_TpCamFocusStop_Cmd, emEventTypeScoketSend, "" );
+    TCamFocusAutoManualMode tCamFocusMode;
+    ZeroMemory(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));
+    tCamFocusMode.ManualModeFlag = 1;
+    rkmsg.CatBody(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));//添加消息体
+
+    PrtRkcMsg( RK100_EVT_SET_CAM_FOCUS, emEventTypeScoketSend, "Focus stop.");
 
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
     return NOERROR;
@@ -1072,12 +1093,18 @@ u16 CCamConfig::SetCamFocusFarCmd()
 	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
     memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
     //整型传数据集的转网络序
-    tRK100MsgHead.dwEvent = htonl(ev_TpCamFocusFar_Cmd);
-    tRK100MsgHead.wMsgLen = 0;
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_FOCUS);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TCamFocusAutoManualMode));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
 
-    PrtRkcMsg( ev_TpCamFocusFar_Cmd, emEventTypeScoketSend, "" );
+    TCamFocusAutoManualMode tCamFocusMode;
+    ZeroMemory(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));
+    tCamFocusMode.ManualModeFlag = 1;
+    tCamFocusMode.focusFarFlag = 1;
+    rkmsg.CatBody(&tCamFocusMode, sizeof(TCamFocusAutoManualMode));//添加消息体
+
+    PrtRkcMsg( RK100_EVT_SET_CAM_FOCUS, emEventTypeScoketSend, "NearFlag:%d, FarFlag:%d", tCamFocusMode.focusNearFlag, tCamFocusMode.focusFarFlag);
 
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
     return NOERROR;
@@ -1232,13 +1259,25 @@ u16 CCamConfig::CamAutoExposureCmd( const EmTPMOOMMode& emExpAuto )
 	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
     memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
     //整型传数据集的转网络序
-    tRK100MsgHead.dwEvent = htonl(ev_TpCamExpMode_Cmd);
-    tRK100MsgHead.wMsgLen = htons(sizeof(EmTPMOOMMode));
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_EXPOSURE);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TExposAutoMode));
     CRkMessage rkmsg;//定义消息
     rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
-    rkmsg.CatBody(&emExpAuto, sizeof(EmTPMOOMMode));//添加消息体
 
-    PrtRkcMsg( ev_TpCamExpMode_Cmd, emEventTypeScoketSend, "CamAutoExposureCmd:%d", emExpAuto);
+    TExposAutoMode tExposAutoMode;
+    ZeroMemory(&tExposAutoMode, sizeof(TExposAutoMode));
+    if ( emExpAuto == emAuto )
+    {
+        tExposAutoMode.ExposAutoModeFlag = 1;
+    }
+    else
+    {
+        tExposAutoMode.ExposManuModeFlag = 1;
+    }
+
+    rkmsg.CatBody(&tExposAutoMode, sizeof(TExposAutoMode));//添加消息体
+
+    PrtRkcMsg( RK100_EVT_SET_CAM_EXPOSURE, emEventTypeScoketSend, "EmTPMOOMMode:%d", emExpAuto);
 
     SOCKETWORK->SendDataPack(rkmsg);//消息发送
     return NOERROR;
@@ -1285,9 +1324,19 @@ void CCamConfig::OnAutoExposureInd(const CMessage& cMsg)
     tMsgHead.wOptRtn = ntohs(tMsgHead.wOptRtn);
     tMsgHead.wReserved1 = ntohs(tMsgHead.wReserved1);
 
+    TExposAutoMode tExposAutoMode;
+    ZeroMemory(&tExposAutoMode, sizeof(TExposAutoMode));
     if (tMsgHead.wMsgLen != 0)
     {
-        m_pTPMoonCamCfg->emExpMode = *reinterpret_cast<EmTPMOOMMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+        tExposAutoMode = *reinterpret_cast<TExposAutoMode*>( cMsg.content + sizeof(TRK100MsgHead) );
+        if ( tExposAutoMode.ExposAutoModeFlag )
+        {
+            m_pTPMoonCamCfg->emExpMode = emAuto;
+        }
+        else
+        {
+            m_pTPMoonCamCfg->emExpMode = emManual;
+        }
     }
 
     PrtRkcMsg( ev_TpCamExpMode_Ind, emEventTypeScoketRecv, "EmExpMode:%d, wRtn:%d", m_pTPMoonCamCfg->emExpMode, tMsgHead.wOptRtn);
@@ -1380,7 +1429,114 @@ u16 CCamConfig::CamShutSpdCmd( const EmTPSOrThShutter& emShutSpd )
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamExpSOrThShutter_Cmd, emEventTypemoontoolSend, "CamShutSpdCmd:%d", emShutSpd );
 	return wRet;*/
-	return true;
+
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_EXPOSURE);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TExposAutoMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+
+    TExposAutoMode tExposAutoMode;
+    ZeroMemory(&tExposAutoMode, sizeof(TExposAutoMode));
+    tExposAutoMode.ExposManuModeFlag = 1;
+    switch (emShutSpd)
+    {
+    case em_Shutter_30Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_30Sp = 1;
+            break;
+        }
+    case em_Shutter_60Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_60Sp = 1;
+            break;
+        }
+    case em_Shutter_90Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_90Sp = 1;
+            break;
+        }
+    case em_Shutter_100Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_100Sp = 1;
+            break;
+        }
+    case em_Shutter_125Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_125Sp = 1;
+            break;
+        }
+    case em_Shutter_180Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_180Sp = 1;
+            break;
+        }
+    case em_Shutter_250Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_250Sp = 1;
+            break;
+        }
+    case em_Shutter_350Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_350Sp = 1;
+            break;
+        }
+    case em_Shutter_500Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_500Sp = 1;
+            break;
+        }
+    case em_Shutter_725Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_725Sp = 1;
+            break;
+        }
+    case em_Shutter_1000Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_1000Sp = 1;
+            break;
+        }
+    case em_Shutter_1500Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_1500Sp = 1;
+            break;
+        }
+    case em_Shutter_2000Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_2000Sp = 1;
+            break;
+        }
+    case em_Shutter_3000Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_3000Sp = 1;
+            break;
+        }
+    case em_Shutter_4000Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_4000Sp = 1;
+            break;
+        }
+    case em_Shutter_6000Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_6000Sp = 1;
+            break;
+        }
+    case em_Shutter_10000Sp:
+        {
+            tExposAutoMode.SixtyOrThirtyMode.Shutter_10000Sp = 1;
+            break;
+        }
+    default:
+        break;
+    }
+
+    rkmsg.CatBody(&tExposAutoMode, sizeof(TExposAutoMode));//添加消息体
+    PrtRkcMsg( RK100_EVT_SET_CAM_EXPOSURE, emEventTypeScoketSend, "EmTPSOrThShutter:%d", emShutSpd);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 u16 CCamConfig::CamTwShutSpdCmd( const EmTPFOrTwShutter& emTwShutter )
@@ -1393,7 +1549,113 @@ u16 CCamConfig::CamTwShutSpdCmd( const EmTPFOrTwShutter& emTwShutter )
 	u16 wRet = m_pSession->PostMsg(TYPE_TPMSG);
 	PrtMsg( ev_TpCamExpFOrTwShutter_Cmd, emEventTypemoontoolSend, "CamTwShutSpdCmd:%d", emTwShutter );
 	return wRet;*/
-	return true;
+	TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_EXPOSURE);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TExposAutoMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+
+    TExposAutoMode tExposAutoMode;
+    ZeroMemory(&tExposAutoMode, sizeof(TExposAutoMode));
+    tExposAutoMode.ExposManuModeFlag = 1;
+    switch (emTwShutter)
+    {
+    case em_Shutter_25Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_25Spd = 1;
+            break;
+        }
+    case em_Shutter_50Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_50Spd = 1;
+            break;
+        }
+    case em_Shutter_60Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_60Spd = 1;
+            break;
+        }
+    case em_Shutter_100Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_100Spd = 1;
+            break;
+        }
+    case em_Shutter_120Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_120Spd = 1;
+            break;
+        }
+    case em_Shutter_150Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_150Spd = 1;
+            break;
+        }
+    case em_Shutter_215Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_215Spd = 1;
+            break;
+        }
+    case em_Shutter_300Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_300Spd = 1;
+            break;
+        }
+    case em_Shutter_425Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_425Spd = 1;
+            break;
+        }
+    case em_Shutter_600Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_600Spd = 1;
+            break;
+        }
+    case em_Shutter_1000Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_1000Spd = 1;
+            break;
+        }
+    case em_Shutter_1250Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_1250Spd = 1;
+            break;
+        }
+    case em_Shutter_1750Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_1750Spd = 1;
+            break;
+        }
+    case em_Shutter_2500Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_2500Spd = 1;
+            break;
+        }
+    case em_Shutter_3500Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_3500Spd = 1;
+            break;
+        }
+    case em_Shutter_6000Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_6000Spd = 1;
+            break;
+        }
+    case em_Shutter_10000Spd:
+        {
+            tExposAutoMode.FiftyOrTwentyMode.Shutter_10000Spd = 1;
+            break;
+        }
+    default:
+        break;
+    }
+
+    rkmsg.CatBody(&tExposAutoMode, sizeof(TExposAutoMode));//添加消息体
+    PrtRkcMsg( RK100_EVT_SET_CAM_EXPOSURE, emEventTypeScoketSend, "EmTPFOrTwShutter:%d", emTwShutter);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 EmTPSOrThShutter CCamConfig::GetCamShutSpd()
@@ -1458,6 +1720,29 @@ u16 CCamConfig::CamGainCmd( const EmTPExpGain& emExpGain )
 	PrtMsg( ev_TpCamExpGain_Cmd, emEventTypemoontoolSend, "CamGainCmd:%d", emExpGain );
 	return wRet;*/
 	return true;
+}
+
+u16 CCamConfig::SetCamGainCmd( u8 byExpGain )
+{
+    TRK100MsgHead tRK100MsgHead;//定义消息头结构体
+    memset(&tRK100MsgHead,0,sizeof(TRK100MsgHead));
+    //整型传数据集的转网络序
+    tRK100MsgHead.dwEvent = htonl(RK100_EVT_SET_CAM_EXPOSURE);
+    tRK100MsgHead.wMsgLen = htons(sizeof(TExposAutoMode));
+    CRkMessage rkmsg;//定义消息
+    rkmsg.SetBody(&tRK100MsgHead, sizeof(TRK100MsgHead));//添加头内容
+
+    TExposAutoMode tExposAutoMode;
+    ZeroMemory(&tExposAutoMode, sizeof(TExposAutoMode));
+    tExposAutoMode.ExposManuModeFlag = 1;
+    tExposAutoMode.InputVal = byExpGain;
+    tExposAutoMode.CAMGainEnterPrecisValFlag = 1;
+
+    rkmsg.CatBody(&tExposAutoMode, sizeof(TExposAutoMode));//添加消息体
+    PrtRkcMsg( RK100_EVT_SET_CAM_EXPOSURE, emEventTypeScoketSend, "byExpGain:%d", byExpGain);
+    
+    SOCKETWORK->SendDataPack(rkmsg);//消息发送
+    return NOERROR;
 }
 
 EmTPExpGain CCamConfig::GetCamGain()
