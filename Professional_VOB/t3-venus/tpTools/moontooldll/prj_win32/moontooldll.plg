@@ -7,7 +7,7 @@
 </h3>
 <h3>Command Lines</h3>
 Creating command line "rc.exe /l 0x804 /fo"Release/moontooldll.res" /d "NDEBUG" /d "_AFXDLL" "F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\prj_win32\moontooldll.rc"" 
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPDEE6.tmp" with contents
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP4533.tmp" with contents
 [
 /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /D "_WINDLL" /D "_AFXDLL" /Fp"Release/moontooldll.pch" /Yu"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\cameractrlLogic.cpp"
@@ -33,14 +33,14 @@ Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPDEE6.tmp" with co
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\uiDataMgr.cpp"
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\source\warningLogic.cpp"
 ]
-Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPDEE6.tmp" 
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPDEE7.tmp" with contents
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP4533.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP4534.tmp" with contents
 [
 /nologo /MD /W3 /GR /GX /Zi /O2 /I ".\\" /I "..\include" /I "..\..\..\common\include" /I "..\..\..\..\10-common\include\nms1" /I "..\..\..\..\10-common\include\system1" /I "..\..\..\..\10-common\include\protocol" /I "..\..\..\..\10-common\include\platform" /I "..\..\..\..\10-common\include\tp" /I "..\..\..\common\include\platform sdk\include" /I "..\..\..\UIFactory\include" /I "..\..\..\uiexlib\include" /I "..\..\..\common_2010\include" /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /D "_MBCS" /D "_USRDLL" /D "MOONTOOLDLL_EXPORTS" /D "_WINDLL" /D "_AFXDLL" /Fp"Release/moontooldll.pch" /Yc"stdafx.h" /Fo"Release/" /Fd"Release/" /FD /c 
 "F:\Projects_Git\MOON\Professional_VOB\t3-venus\tpTools\moontooldll\prj_win32\StdAfx.cpp"
 ]
-Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSPDEE7.tmp" 
-Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPDEF7.tmp" with contents
+Creating command line "cl.exe @C:\Users\csquan\AppData\Local\Temp\RSP4534.tmp" 
+Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSP4545.tmp" with contents
 [
 /nologo /subsystem:windows /dll /incremental:no /pdb:"../../prj_win32/Release/moontooldll.pdb" /map:"Release/moontooldll.map" /debug /machine:I386 /nodefaultlib:"nafxcw.lib" /nodefaultlib:"libc.lib" /def:".\moontooldll.def" /out:"../../prj_win32/Release/moontooldll.dll" /implib:"../../prj_win32/Release/moontooldll.lib" /libpath:"..\..\..\..\10-common\lib\release\win32" /libpath:"..\..\..\common\include\platform sdk\lib" 
 ".\Release\cameractrlLogic.obj"
@@ -68,7 +68,7 @@ Creating temporary file "C:\Users\csquan\AppData\Local\Temp\RSPDEF7.tmp" with co
 ".\Release\warningLogic.obj"
 ".\Release\moontooldll.res"
 ]
-Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSPDEF7.tmp"
+Creating command line "link.exe @C:\Users\csquan\AppData\Local\Temp\RSP4545.tmp"
 <h3>Output Window</h3>
 Compiling resources...
 Compiling...

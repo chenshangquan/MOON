@@ -719,7 +719,7 @@ bool CCameraCtrlLogic::OnLBtnUpZoomSub( const IArgs& args )
 
 bool CCameraCtrlLogic::OnBtnManuelFocusClick( const IArgs& args )
 {
-	if( m_emTPMOOMMode != emManual )
+	//if( m_emTPMOOMMode != emManual )
 	{
 		m_emTPMOOMMode = emManual;
 		u16 nRet = COMIFMGRPTR->SetCamAutoFocusCmd(m_emTPMOOMMode);
@@ -734,7 +734,7 @@ bool CCameraCtrlLogic::OnBtnManuelFocusClick( const IArgs& args )
 
 bool CCameraCtrlLogic::OnBtnAutoFocusClick( const IArgs& args )
 {
-	if ( m_emTPMOOMMode != emAuto )
+	//if ( m_emTPMOOMMode != emAuto )
 	{
 		m_emTPMOOMMode = emAuto;
 		u16 nRet = COMIFMGRPTR->SetCamAutoFocusCmd(m_emTPMOOMMode);
@@ -4217,10 +4217,10 @@ void CCameraCtrlLogic::SetFocusState( EmTPMOOMMode emFocusMode )
 HRESULT CCameraCtrlLogic::OnSetCamAutoFocusInd( WPARAM wparam, LPARAM lparam )
 {
 	m_emTPMOOMMode = static_cast<EmTPMOOMMode>(wparam);
-	BOOL bRet = static_cast<BOOL>(lparam);
+	EMRK100OptRtn bRet = static_cast<EMRK100OptRtn>(lparam);
 	SetFocusState( m_emTPMOOMMode );
 	
-	if ( bRet == FALSE )
+	if ( bRet != RK100_OPT_RTN_OK )
 	{
 		WARNMESSAGE( "æ€Ωπ…Ë÷√ ß∞‹" );
 	}
